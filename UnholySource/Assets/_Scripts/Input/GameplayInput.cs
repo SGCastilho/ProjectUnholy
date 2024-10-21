@@ -71,7 +71,7 @@ namespace Core.Input
                     ""id"": ""b6bd9643-9ed0-4ef4-b067-b99ebe3e76e1"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {

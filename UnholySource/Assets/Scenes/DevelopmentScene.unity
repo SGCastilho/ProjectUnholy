@@ -208,12 +208,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 2, z: -0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 10, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1724320021}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -328,7 +328,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -611,7 +611,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -629,6 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450652139859080}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1724320022
@@ -656,8 +657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61795853ebbe40e4384c146d1c78fd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputs: {fileID: 0}
-  movement: {fileID: 0}
+  inputs: {fileID: 1724320022}
+  movement: {fileID: 1724320027}
 --- !u!54 &1724320024
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -682,7 +683,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!136 &1724320025
@@ -787,19 +788,7 @@ MonoBehaviour:
     m_ActionId: e69ab3a0-b687-4a81-ae48-d1843b909114
     m_ActionName: Gameplay/Movement[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1724320022}
-        m_TargetAssemblyTypeName: Core.Player.PlayerInputs, Core.Player
-        m_MethodName: SprintInput
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: b6bd9643-9ed0-4ef4-b067-b99ebe3e76e1
     m_ActionName: Gameplay/Sprint[/Keyboard/shift]
   - m_PersistentCalls:
@@ -851,7 +840,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd16d3f5b4577f840b6b436d2f70df34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviour: {fileID: 0}
+  behaviour: {fileID: 1724320023}
+  rigidBody: {fileID: 1724320024}
+  runningSpeed: 6
+  sprintSpeed: 10
+  sprintEnabled: 0
+  flipTransform: {fileID: 543450652139859080}
+  isFlipped: 0
 --- !u!1 &1951131141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148474082866}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2127,7 +2122,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2846,5 +2841,4 @@ SceneRoots:
   - {fileID: 879560540}
   - {fileID: 952729435}
   - {fileID: 1951131142}
-  - {fileID: 330585546}
   - {fileID: 1724320021}

@@ -1,5 +1,6 @@
 using Core.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Core.Player
 {
@@ -9,7 +10,7 @@ namespace Core.Player
         internal float MovementAxis { get => _movementAxis; }
         #endregion
 
-        [Header("Classes")]
+        [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
 
         private GameplayInput _gameplayInputActions;
@@ -24,11 +25,17 @@ namespace Core.Player
         private void OnEnable() 
         {
             _gameplayInputActions.Enable();
+
+            _gameplayInputActions.Gameplay.Sprint.started += StartSprint;
+            _gameplayInputActions.Gameplay.Sprint.canceled += EndSprint;
         }
 
         private void OnDisable() 
         {
             _gameplayInputActions.Disable();
+
+            _gameplayInputActions.Gameplay.Sprint.started -= StartSprint;
+            _gameplayInputActions.Gameplay.Sprint.canceled -= EndSprint;
         }
 
         private void Update() 
@@ -39,32 +46,37 @@ namespace Core.Player
         #region Input Functions
         public void ShootInput()
         {
-            Debug.Log("Shooting");
+            
         }
 
         public void AimInput()
         {
-            Debug.Log("Aiming");
+            
         }
 
         public void ReloadInput()
         {
-            Debug.Log("Reloading");
-        }
-
-        public void SprintInput()
-        {
-            Debug.Log("Sprinting");
+            
         }
 
         public void InteractInput()
         {
-            Debug.Log("Interacting");
+            
         }
 
         public void HealInput()
         {
-            Debug.Log("Healing");
+            
+        }
+
+        public void StartSprint(InputAction.CallbackContext context)
+        {
+            behaviour.Movement.SprintEnabled = true;
+        }
+
+        private void EndSprint(InputAction.CallbackContext context)
+        {
+            behaviour.Movement.SprintEnabled = false;
         }
         #endregion
     }
