@@ -1,0 +1,2 @@
+idle - 0 to 120
+running - 140 to 164
