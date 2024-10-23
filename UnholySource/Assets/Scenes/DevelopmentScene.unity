@@ -659,6 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs: {fileID: 1724320022}
   movement: {fileID: 1724320027}
+  animationControl: {fileID: 5866666020507487344}
 --- !u!54 &1724320024
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -842,8 +843,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviour: {fileID: 1724320023}
   rigidBody: {fileID: 1724320024}
-  runningSpeed: 6
-  sprintSpeed: 10
+  runningSpeed: 5.4
+  sprintSpeed: 6.4
   sprintEnabled: 0
   flipTransform: {fileID: 543450652333430293}
   isFlipped: 0
@@ -1052,6 +1053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652333430293}
+  - component: {fileID: 5866666020507487344}
   - component: {fileID: 5866666020507487343}
   m_Layer: 0
   m_Name: Graphics
@@ -2103,6 +2105,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5866666020507487344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148415958191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed8c7e6b03886047afdd1c58f9017a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 1724320023}
+  animator: {fileID: 5866666020507487343}
 --- !u!1 &5882992752089904335
 GameObject:
   m_ObjectHideFlags: 0

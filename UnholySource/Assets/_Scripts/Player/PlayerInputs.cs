@@ -8,6 +8,7 @@ namespace Core.Player
     {
         #region Encapsulation
         internal float MovementAxis { get => _movementAxis; }
+        internal float MovementAxisAbs { get => Mathf.Abs(_movementAxis); }
         #endregion
 
         [Header("Behaviour")]
@@ -69,15 +70,37 @@ namespace Core.Player
             
         }
 
-        public void StartSprint(InputAction.CallbackContext context)
+        private void StartSprint(InputAction.CallbackContext context)
         {
             behaviour.Movement.SprintEnabled = true;
+            behaviour.Animation.SprintAnimation = true;
         }
 
         private void EndSprint(InputAction.CallbackContext context)
         {
             behaviour.Movement.SprintEnabled = false;
+            behaviour.Animation.SprintAnimation = false;
         }
         #endregion
+
+        public void AllowMovement()
+        {
+            _gameplayInputActions.Gameplay.Movement.Enable();
+        }
+
+        public void BlockMovement()
+        {
+            _gameplayInputActions.Gameplay.Movement.Disable();
+        }
+
+        public void AllowControls()
+        {
+            _gameplayInputActions.Gameplay.Enable();
+        }
+
+        public void BlockControls()
+        {
+            _gameplayInputActions.Gameplay.Disable();
+        }
     }
 }
