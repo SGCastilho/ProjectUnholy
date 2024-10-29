@@ -1,2 +1,4 @@
 idle - 0 to 120
+idle wood - 180 to 300
 running - 140 to 164
+running wood - 320 to 344
