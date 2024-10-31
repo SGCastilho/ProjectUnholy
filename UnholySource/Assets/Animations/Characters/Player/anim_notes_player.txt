@@ -2,3 +2,14 @@ idle - 0 to 120
 idle wood - 180 to 300
 running - 140 to 164
 running wood - 320 to 344
+melee attack - 350 to 369
+aiming - 370 to 490
+shooting - 500 to 510
+reloading - 516 to 570
+healing - 575 to 620
+death - 625 to 710
+
+
+----ADDICTIVE-----
+pistol shooting - 500 to 505
+pistol realoding - 516 to 545
