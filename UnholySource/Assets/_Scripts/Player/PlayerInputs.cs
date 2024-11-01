@@ -47,7 +47,7 @@ namespace Core.Player
         #region Input Functions
         public void ShootInput()
         {
-            
+            behaviour.Attack.StartAttack();
         }
 
         public void AimInput()
@@ -91,6 +91,24 @@ namespace Core.Player
         public void BlockMovement()
         {
             _gameplayInputActions.Gameplay.Movement.Disable();
+        }
+
+        public void AllowActions()
+        {
+            _gameplayInputActions.Gameplay.Aim.Enable();
+            _gameplayInputActions.Gameplay.Heal.Enable();
+            _gameplayInputActions.Gameplay.Interact.Enable();
+            _gameplayInputActions.Gameplay.Reload.Enable();
+            _gameplayInputActions.Gameplay.Shoot.Enable();
+        }
+
+        public void BlockActions()
+        {
+            _gameplayInputActions.Gameplay.Aim.Disable();
+            _gameplayInputActions.Gameplay.Heal.Disable();
+            _gameplayInputActions.Gameplay.Interact.Disable();
+            _gameplayInputActions.Gameplay.Reload.Disable();
+            _gameplayInputActions.Gameplay.Shoot.Disable();
         }
 
         public void AllowControls()

@@ -6,6 +6,10 @@ namespace Core.Player
     {
         #region Constant Variables
         private const string MOVEMENT_KEY = "Movement";
+
+        private const string WEAPON_MELEE_EQUIPPED_KEY = "MeleeEquipped";
+
+        private const string TRIGGER_MELEE_ATTACK = "MeleeAttack";
         #endregion
 
         #region Encapsulation
@@ -22,6 +26,8 @@ namespace Core.Player
                 }
             } 
         }
+
+        internal bool MeleeEquippedAnimation { set => animator.SetBool(WEAPON_MELEE_EQUIPPED_KEY, value); }
         #endregion
 
         [Header("Behaviour")]
@@ -43,5 +49,7 @@ namespace Core.Player
                 SprintAnimation = true;
             }
         }
+
+        internal void CallAttackTrigger() => animator.SetTrigger(TRIGGER_MELEE_ATTACK);
     }
 }

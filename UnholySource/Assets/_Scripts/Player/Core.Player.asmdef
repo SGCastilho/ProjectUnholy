@@ -3,6 +3,7 @@
     "rootNamespace": "Core.Player",
     "references": [
         "GUID:491cf1cf9fc17874095921adf8c9d3cb",
+        "GUID:c11eed96ae7c4e348ad62cfb1fab3be1",
         "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
