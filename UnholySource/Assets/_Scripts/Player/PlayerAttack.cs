@@ -40,7 +40,7 @@ namespace Core.Player
 
             if(isAiming)
             {
-
+                //FAZER O JOGADOR MIRAR
             }
             else
             {
@@ -49,7 +49,7 @@ namespace Core.Player
                     behaviour.Equipment.EquipMeleeWeapon();
                 }
 
-                //FAZER O JOGADOR SE REPOSICIONAR NO INIMIGO USANDO RAYCAST
+                behaviour.Correction.Correct(!behaviour.Movement.IsFlipped);
 
                 behaviour.Animation.CallAttackTrigger();
 

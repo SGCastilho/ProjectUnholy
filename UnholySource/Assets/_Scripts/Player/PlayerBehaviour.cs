@@ -1,3 +1,4 @@
+using Core.Character;
 using UnityEngine;
 
 namespace Core.Player
@@ -11,6 +12,8 @@ namespace Core.Player
         internal PlayerMovement Movement { get => movement; }
         internal PlayerEquipment Equipment { get => equipment; }
         internal PlayerAnimation Animation { get => animationControl; }
+
+        internal CharacterCorrection Correction { get => charCorrection;}
         #endregion
 
         [Header("Classes")]
@@ -19,6 +22,10 @@ namespace Core.Player
         [SerializeField] private PlayerMovement movement;
         [SerializeField] private PlayerEquipment equipment;
         [SerializeField] private PlayerAnimation animationControl;
+
+        [Space(10)]
+
+        [SerializeField] private CharacterCorrection charCorrection;
 
         private void Start() => HideCursor(true);
 
