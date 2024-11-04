@@ -19,5 +19,10 @@ namespace Core.AnimationEvents
             behaviour.Inputs.AllowActions();
             behaviour.Inputs.AllowMovement();
         }
+
+        public void WhenReloadingEnds()
+        {
+            behaviour.Inputs.AllowActions();
+        }
     }
 }

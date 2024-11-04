@@ -29,6 +29,8 @@ namespace Core.Player
 
             _gameplayInputActions.Gameplay.Sprint.started += StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled += EndSprint;
+
+            _gameplayInputActions.Gameplay.Aim.started += AimInput;
         }
 
         private void OnDisable() 
@@ -37,6 +39,8 @@ namespace Core.Player
 
             _gameplayInputActions.Gameplay.Sprint.started -= StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled -= EndSprint;
+
+            _gameplayInputActions.Gameplay.Aim.started -= AimInput;
         }
 
         private void Update() 
@@ -50,14 +54,26 @@ namespace Core.Player
             behaviour.Attack.StartAttack();
         }
 
-        public void AimInput()
+        public void AimInput(InputAction.CallbackContext context)
         {
-            
+            behaviour.Attack.AimingSetup();
         }
 
         public void ReloadInput()
         {
-            
+            if(!behaviour.Resources.CanReload() || !behaviour.Equipment.RangedEnabled) return;
+
+            if(behaviour.Attack.IsAiming)
+            {
+                behaviour.Attack.CancelAiming();
+            }
+
+            behaviour.Resources.ReloadingBullets();
+
+            behaviour.Animation.CallReloadingTrigger();
+
+            BlockActions();
+            AllowMovement();
         }
 
         public void InteractInput()
@@ -90,6 +106,20 @@ namespace Core.Player
 
         public void BlockMovement()
         {
+            _gameplayInputActions.Gameplay.Movement.Disable();
+        }
+
+        public void AllowActionsBeforeAiming()
+        {
+            _gameplayInputActions.Gameplay.Heal.Enable();
+            _gameplayInputActions.Gameplay.Interact.Enable();
+            _gameplayInputActions.Gameplay.Movement.Enable();
+        }
+
+        public void BlockActionsWhenAiming()
+        {
+            _gameplayInputActions.Gameplay.Heal.Disable();
+            _gameplayInputActions.Gameplay.Interact.Disable();
             _gameplayInputActions.Gameplay.Movement.Disable();
         }
 

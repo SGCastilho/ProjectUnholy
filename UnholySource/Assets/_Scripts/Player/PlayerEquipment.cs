@@ -6,31 +6,14 @@ namespace Core.Player
     public sealed class PlayerEquipment : MonoBehaviour
     {
         #region Encapsulation
-        public bool MeleeEnabled { set => meleeEnabled = value; }
-        public bool RangedEnabled { set => rangedEnabled = value; }
+        internal WeaponData MeleeData { get => meleeData; }
+        internal WeaponData RangedData { get => rangedData; }
 
-        public float CurrentBullets 
-        { 
-            get => rangedCurrentBullets; 
-            set 
-            {
-                rangedCurrentBullets += value;
-
-                if(rangedCurrentBullets > rangedWeapon.Bullets) { rangedCurrentBullets = rangedWeapon.Bullets; }
-            }
-        }
-        public float CurrentAmmo
-        {
-            get => rangedCurrentAmmo;
-            set
-            {
-                rangedCurrentAmmo += value;
-
-                if(rangedCurrentAmmo > rangedWeapon.MaxBullets) { rangedCurrentAmmo = rangedWeapon.MaxBullets; }
-            }
-        }
+        public bool MeleeEnabled { get => meleeEnabled; set => meleeEnabled = value; }
+        public bool RangedEnabled { get => rangedEnabled; set => rangedEnabled = value; }
 
         internal bool MeleeEquipped { get => meleeEquipped; }
+        internal bool RangedEquipped { get => rangedEquipped; }
 
         internal float WeaponDamage { get => _currentWeaponDamage; }
         #endregion
@@ -39,8 +22,8 @@ namespace Core.Player
         [SerializeField] private PlayerBehaviour behaviour;
 
         [Header("Data")]
-        [SerializeField] private WeaponData meleeWeapon;
-        [SerializeField] private WeaponData rangedWeapon;
+        [SerializeField] private WeaponData meleeData;
+        [SerializeField] private WeaponData rangedData;
 
         [Header("Settings")]
         [SerializeField] private bool meleeEnabled;
@@ -50,11 +33,6 @@ namespace Core.Player
 
         [SerializeField] private bool meleeEquipped;
         [SerializeField] private bool rangedEquipped;
-
-        [Space(10)]
-
-        [SerializeField] private float rangedCurrentBullets;
-        [SerializeField] private float rangedCurrentAmmo;
 
         [Space(10)]
 
@@ -68,22 +46,27 @@ namespace Core.Player
             meleeWeaponModel.SetActive(false);
             rangedWeaponModel.SetActive(false);
 
-            if(meleeWeapon && rangedWeapon == null) return;
+            if(meleeData && rangedData == null) return;
 
-            _currentWeaponDamage = meleeWeapon.Damage;
+            _currentWeaponDamage = meleeData.Damage;
         }
+
+        private void Start() => EquipMeleeWeapon(); //TEMPORARIO
 
         internal void EquipMeleeWeapon()
         {
             if(!meleeEnabled) return;
-
+        
             meleeEquipped = true;
             rangedEquipped = false;
 
             meleeWeaponModel.SetActive(meleeEquipped);
             rangedWeaponModel.SetActive(rangedEquipped);
 
+            _currentWeaponDamage = meleeData.Damage;
+
             behaviour.Animation.MeleeEquippedAnimation = meleeEquipped;
+            behaviour.Animation.RangedEquippedAnimation = rangedEquipped;
         }
 
         internal void EquipRangedWeapon()
@@ -96,7 +79,10 @@ namespace Core.Player
             meleeWeaponModel.SetActive(meleeEquipped);
             rangedWeaponModel.SetActive(rangedEquipped);
 
+            _currentWeaponDamage = rangedData.Damage;
+
             behaviour.Animation.MeleeEquippedAnimation = meleeEquipped;
+            behaviour.Animation.RangedEquippedAnimation = rangedEquipped;
         }
     }
 }

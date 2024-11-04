@@ -17,7 +17,7 @@ namespace Core.ScriptableObjects
 
         public int Damage { get => weaponDamage; internal set => weaponDamage = value; }
         public int Bullets { get => weaponBullets; internal set => weaponBullets = value; }
-        public int MaxBullets { get => weaponMaxBullets; internal set => weaponMaxBullets = value; }
+        public int Munition { get => weaponMunition; internal set => weaponMunition = value; }
 
         public GameObject Prefab { get => weaponPrefab; internal set => weaponPrefab = value; }
         #endregion
@@ -30,7 +30,7 @@ namespace Core.ScriptableObjects
         [Header("Data Settings")]
         [SerializeField] private int weaponDamage = 10;
         [SerializeField] private int weaponBullets = 16;
-        [SerializeField] private int weaponMaxBullets = 128;
+        [SerializeField] private int weaponMunition = 128;
         [Space(12)]
         [SerializeField] private GameObject weaponPrefab;
 
@@ -75,7 +75,7 @@ namespace Core.ScriptableObjects
             if(weaponData.Type == WeaponType.RANGED)
             {
                 weaponData.Bullets = EditorGUILayout.IntField("Weapon Bullets", weaponData.Bullets);
-                weaponData.MaxBullets = EditorGUILayout.IntField("Weapon Bullets", weaponData.MaxBullets);
+                weaponData.Munition = EditorGUILayout.IntField("Weapon Bullets", weaponData.Munition);
             }
 
             EditorGUILayout.Space(6);

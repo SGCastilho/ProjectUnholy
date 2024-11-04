@@ -7,6 +7,7 @@ namespace Core.Player
     {
         #region Encapsulation
         public PlayerInputs Inputs { get => inputs; }
+        public PlayerResources Resources { get => resources; }
 
         internal PlayerAttack Attack { get => attack; }
         internal PlayerMovement Movement { get => movement; }
@@ -20,6 +21,7 @@ namespace Core.Player
         [SerializeField] private PlayerInputs inputs;
         [SerializeField] private PlayerAttack attack;
         [SerializeField] private PlayerMovement movement;
+        [SerializeField] private PlayerResources resources;                                                                 
         [SerializeField] private PlayerEquipment equipment;
         [SerializeField] private PlayerAnimation animationControl;
 

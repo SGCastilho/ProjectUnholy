@@ -923,6 +923,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1030864459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030864460}
+  m_Layer: 0
+  m_Name: ShootRaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030864460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030864459}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0.796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652333430293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138728913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471369508}
   m_Layer: 0
-  m_Name: RaycastPoint
+  m_Name: DetectionRaycastPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1104,6 +1135,7 @@ GameObject:
   - component: {fileID: 1724320023}
   - component: {fileID: 1724320022}
   - component: {fileID: 1724320026}
+  - component: {fileID: 1724320031}
   - component: {fileID: 1724320028}
   - component: {fileID: 1724320029}
   - component: {fileID: 1724320027}
@@ -1163,6 +1195,7 @@ MonoBehaviour:
   inputs: {fileID: 1724320022}
   attack: {fileID: 1724320029}
   movement: {fileID: 1724320027}
+  resources: {fileID: 1724320031}
   equipment: {fileID: 1724320028}
   animationControl: {fileID: 5866666020507487344}
   charCorrection: {fileID: 1724320030}
@@ -1259,19 +1292,7 @@ MonoBehaviour:
     m_ActionId: 48b6180b-43e6-4981-8ea2-9310fa49f514
     m_ActionName: Gameplay/Shoot[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1724320022}
-        m_TargetAssemblyTypeName: Core.Player.PlayerInputs, Core.Player
-        m_MethodName: AimInput
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 2adc4a4f-2018-47c0-80cd-0ae0bde6af8c
     m_ActionName: Gameplay/Aim[/Mouse/rightButton]
   - m_PersistentCalls:
@@ -1367,14 +1388,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 1724320023}
-  meleeWeapon: {fileID: 11400000, guid: b60b595650f29284985a37ff6e95ed2b, type: 2}
-  rangedWeapon: {fileID: 11400000, guid: 425ab8a762c37ed4a95d4f3acd43da26, type: 2}
+  meleeData: {fileID: 11400000, guid: b60b595650f29284985a37ff6e95ed2b, type: 2}
+  rangedData: {fileID: 11400000, guid: 425ab8a762c37ed4a95d4f3acd43da26, type: 2}
   meleeEnabled: 1
-  rangedEnabled: 0
+  rangedEnabled: 1
   meleeEquipped: 0
   rangedEquipped: 0
-  rangedCurrentBullets: 0
-  rangedCurrentAmmo: 0
   meleeWeaponModel: {fileID: 522854879}
   rangedWeaponModel: {fileID: 315695522}
 --- !u!114 &1724320029
@@ -1390,9 +1409,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 1724320023}
+  raycastTransform: {fileID: 1030864460}
   isAiming: 0
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLegth: 6
   meleeAttackCouldown: 1
   rangedAttackCouldown: 0.4
+  showGizmos: 0
+  showBackwards: 0
+  raycastLineColor: {r: 1, g: 0.84705883, b: 0, a: 1}
 --- !u!114 &1724320030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,9 +1440,25 @@ MonoBehaviour:
   correctionDuration: 0.2
   correctionSpacing: 0.8
   correctionLimit: 1
-  showGizmos: 1
+  showGizmos: 0
   showBackwards: 0
   raycastLineColor: {r: 1, g: 0.845759, b: 0, a: 1}
+--- !u!114 &1724320031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724320020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0560cdd3cbfb85643ac978ba5c7d8080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 1724320023}
+  playerHealthBottles: 0
+  playerBullets: 16
+  playerMunition: 128
 --- !u!1 &1951131141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1621,7 @@ Transform:
   m_Children:
   - {fileID: 8879528568122640011}
   - {fileID: 3748359891518009642}
+  - {fileID: 1030864460}
   m_Father: {fileID: 1724320021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603530600561173593
