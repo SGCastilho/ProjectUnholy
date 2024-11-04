@@ -1458,7 +1458,7 @@ MonoBehaviour:
   behaviour: {fileID: 1724320023}
   playerHealthBottles: 0
   playerBullets: 16
-  playerMunition: 128
+  playerMunition: 8
 --- !u!1 &1951131141
 GameObject:
   m_ObjectHideFlags: 0
