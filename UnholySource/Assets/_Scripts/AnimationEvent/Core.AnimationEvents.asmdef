@@ -2,7 +2,8 @@
     "name": "Core.AnimationEvents",
     "rootNamespace": "Core.AnimationEvents",
     "references": [
-        "GUID:e635fb15eac9aae47847d8e188f3d3b3"
+        "GUID:e635fb15eac9aae47847d8e188f3d3b3",
+        "GUID:09b565bdaff9dd44f9f02babb74792a4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,4 +1,5 @@
 using Core.Player;
+using Core.GameCamera;
 using UnityEngine;
 
 namespace Core.AnimationEvents
@@ -18,6 +19,18 @@ namespace Core.AnimationEvents
         {
             behaviour.Inputs.AllowActions();
             behaviour.Inputs.AllowMovement();
+        }
+
+        public void ApplyMeleeDamage()
+        {
+            AttackCameraShake();
+        }
+
+        private void AttackCameraShake()
+        {
+            if(CameraShake.Instance == null) return;
+
+            CameraShake.Instance.AttackShake();
         }
 
         public void WhenReloadingEnds()
