@@ -4,6 +4,10 @@ namespace Core.Player
 {
     public sealed class PlayerResources : MonoBehaviour
     {
+        #region Constants
+        private const int HEALING_BOTTLES_LIMITATION = 99;
+        #endregion
+
         #region Encapsulation
         public int HealthBottles { get => playerHealthBottles; }
 
@@ -73,6 +77,28 @@ namespace Core.Player
                 if(playerMunition < 0)
                 {
                     playerMunition = 0;
+                }
+            }
+        }
+
+        public void ModifyHealingBottles(bool increase, int amount)
+        {
+            if(increase)
+            {
+                playerHealthBottles += amount;
+
+                if(playerHealthBottles > HEALING_BOTTLES_LIMITATION)
+                {
+                    playerHealthBottles = HEALING_BOTTLES_LIMITATION;
+                }
+            }
+            else
+            {
+                playerHealthBottles -= amount;
+
+                if(playerHealthBottles < 0)
+                {
+                    playerHealthBottles = 0;
                 }
             }
         }

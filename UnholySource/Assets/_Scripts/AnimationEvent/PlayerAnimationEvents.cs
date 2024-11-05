@@ -23,6 +23,18 @@ namespace Core.AnimationEvents
         public void WhenReloadingEnds()
         {
             behaviour.Inputs.AllowActions();
+
+            behaviour.Actions.IsReloading = false;
+        }
+
+        public void WhenHealingEnds()
+        {
+            behaviour.Status.ApplyHealthBottleHealing();
+
+            behaviour.Actions.IsHealing = false;
+            behaviour.Equipment.EquipHealingBottle(false);
+
+            behaviour.Inputs.AllowActions();
         }
     }
 }

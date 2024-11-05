@@ -2,9 +2,12 @@ using UnityEngine;
 
 namespace Core.Player
 {
-    public sealed class PlayerAttack : MonoBehaviour
+    public sealed class PlayerActions : MonoBehaviour
     {
         #region Encapsulation
+        public bool IsHealing { set => isHealing = value; }
+        public bool IsReloading { get => isReloading; set => isReloading = value; }
+
         internal bool IsAiming { get => isAiming; set => isAiming = value; }
         #endregion
 
@@ -16,6 +19,8 @@ namespace Core.Player
 
         [Header("Settings")]
         [SerializeField] private bool isAiming;
+        [SerializeField] private bool isHealing;
+        [SerializeField] private bool isReloading;
 
         [Space(10)]
 
@@ -62,9 +67,9 @@ namespace Core.Player
             }
         }
 
-        internal void StartAttack()
+        internal void Attack()
         {
-            if(_isAttacking) return;
+            if(behaviour.Status.IsDead ||_isAttacking || isHealing) return;
 
             if(isAiming && behaviour.Equipment.RangedEnabled)
             {
@@ -139,10 +144,23 @@ namespace Core.Player
                 behaviour.Animation.RangedAimingAnimation = isAiming;
             }
         }
+
         internal void CancelAiming()
         {
             isAiming = false;
             behaviour.Animation.RangedAimingAnimation = false;
+        }
+
+        internal void Healing()
+        {
+            if(behaviour.Resources.HealthBottles <= 0 || isHealing || _isAttacking) return;
+
+            isHealing = true;
+
+            behaviour.Resources.ModifyHealingBottles(false, 1);
+
+            behaviour.Equipment.EquipHealingBottle(true);
+            behaviour.Animation.CallHealingTrigger();
         }
 
         #region Editor Functions

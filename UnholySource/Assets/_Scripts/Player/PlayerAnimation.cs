@@ -15,6 +15,8 @@ namespace Core.Player
         private const string TRIGGER_MELEE_ATTACK_KEY = "MeleeAttack";
         private const string TRIGGER_AIMING_ATTACK_KEY = "Shoot";
         private const string TRIGGER_RANGED_REALODING_KEY = "Reloading";
+        private const string TRIGGER_COLLECTABLE_HEALING_KEY = "Healing";
+        private const string TRIGGER_CHARACTER_DEATH_KEY = "Death";
         #endregion
 
         #region Encapsulation
@@ -63,5 +65,9 @@ namespace Core.Player
         internal void CallShootTrigger() => animator.SetTrigger(TRIGGER_AIMING_ATTACK_KEY);
 
         internal void CallReloadingTrigger() => animator.SetTrigger(TRIGGER_RANGED_REALODING_KEY);
+
+        internal void CallHealingTrigger() => animator.SetTrigger(TRIGGER_COLLECTABLE_HEALING_KEY);
+
+        internal void CallDeathTrigger() => animator.SetTrigger(TRIGGER_CHARACTER_DEATH_KEY);
     }
 }

@@ -39,12 +39,18 @@ namespace Core.Player
         [SerializeField] private GameObject meleeWeaponModel;
         [SerializeField] private GameObject rangedWeaponModel;
 
+        [Space(6)]
+
+        [SerializeField] private GameObject healingBottleModel;
+
         private int _currentWeaponDamage;
 
         private void OnEnable() 
         {
             meleeWeaponModel.SetActive(false);
             rangedWeaponModel.SetActive(false);
+
+            healingBottleModel.SetActive(false);
 
             if(meleeData && rangedData == null) return;
 
@@ -84,5 +90,7 @@ namespace Core.Player
             behaviour.Animation.MeleeEquippedAnimation = meleeEquipped;
             behaviour.Animation.RangedEquippedAnimation = rangedEquipped;
         }
+
+        public void EquipHealingBottle(bool equip) => healingBottleModel.SetActive(equip);
     }
 }

@@ -1,4 +1,4 @@
-using Core.Input;
+using Core.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,24 +51,26 @@ namespace Core.Player
         #region Input Functions
         public void ShootInput()
         {
-            behaviour.Attack.StartAttack();
+            behaviour.Actions.Attack();
         }
 
         public void AimInput(InputAction.CallbackContext context)
         {
-            behaviour.Attack.AimingSetup();
+            behaviour.Actions.AimingSetup();
         }
 
         public void ReloadInput()
         {
             if(!behaviour.Resources.CanReload() || !behaviour.Equipment.RangedEnabled) return;
 
-            if(behaviour.Attack.IsAiming)
+            if(behaviour.Actions.IsAiming)
             {
-                behaviour.Attack.CancelAiming();
+                behaviour.Actions.CancelAiming();
             }
 
             behaviour.Resources.ReloadingBullets();
+
+            behaviour.Actions.IsReloading = true;
 
             behaviour.Animation.CallReloadingTrigger();
 
@@ -78,12 +80,16 @@ namespace Core.Player
 
         public void InteractInput()
         {
-            
+
         }
 
         public void HealInput()
         {
+            if(behaviour.Status.IsDead || behaviour.Actions.IsReloading) return;
+
+            behaviour.Actions.Healing();
             
+            BlockActions();
         }
 
         private void StartSprint(InputAction.CallbackContext context)
