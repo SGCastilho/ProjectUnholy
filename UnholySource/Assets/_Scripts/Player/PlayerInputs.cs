@@ -1,3 +1,4 @@
+using System;
 using Core.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,8 @@ namespace Core.Player
 
         [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
+
+        private Action _interactionAction;
 
         private GameplayInput _gameplayInputActions;
 
@@ -48,7 +51,7 @@ namespace Core.Player
             _movementAxis = _gameplayInputActions.Gameplay.Movement.ReadValue<float>();
         }
 
-        #region Input Functions
+        #region Input Setups
         public void ShootInput()
         {
             behaviour.Actions.Attack();
@@ -80,7 +83,7 @@ namespace Core.Player
 
         public void InteractInput()
         {
-
+            _interactionAction?.Invoke();
         }
 
         public void HealInput()
@@ -102,6 +105,20 @@ namespace Core.Player
         {
             behaviour.Movement.SprintEnabled = false;
             behaviour.Animation.SprintAnimation = false;
+        }
+        #endregion
+
+        #region Input Functions
+        public void SubscribeInteraction(Action action)
+        {
+            if(action == null) return;
+
+            _interactionAction += action;
+        }
+
+        public void UnsubscribeInteraction()
+        {
+            _interactionAction = null;
         }
         #endregion
 

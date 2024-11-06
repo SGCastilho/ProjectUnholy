@@ -1,0 +1,8 @@
+User Interface:
+	-Pixel Perfect
+	-Freepik
+	-Those Icons
+	-riajulislam
+
+Unity Packages
+	-DOTween (Procura criador)
