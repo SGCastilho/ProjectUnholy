@@ -5,6 +5,11 @@ namespace Core.Player
 {
     public sealed class PlayerStatus : MonoBehaviour
     {
+        #region Events
+        public delegate void ModifingHealth(ref int currentHealth);
+        public event ModifingHealth OnModifingHealth;
+        #endregion
+
         #region Encapsulation
         public int Health { get => playerHealth; }
         public int MaxHealth { get => playerMaxHealth; }
@@ -35,6 +40,8 @@ namespace Core.Player
                 {
                     playerHealth = playerMaxHealth;
                 }
+
+                OnModifingHealth?.Invoke(ref playerHealth);
             }
             else
             {
@@ -45,6 +52,8 @@ namespace Core.Player
                     
                     DeathSequence();
                 }
+
+                OnModifingHealth?.Invoke(ref playerHealth);
             }
         }
 
@@ -66,7 +75,7 @@ namespace Core.Player
         {
             if(Input.GetKeyDown(KeyCode.F1))
             {
-                ModifyHealth(false, 999);
+                ModifyHealth(false, 20);
             }
         }
     }

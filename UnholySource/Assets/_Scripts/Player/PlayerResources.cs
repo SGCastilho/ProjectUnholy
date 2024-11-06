@@ -8,6 +8,11 @@ namespace Core.Player
         private const int HEALING_BOTTLES_LIMITATION = 99;
         #endregion
 
+        #region Events
+        public delegate void RefreshUI(ref int bullets, ref int munition);
+        public event RefreshUI OnRefreshUI;
+        #endregion
+
         #region Encapsulation
         public int HealthBottles { get => playerHealthBottles; }
 
@@ -57,6 +62,8 @@ namespace Core.Player
                     playerBullets = 0;
                 }
             }
+
+            OnRefreshUI?.Invoke(ref playerBullets, ref playerMunition);
         }
 
         public void ModifyMunition(bool increase, int amount)
@@ -79,6 +86,8 @@ namespace Core.Player
                     playerMunition = 0;
                 }
             }
+
+            OnRefreshUI?.Invoke(ref playerBullets, ref playerMunition);
         }
 
         public void ModifyHealingBottles(bool increase, int amount)
