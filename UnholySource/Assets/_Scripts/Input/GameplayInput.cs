@@ -91,6 +91,24 @@ namespace Core.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac096b22-7a6f-4d42-8f7e-accc996cbc30"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""02b7c48f-f1c0-44af-a30c-efd1d2ac6d97"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +210,39 @@ namespace Core.Inputs
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46b54ce7-4c80-4c73-83da-6c20f5646f45"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a2ed641-1e04-4054-afe6-4953e2af9541"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80a8ec96-2007-4c6c-9c7a-8b4e289e5e50"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -207,6 +258,8 @@ namespace Core.Inputs
             m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Heal = m_Gameplay.FindAction("Heal", throwIfNotFound: true);
+            m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
+            m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         }
 
         ~@GameplayInput()
@@ -280,6 +333,8 @@ namespace Core.Inputs
         private readonly InputAction m_Gameplay_Sprint;
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Heal;
+        private readonly InputAction m_Gameplay_Inventory;
+        private readonly InputAction m_Gameplay_Pause;
         public struct GameplayActions
         {
             private @GameplayInput m_Wrapper;
@@ -291,6 +346,8 @@ namespace Core.Inputs
             public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputAction @Heal => m_Wrapper.m_Gameplay_Heal;
+            public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
+            public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -321,6 +378,12 @@ namespace Core.Inputs
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -346,6 +409,12 @@ namespace Core.Inputs
                 @Heal.started -= instance.OnHeal;
                 @Heal.performed -= instance.OnHeal;
                 @Heal.canceled -= instance.OnHeal;
+                @Inventory.started -= instance.OnInventory;
+                @Inventory.performed -= instance.OnInventory;
+                @Inventory.canceled -= instance.OnInventory;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -372,6 +441,8 @@ namespace Core.Inputs
             void OnSprint(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnHeal(InputAction.CallbackContext context);
+            void OnInventory(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
     }
 }

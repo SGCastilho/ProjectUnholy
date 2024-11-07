@@ -15,6 +15,7 @@ namespace Core.Player
         [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
 
+        private Action _inventoryAction;
         private Action _interactionAction;
 
         private GameplayInput _gameplayInputActions;
@@ -34,6 +35,16 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Sprint.canceled += EndSprint;
 
             _gameplayInputActions.Gameplay.Aim.started += AimInput;
+
+            _gameplayInputActions.Gameplay.Shoot.started += ShootInput;
+
+            _gameplayInputActions.Gameplay.Reload.started += ReloadInput;
+
+            _gameplayInputActions.Gameplay.Interact.started += InteractInput;
+
+            _gameplayInputActions.Gameplay.Heal.started += HealInput;
+
+            _gameplayInputActions.Gameplay.Inventory.started += InventoryInput;
         }
 
         private void OnDisable() 
@@ -44,6 +55,16 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Sprint.canceled -= EndSprint;
 
             _gameplayInputActions.Gameplay.Aim.started -= AimInput;
+
+            _gameplayInputActions.Gameplay.Shoot.started -= ShootInput;
+
+            _gameplayInputActions.Gameplay.Reload.started -= ReloadInput;
+
+            _gameplayInputActions.Gameplay.Interact.started -= InteractInput;
+
+            _gameplayInputActions.Gameplay.Heal.started -= HealInput;
+
+            _gameplayInputActions.Gameplay.Inventory.started -= InventoryInput;
         }
 
         private void Update() 
@@ -52,7 +73,7 @@ namespace Core.Player
         }
 
         #region Input Setups
-        public void ShootInput()
+        public void ShootInput(InputAction.CallbackContext context)
         {
             behaviour.Actions.Attack();
         }
@@ -62,7 +83,7 @@ namespace Core.Player
             behaviour.Actions.AimingSetup();
         }
 
-        public void ReloadInput()
+        public void ReloadInput(InputAction.CallbackContext context)
         {
             if(!behaviour.Resources.CanReload() || !behaviour.Equipment.RangedEnabled) return;
 
@@ -81,12 +102,12 @@ namespace Core.Player
             AllowMovement();
         }
 
-        public void InteractInput()
+        public void InteractInput(InputAction.CallbackContext context)
         {
             _interactionAction?.Invoke();
         }
 
-        public void HealInput()
+        public void HealInput(InputAction.CallbackContext context)
         {
             if(behaviour.Status.IsDead || behaviour.Actions.IsReloading) return;
 
@@ -106,6 +127,11 @@ namespace Core.Player
             behaviour.Movement.SprintEnabled = false;
             behaviour.Animation.SprintAnimation = false;
         }
+
+        public void InventoryInput(InputAction.CallbackContext context)
+        {
+            _inventoryAction?.Invoke();
+        }
         #endregion
 
         #region Input Functions
@@ -119,6 +145,18 @@ namespace Core.Player
         public void UnsubscribeInteraction()
         {
             _interactionAction = null;
+        }
+
+        public void SubscribeInventory(Action action)
+        {
+            if(action == null) return;
+
+            _inventoryAction += action;
+        }
+
+        public void UnsubscribeInventory()
+        {
+            _inventoryAction = null;
         }
         #endregion
 
@@ -144,6 +182,26 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Heal.Disable();
             _gameplayInputActions.Gameplay.Interact.Disable();
             _gameplayInputActions.Gameplay.Movement.Disable();
+        }
+
+        public void AllowInputsWhenUnPaused()
+        {
+            AllowActions();
+
+            if(!behaviour.Actions.IsAiming)
+            {
+                AllowMovement();
+            }
+
+            behaviour.HideCursor(true);
+        }
+
+        public void BlockInputsWhenPaused()
+        {
+            BlockActions();
+            BlockMovement();
+
+            behaviour.HideCursor(false);
         }
 
         public void AllowActions()

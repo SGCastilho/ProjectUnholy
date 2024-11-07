@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using Core.ScriptableObjects;
+using UnityEngine;
+
+namespace Core.Managers
+{
+    public sealed class InventoryManager : MonoBehaviour
+    {
+        private Dictionary<string, ItemData> _keyItemInventory = new Dictionary<string, ItemData>();
+
+        public void AddKeyItem(ItemData keyItemData)
+        {
+            if(keyItemData == null || _keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
+
+            _keyItemInventory.Add(keyItemData.Key, keyItemData);
+        }
+
+        public void RemoveKeyItem(ItemData keyItemData)
+        {
+            if(keyItemData == null || !_keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
+
+            _keyItemInventory.Remove(keyItemData.Key);
+        }
+
+        public void LoadKeyInventory(ref Dictionary<string, ItemData> inventoryToLoad)
+        {
+            if(inventoryToLoad == null) return;
+
+            List<string> inventoryKeys = new List<string>();
+
+            foreach(KeyValuePair<string, ItemData> inventory in inventoryToLoad)
+            {
+                inventoryKeys.Add(inventory.Key);
+            }
+
+            for(int i = 0; i < inventoryToLoad.Count; i++)
+            {
+                AddKeyItem(inventoryToLoad[inventoryKeys[i]]);
+            }
+        }
+    }
+}
