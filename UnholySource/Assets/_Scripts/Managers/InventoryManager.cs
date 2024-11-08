@@ -6,6 +6,11 @@ namespace Core.Managers
 {
     public sealed class InventoryManager : MonoBehaviour
     {
+        #region Events
+        public delegate void ModifyInventory(bool increase, ref ItemData itemData);
+        public ModifyInventory OnModifyInventory;
+        #endregion
+
         private Dictionary<string, ItemData> _keyItemInventory = new Dictionary<string, ItemData>();
 
         public void AddKeyItem(ItemData keyItemData)
@@ -13,6 +18,8 @@ namespace Core.Managers
             if(keyItemData == null || _keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
 
             _keyItemInventory.Add(keyItemData.Key, keyItemData);
+
+            OnModifyInventory?.Invoke(true, ref keyItemData);
         }
 
         public void RemoveKeyItem(ItemData keyItemData)
@@ -20,6 +27,8 @@ namespace Core.Managers
             if(keyItemData == null || !_keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
 
             _keyItemInventory.Remove(keyItemData.Key);
+
+            OnModifyInventory?.Invoke(false, ref keyItemData);
         }
 
         public void LoadKeyInventory(ref Dictionary<string, ItemData> inventoryToLoad)

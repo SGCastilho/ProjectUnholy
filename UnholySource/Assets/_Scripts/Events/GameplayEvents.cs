@@ -1,6 +1,7 @@
 using Core.UI;
 using Core.Player;
 using Core.Managers;
+using Core.GameCamera;
 using UnityEngine;
 
 namespace Core.Events
@@ -16,9 +17,13 @@ namespace Core.Events
 
         private PlayerBehaviour playerBehaviour;
 
+        private ChangeCameraRendering changeCameraRendering;
+
         private void Awake() 
         {
             playerBehaviour = FindObjectOfType<PlayerBehaviour>();
+
+            changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
         }
 
         private void OnEnable() 
@@ -32,7 +37,11 @@ namespace Core.Events
             pauseManager.OnPaused += playerBehaviour.Inputs.BlockInputsWhenPaused;
             pauseManager.OnUnPaused += playerBehaviour.Inputs.AllowInputsWhenUnPaused;
 
+            inventoryManager.OnModifyInventory += uIGameplayController.UI_Inventory.ModifyItems;
+
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnShowInventoryEnd += changeCameraRendering.OnlyRenderingUI;
+            uIGameplayController.UI_Inventory.OnHideInventoryStarts += changeCameraRendering.BackToDefaultRendering;
             uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
         }
 
@@ -47,7 +56,11 @@ namespace Core.Events
             pauseManager.OnPaused -= playerBehaviour.Inputs.BlockInputsWhenPaused;
             pauseManager.OnUnPaused -= playerBehaviour.Inputs.AllowInputsWhenUnPaused;
 
+            inventoryManager.OnModifyInventory -= uIGameplayController.UI_Inventory.ModifyItems;
+
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnShowInventoryEnd -= changeCameraRendering.OnlyRenderingUI;
+            uIGameplayController.UI_Inventory.OnHideInventoryStarts -= changeCameraRendering.BackToDefaultRendering;
             uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
         }
     }
