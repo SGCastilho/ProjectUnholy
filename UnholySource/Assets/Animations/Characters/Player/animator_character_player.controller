@@ -194,16 +194,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2608133162036797652}
-    m_Position: {x: 200, y: 240, z: 0}
+    m_Position: {x: 200, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3751590499681563584}
-    m_Position: {x: 530, y: 240, z: 0}
+    m_Position: {x: 540, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5255399490704067833}
-    m_Position: {x: 200, y: 160, z: 0}
+    m_Position: {x: 200, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8972476083418705594}
-    m_Position: {x: 530, y: 160, z: 0}
+    m_Position: {x: 520, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -426632956749709712}
     m_Position: {x: 350, y: -140, z: 0}
@@ -223,6 +223,8 @@ AnimatorStateMachine:
   - {fileID: -4476929626273056692}
   m_EntryTransitions:
   - {fileID: 8999345513762620536}
+  - {fileID: 3001871199747996419}
+  - {fileID: 5506749004869931450}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 0, y: -60, z: 0}
@@ -898,6 +900,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1109 &3001871199747996419
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: MeleeEquipped
+    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: Movement
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 8972476083418705594}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1101 &4123790260091252329
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1009,6 +1031,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1109 &5506749004869931450
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: MeleeEquipped
+    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: Movement
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -3751590499681563584}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1101 &6186560274244166752
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1204,6 +1246,9 @@ AnimatorTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: MeleeEquipped
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: Movement
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5255399490704067833}
   m_Solo: 0
