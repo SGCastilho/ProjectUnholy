@@ -7,10 +7,16 @@ namespace Core.Enemies
     public sealed class EnemyMeleeBehaviour : EnemyBehaviour
     {
         #region Encapsulation
+        internal EnemyMeleeAnimations Animation { get => animations; }
+
         public CharacterMovement Movement { get => charMovement; }
         #endregion
 
         [Header("Exclusive Classes")]
+        [SerializeField] private EnemyMeleeAnimations animations;
+
+        [Space(10)]
+
         [SerializeField] private CharacterMovement charMovement;
     }
 }

@@ -13,6 +13,10 @@ namespace Core.Enemies
         [SerializeField] private State nextState;
 
         [Header("Classes")]
+        [SerializeField] private EnemyMeleeBehaviour behaviour;
+
+        [Space(10)]
+
         [SerializeField] private Transform searchingTransform;
 
         [Header("Settings")]
@@ -33,6 +37,7 @@ namespace Core.Enemies
         [SerializeField] [Range(0.1f, 0.6f)] private float updateTick = 0.2f;
 
         private Collider[] searchingPlayer;
+
         private float _currentUpdateTick;
 
         private void OnDisable() => ResetState();
@@ -68,11 +73,21 @@ namespace Core.Enemies
 
                     stateMachine.ChangeState(ref nextState);
 
+                    StartChasingState();
+
                     ResetState();
                     
                     break;
                 }
             }
+        }
+
+        private void StartChasingState()
+        {
+            behaviour.Movement.MoveRight = behaviour.GetPlayerSide();
+            behaviour.Movement.IsMoving = true;
+
+            behaviour.Animation.ChasingAnimation = true;
         }
 
         #region Editor Function

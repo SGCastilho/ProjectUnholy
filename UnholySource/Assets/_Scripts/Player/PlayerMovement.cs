@@ -4,6 +4,11 @@ namespace Core.Player
 {
     public sealed class PlayerMovement : MonoBehaviour
     {
+        #region Constants
+        private float FLIPPED_ROTATION = 180f;
+        private float UNFLIPPED_ROTATION = 0f;
+        #endregion
+
         #region Encapsulation
         internal bool SprintEnabled 
         {
@@ -40,11 +45,6 @@ namespace Core.Player
                 }
             }
         }
-        #endregion
-
-        #region Constants Variables
-        private float FLIPPED_ROTATION = 180f;
-        private float UNFLIPPED_ROTATION = 0f;
         #endregion
 
         [Header("Behaviour")]
