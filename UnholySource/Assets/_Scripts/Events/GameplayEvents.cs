@@ -17,12 +17,14 @@ namespace Core.Events
 
         private PlayerBehaviour playerBehaviour;
 
+        private CameraShake cameraShake;
         private ChangeCameraRendering changeCameraRendering;
 
         private void Awake() 
         {
             playerBehaviour = FindObjectOfType<PlayerBehaviour>();
 
+            cameraShake = FindObjectOfType<CameraShake>();
             changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
         }
 
@@ -31,6 +33,7 @@ namespace Core.Events
             playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
 
             playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
 
             playerBehaviour.Resources.OnRefreshUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
 
@@ -50,6 +53,7 @@ namespace Core.Events
             playerBehaviour.Inputs.UnsubscribeInventory();
 
             playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
 
             playerBehaviour.Resources.OnRefreshUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
 

@@ -33,12 +33,9 @@ namespace Core.Enemies
 
         private void OnDisable() => ResetState();
 
-        private void ResetState()
+        public override void ResetState()
         {
             _currentUpdateTick = 0f;
-
-            //DEBUG
-            behaviour.Animation.ChasingAnimation = false;
         }
 
         public override void StateAction()
@@ -66,7 +63,22 @@ namespace Core.Enemies
 
                 ResetState();
 
+                behaviour.Correction.Correct(behaviour.Movement.MoveRight);
+                behaviour.Animation.CallTriggerAttack();
+                
+                behaviour.Animation.ChasingAnimation = false;
+
                 stateMachine.ChangeState(ref nextState);
+            }
+            else
+            {
+                if(!behaviour.Movement.IsMoving)
+                {
+                    behaviour.Movement.MoveRight = behaviour.GetPlayerSide();
+                    behaviour.Movement.IsMoving = true;
+
+                    behaviour.Animation.ChasingAnimation = true;
+                }
             }
         }
 

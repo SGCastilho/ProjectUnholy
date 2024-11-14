@@ -14,10 +14,21 @@ namespace Core.StateMachines
         #endif
         #endregion
 
+        #region Encapsulation
+        public State LastState { get => _lastState; }
+        #endregion
+
         [Header("States")]
         [SerializeField] private State defaultState;
 
+        [Space(10)]
+
+        [SerializeField] internal State[] lastStateIgnore;
+
         private State _currentState;
+        private State _lastState;
+
+        private bool _skipLastState;
 
         public virtual void OnEnable() 
         {
@@ -36,6 +47,55 @@ namespace Core.StateMachines
         public void ChangeState(ref State nextState)
         {
             if(nextState == null) return;
+
+            _skipLastState = false;
+
+            if(_currentState != null)
+            {
+                if(lastStateIgnore.Length > 0)
+                {
+                    for(int i = 0; i < lastStateIgnore.Length; i++)
+                    {
+                        if(_currentState == lastStateIgnore[i])
+                        {
+                            _skipLastState = true;
+
+                            Debug.Log("Last state skipped");
+
+                            break;
+                        }
+                    }
+                }
+
+                if(!_skipLastState) { _lastState = _currentState; }
+            }
+
+            _currentState = nextState;
+        }
+
+        public void ChangeState(State nextState)
+        {
+            if(nextState == null) return;
+
+            _skipLastState = false;
+
+            if(_currentState != null)
+            {
+                if(lastStateIgnore.Length > 0)
+                {
+                    for(int i = 0; i < lastStateIgnore.Length; i++)
+                    {
+                        if(_currentState == lastStateIgnore[i])
+                        {
+                            _skipLastState = true;
+
+                            break;
+                        }
+                    }
+                }
+
+                if(!_skipLastState) { _lastState = _currentState; }
+            }
 
             _currentState = nextState;
         }
@@ -60,6 +120,12 @@ namespace Core.StateMachines
 
             stateMachine.DefaultState = EditorGUILayout.ObjectField("Default State", stateMachine.DefaultState, typeof(State), true) as State;
 
+            SerializedObject obj = new SerializedObject(target);
+            SerializedProperty stateIgnorePro = obj.FindProperty("lastStateIgnore");
+
+            EditorGUILayout.PropertyField(stateIgnorePro, true);
+            obj.ApplyModifiedProperties();
+
             EditorGUILayout.Space(10);
 
             EditorGUILayout.LabelField("State Machine info", EditorStyles.boldLabel);
@@ -73,6 +139,11 @@ namespace Core.StateMachines
             if(stateMachine.CurrentState != null)
             {
                 EditorGUILayout.LabelField($"Current State: {stateMachine.CurrentState.gameObject.name}");
+            }
+
+            if(stateMachine.LastState != null)
+            {
+                EditorGUILayout.LabelField($"Last State: {stateMachine.LastState.gameObject.name}");
             }
         }
     }

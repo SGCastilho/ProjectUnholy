@@ -7,9 +7,10 @@ namespace Core.Enemies
     public sealed class EnemyMeleeBehaviour : EnemyBehaviour
     {
         #region Encapsulation
-        internal EnemyMeleeAnimations Animation { get => animations; }
+        public EnemyMeleeAnimations Animation { get => animations; }
 
-        public CharacterMovement Movement { get => charMovement; }
+        internal CharacterMovement Movement { get => charMovement; }
+        internal CharacterCorrection Correction { get => charCorrection; }
         #endregion
 
         [Header("Exclusive Classes")]
@@ -18,5 +19,6 @@ namespace Core.Enemies
         [Space(10)]
 
         [SerializeField] private CharacterMovement charMovement;
+        [SerializeField] private CharacterCorrection charCorrection;
     }
 }

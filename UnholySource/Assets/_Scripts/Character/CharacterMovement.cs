@@ -36,7 +36,7 @@ namespace Core.Character
         private float _currentSpeed;
         private float _sideMovement;
         private Vector3 _currentVelocity;
-
+            
         private void OnEnable() 
         {
             if(variableSpeed)
@@ -44,6 +44,11 @@ namespace Core.Character
                 _currentSpeed = Random.Range(speed-1f, speed);
             }
             else { _currentSpeed = speed; }
+        }
+
+        private void OnDisable() 
+        {
+            isMoving = false;
         }
 
         private void FixedUpdate() 
@@ -71,6 +76,11 @@ namespace Core.Character
                 graphicsFlip.localRotation = new Quaternion(0f, FLIPPED_ROTATION, 0, graphicsFlip.localRotation.w);
                 _sideMovement = Vector3.back.z;
             }
+        }
+
+        public void FlipToPlayer(bool playerInTheRight)
+        {
+            MoveRight = playerInTheRight;
         }
     }
 }

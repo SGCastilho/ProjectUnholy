@@ -46,5 +46,10 @@ namespace Core.Player
                 Cursor.visible = true;
             }
         }
+
+        public bool LookingToRight()
+        {
+            return !movement.IsFlipped;
+        }
     }
 }

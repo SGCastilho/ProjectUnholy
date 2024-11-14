@@ -5,7 +5,7 @@ namespace Core.Enemies
     public class EnemyBehaviour : MonoBehaviour
     {
         #region Encapsulation
-        internal EnemyStatus Status { get => status; }
+        public EnemyStatus Status { get => status; }
 
         internal Transform EnemyTransform { get => _transform; }
         #endregion
@@ -17,7 +17,7 @@ namespace Core.Enemies
 
         private Transform _transform;
 
-        private void OnEnable() => CacheVariables();
+        internal virtual void Awake() => CacheVariables();
 
         private void CacheVariables()
         {
@@ -30,6 +30,12 @@ namespace Core.Enemies
             { 
                 _playerPosistion = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             }
+        }
+
+        internal void Death()
+        {
+            _transform.GetComponent<Rigidbody>().isKinematic = true;
+            _transform.GetComponent<Collider>().enabled = false;
         }
 
         public float GetPlayerDistance()

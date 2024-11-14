@@ -40,9 +40,7 @@ namespace Core.Enemies
 
         private float _currentUpdateTick;
 
-        private void OnDisable() => ResetState();
-
-        private void ResetState()
+        private void OnDisable() 
         {
             searchingPlayer = null;
             _currentUpdateTick = 0f;
@@ -69,13 +67,12 @@ namespace Core.Enemies
             {
                 if(player.CompareTag("Player"))
                 {
-                    Debug.Log("Player Founded");
-
                     stateMachine.ChangeState(ref nextState);
 
                     StartChasingState();
 
-                    ResetState();
+                    searchingPlayer = null;
+                    _currentUpdateTick = 0f;
                     
                     break;
                 }

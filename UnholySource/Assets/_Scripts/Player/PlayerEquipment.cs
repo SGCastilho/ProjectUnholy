@@ -15,7 +15,7 @@ namespace Core.Player
         internal bool MeleeEquipped { get => meleeEquipped; }
         internal bool RangedEquipped { get => rangedEquipped; }
 
-        internal float WeaponDamage { get => _currentWeaponDamage; }
+        public int WeaponDamage { get => _currentWeaponDamage; }
         #endregion
 
         [Header("Behaviour")]

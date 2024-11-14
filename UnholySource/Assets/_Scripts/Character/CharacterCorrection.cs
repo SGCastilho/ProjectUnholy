@@ -5,6 +5,10 @@ namespace Core.Character
 {
     public sealed class CharacterCorrection : MonoBehaviour
     {
+        #region Encapsulation
+        public bool FindCollider { get => _findCollider; }
+        #endregion
+
         [Header("Classes")]
         [SerializeField] private Transform raycastTransform;
 
@@ -34,6 +38,7 @@ namespace Core.Character
         private Ray _rayDetection;
         private RaycastHit _raycastHitDetection;
 
+        private bool _findCollider;
         private float _correctionValue;
 
         private Transform _transform;
@@ -45,12 +50,16 @@ namespace Core.Character
 
         public void Correct(bool forwardCast)
         {
+            _findCollider = false;
+
             if(forwardCast)
             {
                 _rayDetection = new Ray(raycastTransform.position, Vector3.forward);
                 _raycastHitDetection = new RaycastHit();
 
-                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, raycastLayer))
+                _findCollider = Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, raycastLayer);
+
+                if(_findCollider)
                 {
                     if(Mathf.Abs(_raycastHitDetection.transform.position.z - _transform.position.z) <= correctionLimit) return;
 
@@ -65,7 +74,9 @@ namespace Core.Character
                 _rayDetection = new Ray(raycastTransform.position, Vector3.back);
                 _raycastHitDetection = new RaycastHit();
 
-                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, raycastLayer))
+                _findCollider = Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, raycastLayer);
+
+                if(_findCollider)
                 {
                     if(Mathf.Abs(_raycastHitDetection.transform.position.z - _transform.position.z) <= correctionLimit) return;
 

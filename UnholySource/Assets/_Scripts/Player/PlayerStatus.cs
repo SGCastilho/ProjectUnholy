@@ -1,13 +1,17 @@
+using Core.Interfaces;
 using Core.ScriptableObjects;
 using UnityEngine;
 
 namespace Core.Player
 {
-    public sealed class PlayerStatus : MonoBehaviour
+    public sealed class PlayerStatus : MonoBehaviour, IDamagable
     {
         #region Events
         public delegate void ModifingHealth(ref int currentHealth);
         public event ModifingHealth OnModifingHealth;
+
+        public delegate void TakingDamage();
+        public event TakingDamage OnTakingDamage;
         #endregion
 
         #region Encapsulation
@@ -70,13 +74,11 @@ namespace Core.Player
             behaviour.Animation.CallDeathTrigger();
         }
 
-        //DEBUG
-        private void Update() 
+        public void ApplyDamage(int damageToApply)
         {
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                ModifyHealth(false, 20);
-            }
+            ModifyHealth(false, damageToApply);
+
+            OnTakingDamage?.Invoke();
         }
     }
 }
