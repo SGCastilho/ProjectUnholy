@@ -9,6 +9,8 @@ namespace Core.UI
         public UIHurtAlertOverlay UI_HurtAlertOverlay { get => uIHurtAlertOverlay; }
 
         public UIInventory UI_Inventory { get => uIInventory; }
+
+        public UIItemNotificantion UI_ItemNotification { get => uIItemNotificantion; }
         #endregion
 
         [Header("Player UI Classes")]
@@ -18,5 +20,9 @@ namespace Core.UI
         [Space(10)]
 
         [SerializeField] private UIInventory uIInventory;
+
+        [Space(10)]
+
+        [SerializeField] private UIItemNotificantion uIItemNotificantion;
     }
 }

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 554f588618bfd4f4d8e90fc1fdd5f946, type: 3}
-  m_Name: Classroom Key Item Data
+  m_Name: Basement Key Item Data
   m_EditorClassIdentifier: 
   itemType: 0
-  itemKey: key_item_stranger_key
-  itemName: Stranger Key
-  itemDescription: It's a stranger key LMAO
-  healingAmount: 0
+  itemKey: item_key
+  itemName: Item Name
+  itemIcon: {fileID: 0}
+  itemDescription: Put your item description here.
+  healingAmount: 34
   devNotes: Put your dev notes here.

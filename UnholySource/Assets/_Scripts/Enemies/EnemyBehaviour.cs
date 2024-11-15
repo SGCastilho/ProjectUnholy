@@ -32,7 +32,7 @@ namespace Core.Enemies
             }
         }
 
-        internal void Death()
+        internal virtual void Death()
         {
             _transform.GetComponent<Rigidbody>().isKinematic = true;
             _transform.GetComponent<Collider>().enabled = false;

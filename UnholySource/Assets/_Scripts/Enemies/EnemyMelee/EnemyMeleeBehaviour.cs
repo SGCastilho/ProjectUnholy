@@ -20,5 +20,12 @@ namespace Core.Enemies
 
         [SerializeField] private CharacterMovement charMovement;
         [SerializeField] private CharacterCorrection charCorrection;
+
+        internal override void Death()
+        {
+            base.Death();
+
+            charMovement.enabled = false;
+        }
     }
 }

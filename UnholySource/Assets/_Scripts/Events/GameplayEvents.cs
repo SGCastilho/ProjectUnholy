@@ -43,9 +43,15 @@ namespace Core.Events
             inventoryManager.OnModifyInventory += uIGameplayController.UI_Inventory.ModifyItems;
 
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
+            uIGameplayController.UI_ItemNotification.OnShowInterface += pauseManager.Pause;
+            uIGameplayController.UI_ItemNotification.OnHideInteface += pauseManager.UnPause;
+
+            uIGameplayController.UI_ItemNotification.OnAllowControls += playerBehaviour.Inputs.AllowControls;
+            uIGameplayController.UI_ItemNotification.OnBlockControls += playerBehaviour.Inputs.BlockControls;
+
             uIGameplayController.UI_Inventory.OnShowInventoryEnd += changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts += changeCameraRendering.BackToDefaultRendering;
-            uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
         }
 
         private void OnDisable() 
@@ -63,9 +69,15 @@ namespace Core.Events
             inventoryManager.OnModifyInventory -= uIGameplayController.UI_Inventory.ModifyItems;
 
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
+            uIGameplayController.UI_ItemNotification.OnShowInterface -= pauseManager.Pause;
+            uIGameplayController.UI_ItemNotification.OnHideInteface -= pauseManager.UnPause;
+
+            uIGameplayController.UI_ItemNotification.OnAllowControls -= playerBehaviour.Inputs.AllowControls;
+            uIGameplayController.UI_ItemNotification.OnBlockControls -= playerBehaviour.Inputs.BlockControls;
+
             uIGameplayController.UI_Inventory.OnShowInventoryEnd -= changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts -= changeCameraRendering.BackToDefaultRendering;
-            uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
         }
     }
 }

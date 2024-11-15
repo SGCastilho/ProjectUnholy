@@ -21,6 +21,13 @@ namespace Core.Triggers
 
         private PlayerBehaviour _playerBehaviour;
 
+        private Collider _triggerCollider;
+
+        private void Awake() 
+        {
+            _triggerCollider = GetComponent<Collider>();
+        }
+
         private void OnDisable()
         {
             OnTriggerExitUI?.Invoke();
@@ -34,7 +41,13 @@ namespace Core.Triggers
 
         public void Interact()
         {
+            OnTriggerExitUI?.Invoke();
+            
+            _playerBehaviour.Inputs.UnsubscribeInteraction();
+
             OnInteractionEvent?.Invoke();
+
+            _triggerCollider.enabled = false;
         }
 
         private void OnTriggerEnter(Collider other) 
