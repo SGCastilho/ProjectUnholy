@@ -11,8 +11,10 @@ namespace Core.Events
         [Header("Managers Classes")]
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private InventoryManager inventoryManager;
+        [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
 
         [Header("UI Classes")]
+        [SerializeField] private UIFadeController uIFadeController;
         [SerializeField] private UIGameplayController uIGameplayController;
 
         private PlayerBehaviour playerBehaviour;
@@ -20,7 +22,9 @@ namespace Core.Events
         private CameraShake cameraShake;
         private ChangeCameraRendering changeCameraRendering;
 
-        private void Awake() 
+        private void Awake() => CacheVariables();
+
+        private void CacheVariables()
         {
             playerBehaviour = FindObjectOfType<PlayerBehaviour>();
 
@@ -28,20 +32,21 @@ namespace Core.Events
             changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
         }
 
-        private void OnEnable() 
+        private void OnEnable()
         {
-            playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
+            PlayerEnableEvents();
 
-            playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
-            playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
+            PauseEnableEvents();
 
-            playerBehaviour.Resources.OnRefreshUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            InventoryEnableEvents();
 
-            pauseManager.OnPaused += playerBehaviour.Inputs.BlockInputsWhenPaused;
-            pauseManager.OnUnPaused += playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+            ScenarioLoaderEnableEvents();
 
-            inventoryManager.OnModifyInventory += uIGameplayController.UI_Inventory.ModifyItems;
+            UIEnableEvents();
+        }
 
+        private void UIEnableEvents()
+        {
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
             uIGameplayController.UI_ItemNotification.OnShowInterface += pauseManager.Pause;
@@ -54,20 +59,53 @@ namespace Core.Events
             uIGameplayController.UI_Inventory.OnHideInventoryStarts += changeCameraRendering.BackToDefaultRendering;
         }
 
-        private void OnDisable() 
+        private void ScenarioLoaderEnableEvents()
         {
-            playerBehaviour.Inputs.UnsubscribeInventory();
+            scenarioLoaderManager.OnStartTravel += pauseManager.Pause;
+            scenarioLoaderManager.OnStartTravel += playerBehaviour.Inputs.BlockControls;
+            scenarioLoaderManager.OnStartTravel += uIFadeController.FadeIn;
 
-            playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
-            playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
+            scenarioLoaderManager.OnEndTravel += pauseManager.UnPause;
+            scenarioLoaderManager.OnEndTravel += playerBehaviour.Inputs.AllowControls;
+            scenarioLoaderManager.OnEndTravel += uIFadeController.FadeOut;
+        }
 
-            playerBehaviour.Resources.OnRefreshUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+        private void InventoryEnableEvents()
+        {
+            inventoryManager.OnModifyInventory += uIGameplayController.UI_Inventory.ModifyItems;
+        }
 
-            pauseManager.OnPaused -= playerBehaviour.Inputs.BlockInputsWhenPaused;
-            pauseManager.OnUnPaused -= playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+        private void PauseEnableEvents()
+        {
+            pauseManager.OnPaused += playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnUnPaused += playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+        }
 
-            inventoryManager.OnModifyInventory -= uIGameplayController.UI_Inventory.ModifyItems;
+        private void PlayerEnableEvents()
+        {
+            playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
 
+            playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
+
+            playerBehaviour.Resources.OnRefreshUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+        }
+
+        private void OnDisable()
+        {
+            PlayerDisableEvents();
+
+            PauseDisableEvents();
+
+            InventoryDisableEvents();
+
+            ScenarioLoaderDisableEvents();
+
+            UIDisableEvents();
+        }
+
+        private void UIDisableEvents()
+        {
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
             uIGameplayController.UI_ItemNotification.OnShowInterface -= pauseManager.Pause;
@@ -78,6 +116,38 @@ namespace Core.Events
 
             uIGameplayController.UI_Inventory.OnShowInventoryEnd -= changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts -= changeCameraRendering.BackToDefaultRendering;
+        }
+
+        private void ScenarioLoaderDisableEvents()
+        {
+            scenarioLoaderManager.OnStartTravel -= pauseManager.Pause;
+            scenarioLoaderManager.OnStartTravel -= playerBehaviour.Inputs.BlockControls;
+            scenarioLoaderManager.OnStartTravel -= uIFadeController.FadeIn;
+
+            scenarioLoaderManager.OnEndTravel -= pauseManager.UnPause;
+            scenarioLoaderManager.OnEndTravel -= playerBehaviour.Inputs.AllowControls;
+            scenarioLoaderManager.OnEndTravel -= uIFadeController.FadeOut;
+        }
+
+        private void InventoryDisableEvents()
+        {
+            inventoryManager.OnModifyInventory -= uIGameplayController.UI_Inventory.ModifyItems;
+        }
+
+        private void PauseDisableEvents()
+        {
+            pauseManager.OnPaused -= playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnUnPaused -= playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+        }
+
+        private void PlayerDisableEvents()
+        {
+            playerBehaviour.Inputs.UnsubscribeInventory();
+
+            playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
+
+            playerBehaviour.Resources.OnRefreshUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
         }
     }
 }
