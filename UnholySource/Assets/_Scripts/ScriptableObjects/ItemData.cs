@@ -1,9 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace Core.ScriptableObjects
 {
@@ -46,44 +41,4 @@ namespace Core.ScriptableObjects
         #endif
         #endregion
     }
-
-    #region Custom Editor
-    #if UNITY_EDITOR
-    [CustomEditor(typeof(ItemData))]
-    class ItemDataEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            var itemData = (ItemData)target;
-            if(itemData == null) return;
-
-            EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
-
-            itemData.Type = (ItemType)EditorGUILayout.EnumPopup("Item Type", itemData.Type);
-
-            EditorGUILayout.Space(20);
-
-            if(itemData.Type == ItemType.KEY_ITEM)
-            {
-                itemData.Key = EditorGUILayout.TextField("Item Key", itemData.Key);
-                itemData.Name = EditorGUILayout.TextField("Item Name", itemData.Name);
-                itemData.Icon = EditorGUILayout.ObjectField("Item Sprite", itemData.Icon, typeof(Sprite), false) as Sprite;
-
-                EditorGUILayout.LabelField("Item Description");
-                itemData.Description = EditorGUILayout.TextArea(itemData.Description, GUILayout.MaxHeight(60));
-            }
-
-            if(itemData.Type == ItemType.HEALING)
-            {
-                itemData.HealingAmount = EditorGUILayout.IntField("Healing Amount", itemData.HealingAmount);
-            }
-
-            EditorGUILayout.Space(20);
-
-            EditorGUILayout.LabelField("Dev Notes", EditorStyles.boldLabel);
-            itemData.devNotes = EditorGUILayout.TextArea(itemData.devNotes, GUILayout.MaxHeight(60));
-        }
-    }
-    #endif
-    #endregion
 }

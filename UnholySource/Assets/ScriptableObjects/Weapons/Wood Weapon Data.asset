@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72afec544f9c79c46bc44e7d34b09c4c, type: 3}
   m_Name: Wood Weapon Data
   m_EditorClassIdentifier: 
-  weaponName: Weapon Name
+  weaponName: Wood
   weaponType: 0
-  weaponDescription: Weapon Description here.
-  weaponDamage: 10
-  weaponBullets: 16
-  weaponMaxBullets: 128
+  weaponDescription: A Wood.
+  weaponDamage: 34
+  weaponBullets: 0
+  weaponMunition: 0
   weaponPrefab: {fileID: 0}
   devNotes: Put your dev notes here.

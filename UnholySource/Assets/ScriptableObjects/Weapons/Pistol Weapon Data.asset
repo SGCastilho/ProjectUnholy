@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72afec544f9c79c46bc44e7d34b09c4c, type: 3}
   m_Name: Pistol Weapon Data
   m_EditorClassIdentifier: 
-  weaponName: Weapon Name
-  weaponType: 0
-  weaponDescription: Weapon Description here.
-  weaponDamage: 10
+  weaponName: Colt 1911
+  weaponType: 1
+  weaponDescription: A powerful pistol.
+  weaponDamage: 68
   weaponBullets: 16
-  weaponMaxBullets: 128
+  weaponMunition: 128
   weaponPrefab: {fileID: 0}
   devNotes: Put your dev notes here.

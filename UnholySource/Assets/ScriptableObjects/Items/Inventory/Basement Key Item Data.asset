@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Basement Key Item Data
   m_EditorClassIdentifier: 
   itemType: 0
-  itemKey: item_key
-  itemName: Item Name
-  itemIcon: {fileID: 0}
-  itemDescription: Put your item description here.
-  healingAmount: 34
+  itemKey: item_basement_key
+  itemName: Basement Key
+  itemIcon: {fileID: 21300000, guid: a9b1d7512e0fbf0419269c2d4b9e3a7d, type: 3}
+  itemDescription: I can open the basement key with this.
+  healingAmount: 0
   devNotes: Put your dev notes here.
