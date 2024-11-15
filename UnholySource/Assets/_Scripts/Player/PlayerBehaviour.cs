@@ -16,6 +16,8 @@ namespace Core.Player
         internal PlayerAnimation Animation { get => animationControl; }
 
         internal CharacterCorrection Correction { get => charCorrection;}
+
+        internal Transform PlayerTransform { get => _transform; }
         #endregion
 
         [Header("Classes")]
@@ -30,6 +32,13 @@ namespace Core.Player
         [Space(10)]
 
         [SerializeField] private CharacterCorrection charCorrection;
+
+        private Transform _transform;
+
+        private void Awake() 
+        {
+            _transform = GetComponent<Transform>();
+        }
 
         private void Start() => HideCursor(true);
 

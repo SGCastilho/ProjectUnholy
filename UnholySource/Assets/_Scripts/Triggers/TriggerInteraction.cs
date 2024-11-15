@@ -41,11 +41,14 @@ namespace Core.Triggers
 
         public void Interact()
         {
+            OnInteractionEvent?.Invoke();
+        }
+
+        private void DisableInteraction()
+        {
             OnTriggerExitUI?.Invoke();
             
             _playerBehaviour.Inputs.UnsubscribeInteraction();
-
-            OnInteractionEvent?.Invoke();
 
             _triggerCollider.enabled = false;
         }
