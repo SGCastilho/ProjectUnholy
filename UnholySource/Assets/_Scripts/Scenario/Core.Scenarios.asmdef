@@ -1,0 +1,16 @@
+{
+    "name": "Core.Scenarios",
+    "rootNamespace": "Core.Scenarios",
+    "references": [
+        "GUID:bef5efa0d540aff469b34981fc7046ee"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
