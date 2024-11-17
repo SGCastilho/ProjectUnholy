@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exit_Basement.unity
     guid: 05a24a1c5dd864b4fbee4c76375dd139
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Middle.unity
+    guid: 5ef95ef94483eee4d985601f01b43f37
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Right.unity
+    guid: 5074d21fcae3ce8408a9e0c907483c02
   m_configObjects: {}
