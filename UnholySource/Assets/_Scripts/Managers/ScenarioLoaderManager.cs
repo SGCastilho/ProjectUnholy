@@ -12,20 +12,12 @@ namespace Core.Managers
         public string SceneName { get => sceneName; }
         public GameObject EnemiesToEnable { get => enemiesToEnable; }
         public GameObject InteractablesToEnable { get => interactableToEnable; }
-
-        public Transform RightTravelTransform { get => rightTravelTransform; }
-        public Transform LeftTravelTransform { get => leftTravelTransform; }
         #endregion
 
         [Header("Settings")]
         [SerializeField] private string sceneName;
         [SerializeField] private GameObject enemiesToEnable;
         [SerializeField] private GameObject interactableToEnable;
-
-        [Space(10)]
-
-        [SerializeField] private Transform rightTravelTransform;
-        [SerializeField] private Transform leftTravelTransform;
     }
 
     public sealed class ScenarioLoaderManager : MonoBehaviour
@@ -43,6 +35,16 @@ namespace Core.Managers
 
         [Header("Settings")]
         [SerializeField] private bool loadFirstScene;
+
+        #region Editor Variables
+        #if UNITY_EDITOR
+
+        [Header("Debug Tools")]
+        [SerializeField] private bool loadDebugScene;
+        [SerializeField] private string sceneToDebug = "Put the scene here";
+        [SerializeField] private Transform travelPosistion;
+        #endif
+        #endregion
 
         private bool _loadingScene;
         private bool _isTraveling;
@@ -68,6 +70,19 @@ namespace Core.Managers
 
                 if(scenes[i].InteractablesToEnable != null) { scenes[i].InteractablesToEnable.SetActive(false); }
             }
+
+            #if UNITY_EDITOR
+            if(loadDebugScene)
+            {
+                loadFirstScene = false;
+
+                _playerTransform.gameObject.SetActive(false);
+                _playerTransform.position = travelPosistion.position;
+                _playerTransform.gameObject.SetActive(true);
+
+                LoadSceneAddictive(sceneToDebug);
+            }
+            #endif
 
             if(loadFirstScene)
             {

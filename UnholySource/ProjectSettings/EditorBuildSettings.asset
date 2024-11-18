@@ -15,15 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exit_Basement.unity
     guid: 05a24a1c5dd864b4fbee4c76375dd139
   - enabled: 1
-    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Left.unity
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 01/LP_Room_Exterior_House_Floor01_Left.unity
     guid: c2290eedbbf7357499aa980ae1e09453
   - enabled: 1
-    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Left_Room.unity
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 01/LP_Room_Exterior_House_Floor01_Left_Room.unity
     guid: 46b33243ed41481458a6c1d47e230c60
   - enabled: 1
-    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Middle.unity
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 01/LP_Room_Exterior_House_Floor01_Middle.unity
     guid: 5ef95ef94483eee4d985601f01b43f37
   - enabled: 1
-    path: Assets/Scenes/Levels/Prototype/Rooms/LP_Room_Exterior_House_Floor01_Right.unity
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 01/LP_Room_Exterior_House_Floor01_Right.unity
     guid: 5074d21fcae3ce8408a9e0c907483c02
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 02/LP_Room_Exterior_House_Floor02_Left.unity
+    guid: a7efa1c6f0b3954448915973bc422565
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 02/LP_Room_Exterior_House_Floor02_Middle.unity
+    guid: 82582f612ec02da4c909d8062ca88804
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 02/LP_Room_Exterior_House_Floor02_Right.unity
+    guid: 6a24a5eecd3be5645bb69051a849c35e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 02/LP_Room_Exterior_House_Floor02_Right_Room_01.unity
+    guid: ea695e0b2e6986c4cab86e31108bfeac
   m_configObjects: {}
