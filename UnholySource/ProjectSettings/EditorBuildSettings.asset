@@ -38,4 +38,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Prototype/Rooms/Floor 02/LP_Room_Exterior_House_Floor02_Right_Room_01.unity
     guid: ea695e0b2e6986c4cab86e31108bfeac
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Left.unity
+    guid: bead1c5d08a61914a9c3a37acaaa8d96
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Left_2.unity
+    guid: 36429268fd88bba47b43000d1a0ebc7b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Left_3.unity
+    guid: 942a654db0d226d4793aa1b1ee3e62be
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Middle.unity
+    guid: dc0b6ea17635869458439062c8bfb44d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Right.unity
+    guid: 5bcd2f919b206ea4193a9c053b22d755
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Right_2.unity
+    guid: fab67b72c91aba5488308954483ab968
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Right_Room.unity
+    guid: 7eb5ae0b3d4a5f249a4924bcd571d3e2
   m_configObjects: {}
