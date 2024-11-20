@@ -76,5 +76,13 @@ namespace Core.UI
             triggerImage.DOFade(0f, fadeTime);
             triggerCanvas.transform.DOLocalMoveY(canvasBackMovementY, fadeTime);
         }
+
+        public void ChangeInteractionSprite(ref Sprite newSprite)
+        {
+            if(newSprite == null) return;
+
+            interactionSprite = newSprite;
+            triggerImage.sprite = interactionSprite;
+        }
     }
 }

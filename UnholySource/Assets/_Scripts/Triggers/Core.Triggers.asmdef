@@ -3,7 +3,8 @@
     "rootNamespace": "Core.Triggers",
     "references": [
         "GUID:e635fb15eac9aae47847d8e188f3d3b3",
-        "GUID:8d88350da9d890c4a8755c382d3998d5"
+        "GUID:8d88350da9d890c4a8755c382d3998d5",
+        "GUID:c11eed96ae7c4e348ad62cfb1fab3be1"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

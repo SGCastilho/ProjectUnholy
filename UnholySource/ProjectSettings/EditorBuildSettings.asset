@@ -59,4 +59,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Prototype/Rooms/Floor 03/LP_Room_Exterior_House_Floor03_Right_Room.unity
     guid: 7eb5ae0b3d4a5f249a4924bcd571d3e2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Roof/LP_Room_Exterior_House_Roof_Left.unity
+    guid: ac2808038e9bf9a4e9e1e722f574173f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Roof/LP_Room_Exterior_House_Roof_Left_2.unity
+    guid: 46f35c8bce7d8714b9ebab475e96c57d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Roof/LP_Room_Exterior_House_Roof_Middle.unity
+    guid: 7b779127e89d942489437afbf19b5d38
+  - enabled: 1
+    path: Assets/Scenes/Levels/Prototype/Rooms/Roof/LP_Room_Exterior_House_Roof_Right.unity
+    guid: 489a14ed702b76d4f9a38b91685d3d3b
   m_configObjects: {}

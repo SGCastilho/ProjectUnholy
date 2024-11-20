@@ -31,6 +31,21 @@ namespace Core.Managers
             OnModifyInventory?.Invoke(false, ref keyItemData);
         }
 
+        public bool CheckIfHasItem(ItemData itemToCheck)
+        {
+            if(_keyItemInventory == null || _keyItemInventory.Count < 1)
+            {
+                return false;
+            }
+
+            if(_keyItemInventory.ContainsKey(itemToCheck.Key))
+            {
+                return true;
+            }
+            
+            return false;
+        }
+
         public void LoadKeyInventory(ref Dictionary<string, ItemData> inventoryToLoad)
         {
             if(inventoryToLoad == null) return;

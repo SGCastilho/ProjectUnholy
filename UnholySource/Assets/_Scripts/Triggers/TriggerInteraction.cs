@@ -44,7 +44,7 @@ namespace Core.Triggers
             OnInteractionEvent?.Invoke();
         }
 
-        private void DisableInteraction()
+        public void DisableInteraction()
         {
             OnTriggerExitUI?.Invoke();
             

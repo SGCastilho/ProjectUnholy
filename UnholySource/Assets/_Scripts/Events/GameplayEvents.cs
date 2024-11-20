@@ -1,5 +1,6 @@
 using Core.UI;
 using Core.Player;
+using Core.Triggers;
 using Core.Managers;
 using Core.GameCamera;
 using UnityEngine;
@@ -22,6 +23,8 @@ namespace Core.Events
         private CameraShake cameraShake;
         private ChangeCameraRendering changeCameraRendering;
 
+        private UnlockDoorTrigger[] unlockDoorsTriggers;
+
         private void Awake() => CacheVariables();
 
         private void CacheVariables()
@@ -30,6 +33,14 @@ namespace Core.Events
 
             cameraShake = FindObjectOfType<CameraShake>();
             changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
+
+            var unlockTriggers = FindObjectsOfType<UnlockDoorTrigger>();
+
+            if(unlockTriggers != null || unlockTriggers.Length > 0)
+            {
+                unlockDoorsTriggers = new UnlockDoorTrigger[unlockTriggers.Length];
+                unlockDoorsTriggers = unlockTriggers;
+            }
         }
 
         private void OnEnable()
@@ -39,6 +50,16 @@ namespace Core.Events
             PauseEnableEvents();
 
             InventoryEnableEvents();
+
+            if(unlockDoorsTriggers != null && unlockDoorsTriggers.Length > 0)
+            {
+                foreach(UnlockDoorTrigger unlockDoor in unlockDoorsTriggers)
+                {
+                    unlockDoor.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
+                    unlockDoor.OnRemoveItemFromInventory += inventoryManager.RemoveKeyItem;
+                    unlockDoor.OnUnlockedDoor += unlockDoor.GetComponent<UIOverworldTriggerIcon>().ChangeInteractionSprite;
+                }
+            }
 
             ScenarioLoaderEnableEvents();
 
@@ -98,6 +119,16 @@ namespace Core.Events
             PauseDisableEvents();
 
             InventoryDisableEvents();
+
+            if(unlockDoorsTriggers != null && unlockDoorsTriggers.Length > 0)
+            {
+                foreach(UnlockDoorTrigger unlockDoor in unlockDoorsTriggers)
+                {
+                    unlockDoor.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
+                    unlockDoor.OnRemoveItemFromInventory -= inventoryManager.RemoveKeyItem;
+                    unlockDoor.OnUnlockedDoor += null;
+                }
+            }
 
             ScenarioLoaderDisableEvents();
 
