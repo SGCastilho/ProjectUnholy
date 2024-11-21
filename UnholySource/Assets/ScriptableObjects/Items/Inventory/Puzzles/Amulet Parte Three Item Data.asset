@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 554f588618bfd4f4d8e90fc1fdd5f946, type: 3}
-  m_Name: Healing Bottle Item Data
+  m_Name: Amulet Parte Three Item Data
   m_EditorClassIdentifier: 
-  itemType: 1
-  itemKey: item_healing_bottle_key
-  itemName: Healing Bottle
-  itemIcon: {fileID: 21300000, guid: 0d0962da83c782740ad0827c31f4b840, type: 3}
-  itemDescription: I can heal my self with this.
-  healingAmount: 34
+  itemType: 0
+  itemKey: item_amulet_three_key
+  itemName: Caos Amulet
+  itemIcon: {fileID: 21300000, guid: b59940806be181a44b1897657bb9ebda, type: 3}
+  itemDescription: "I can use this in the 1\xB0 floor, to unlock something to escape."
+  healingAmount: 0
   devNotes: Put your dev notes here.

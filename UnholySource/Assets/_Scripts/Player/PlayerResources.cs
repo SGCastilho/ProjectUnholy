@@ -112,6 +112,10 @@ namespace Core.Player
             }
         }
 
+        public void AddHealingBottles() => ModifyHealingBottles(true, 1);
+        
+        public void AddMunition(int amount) => ModifyMunition(true, amount);
+
         internal bool CanReload()
         {
             int missingBullets = playerMaxBullets - playerBullets;

@@ -24,6 +24,7 @@ namespace Core.Events
         private ChangeCameraRendering changeCameraRendering;
 
         private UnlockDoorTrigger[] unlockDoorsTriggers;
+        private PuzzleInteractionTrigger[] puzzleInteractionTriggers;
 
         private void Awake() => CacheVariables();
 
@@ -40,6 +41,14 @@ namespace Core.Events
             {
                 unlockDoorsTriggers = new UnlockDoorTrigger[unlockTriggers.Length];
                 unlockDoorsTriggers = unlockTriggers;
+            }
+
+            var puzzleTriggers = FindObjectsOfType<PuzzleInteractionTrigger>();
+
+            if(puzzleTriggers != null || puzzleTriggers.Length > 0)
+            {
+                puzzleInteractionTriggers = new PuzzleInteractionTrigger[puzzleTriggers.Length];
+                puzzleInteractionTriggers = puzzleTriggers;
             }
         }
 
@@ -58,6 +67,16 @@ namespace Core.Events
                     unlockDoor.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory += inventoryManager.RemoveKeyItem;
                     unlockDoor.OnUnlockedDoor += unlockDoor.GetComponent<UIOverworldTriggerIcon>().ChangeInteractionSprite;
+                }
+            }
+
+            if(puzzleInteractionTriggers != null && puzzleInteractionTriggers.Length > 0)
+            {
+                foreach(PuzzleInteractionTrigger puzzleUnlock in puzzleInteractionTriggers)
+                {
+                    puzzleUnlock.OnReceiveItemFromInventory += inventoryManager.AddKeyItem;
+                    puzzleUnlock.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
+                    puzzleUnlock.OnRemoveItemFromInventory += inventoryManager.RemoveKeyItem;
                 }
             }
 
@@ -127,6 +146,16 @@ namespace Core.Events
                     unlockDoor.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory -= inventoryManager.RemoveKeyItem;
                     unlockDoor.OnUnlockedDoor += null;
+                }
+            }
+
+            if(puzzleInteractionTriggers != null && puzzleInteractionTriggers.Length > 0)
+            {
+                foreach(PuzzleInteractionTrigger puzzleUnlock in puzzleInteractionTriggers)
+                {
+                    puzzleUnlock.OnReceiveItemFromInventory -= inventoryManager.AddKeyItem;
+                    puzzleUnlock.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
+                    puzzleUnlock.OnRemoveItemFromInventory -= inventoryManager.RemoveKeyItem;
                 }
             }
 
