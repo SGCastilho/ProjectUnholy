@@ -24,7 +24,21 @@ namespace Core.Character
 
         [SerializeField] private Transform graphicsFlip;
 
+        [Space(10)]
+
+        [SerializeField] private Transform slopeCheckTransform;
+        [SerializeField] private Transform groundCheckTransform;
+
         [Header("Settings")]
+        [SerializeField] private float slopeForce;
+        [SerializeField] private float slopeCheckDistance;
+
+        [Space(6)]
+
+        [SerializeField] private float groundCheckSize;
+        [SerializeField] private LayerMask groundCheckLayer;
+        [SerializeField] private bool isGrounded;
+
         [SerializeField] private bool variableSpeed = true;
         [SerializeField] [Range(2f, 12f)] private float speed = 5f;
 
@@ -36,7 +50,22 @@ namespace Core.Character
         private float _currentSpeed;
         private float _sideMovement;
         private Vector3 _currentVelocity;
-            
+
+        private bool OnSlope()
+        {
+            RaycastHit hit;
+
+            if(Physics.Raycast(slopeCheckTransform.position, Vector3.down, out hit, slopeCheckDistance))
+            {
+                if(hit.normal != Vector3.up)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void OnEnable() 
         {
             if(variableSpeed)
@@ -55,9 +84,16 @@ namespace Core.Character
         {
             if(!isMoving) return;
 
+            isGrounded = Physics.CheckSphere(groundCheckTransform.position, groundCheckSize, groundCheckLayer);
+
             _currentVelocity = new Vector3(rb3D.velocity.x, rb3D.velocity.y, _sideMovement * _currentSpeed);
 
             rb3D.velocity = _currentVelocity;
+
+            if(isGrounded && OnSlope())
+            {
+                rb3D.AddForce(Vector3.down * 0.85f * slopeForce * Time.deltaTime, ForceMode.Impulse);
+            }
         }
 
         private void ChangeSide()
@@ -82,5 +118,21 @@ namespace Core.Character
         {
             MoveRight = playerInTheRight;
         }
+
+        #region Editor Function
+        #if UNITY_EDITOR
+        private void OnDrawGizmosSelected() 
+        {
+            if(groundCheckTransform != null)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(groundCheckTransform.position, groundCheckSize);
+
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawRay(slopeCheckTransform.position, slopeCheckDistance * Vector3.down);
+            }
+        }
+        #endif
+        #endregion
     }
 }

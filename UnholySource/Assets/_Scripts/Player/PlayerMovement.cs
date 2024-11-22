@@ -53,17 +53,52 @@ namespace Core.Player
         [Header("Classes")]
         [SerializeField] private Rigidbody rigidBody;
 
+        [Space(6)]
+
+        [SerializeField] private Transform slopeCheckTransform;
+        [SerializeField] private Transform groundCheckTransform;
+
         [Header("Settings")]
+        [SerializeField] private float slopeForce;
+        [SerializeField] private float slopeCheckDistance;
+
+        [Space(6)]
+
+        [SerializeField] private float groundCheckSize;
+        [SerializeField] private LayerMask groundCheckLayer;
+        [SerializeField] private bool isGrounded;
+
+        [Space(10)]
+
         [SerializeField] [Range(4f, 10f)] private float runningSpeed = 6f;
         [SerializeField] [Range(6f, 12f)] private float sprintSpeed = 10f;
+
         [Space(10)]
+
         [SerializeField] private bool sprintEnabled;
+
         [Space(10)]
+
         [SerializeField] private Transform flipTransform;
         [SerializeField] private bool isFlipped;
 
         private float _currentSpeed;
         private Vector3 _currentVelocity;
+
+        private bool OnSlope()
+        {
+            RaycastHit hit;
+
+            if(Physics.Raycast(slopeCheckTransform.position, Vector3.down, out hit, slopeCheckDistance))
+            {
+                if(hit.normal != Vector3.up)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         private void OnEnable() 
         {
@@ -79,9 +114,16 @@ namespace Core.Player
 
         private void CharacterMovement()
         {
+            isGrounded = Physics.CheckSphere(groundCheckTransform.position, groundCheckSize, groundCheckLayer);
+
             _currentVelocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, behaviour.Inputs.MovementAxis * _currentSpeed);
 
             rigidBody.velocity = _currentVelocity;
+
+            if(isGrounded && OnSlope())
+            {
+                rigidBody.AddForce(Vector3.down * 0.85f * slopeForce * Time.deltaTime, ForceMode.Impulse);
+            }
         }
 
         private void CharacterFlip()
@@ -89,5 +131,21 @@ namespace Core.Player
             if (behaviour.Inputs.MovementAxis >= 1) { IsFlipped = false; }
             else if (behaviour.Inputs.MovementAxis <= -1) { IsFlipped = true; }
         }
+
+        #region Editor Function
+        #if UNITY_EDITOR
+        private void OnDrawGizmosSelected() 
+        {
+            if(groundCheckTransform != null)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(groundCheckTransform.position, groundCheckSize);
+
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawRay(slopeCheckTransform.position, slopeCheckDistance * Vector3.down);
+            }
+        }
+        #endif
+        #endregion
     }
 }
