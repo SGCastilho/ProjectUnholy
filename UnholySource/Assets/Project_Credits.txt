@@ -1,3 +1,8 @@
+Audio:
+	-Pixabay
+	-freesound Community
+	-Universfield
+
 User Interface:
 	-Pixel Perfect
 	-Freepik
