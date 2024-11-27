@@ -13,7 +13,17 @@ namespace Core.Character
         #region Encapsulation
         public float Speed { get => speed; set => speed = value; }
 
-        public bool IsMoving { get => isMoving; set => isMoving = value; }
+        public bool IsMoving 
+        { 
+            get => isMoving; 
+            set 
+            { 
+                isMoving = value;
+                if(isMoving == false)
+                    rb3D.velocity = new Vector3(rb3D.velocity.x, rb3D.velocity.y, 0f); 
+            } 
+        }
+
         public bool MoveRight { get => moveRight; set { moveRight = value; ChangeSide(); } }
         #endregion
 
