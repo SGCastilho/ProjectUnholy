@@ -1,4 +1,5 @@
 using Core.Character;
+using Core.ScriptableObjects;
 using UnityEngine;
 
 namespace Core.Enemies
@@ -6,10 +7,17 @@ namespace Core.Enemies
     public sealed class PredatorBehaviour : MonoBehaviour
     {
         #region Encapsulation
-        internal CharacterMovement Movement { get => charMovement; }
+        public CharacterMovement Movement { get => charMovement; }
+        public Transform PredatorTransform { get => _transform; }
+
         internal PredatorAnimation Animation { get => charAnimation; }
+
+        public int Damage { get => data.Damage; }
         #endregion
 
+        [Header("Data")]
+        [SerializeField] private EnemyData data;
+        
         [Header("Classes")]
         [SerializeField] private CharacterMovement charMovement;
 

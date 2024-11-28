@@ -63,6 +63,8 @@ namespace Core.AnimationEvents
             
             foreach(Collider enemy in searchingEnemy)
             {
+                if(enemy.GetComponent<IDamagable>() == null) return;
+
                 enemy.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
             }
         }
@@ -82,6 +84,8 @@ namespace Core.AnimationEvents
 
                 if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, enemyLayer))
                 {
+                    if(_raycastHitDetection.transform.GetComponent<IDamagable>() == null) return;
+                    
                     _raycastHitDetection.transform.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
                 }
             }
@@ -92,6 +96,8 @@ namespace Core.AnimationEvents
 
                 if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, enemyLayer))
                 {
+                    if(_raycastHitDetection.transform.GetComponent<IDamagable>() == null) return;
+
                     _raycastHitDetection.transform.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
                 }
             }

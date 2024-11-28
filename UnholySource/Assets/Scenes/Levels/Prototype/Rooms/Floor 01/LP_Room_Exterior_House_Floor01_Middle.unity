@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631737432}
   - component: {fileID: 631737433}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560532682}
   - component: {fileID: 1560532683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

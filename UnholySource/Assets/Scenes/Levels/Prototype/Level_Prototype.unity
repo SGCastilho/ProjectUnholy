@@ -6739,6 +6739,10 @@ MonoBehaviour:
   isGrounded: 0
   variableSpeed: 1
   speed: 2
+  dashMinOffset: 1
+  wallCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   isMoving: 0
   moveRight: 0
 --- !u!114 &401890026
@@ -12276,6 +12280,79 @@ Canvas:
   m_SortingLayerID: 151606041
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &746034664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139347182431090355, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265832047044040600, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Predator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265832047044040600, guid: 6fde1f6098c25014882c023f551902df,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6fde1f6098c25014882c023f551902df, type: 3}
 --- !u!1 &747721666
 GameObject:
   m_ObjectHideFlags: 0
@@ -36665,5 +36742,6 @@ SceneRoots:
   - {fileID: 2119930820}
   - {fileID: 1753512727}
   - {fileID: 1059141491}
+  - {fileID: 746034664}
   - {fileID: 601698059}
   - {fileID: 1724320021}
