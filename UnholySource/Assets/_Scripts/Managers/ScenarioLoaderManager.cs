@@ -12,12 +12,20 @@ namespace Core.Managers
         public string SceneName { get => sceneName; }
         public GameObject EnemiesToEnable { get => enemiesToEnable; }
         public GameObject InteractablesToEnable { get => interactableToEnable; }
+
+        public Transform LeftSpawn { get => predatorLeftSpawn; }
+        public Transform RightSpawn { get => predatorRightSpawn; }
         #endregion
 
         [Header("Settings")]
         [SerializeField] private string sceneName;
         [SerializeField] private GameObject enemiesToEnable;
         [SerializeField] private GameObject interactableToEnable;
+
+        [Space(10)]
+
+        [SerializeField] private Transform predatorLeftSpawn;
+        [SerializeField] private Transform predatorRightSpawn;
     }
 
     public sealed class ScenarioLoaderManager : MonoBehaviour
@@ -30,9 +38,12 @@ namespace Core.Managers
         public event EndTravel OnEndTravel;
         #endregion
 
+        [Header("Classes")]
+        [SerializeField] private PredatorManager predatorManager;
+        
         [Header("Scenes To Load")]
         [SerializeField] private SceneLoaderSettings[] scenes;
-
+        
         [Header("Settings")]
         [SerializeField] private bool loadFirstScene;
 
@@ -180,6 +191,66 @@ namespace Core.Managers
             await Task.Delay(1000);
 
             OnEndTravel?.Invoke();
+
+            await Task.Delay(1000);
+
+            if(predatorManager.IsChasing)
+            {
+                if(predatorManager.CountdownFinish)
+                {
+                    predatorManager.EndChasing();
+                }
+                else
+                {
+                    predatorManager.SpawnPredator(ref _travelPointTransform);
+                }
+            }
+        }
+
+        public Transform ReturnFarPredatorPoint()
+        {
+            SceneLoaderSettings currentScene = new SceneLoaderSettings();
+
+            foreach(SceneLoaderSettings scene in scenes)
+            {
+                if(scene.SceneName == _currentLoadedScene)
+                {
+                    currentScene = scene;
+                    break;
+                }
+            }
+
+            float leftSpawnDistance = 0f;
+            float rightSpawnDistance = 0f;
+
+            if(currentScene.LeftSpawn != null)
+            {
+                leftSpawnDistance = Mathf.Abs(Vector3.Distance(_playerTransform.position, currentScene.LeftSpawn.position));
+
+                Debug.Log($"Left: {leftSpawnDistance}");
+            }
+
+            if(currentScene.RightSpawn != null)
+            {
+                rightSpawnDistance = Mathf.Abs(Vector3.Distance(_playerTransform.position, currentScene.RightSpawn.position));
+
+                Debug.Log($"Right: {rightSpawnDistance}");
+            }
+
+            if(rightSpawnDistance > leftSpawnDistance)
+            {
+                Debug.Log("Return right spawn");
+
+                return currentScene.RightSpawn;
+            }
+            else if(rightSpawnDistance < leftSpawnDistance)
+            {
+                Debug.Log("Return left spawn");
+
+                return currentScene.LeftSpawn;
+            }
+
+            return null;
         }
     }
 }

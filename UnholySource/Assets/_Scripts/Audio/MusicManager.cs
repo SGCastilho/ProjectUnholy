@@ -13,6 +13,11 @@ namespace Core.Audio
         [SerializeField] private bool predatorChasing;
         [SerializeField] [Range(0.1f, 4f)] private float fadeDuration = 1f;
 
+        [Space(10)]
+
+        [SerializeField] private AudioClip predatorChasingClip;
+        [SerializeField] private AudioClip predatorSearchingClip;
+
         private float _maxVolume;
 
         private void OnEnable() 
@@ -95,6 +100,49 @@ namespace Core.Audio
 
                 audioSource.clip = null;
             }).SetUpdate(true);
+        }
+
+        public void PlayPredatorChasing()
+        {
+            if(predatorChasing) return;
+
+            predatorChasing = true;
+
+            audioSource.Stop();
+            audioSource.clip = null;
+
+            audioSource.clip = predatorChasingClip;
+            audioSource.volume = _maxVolume;
+
+            audioSource.Play();
+        }
+
+        public void PlayPredatorSearching()
+        {
+            audioSource.DOKill();
+
+            inTransition = true;
+
+            audioSource.DOFade(0f, fadeDuration).OnComplete(() => 
+            {
+                audioSource.Stop();
+
+                audioSource.clip = predatorSearchingClip;
+                audioSource.volume = 0f;
+
+                audioSource.Play();
+
+                audioSource.DOKill();
+                audioSource.DOFade(_maxVolume, fadeDuration).OnComplete(() => { inTransition = false; });
+            }).SetUpdate(true);
+        }
+
+        public void StopPredatorMusic()
+        {
+            audioSource.Stop();
+            audioSource.clip = null;
+
+            predatorChasing = false;
         }
     }
 }

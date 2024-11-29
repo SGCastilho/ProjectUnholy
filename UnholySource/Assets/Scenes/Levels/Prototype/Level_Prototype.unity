@@ -20996,6 +20996,106 @@ Transform:
   - {fileID: 1956379282}
   m_Father: {fileID: 2119930820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1326621698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326621699}
+  - component: {fileID: 1326621700}
+  m_Layer: 0
+  m_Name: PredatorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1326621699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326621698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1326621700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326621698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33158c9d436a4eb48940771941b39ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenarioLoaderManager: {fileID: 1416651630}
+  predatorInstance: {fileID: 1374317371}
+  predatorAudioClip: {fileID: 8300000, guid: e5510fb0e2e098c4f90d2413ae5ef95f, type: 3}
+  isChasing: 0
+  chasingAgain: 0
+  countDownFinish: 0
+  checkingChasingRoll: 0
+  chasingContinueChange: 60
+  minChasingCountdown: 16
+  maxChasingCountdown: 20
+  chasingTime: 14
+  OnStartChasing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1464374883}
+        m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
+        m_MethodName: PlayPredatorChasing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnExitChasing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1464374883}
+        m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
+        m_MethodName: PlayPredatorSearching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnFinishChasing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1464374883}
+        m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
+        m_MethodName: StopPredatorMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1327107944
 GameObject:
   m_ObjectHideFlags: 0
@@ -21662,6 +21762,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1374317371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7265832047044040600, guid: 6fde1f6098c25014882c023f551902df,
+    type: 3}
+  m_PrefabInstance: {fileID: 746034664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1388051794
 GameObject:
   m_ObjectHideFlags: 0
@@ -22123,85 +22229,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c1716774101d04292b0c6284c0b3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  predatorManager: {fileID: 1326621700}
   scenes:
   - sceneName: LP_Room_Start_Basement
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 237049590}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 1620004687}
   - sceneName: LP_Room_Exit_Basement
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 594229873}
+    predatorLeftSpawn: {fileID: 1291423658}
+    predatorRightSpawn: {fileID: 645362686}
   - sceneName: LP_Room_Exterior_House_Floor01_Left
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 2040278175}
+    predatorLeftSpawn: {fileID: 1596570194}
+    predatorRightSpawn: {fileID: 1547699294}
   - sceneName: LP_Room_Exterior_House_Floor01_Left_Room
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 39630807}
+    predatorLeftSpawn: {fileID: 877338342}
+    predatorRightSpawn: {fileID: 0}
   - sceneName: LP_Room_Exterior_House_Floor01_Middle
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 320196075}
+    predatorLeftSpawn: {fileID: 1656613705}
+    predatorRightSpawn: {fileID: 2122689656}
   - sceneName: LP_Room_Exterior_House_Floor01_Right
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 125450396}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 94770972}
   - sceneName: LP_Room_Exterior_House_Floor02_Left
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1956741891}
+    predatorLeftSpawn: {fileID: 1524832290}
+    predatorRightSpawn: {fileID: 0}
   - sceneName: LP_Room_Exterior_House_Floor02_Middle
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1192375974}
+    predatorLeftSpawn: {fileID: 15452482}
+    predatorRightSpawn: {fileID: 833030586}
   - sceneName: LP_Room_Exterior_House_Floor02_Right
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1231483275}
+    predatorLeftSpawn: {fileID: 765520144}
+    predatorRightSpawn: {fileID: 675438793}
   - sceneName: LP_Room_Exterior_House_Floor02_Right_Room_01
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1957555758}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 2040837218}
   - sceneName: LP_Room_Exterior_House_Floor03_Left
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1295480586}
+    predatorLeftSpawn: {fileID: 1168708164}
+    predatorRightSpawn: {fileID: 1416103872}
   - sceneName: LP_Room_Exterior_House_Floor03_Left_2
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 781693698}
+    predatorLeftSpawn: {fileID: 993081495}
+    predatorRightSpawn: {fileID: 1819938884}
   - sceneName: LP_Room_Exterior_House_Floor03_Left_3
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 2042996948}
+    predatorLeftSpawn: {fileID: 1820545234}
+    predatorRightSpawn: {fileID: 1857190647}
   - sceneName: LP_Room_Exterior_House_Floor03_Middle
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 112273448}
+    predatorLeftSpawn: {fileID: 289890477}
+    predatorRightSpawn: {fileID: 623673808}
   - sceneName: LP_Room_Exterior_House_Floor03_Right
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1480227989}
+    predatorLeftSpawn: {fileID: 1488545936}
+    predatorRightSpawn: {fileID: 1169154536}
   - sceneName: LP_Room_Exterior_House_Floor03_Right_2
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 759721542}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 536451350}
   - sceneName: LP_Room_Exterior_House_Floor03_Right_Room
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 776196464}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 831792787}
   - sceneName: LP_Room_Exterior_House_Roof_Left
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 27670971}
+    predatorLeftSpawn: {fileID: 464493326}
+    predatorRightSpawn: {fileID: 768124142}
   - sceneName: LP_Room_Exterior_House_Roof_Left_2
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1967114780}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 259222581}
   - sceneName: LP_Room_Exterior_House_Roof_Middle
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 29806129}
+    predatorLeftSpawn: {fileID: 796549858}
+    predatorRightSpawn: {fileID: 1491695454}
   - sceneName: LP_Room_Exterior_House_Roof_Right
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 689875692}
+    predatorLeftSpawn: {fileID: 842827206}
+    predatorRightSpawn: {fileID: 885712871}
   - sceneName: LP_Room_Exterior_House_Floor01_Left_LockedRoom
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1028823995}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 460922277}
   - sceneName: LP_Room_Exterior_House_Floor02_Left_LockedRoom
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1028823995}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 452224328}
   - sceneName: LP_Room_Exterior_House_Floor02_Left_LockedRoom_2
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 1028823995}
+    predatorLeftSpawn: {fileID: 815003908}
+    predatorRightSpawn: {fileID: 0}
   - sceneName: LP_Room_Exterior_House_Floor02_Left_LockedRoom_3
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 44109997}
+    predatorLeftSpawn: {fileID: 958077969}
+    predatorRightSpawn: {fileID: 0}
   - sceneName: LP_Room_Interior_House_Roof_LockedRoom
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 619998191}
+    predatorLeftSpawn: {fileID: 1327107945}
+    predatorRightSpawn: {fileID: 0}
   loadFirstScene: 1
   loadDebugScene: 0
   sceneToDebug: LP_Room_Exterior_House_Floor03_Left_3
@@ -23077,6 +23236,9 @@ MonoBehaviour:
   inTransition: 0
   predatorChasing: 0
   fadeDuration: 1
+  predatorChasingClip: {fileID: 8300000, guid: 9f6cd258a49bed6429a79016db528870, type: 3}
+  predatorSearchingClip: {fileID: 8300000, guid: e5510fb0e2e098c4f90d2413ae5ef95f,
+    type: 3}
 --- !u!1001 &1465757672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36721,6 +36883,7 @@ SceneRoots:
   - {fileID: 276322209}
   - {fileID: 1464374881}
   - {fileID: 44422094}
+  - {fileID: 1326621699}
   - {fileID: 1817070905}
   - {fileID: 1416651629}
   - {fileID: 1138728914}
