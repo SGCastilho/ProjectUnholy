@@ -1,0 +1,2 @@
+-Adicionar um mini mapa, ou testar a pre-alpha sem mini mapa para ver como os jogadores reagem.
+-Fazer o jogador se mover enquanto mira.

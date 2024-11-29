@@ -11,3 +11,9 @@ User Interface:
 
 Unity Packages
 	-DOTween (Procura criador)
+
+Special Thanks:
+	-Spod
+	-Hiki
+	-Ayumi
+	-Meeme
