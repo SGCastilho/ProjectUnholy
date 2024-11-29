@@ -127,6 +127,7 @@ namespace Core.Events
 
             playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
+            playerBehaviour.Status.OnDeath += scenarioLoaderManager.ReloadCurrentScene;
 
             playerBehaviour.Resources.OnRefreshUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
         }
@@ -206,6 +207,7 @@ namespace Core.Events
 
             playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
+            playerBehaviour.Status.OnDeath -= scenarioLoaderManager.ReloadCurrentScene;
 
             playerBehaviour.Resources.OnRefreshUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
         }

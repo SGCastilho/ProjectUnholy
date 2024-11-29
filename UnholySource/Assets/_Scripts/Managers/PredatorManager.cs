@@ -184,7 +184,7 @@ namespace Core.Managers
 
                 _continueChasingRoll = Random.Range(0, 100);
 
-                Debug.Log($"Chasing roll: {_continueChasingRoll}");
+                //Debug.Log($"Chasing roll: {_continueChasingRoll}");
 
                 checkingChasingRoll = true;
 
@@ -194,6 +194,8 @@ namespace Core.Managers
 
         public void EnablePredator()
         {
+            if(predatorEnabled) return;
+
             _currentChasingTime = 0f;
             _currentChasingCountdown = 0f;
             _currentContinueRollCountdown = 0f;
@@ -205,6 +207,8 @@ namespace Core.Managers
         
         public void DisablePredator()
         {
+            if(!predatorEnabled) return;
+
             _currentChasingTime = 0f;
             _currentChasingCountdown = 0f;
             _currentContinueRollCountdown = 0f;

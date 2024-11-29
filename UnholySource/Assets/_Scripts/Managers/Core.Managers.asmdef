@@ -2,6 +2,7 @@
     "name": "Core.Managers",
     "rootNamespace": "Core.Managers",
     "references": [
+        "GUID:bef5efa0d540aff469b34981fc7046ee",
         "GUID:c11eed96ae7c4e348ad62cfb1fab3be1"
     ],
     "includePlatforms": [],

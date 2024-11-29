@@ -59,7 +59,8 @@ namespace Core.Managers
 
         private bool _loadingScene;
         private bool _isTraveling;
-        private string _currentLoadedScene;
+        private string _currentRoomScene;
+        private string _currentLevelLoaded;
 
         private AsyncOperation _currentLoadingOperation;
 
@@ -69,6 +70,8 @@ namespace Core.Managers
         private void Awake()
         {
             _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+            _currentLevelLoaded = SceneManager.GetActiveScene().name;
         }
 
         private void OnEnable() 
@@ -91,17 +94,17 @@ namespace Core.Managers
                 _playerTransform.position = travelPosistion.position;
                 _playerTransform.gameObject.SetActive(true);
 
-                LoadSceneAddictive(sceneToDebug);
+                LoadRoomAddictive(sceneToDebug);
             }
             #endif
 
             if(loadFirstScene)
             {
-                LoadSceneAddictive(scenes[0].SceneName);
+                LoadRoomAddictive(scenes[0].SceneName);
             }
         }
 
-        public void LoadSceneAddictive(string sceneName)
+        public void LoadRoomAddictive(string sceneName)
         {
             if(_loadingScene || scenes.Length <= 0) return;
 
@@ -122,7 +125,7 @@ namespace Core.Managers
 
             if(sceneToLoad.InteractablesToEnable != null) { sceneToLoad.InteractablesToEnable.SetActive(true); }
 
-            _currentLoadedScene = sceneToLoad.SceneName;
+            _currentRoomScene = sceneToLoad.SceneName;
 
             _loadingScene = true;
 
@@ -136,7 +139,7 @@ namespace Core.Managers
             StartCoroutine(LoadingProgress());
         }
 
-        public void UnLoadSceneAddictive(string sceneName)
+        public void UnLoadRoomAddictive(string sceneName)
         {
             if(_loadingScene || scenes.Length <= 0) return;
 
@@ -182,11 +185,11 @@ namespace Core.Managers
         {
             OnStartTravel?.Invoke();
 
-            UnLoadSceneAddictive(_currentLoadedScene);
+            UnLoadRoomAddictive(_currentRoomScene);
 
             await Task.Delay(400);
 
-            LoadSceneAddictive(sceneName);
+            LoadRoomAddictive(sceneName);
 
             await Task.Delay(1000);
 
@@ -207,13 +210,26 @@ namespace Core.Managers
             }
         }
 
+        public async void ReloadCurrentScene()
+        {
+            await Task.Delay(4000);
+
+            OnStartTravel?.Invoke();
+
+            await Task.Delay(1000);
+
+            SceneManager.LoadScene(_currentLevelLoaded);
+
+            OnEndTravel?.Invoke();
+        }
+
         public Transform ReturnFarPredatorPoint()
         {
             SceneLoaderSettings currentScene = new SceneLoaderSettings();
 
             foreach(SceneLoaderSettings scene in scenes)
             {
-                if(scene.SceneName == _currentLoadedScene)
+                if(scene.SceneName == _currentRoomScene)
                 {
                     currentScene = scene;
                     break;
@@ -252,5 +268,20 @@ namespace Core.Managers
 
             return null;
         }
+
+        //REMOVER DEPOIS DE TERMINAR O PROTIPO
+
+        public async void PrototypeFinish()
+        {
+            OnStartTravel?.Invoke();
+
+            await Task.Delay(1000);
+
+            SceneManager.LoadScene("Prototype_ThanksForPlaying");
+
+            OnEndTravel?.Invoke();
+        }
+
+        //REMOVER DEPOIS DE TERMINAR O PROTIPO
     }
 }

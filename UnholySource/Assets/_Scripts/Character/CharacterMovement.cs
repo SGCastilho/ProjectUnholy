@@ -110,6 +110,8 @@ namespace Core.Character
         private void OnDisable() 
         {
             isMoving = false;
+
+            EndDash();
         }
 
         private void Update() 
@@ -138,7 +140,7 @@ namespace Core.Character
         {
             isGrounded = Physics.CheckSphere(groundCheckTransform.position, groundCheckSize, groundCheckLayer);
 
-            if(isGrounded && OnSlope())
+            if(isGrounded && !_isDashing && OnSlope())
             {
                 rb3D.AddForce(Vector3.down * 0.85f * slopeForce * Time.deltaTime, ForceMode.Impulse);
             }
@@ -221,7 +223,7 @@ namespace Core.Character
                 {
                     _dashTargetPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _wallHit.point.z);
 
-                    Debug.Log($"Wall founded, {_transform.localPosition.z - dashLenght}, to {_wallHit.point.z}");
+                    //Debug.Log($"Wall founded, {_transform.localPosition.z - dashLenght}, to {_wallHit.point.z}");
                 }
                 else
                 {
@@ -239,7 +241,7 @@ namespace Core.Character
                 {
                     _dashTargetPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _wallHit.point.z);
 
-                    Debug.Log($"Wall founded, {_transform.localPosition.z - dashLenght}, to {_wallHit.point.z}");
+                    //Debug.Log($"Wall founded, {_transform.localPosition.z - dashLenght}, to {_wallHit.point.z}");
                 }
                 else
                 {

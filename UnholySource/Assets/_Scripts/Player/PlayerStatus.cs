@@ -7,11 +7,14 @@ namespace Core.Player
     public sealed class PlayerStatus : MonoBehaviour, IDamagable
     {
         #region Events
-        public delegate void ModifingHealth(ref int currentHealth);
-        public event ModifingHealth OnModifingHealth;
-
         public delegate void TakingDamage();
         public event TakingDamage OnTakingDamage;
+
+        public delegate void Death();
+        public event Death OnDeath;
+
+        public delegate void ModifingHealth(ref int currentHealth);
+        public event ModifingHealth OnModifingHealth;
         #endregion
 
         #region Encapsulation
@@ -68,10 +71,14 @@ namespace Core.Player
 
         private void DeathSequence()
         {
+            //TEMPORARIO!!! JOGAR TUDO ISSO PARA O GAME CONTROLLER
             isDead = true;
 
             behaviour.Inputs.BlockControls();
             behaviour.Animation.CallDeathTrigger();
+
+            OnDeath?.Invoke();
+            //TEMPORARIO!!! JOGAR TUDO ISSO PARA O GAME CONTROLLER
         }
 
         public void ApplyDamage(int damageToApply)
