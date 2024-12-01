@@ -1,2 +1,9 @@
 -Adicionar um mini mapa, ou testar a pre-alpha sem mini mapa para ver como os jogadores reagem.
 -Fazer o jogador se mover enquanto mira.
+-Após mirar a porra do boneco trava e n consegue interagir
+-P e ESC pause, opção de help para ver comandos
+-Quando toma dano alguma coisa faz bloquear os inputs
+-Os inimigos dps que desativados eles dao dash pro lado errado, quando veem o jogador
+-Dar um jeito de melhorar as portas invisíveis
+
+-Criar um bicho que precisamos ficar olhando para eles??
