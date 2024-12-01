@@ -18,6 +18,11 @@ namespace Core.Translation
 
         private void Start() 
         {
+            ReloadTranslation();
+        }
+
+        public void ReloadTranslation()
+        {
             _tmpPro.text = localisedString.value;
         }
     }

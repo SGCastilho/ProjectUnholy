@@ -4433,6 +4433,7 @@ GameObject:
   - component: {fileID: 1472149052}
   - component: {fileID: 1472149054}
   - component: {fileID: 1472149053}
+  - component: {fileID: 1472149055}
   m_Layer: 5
   m_Name: CloseInfoButton TMP
   m_TagString: Untagged
@@ -4556,6 +4557,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472149051}
   m_CullTransparentMesh: 1
+--- !u!114 &1472149055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472149051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66abb7e2914cc20459e1a1def037a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localisedString:
+    key: menuInfo_inventory_close
 --- !u!1 &1510332124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,6 +4867,7 @@ GameObject:
   - component: {fileID: 1672636960}
   - component: {fileID: 1672636962}
   - component: {fileID: 1672636961}
+  - component: {fileID: 1672636963}
   m_Layer: 5
   m_Name: No Items TMP
   m_TagString: Untagged
@@ -4931,7 +4947,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4975,6 +4991,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672636959}
   m_CullTransparentMesh: 1
+--- !u!114 &1672636963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672636959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66abb7e2914cc20459e1a1def037a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localisedString:
+    key: gameplay_inventory_noItems
 --- !u!1 &1718829455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6439,6 +6469,7 @@ GameObject:
   - component: {fileID: 2115464796}
   - component: {fileID: 2115464798}
   - component: {fileID: 2115464797}
+  - component: {fileID: 2115464799}
   m_Layer: 5
   m_Name: MenuName TMP
   m_TagString: Untagged
@@ -6562,6 +6593,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115464795}
   m_CullTransparentMesh: 1
+--- !u!114 &2115464799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115464795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66abb7e2914cc20459e1a1def037a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localisedString:
+    key: menuName_inventory
 --- !u!1 &2119930819
 GameObject:
   m_ObjectHideFlags: 0
