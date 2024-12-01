@@ -274,7 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66abb7e2914cc20459e1a1def037a0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localisationKey: testing_hello_world
+  localisedString:
+    key: testing_state
 --- !u!114 &280085925
 MonoBehaviour:
   m_ObjectHideFlags: 0

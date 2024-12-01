@@ -7,7 +7,7 @@ namespace Core.Translation
     public sealed class UITextLocaliser : MonoBehaviour
     {
         [Header("Data")]
-        [SerializeField] private string localisationKey;
+        public LocalisedString localisedString;
 
         private TextMeshProUGUI _tmpPro;
 
@@ -18,9 +18,7 @@ namespace Core.Translation
 
         private void Start() 
         {
-            string value = LocalisationSystem.GetLocalisedValue(localisationKey);
-
-            _tmpPro.text = value;
+            _tmpPro.text = localisedString.value;
         }
     }
 }
