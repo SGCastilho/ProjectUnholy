@@ -15,18 +15,18 @@ namespace Core.Managers
 
         public void AddKeyItem(ItemData keyItemData)
         {
-            if(keyItemData == null || _keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
+            if(keyItemData == null || _keyItemInventory.ContainsKey(keyItemData.NameKey) || keyItemData.Type != ItemType.KEY_ITEM) return;
 
-            _keyItemInventory.Add(keyItemData.Key, keyItemData);
+            _keyItemInventory.Add(keyItemData.NameKey, keyItemData);
 
             OnModifyInventory?.Invoke(true, ref keyItemData);
         }
 
         public void RemoveKeyItem(ItemData keyItemData)
         {
-            if(keyItemData == null || !_keyItemInventory.ContainsKey(keyItemData.Key) || keyItemData.Type != ItemType.KEY_ITEM) return;
+            if(keyItemData == null || !_keyItemInventory.ContainsKey(keyItemData.NameKey) || keyItemData.Type != ItemType.KEY_ITEM) return;
 
-            _keyItemInventory.Remove(keyItemData.Key);
+            _keyItemInventory.Remove(keyItemData.NameKey);
 
             OnModifyInventory?.Invoke(false, ref keyItemData);
         }
@@ -38,7 +38,7 @@ namespace Core.Managers
                 return false;
             }
 
-            if(_keyItemInventory.ContainsKey(itemToCheck.Key))
+            if(_keyItemInventory.ContainsKey(itemToCheck.NameKey))
             {
                 return true;
             }

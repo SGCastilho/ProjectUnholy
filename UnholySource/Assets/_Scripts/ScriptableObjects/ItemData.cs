@@ -10,9 +10,11 @@ namespace Core.ScriptableObjects
         #region Encapsulation
         public ItemType Type { get => itemType; internal set => itemType = value; }
 
-        public string Key { get => itemKey; internal set => itemKey = value; }
-        public string Name { get => itemName; internal set => itemName = value; }
-        public string Description { get => itemDescription; internal set => itemDescription = value; }
+        public string NameKey { get => itemKey; internal set => itemKey = value; }
+        public string DescriptionKey { get => itemKeyDescription; internal set => itemKeyDescription = value; }
+
+        public string Name { get => itemName; set => itemName = value; }
+        public string Description { get => itemDescription; set => itemDescription = value; }
 
         public Sprite Icon { get => itemIcon; internal set => itemIcon = value; }
 
@@ -25,6 +27,10 @@ namespace Core.ScriptableObjects
         [Space(20)]
 
         [SerializeField] private string itemKey = "item_key";
+        [SerializeField] private string itemKeyDescription = "item_description_key";
+
+        [Space(10)]
+
         [SerializeField] private string itemName = "Item Name";
         [SerializeField] private Sprite itemIcon;
         [SerializeField] [Multiline(4)] private string itemDescription = "Put your item description here.";

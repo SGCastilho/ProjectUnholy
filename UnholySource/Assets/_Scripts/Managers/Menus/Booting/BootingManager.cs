@@ -12,6 +12,7 @@ namespace Core.Managers
 
         [Header("Classes")]
         [SerializeField] private UITextLocaliser warningText;
+        [SerializeField] private ScriptableObjectLoader scriptableObjectLoader;
 
         public void ChangeLanguage(int languageIndex)
         {
@@ -26,6 +27,10 @@ namespace Core.Managers
             }
 
             warningText.ReloadTranslation();
+
+            scriptableObjectLoader = new ScriptableObjectLoader();
+
+            scriptableObjectLoader.Translate();
 
             OnLanguageChanged?.Invoke();
         }
