@@ -9,6 +9,9 @@ User Interface:
 	-Those Icons
 	-riajulislam
 
+Fonts:
+	-Craft Supply Co
+
 Unity Packages
 	-DOTween (Procura criador)
 

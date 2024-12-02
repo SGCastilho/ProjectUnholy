@@ -9,8 +9,11 @@ namespace Core.Player
         #endregion
 
         #region Events
-        public delegate void RefreshUI(ref int bullets, ref int munition);
-        public event RefreshUI OnRefreshUI;
+        public delegate void RefreshWeaponUI(ref int bullets, ref int munition);
+        public event RefreshWeaponUI OnRefreshWeaponUI;
+
+        public delegate void RefreshBottlesUI(ref int bottlesAmount);
+        public event RefreshBottlesUI OnRefreshBottlesUI;
         #endregion
 
         #region Encapsulation
@@ -63,7 +66,7 @@ namespace Core.Player
                 }
             }
 
-            OnRefreshUI?.Invoke(ref playerBullets, ref playerMunition);
+            OnRefreshWeaponUI?.Invoke(ref playerBullets, ref playerMunition);
         }
 
         public void ModifyMunition(bool increase, int amount)
@@ -87,7 +90,7 @@ namespace Core.Player
                 }
             }
 
-            OnRefreshUI?.Invoke(ref playerBullets, ref playerMunition);
+            OnRefreshWeaponUI?.Invoke(ref playerBullets, ref playerMunition);
         }
 
         public void ModifyHealingBottles(bool increase, int amount)
@@ -110,6 +113,8 @@ namespace Core.Player
                     playerHealthBottles = 0;
                 }
             }
+
+            OnRefreshBottlesUI?.Invoke(ref playerHealthBottles);
         }
 
         public void AddHealingBottles() => ModifyHealingBottles(true, 1);

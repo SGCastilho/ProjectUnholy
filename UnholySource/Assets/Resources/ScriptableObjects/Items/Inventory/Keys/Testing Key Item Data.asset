@@ -16,7 +16,7 @@ MonoBehaviour:
   itemKey: item_testingKey_name
   itemKeyDescription: item_testingKey_desc
   itemName: Testing Key
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
   itemDescription: 
   healingAmount: 34
   devNotes: Put your dev notes here.

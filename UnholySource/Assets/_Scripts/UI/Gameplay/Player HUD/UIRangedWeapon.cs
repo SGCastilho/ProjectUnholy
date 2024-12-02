@@ -15,12 +15,19 @@ namespace Core.UI
 
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float fadeDuration = 0.4f;
+        [SerializeField] private float horizontalMovement = 44f;
 
         [Space(6)]
 
         [SerializeField] [Range(1f, 8f)] private float overlayDurationInScreen = 6f;
-
+        
+        private RectTransform _painelTransform;
         private float _overlayCurrentTime;
+
+        private void Awake() 
+        {
+            _painelTransform = canvasGroup.GetComponent<RectTransform>();
+        }
 
         private void Update() 
         {
@@ -43,6 +50,9 @@ namespace Core.UI
             if(canvasGroup.alpha >= 1f) return;
 
             canvasGroup.DOKill();
+            _painelTransform.anchoredPosition = horizontalMovement * Vector2.right;
+
+            _painelTransform.DOAnchorPosX(0f, fadeDuration);
             canvasGroup.DOFade(1f, fadeDuration);
         }
 
@@ -51,6 +61,8 @@ namespace Core.UI
             if(canvasGroup.alpha <= 0f) return;
 
             canvasGroup.DOKill();
+
+            _painelTransform.DOAnchorPosX(horizontalMovement, fadeDuration);
             canvasGroup.DOFade(0f, fadeDuration);
         }
 

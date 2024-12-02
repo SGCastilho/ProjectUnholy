@@ -129,7 +129,8 @@ namespace Core.Events
             playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
             playerBehaviour.Status.OnDeath += scenarioLoaderManager.ReloadCurrentScene;
 
-            playerBehaviour.Resources.OnRefreshUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            playerBehaviour.Resources.OnRefreshWeaponUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            playerBehaviour.Resources.OnRefreshBottlesUI += uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
         }
 
         private void OnDisable()
@@ -209,7 +210,8 @@ namespace Core.Events
             playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
             playerBehaviour.Status.OnDeath -= scenarioLoaderManager.ReloadCurrentScene;
 
-            playerBehaviour.Resources.OnRefreshUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            playerBehaviour.Resources.OnRefreshWeaponUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            playerBehaviour.Resources.OnRefreshBottlesUI -= uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
         }
     }
 }

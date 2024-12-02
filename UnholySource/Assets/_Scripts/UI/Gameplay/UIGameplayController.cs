@@ -6,6 +6,7 @@ namespace Core.UI
     {
         #region Encapsulation
         public UIRangedWeapon UI_RangedWeapon { get => uIRangedWeapon; }
+        public UIHealingBottles UI_HealingBottles { get => uIHealingBottles; }
         public UIHurtAlertOverlay UI_HurtAlertOverlay { get => uIHurtAlertOverlay; }
 
         public UIInventory UI_Inventory { get => uIInventory; }
@@ -15,6 +16,7 @@ namespace Core.UI
 
         [Header("Player UI Classes")]
         [SerializeField] private UIRangedWeapon uIRangedWeapon;
+        [SerializeField] private UIHealingBottles uIHealingBottles;
         [SerializeField] private UIHurtAlertOverlay uIHurtAlertOverlay;
 
         [Space(10)]
