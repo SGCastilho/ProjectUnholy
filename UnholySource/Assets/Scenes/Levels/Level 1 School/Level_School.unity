@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_fontSizeMin: 40
   m_fontSizeMax: 60
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2536,7 +2536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &449580257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2553,9 +2553,9 @@ RectTransform:
   - {fileID: 357432259}
   m_Father: {fileID: 649595523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 178.903, y: -90}
   m_SizeDelta: {x: 357.806, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &455478447
@@ -4390,7 +4390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Healing Bottles : 99'
+  m_text: 'Healing Bottles: 99'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c3333ff72686794683ad6791f52fbac, type: 2}
   m_sharedMaterial: {fileID: -4154950040267806487, guid: 3c3333ff72686794683ad6791f52fbac,
@@ -4418,14 +4418,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.95
+  m_fontSize: 49.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 40
   m_fontSizeMax: 60
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5672,7 +5672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1372622197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5689,9 +5689,9 @@ RectTransform:
   - {fileID: 313605238}
   m_Father: {fileID: 649595523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 536.709, y: -90}
   m_SizeDelta: {x: 357.806, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1374317371 stripped
@@ -7102,7 +7102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1577375790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7117,9 +7117,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 649595523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 593.4, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577375791
@@ -7648,6 +7648,11 @@ MonoBehaviour:
   itemImage: {fileID: 447132097}
   nextItemButton: {fileID: 1019479746}
   previousItemButton: {fileID: 1451944632}
+  noWeaponsGroup: {fileID: 1577375789}
+  weaponMeleeGroup: {fileID: 449580256}
+  weaponRangedGroup: {fileID: 1372622196}
+  healingBottlesTMP: {fileID: 1000217739}
+  weaponBulletsTMP: {fileID: 392638216}
   keyInventoryList: []
   fadeDuration: 0.1
 --- !u!114 &1639066767

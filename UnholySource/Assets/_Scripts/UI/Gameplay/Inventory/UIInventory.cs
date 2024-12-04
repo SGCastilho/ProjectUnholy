@@ -21,6 +21,21 @@ namespace Core.UI
 
         public delegate void HideInventoryStarts();
         public event HideInventoryStarts OnHideInventoryStarts;
+
+        public delegate bool CheckMeleeWeaponState();
+        public event CheckMeleeWeaponState OnCheckMeleeWeaponState;
+
+        public delegate bool CheckRangedWeaponState();
+        public event CheckRangedWeaponState OnCheckRangedWeaponState;
+
+        public delegate int CheckHealingBottlesState();
+        public event CheckHealingBottlesState OnCheckHealingBottlesState;
+
+        public delegate int CheckWeaponBulletsState();
+        public event CheckWeaponBulletsState OnCheckWeaponBulletsState;
+
+        public delegate int CheckWeaponAmmoState();
+        public event CheckWeaponAmmoState OnCheckWeaponAmmoState;
         #endregion
 
         [Header("Classes")]
@@ -49,6 +64,17 @@ namespace Core.UI
         [SerializeField] private Button nextItemButton;
         [SerializeField] private Button previousItemButton;
 
+        [Space(10)]
+
+        [SerializeField] private GameObject noWeaponsGroup;
+        [SerializeField] private GameObject weaponMeleeGroup;
+        [SerializeField] private GameObject weaponRangedGroup;
+
+        [Space(10)]
+
+        [SerializeField] private TextMeshProUGUI healingBottlesTMP;
+        [SerializeField] private TextMeshProUGUI weaponBulletsTMP;
+
         [Header("Settings")]
         [SerializeField] private List<ItemData> keyInventoryList = new List<ItemData>();
 
@@ -61,6 +87,9 @@ namespace Core.UI
 
         private int _maxItemToSelect;
         private int _currentItemSelected;
+
+        private string _healingBottleInfoText;
+        private string _weaponAmmoInfoText;
 
         private void OnEnable() 
         {
@@ -75,6 +104,9 @@ namespace Core.UI
             }
 
             _currentItemSelected = 0;
+
+            _weaponAmmoInfoText = weaponBulletsTMP.text;
+            _healingBottleInfoText = healingBottlesTMP.text;
 
             if(inventoryFadeCanvas.alpha > 0f) { inventoryFadeCanvas.alpha = 0f; }
         }
@@ -177,6 +209,8 @@ namespace Core.UI
 
         private void RefreshInventory()
         {
+            RefreshResourcesInfo();
+
             _currentItemSelected = 0;
                            
             if(keyInventoryList.Count > 0)
@@ -246,6 +280,64 @@ namespace Core.UI
                 nextItemButton.gameObject.SetActive(true);
                 previousItemButton.gameObject.SetActive(true);
 
+            }
+        }
+
+        private void RefreshResourcesInfo()
+        {
+            RefreshWeaponSection();
+
+            ResourcesSection();
+        }
+
+        private void ResourcesSection()
+        {
+            int healingAmount = (int)OnCheckHealingBottlesState?.Invoke();
+
+            if (healingAmount < 10)
+            {
+                healingBottlesTMP.text = $"{_healingBottleInfoText} 0{healingAmount}";
+            }
+            else if (healingAmount >= 10)
+            {
+                healingBottlesTMP.text = $"{_healingBottleInfoText} {healingAmount}";
+            }
+
+            int weaponBullets = (int)OnCheckWeaponBulletsState?.Invoke();
+            int weaponAmmo = (int)OnCheckWeaponAmmoState?.Invoke();
+
+            weaponBulletsTMP.text = $"{_weaponAmmoInfoText} {weaponBullets}/{weaponAmmo}";
+        }
+
+        private void RefreshWeaponSection()
+        {
+            if (OnCheckMeleeWeaponState?.Invoke() == false && OnCheckRangedWeaponState?.Invoke() == false)
+            {
+                noWeaponsGroup.SetActive(true);
+
+                Debug.Log("All disable"); 
+            }
+            else 
+            { 
+                noWeaponsGroup.SetActive(false); 
+            }
+
+            if (OnCheckMeleeWeaponState?.Invoke() == true)
+            {
+                weaponMeleeGroup.SetActive(true);
+            }
+            else 
+            { 
+                weaponMeleeGroup.SetActive(false);
+            }
+
+            if (OnCheckRangedWeaponState?.Invoke() == true)
+            {
+                weaponRangedGroup.SetActive(true);
+            }
+            else 
+            { 
+                weaponRangedGroup.SetActive(false);
             }
         }
 

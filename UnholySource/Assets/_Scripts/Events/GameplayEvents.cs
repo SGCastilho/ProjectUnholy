@@ -89,6 +89,14 @@ namespace Core.Events
         {
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
+
+            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState += playerBehaviour.Equipment.HasMeleeWeapon;
+            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState += playerBehaviour.Equipment.HasRangedWeapon;
+
+            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState += playerBehaviour.Resources.CurrentHealingBottles;
+            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState += playerBehaviour.Resources.CurrentBullets;
+            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState += playerBehaviour.Resources.CurrentAmmo;
+
             uIGameplayController.UI_ItemNotification.OnShowInterface += pauseManager.Pause;
             uIGameplayController.UI_ItemNotification.OnHideInteface += pauseManager.UnPause;
 
@@ -170,6 +178,14 @@ namespace Core.Events
         {
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
+
+            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState -= playerBehaviour.Equipment.HasMeleeWeapon;
+            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState -= playerBehaviour.Equipment.HasRangedWeapon;
+
+            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState -= playerBehaviour.Resources.CurrentHealingBottles;
+            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState -= playerBehaviour.Resources.CurrentBullets;
+            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState -= playerBehaviour.Resources.CurrentAmmo;
+
             uIGameplayController.UI_ItemNotification.OnShowInterface -= pauseManager.Pause;
             uIGameplayController.UI_ItemNotification.OnHideInteface -= pauseManager.UnPause;
 

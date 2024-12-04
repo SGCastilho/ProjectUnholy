@@ -92,5 +92,15 @@ namespace Core.Player
         }
 
         public void EquipHealingBottle(bool equip) => healingBottleModel.SetActive(equip);
+
+        public bool HasMeleeWeapon()
+        {
+            return meleeEnabled;
+        }
+
+        public bool HasRangedWeapon()
+        {
+            return rangedEnabled;
+        }
     }
 }

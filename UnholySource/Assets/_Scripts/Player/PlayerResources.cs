@@ -148,5 +148,20 @@ namespace Core.Player
                 ModifyMunition(false, missingBullets);
             }
         }
+
+        public int CurrentHealingBottles()
+        {
+            return playerHealthBottles;
+        }
+
+        public int CurrentBullets()
+        {
+            return playerBullets;
+        }
+
+        public int CurrentAmmo()
+        {
+            return playerMunition;
+        }
     }
 }

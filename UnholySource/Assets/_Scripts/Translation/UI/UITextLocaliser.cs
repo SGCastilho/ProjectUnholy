@@ -14,10 +14,7 @@ namespace Core.Translation
         private void Awake() 
         {
             _tmpPro = GetComponent<TextMeshProUGUI>();
-        }
 
-        private void Start() 
-        {
             ReloadTranslation();
         }
 
