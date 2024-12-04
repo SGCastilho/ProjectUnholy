@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Testing Key Item Data
   m_EditorClassIdentifier: 
   itemType: 0
-  itemKey: item_testingKey_name
+  itemKey: item_testingKey_name3
   itemKeyDescription: item_testingKey_desc
   itemName: Testing Key
   itemIcon: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
-  itemDescription: 
+  itemDescription: Testing Description.
   healingAmount: 34
   devNotes: Put your dev notes here.

@@ -8,6 +8,7 @@ User Interface:
 	-Freepik
 	-Those Icons
 	-riajulislam
+	-Flaticon
 
 Fonts:
 	-Craft Supply Co
@@ -20,3 +21,4 @@ Special Thanks:
 	-Hiki
 	-Ayumi
 	-Meeme
+	-Konamo

@@ -24,10 +24,11 @@ namespace Core.UI
         #endregion
 
         [Header("Classes")]
-        [SerializeField] private CanvasGroup inventoryCanvas;
+        [SerializeField] private CanvasGroup inventoryFadeCanvas;
 
         [Space(10)]
 
+        [SerializeField] private GameObject inventoryGroup;
         [SerializeField] private GameObject noItemsGroup;
 
         [Space(6)]
@@ -66,6 +67,7 @@ namespace Core.UI
             if(keyInventoryList.Count <= 0)
             {
                 noItemsGroup.SetActive(true);
+                inventoryGroup.SetActive(false);
                 keyInventoryGroup.SetActive(false);
 
                 nextItemButton.gameObject.SetActive(true);
@@ -74,7 +76,7 @@ namespace Core.UI
 
             _currentItemSelected = 0;
 
-            if(inventoryCanvas.alpha > 0f) { inventoryCanvas.alpha = 0f; }
+            if(inventoryFadeCanvas.alpha > 0f) { inventoryFadeCanvas.alpha = 0f; }
         }
 
         public void CallInventory()
@@ -87,11 +89,11 @@ namespace Core.UI
 
             if(_showingInventory)
             {
-                ShowInventory();
+                ShowFade();
             }
             else
             {
-                HideInventory();
+                HideFade();
             }
         }
 
@@ -152,20 +154,25 @@ namespace Core.UI
             RefreshCurrentItem();
         }
 
-        private void ShowInventory()
+        private void ShowFade()
         {
             OnCallingInventory?.Invoke();
 
-            inventoryCanvas.DOKill();
-            inventoryCanvas.DOFade(1f,fadeDuration).OnComplete(
+            inventoryFadeCanvas.DOKill();
+            inventoryFadeCanvas.DOFade(1f,fadeDuration).OnComplete(
                 () => 
                 { 
-                    inventoryCanvas.blocksRaycasts = true; 
-                    inventoryCanvas.interactable = true; 
-                    _inTransition = false;
+                    inventoryFadeCanvas.blocksRaycasts = true; 
+                    inventoryFadeCanvas.interactable = true; 
+                }).SetUpdate(true).OnComplete(() => { inventoryGroup.SetActive(true); ShowInventory(); });
+        }
 
-                    OnShowInventoryEnd?.Invoke(); 
-                }).SetUpdate(true);
+        private void ShowInventory()
+        {
+            RefreshInventory();
+
+            inventoryFadeCanvas.DOFade(0f, fadeDuration).SetUpdate(true).OnComplete(
+                () => { _inTransition = false; OnShowInventoryEnd?.Invoke(); }).SetDelay(0.2f);
         }
 
         private void RefreshInventory()
@@ -242,16 +249,24 @@ namespace Core.UI
             }
         }
 
-        private void HideInventory()
+        private void HideFade()
         {
             OnHideInventoryStarts?.Invoke();
+
+            inventoryFadeCanvas.blocksRaycasts = false; 
+            inventoryFadeCanvas.interactable = false;
+
+            inventoryFadeCanvas.DOKill();
+            inventoryFadeCanvas.DOFade(1f, fadeDuration).OnComplete(() => { inventoryGroup.SetActive(false); HideInventory(); })
+                .SetUpdate(true);
+        }
+
+        private void HideInventory()
+        {
             OnUnCallingInventory?.Invoke();
 
-            inventoryCanvas.blocksRaycasts = false; 
-            inventoryCanvas.interactable = false;
-
-            inventoryCanvas.DOKill();
-            inventoryCanvas.DOFade(0f, fadeDuration).OnComplete(() => { _inTransition = false; });
+            inventoryFadeCanvas.DOKill();
+            inventoryFadeCanvas.DOFade(0f, fadeDuration).OnComplete(() => { _inTransition = false; });
         }
     }
 }
