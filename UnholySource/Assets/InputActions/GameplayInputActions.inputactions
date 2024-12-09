@@ -245,6 +245,17 @@
                 {
                     "name": "",
                     "id": "46b54ce7-4c80-4c73-83da-6c20f5646f45",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2caacb0-bc9c-4bf9-a80b-391c475a63ce",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
