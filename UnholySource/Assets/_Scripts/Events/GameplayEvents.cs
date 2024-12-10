@@ -88,7 +88,10 @@ namespace Core.Events
         private void UIEnableEvents()
         {
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnCallingInventory += playerBehaviour.Inputs.BlockInputsWhenInventory;
+
             uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
+            uIGameplayController.UI_Inventory.OnAllowingMenus += playerBehaviour.Inputs.AllowInputsWhenInventory;
 
             uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState += playerBehaviour.Equipment.HasMeleeWeapon;
             uIGameplayController.UI_Inventory.OnCheckRangedWeaponState += playerBehaviour.Equipment.HasRangedWeapon;
@@ -102,6 +105,12 @@ namespace Core.Events
 
             uIGameplayController.UI_ItemNotification.OnAllowControls += playerBehaviour.Inputs.AllowControls;
             uIGameplayController.UI_ItemNotification.OnBlockControls += playerBehaviour.Inputs.BlockControls;
+
+            uIGameplayController.UI_PauseGame.OnShowInterface += pauseManager.Pause;
+            uIGameplayController.UI_PauseGame.OnShowInterface += playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
+
+            uIGameplayController.UI_PauseGame.OnHideInteface += pauseManager.UnPause;
+            uIGameplayController.UI_PauseGame.OnHideInteface += playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
 
             uIGameplayController.UI_Inventory.OnShowInventoryEnd += changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts += changeCameraRendering.BackToDefaultRendering;
@@ -132,6 +141,7 @@ namespace Core.Events
         private void PlayerEnableEvents()
         {
             playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
+            playerBehaviour.Inputs.SubscribePause(uIGameplayController.UI_PauseGame.CallPause);
 
             playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
@@ -177,7 +187,10 @@ namespace Core.Events
         private void UIDisableEvents()
         {
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
+            uIGameplayController.UI_Inventory.OnCallingInventory -= playerBehaviour.Inputs.BlockInputsWhenInventory;
+
             uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
+            uIGameplayController.UI_Inventory.OnAllowingMenus -= playerBehaviour.Inputs.AllowInputsWhenInventory;
 
             uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState -= playerBehaviour.Equipment.HasMeleeWeapon;
             uIGameplayController.UI_Inventory.OnCheckRangedWeaponState -= playerBehaviour.Equipment.HasRangedWeapon;
@@ -191,6 +204,12 @@ namespace Core.Events
 
             uIGameplayController.UI_ItemNotification.OnAllowControls -= playerBehaviour.Inputs.AllowControls;
             uIGameplayController.UI_ItemNotification.OnBlockControls -= playerBehaviour.Inputs.BlockControls;
+
+            uIGameplayController.UI_PauseGame.OnShowInterface -= pauseManager.Pause;
+            uIGameplayController.UI_PauseGame.OnShowInterface -= playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
+
+            uIGameplayController.UI_PauseGame.OnHideInteface -= pauseManager.UnPause;
+            uIGameplayController.UI_PauseGame.OnHideInteface -= playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
 
             uIGameplayController.UI_Inventory.OnShowInventoryEnd -= changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts -= changeCameraRendering.BackToDefaultRendering;
@@ -221,6 +240,7 @@ namespace Core.Events
         private void PlayerDisableEvents()
         {
             playerBehaviour.Inputs.UnsubscribeInventory();
+            playerBehaviour.Inputs.UnsubscribePause();
 
             playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;

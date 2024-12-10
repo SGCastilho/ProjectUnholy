@@ -15,6 +15,7 @@ namespace Core.Player
         [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
 
+                private Action _pauseAction;
         private Action _inventoryAction;
         private Action _interactionAction;
 
@@ -45,6 +46,8 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Heal.started += HealInput;
 
             _gameplayInputActions.Gameplay.Inventory.started += InventoryInput;
+
+            _gameplayInputActions.Gameplay.Pause.started += PauseInput;
         }
 
         private void OnDisable() 
@@ -65,6 +68,8 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Heal.started -= HealInput;
 
             _gameplayInputActions.Gameplay.Inventory.started -= InventoryInput;
+
+            _gameplayInputActions.Gameplay.Pause.started -= PauseInput;
         }
 
         private void Update() 
@@ -132,6 +137,11 @@ namespace Core.Player
         {
             _inventoryAction?.Invoke();
         }
+
+        public void PauseInput(InputAction.CallbackContext context)
+        {
+            _pauseAction?.Invoke();
+        }
         #endregion
 
         #region Input Functions
@@ -157,6 +167,18 @@ namespace Core.Player
         public void UnsubscribeInventory()
         {
             _inventoryAction = null;
+        }
+
+        public void SubscribePause(Action action)
+        {
+            if(action == null) return;
+
+            _pauseAction += action;
+        }
+
+        public void UnsubscribePause()
+        {
+            _pauseAction = null;
         }
         #endregion
 
@@ -202,6 +224,27 @@ namespace Core.Player
             BlockMovement();
 
             behaviour.HideCursor(false);
+        }
+
+        public void AllowInputsWhenInventory()
+        {
+            _gameplayInputActions.Gameplay.Pause.Enable();
+        }
+
+        public void BlockInputsWhenInventory()
+        {
+            _gameplayInputActions.Gameplay.Pause.Disable();
+        }
+
+        
+        public void AllowInputsWhenPauseMenu()
+        {
+            _gameplayInputActions.Gameplay.Inventory.Enable();
+        }
+
+        public void BlockInputsWhenPauseMenu()
+        {
+            _gameplayInputActions.Gameplay.Inventory.Disable();
         }
 
         public void AllowActions()

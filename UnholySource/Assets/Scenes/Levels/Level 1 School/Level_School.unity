@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3167,9 +3167,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639066767}
-        m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
-        m_MethodName: HideNotification
+      - m_Target: {fileID: 1639066765}
+        m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
+        m_MethodName: UnSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3972,19 +3972,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 615078504}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1639066767}
-        m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
-        m_MethodName: HideNotification
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &615078504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5351,7 +5339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5386,6 +5374,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066766}
         m_TargetAssemblyTypeName: Core.UI.UIInventory, Core.UI
         m_MethodName: NextInventoryItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066765}
+        m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
+        m_MethodName: UnSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5673,7 +5673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5705,9 +5705,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639066767}
-        m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
-        m_MethodName: HideNotification
+      - m_Target: {fileID: 1639066771}
+        m_TargetAssemblyTypeName: Core.UI.UIPauseGame, Core.UI
+        m_MethodName: CallPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066765}
+        m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
+        m_MethodName: UnSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5807,7 +5819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5838,19 +5850,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1108259800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1639066767}
-        m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
-        m_MethodName: HideNotification
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1108259800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7691,7 +7691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7726,6 +7726,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066766}
         m_TargetAssemblyTypeName: Core.UI.UIInventory, Core.UI
         m_MethodName: PreviousInventoryItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066765}
+        m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
+        m_MethodName: UnSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8371,7 +8383,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1484881465
 GameObject:
@@ -9454,6 +9466,7 @@ GameObject:
   - component: {fileID: 1639066766}
   - component: {fileID: 1639066767}
   - component: {fileID: 1639066768}
+  - component: {fileID: 1639066771}
   m_Layer: 0
   m_Name: UIGameplay Controller
   m_TagString: Untagged
@@ -9525,10 +9538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece617f8cc92c054d8cd76d8e61d3d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1445839387}
   uIRangedWeapon: {fileID: 1639066763}
   uIHealingBottles: {fileID: 1639066769}
   uIHurtAlertOverlay: {fileID: 1639066764}
   uIInventory: {fileID: 1639066766}
+  uiPauseGame: {fileID: 1639066771}
   uIItemNotificantion: {fileID: 1639066767}
 --- !u!114 &1639066766
 MonoBehaviour:
@@ -9633,6 +9648,27 @@ MonoBehaviour:
     type: 3}
   alertTransform: {fileID: 676849696}
   maxAlertsInScreen: 3
+--- !u!114 &1639066771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639066761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc8750181610f944ad70a5c4b472bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundCanvasGroup: {fileID: 1479258906}
+  windowNameCanvasGroup: {fileID: 1424582361}
+  buttonsCanvasGroup: {fileID: 1726516925}
+  isPaused: 0
+  canBeCalled: 1
+  callingCouldown: 0.6
+  fadeDuration: 0.2
+  delayDuration: 0.1
+  buttonsWindowMovementY: 40
 --- !u!1 &1653408035
 GameObject:
   m_ObjectHideFlags: 0
@@ -10392,7 +10428,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1729948595
 GameObject:
@@ -10446,7 +10482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -10481,6 +10517,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066767}
         m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
         m_MethodName: HideNotification
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066765}
+        m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
+        m_MethodName: UnSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

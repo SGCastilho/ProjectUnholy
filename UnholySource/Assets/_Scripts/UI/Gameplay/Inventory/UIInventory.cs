@@ -19,6 +19,9 @@ namespace Core.UI
         public delegate void UnCallingInventory();
         public event UnCallingInventory OnUnCallingInventory;
 
+        public delegate void AllowingMenus();
+        public event AllowingMenus OnAllowingMenus;
+
         public delegate void HideInventoryStarts();
         public event HideInventoryStarts OnHideInventoryStarts;
 
@@ -358,7 +361,7 @@ namespace Core.UI
             OnUnCallingInventory?.Invoke();
 
             inventoryFadeCanvas.DOKill();
-            inventoryFadeCanvas.DOFade(0f, fadeDuration).OnComplete(() => { _inTransition = false; });
+            inventoryFadeCanvas.DOFade(0f, fadeDuration).OnComplete(() => { OnAllowingMenus?.Invoke(); _inTransition = false; });
         }
     }
 }
