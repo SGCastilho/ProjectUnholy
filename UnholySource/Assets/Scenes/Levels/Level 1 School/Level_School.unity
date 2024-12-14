@@ -10273,6 +10273,7 @@ MonoBehaviour:
   isGrounded: 0
   runningSpeed: 5.4
   sprintSpeed: 6.4
+  aimingSpeed: 2
   sprintEnabled: 0
   flipTransform: {fileID: 543450652333430293}
   isFlipped: 0

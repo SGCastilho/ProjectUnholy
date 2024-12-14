@@ -135,17 +135,19 @@ namespace Core.Player
             if(isAiming)
             {
                 behaviour.Inputs.BlockActionsWhenAiming();
+                behaviour.Movement.ChangeToAimMovementSpeed();
 
                 behaviour.Animation.RangedAimingAnimation = isAiming;
             }
             else{
                 behaviour.Inputs.AllowActionsBeforeAiming();
+                behaviour.Movement.ResetMovementSpeed();
 
                 behaviour.Animation.RangedAimingAnimation = isAiming;
             }
         }
 
-        internal void CancelAiming()
+        public void CancelAiming()
         {
             isAiming = false;
             behaviour.Animation.RangedAimingAnimation = false;

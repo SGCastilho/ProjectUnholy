@@ -15,7 +15,7 @@ namespace Core.Player
         [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
 
-                private Action _pauseAction;
+        private Action _pauseAction;
         private Action _inventoryAction;
         private Action _interactionAction;
 
@@ -195,25 +195,17 @@ namespace Core.Player
         public void AllowActionsBeforeAiming()
         {
             _gameplayInputActions.Gameplay.Heal.Enable();
-            _gameplayInputActions.Gameplay.Interact.Enable();
-            _gameplayInputActions.Gameplay.Movement.Enable();
         }
 
         public void BlockActionsWhenAiming()
         {
             _gameplayInputActions.Gameplay.Heal.Disable();
-            _gameplayInputActions.Gameplay.Interact.Disable();
-            _gameplayInputActions.Gameplay.Movement.Disable();
         }
 
         public void AllowInputsWhenUnPaused()
         {
             AllowActions();
-
-            if(!behaviour.Actions.IsAiming)
-            {
-                AllowMovement();
-            }
+            AllowMovement();
 
             behaviour.HideCursor(true);
         }
@@ -236,7 +228,6 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Pause.Disable();
         }
 
-        
         public void AllowInputsWhenPauseMenu()
         {
             _gameplayInputActions.Gameplay.Inventory.Enable();

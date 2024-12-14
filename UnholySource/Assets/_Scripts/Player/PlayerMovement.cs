@@ -19,11 +19,17 @@ namespace Core.Player
 
                 if(sprintEnabled)
                 {
-                    _currentSpeed = sprintSpeed;
+                    if(!behaviour.Actions.IsAiming)
+                    {
+                        _currentSpeed = sprintSpeed;
+                    }
                 }
                 else
                 {
-                    _currentSpeed = runningSpeed;
+                    if(!behaviour.Actions.IsAiming)
+                    {
+                        _currentSpeed = runningSpeed;
+                    }
                 }
             }
         }
@@ -45,6 +51,8 @@ namespace Core.Player
                 }
             }
         }
+
+        internal bool MovementSide { get => _movementSide; }
         #endregion
 
         [Header("Behaviour")]
@@ -72,6 +80,7 @@ namespace Core.Player
 
         [SerializeField] [Range(4f, 10f)] private float runningSpeed = 6f;
         [SerializeField] [Range(6f, 12f)] private float sprintSpeed = 10f;
+        [SerializeField] [Range(1f, 4f)] private float aimingSpeed = 2f;
 
         [Space(10)]
 
@@ -82,6 +91,7 @@ namespace Core.Player
         [SerializeField] private Transform flipTransform;
         [SerializeField] private bool isFlipped;
 
+        private bool _movementSide;
         private float _currentSpeed;
         private Vector3 _currentVelocity;
 
@@ -104,6 +114,8 @@ namespace Core.Player
         {
             IsFlipped = false;
             SprintEnabled = false;
+
+            ResetMovementSpeed();
         }
 
         private void Update()
@@ -128,8 +140,20 @@ namespace Core.Player
 
         private void CharacterFlip()
         {
-            if (behaviour.Inputs.MovementAxis >= 1) { IsFlipped = false; }
-            else if (behaviour.Inputs.MovementAxis <= -1) { IsFlipped = true; }
+            if(behaviour.Actions.IsAiming) return;
+
+            if (behaviour.Inputs.MovementAxis >= 1) { IsFlipped = false; _movementSide = true; }
+            else if (behaviour.Inputs.MovementAxis <= -1) { IsFlipped = true; _movementSide = false; }
+        }
+
+        internal void ChangeToAimMovementSpeed()
+        {
+            _currentSpeed = aimingSpeed;
+        }
+
+        internal void ResetMovementSpeed()
+        {
+            _currentSpeed = runningSpeed;
         }
 
         #region Editor Function

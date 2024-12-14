@@ -6,6 +6,7 @@ namespace Core.Player
     {
         #region Constant Variables
         private const string MOVEMENT_KEY = "Movement";
+        private const string MOVEMENT_DIRECTION_KEY = "RawMovement";
 
         private const string WEAPON_MELEE_EQUIPPED_KEY = "MeleeEquipped";
         private const string WEAPON_RANGED_EQUIPPED_KEY = "RangedEquipped";
@@ -49,6 +50,15 @@ namespace Core.Player
         private void Update() 
         {
             animator.SetFloat(MOVEMENT_KEY, behaviour.Inputs.MovementAxisAbs);
+
+            if(behaviour.Movement.MovementSide)
+            {
+                animator.SetInteger(MOVEMENT_DIRECTION_KEY, (int)behaviour.Inputs.MovementAxis);
+            }
+            else
+            {
+                animator.SetInteger(MOVEMENT_DIRECTION_KEY, (int)-behaviour.Inputs.MovementAxis);
+            }
 
             if(behaviour.Inputs.MovementAxisAbs <= 0 && behaviour.Movement.SprintEnabled)
             {
