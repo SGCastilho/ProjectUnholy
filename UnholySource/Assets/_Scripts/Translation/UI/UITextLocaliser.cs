@@ -21,6 +21,7 @@ namespace Core.Translation
         public void ReloadTranslation()
         {
             _tmpPro.text = localisedString.value;
+            _tmpPro.text = _tmpPro.text.Replace("\r", "");
         }
     }
 }

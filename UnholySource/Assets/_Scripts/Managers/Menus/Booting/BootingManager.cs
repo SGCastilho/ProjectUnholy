@@ -1,5 +1,6 @@
 using Core.Translation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core.Managers
 {
@@ -13,6 +14,9 @@ namespace Core.Managers
         [Header("Classes")]
         [SerializeField] private UITextLocaliser warningText;
         [SerializeField] private ScriptableObjectLoader scriptableObjectLoader;
+
+        [Header("Settings")]
+        [SerializeField] private string mainMenuScene = "scene name here";
 
         public void ChangeLanguage(int languageIndex)
         {
@@ -33,6 +37,11 @@ namespace Core.Managers
             scriptableObjectLoader.Translate();
 
             OnLanguageChanged?.Invoke();
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene(mainMenuScene);
         }
     }
 }

@@ -153,7 +153,10 @@ namespace Core.Player
 
         internal void ResetMovementSpeed()
         {
-            _currentSpeed = runningSpeed;
+            if(_currentSpeed == aimingSpeed)
+            {
+                _currentSpeed = runningSpeed;
+            }
         }
 
         #region Editor Function

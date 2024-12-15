@@ -84,6 +84,7 @@ namespace Core.UI
             }
 
             healingInfoTMP.text = $"{healingBottleData.Name} : {bottles}";
+            healingInfoTMP.text = healingInfoTMP.text.Replace("\r", "");
 
             ShowOverlay();
         }

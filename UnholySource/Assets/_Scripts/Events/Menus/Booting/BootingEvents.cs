@@ -15,6 +15,7 @@ namespace Core.Events
 
         private void OnEnable() 
         {
+            uIBooting.OnLoadMenu += bootingManager.LoadMainMenu;
             uIBooting.OnLanguageSelected += bootingManager.ChangeLanguage;
 
             bootingManager.OnLanguageChanged += uIBooting.WarningWindowFadeIn;
@@ -22,6 +23,7 @@ namespace Core.Events
 
         private void OnDisable() 
         {
+            uIBooting.OnLoadMenu -= bootingManager.LoadMainMenu;
             uIBooting.OnLanguageSelected -= bootingManager.ChangeLanguage;
 
             bootingManager.OnLanguageChanged -= uIBooting.WarningWindowFadeIn;

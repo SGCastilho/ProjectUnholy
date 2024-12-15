@@ -9,6 +9,9 @@ namespace Core.UI
         #region Events
         public delegate void LanguageSelected(int languageIndex);
         public event LanguageSelected OnLanguageSelected;
+
+        public delegate void LoadMenu();
+        public event LoadMenu OnLoadMenu;
         #endregion
 
         [Header("Classes")]
@@ -79,7 +82,7 @@ namespace Core.UI
         public void WarningWindowFadeOut()
         {
             warningCanvasGroup.DOKill();
-            warningCanvasGroup.DOFade(0f, fadeDuration);
+            warningCanvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { OnLoadMenu?.Invoke(); });
 
             //Carregar menu principal quando animação terminar
         }

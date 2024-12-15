@@ -151,6 +151,8 @@ namespace Core.Player
         {
             isAiming = false;
             behaviour.Animation.RangedAimingAnimation = false;
+
+            behaviour.Movement.ResetMovementSpeed();
         }
 
         internal void Healing()
