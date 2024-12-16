@@ -3,7 +3,22 @@ guid: 83a4f94177f59b14f971b5cf2e31ade4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_collectable_healingBottle
+    second: {fileID: 2100000, guid: c3daf27f4f8b3e64883ae53074a01c55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_collectable_healingBottle_bandage
+    second: {fileID: 2100000, guid: ee03e61fba3900b468d355051296dcaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_collectable_healingBottle_fluid
+    second: {fileID: 2100000, guid: e06c01563f8e0f448a8f7091855dd616, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

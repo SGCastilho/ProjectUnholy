@@ -3,7 +3,22 @@ guid: 045f52d04e6a9da48a4b84911db4519e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_weapon_colt
+    second: {fileID: 2100000, guid: 7077f314a070f9b4482aecf6c4015029, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_weapon_colt_2
+    second: {fileID: 2100000, guid: 912ad2e1113deb441a7565623b762bfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_weapon_colt_3
+    second: {fileID: 2100000, guid: 7c5c840342f1f85408cd234965b66754, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
