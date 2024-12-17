@@ -7,6 +7,20 @@ namespace Core.AnimationEvents
 {
     public sealed class PlayerAnimationEvents : MonoBehaviour
     {
+        #region Constants
+        private const string SFX_PISTOL_SHOOT = "audio_pistol_shoot";
+        private const string SFX_PISTOL_MAG_OUT = "audio_pistol_reload_magOut";
+        private const string SFX_PISTOL_MAG_IN = "audio_pistol_reload_magIn";
+
+        private const string SFX_WOOD_IMPACT_0 = "audio_wood_hit_0";
+        private const string SFX_WOOD_IMPACT_1 = "audio_wood_hit_1";
+        private const string SFX_WOOD_IMPACT_2 = "audio_wood_hit_2";
+
+        private const string SFX_FOOTSTEP_0 = "audio_footstep_0";
+        private const string SFX_FOOTSTEP_1 = "audio_footstep_1";
+        private const string SFX_FOOTSTEP_2 = "audio_footstep_2";
+        #endregion
+
         [Header("Behaviour")]
         [SerializeField] private PlayerBehaviour behaviour;
 
@@ -22,10 +36,22 @@ namespace Core.AnimationEvents
 
         [SerializeField] private float raycastLegth = 4f;
 
+        [Space(20)]
+
+        [SerializeField] private int maxFootstepSFX = 2;
+        [SerializeField] private int maxWoodImpactSFX = 2;
+
         private Ray _rayDetection;
         private RaycastHit _raycastHitDetection;
+        private Collider[] _searchingEnemy;
 
-        private Collider[] searchingEnemy;
+        private int _currentFootstepSFX;
+        private int _currentWoodImpactSFX;
+
+        private void Start() 
+        {
+            _currentFootstepSFX = 0;
+        }
 
         #region Editor Variable
         #if UNITY_EDITOR
@@ -55,18 +81,20 @@ namespace Core.AnimationEvents
 
         private void DrawHurtBox()
         {
-            searchingEnemy = Physics.OverlapBox(hurtBoxTransform.position, hurtBoxSize, hurtBoxTransform.rotation, enemyLayer);
+            _searchingEnemy = Physics.OverlapBox(hurtBoxTransform.position, hurtBoxSize, hurtBoxTransform.rotation, enemyLayer);
 
-            if(searchingEnemy == null || searchingEnemy.Length <= 0) return;
+            if(_searchingEnemy == null || _searchingEnemy.Length <= 0) return;
 
             AttackCameraShake();
             
-            foreach(Collider enemy in searchingEnemy)
+            foreach(Collider enemy in _searchingEnemy)
             {
                 if(enemy.GetComponent<IDamagable>() == null) return;
 
                 enemy.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
             }
+
+            WoodImpactSFX();
         }
 
         public void ApplyRangedDamage()
@@ -101,6 +129,8 @@ namespace Core.AnimationEvents
                     _raycastHitDetection.transform.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
                 }
             }
+
+            ShootSFX();
         }
 
         private void AttackCameraShake()
@@ -125,6 +155,61 @@ namespace Core.AnimationEvents
             behaviour.Equipment.EquipHealingBottle(false);
 
             behaviour.Inputs.AllowActions();
+        }
+
+        public void WalkingSFX()
+        {
+            if(_currentFootstepSFX > maxFootstepSFX) { _currentFootstepSFX = 0; }
+
+            switch(_currentFootstepSFX)
+            {
+                case 0:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_0);
+                    break;
+                case 1:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_1);
+                    break;
+                case 2:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_2);
+                    break;
+            }
+
+            _currentFootstepSFX++;
+        }
+
+        private void ShootSFX()
+        {
+            behaviour.SFXManager.PlayAudioOneShoot(SFX_PISTOL_SHOOT);
+        }
+
+        public void ReloadMagOutSFX()
+        {
+            behaviour.SFXManager.PlayAudioOneShoot(SFX_PISTOL_MAG_OUT);
+        }
+
+        public void ReloadMagIntSFX()
+        {
+            behaviour.SFXManager.PlayAudioOneShoot(SFX_PISTOL_MAG_IN);
+        }
+
+        private void WoodImpactSFX()
+        {
+            if(_currentWoodImpactSFX > maxWoodImpactSFX) { _currentWoodImpactSFX = 0; }
+
+            switch(_currentWoodImpactSFX)
+            {
+                case 0:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_WOOD_IMPACT_0);
+                    break;
+                case 1:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_WOOD_IMPACT_1);
+                    break;
+                case 2:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_WOOD_IMPACT_2);
+                    break;
+            }
+
+            _currentWoodImpactSFX++;
         }
 
         #region Editor Function

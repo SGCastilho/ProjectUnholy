@@ -1,4 +1,5 @@
 using Core.UI;
+using Core.Audio;
 using Core.Player;
 using Core.Triggers;
 using Core.Managers;
@@ -19,6 +20,7 @@ namespace Core.Events
         [SerializeField] private UIGameplayController uIGameplayController;
 
         private PlayerBehaviour playerBehaviour;
+        private LocalSoundEffects playerSoundEffects;
 
         private CameraShake cameraShake;
         private ChangeCameraRendering changeCameraRendering;
@@ -31,6 +33,7 @@ namespace Core.Events
         private void CacheVariables()
         {
             playerBehaviour = FindObjectOfType<PlayerBehaviour>();
+            playerSoundEffects = playerBehaviour.GetComponentInChildren<LocalSoundEffects>();
 
             cameraShake = FindObjectOfType<CameraShake>();
             changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
@@ -87,6 +90,9 @@ namespace Core.Events
 
         private void UIEnableEvents()
         {
+            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth += playerSoundEffects.PlayAudioLoop;
+            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth += playerSoundEffects.StopAudioLoop;
+
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnCallingInventory += playerBehaviour.Inputs.BlockInputsWhenInventory;
 
@@ -186,6 +192,9 @@ namespace Core.Events
 
         private void UIDisableEvents()
         {
+            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth -= playerSoundEffects.PlayAudioLoop;
+            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth -= playerSoundEffects.StopAudioLoop;
+
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
             uIGameplayController.UI_Inventory.OnCallingInventory -= playerBehaviour.Inputs.BlockInputsWhenInventory;
 

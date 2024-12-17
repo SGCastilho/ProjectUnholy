@@ -2,6 +2,7 @@
     "name": "Core.Player",
     "rootNamespace": "Core.Player",
     "references": [
+        "GUID:f8fc2ad7a4703ab4487e5d560f769a4b",
         "GUID:491cf1cf9fc17874095921adf8c9d3cb",
         "GUID:b880f133fd5394b458c7d04e1a3ce492",
         "GUID:8d88350da9d890c4a8755c382d3998d5",

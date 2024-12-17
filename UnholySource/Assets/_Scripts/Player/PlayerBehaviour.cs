@@ -1,3 +1,4 @@
+using Core.Audio;
 using Core.Character;
 using UnityEngine;
 
@@ -11,11 +12,13 @@ namespace Core.Player
         public PlayerActions Actions { get => actions; }
         public PlayerResources Resources { get => resources; }
         public PlayerEquipment Equipment { get => equipment; }
+
+        public LocalSoundEffects SFXManager { get => localSoundEffects; }
         
         internal PlayerMovement Movement { get => movement; }
         internal PlayerAnimation Animation { get => animationControl; }
 
-        internal CharacterCorrection Correction { get => charCorrection;}
+        internal CharacterCorrection Correction { get => charCorrection; }
 
         internal Transform PlayerTransform { get => _transform; }
         #endregion
@@ -32,6 +35,10 @@ namespace Core.Player
         [Space(10)]
 
         [SerializeField] private CharacterCorrection charCorrection;
+
+        [Space(10)]
+
+        [SerializeField] private LocalSoundEffects localSoundEffects;
 
         private Transform _transform;
 

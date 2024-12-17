@@ -117,8 +117,6 @@ namespace Core.Player
             if(behaviour.Status.IsDead || behaviour.Actions.IsReloading) return;
 
             behaviour.Actions.Healing();
-            
-            BlockActions();
         }
 
         private void StartSprint(InputAction.CallbackContext context)

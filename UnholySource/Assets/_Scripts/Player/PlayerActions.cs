@@ -159,6 +159,8 @@ namespace Core.Player
         {
             if(behaviour.Resources.HealthBottles <= 0 || isHealing || _isAttacking) return;
 
+            behaviour.Inputs.BlockActions();
+
             isHealing = true;
 
             behaviour.Resources.ModifyHealingBottles(false, 1);

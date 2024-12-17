@@ -2,6 +2,13 @@ Audio:
 	-Pixabay
 	-freesound Community
 	-Universfield
+	-Soughtaftersounds
+	-smill.and.welson
+	-oneshotofficial
+	-Timbre and jobro
+	-Glaneur de sons
+	-EminYILDIRIM
+	-vmgraw
 
 User Interface:
 	-Pixel Perfect

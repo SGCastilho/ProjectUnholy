@@ -1,11 +1,24 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Core.UI
 {
     public sealed class UIHurtAlertOverlay : MonoBehaviour
     {
+        #region Events
+        public delegate void EnterCriticalHealt(string audioKey);
+        public event EnterCriticalHealt OnEnterCriticalHealth;
+
+        public delegate void LeftCriticalHealth();
+        public event LeftCriticalHealth OnLeftCriticalHealth;
+        #endregion
+
+        #region Contants
+        private const string SFX_LOOP_CRITICAL_HEALTH = "audio_loop_criticalLife";
+        #endregion
+
         [Header("Classes")]
         [SerializeField] private Image overlayImage;
 
@@ -30,12 +43,18 @@ namespace Core.UI
             if(currentHealth <= midHealthTrigger && currentHealth > lowHealthTrigger)
             {
                 ShowOverlay(ref midHealthOverlaySprite);
+
+                OnLeftCriticalHealth?.Invoke();
+
                 return;
             }
 
             if(currentHealth <= lowHealthTrigger)
             {
                 ShowOverlay(ref lowHealthOverlaySprite);
+
+                OnEnterCriticalHealth?.Invoke(SFX_LOOP_CRITICAL_HEALTH);
+
                 return;
             }
         }
