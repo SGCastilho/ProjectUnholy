@@ -28,6 +28,10 @@ namespace Core.AnimationEvents
         [SerializeField] private Transform hurtBoxTransform;
         [SerializeField] private Transform shootingRayTransform;
 
+        [Space(10)]
+
+        [SerializeField] private ParticleSystem vfxMuzzleFlash;
+
         [Header("Settings")]
         [SerializeField] private Vector3 hurtBoxSize;
         [SerializeField] private LayerMask enemyLayer;
@@ -105,6 +109,9 @@ namespace Core.AnimationEvents
 
         private void DrawShootingRay()
         {
+            ShootSFX();
+            ShootVFX();
+            
             if(behaviour.LookingToRight())
             {
                 _rayDetection = new Ray(shootingRayTransform.position, Vector3.forward);
@@ -129,8 +136,6 @@ namespace Core.AnimationEvents
                     _raycastHitDetection.transform.GetComponent<IDamagable>().ApplyDamage(behaviour.Equipment.WeaponDamage);
                 }
             }
-
-            ShootSFX();
         }
 
         private void AttackCameraShake()
@@ -180,6 +185,11 @@ namespace Core.AnimationEvents
         private void ShootSFX()
         {
             behaviour.SFXManager.PlayAudioOneShoot(SFX_PISTOL_SHOOT);
+        }
+
+        private void ShootVFX()
+        {   
+            vfxMuzzleFlash.Play();
         }
 
         public void ReloadMagOutSFX()

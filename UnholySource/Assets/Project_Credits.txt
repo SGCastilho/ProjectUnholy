@@ -22,6 +22,7 @@ Fonts:
 
 Unity Packages
 	-DOTween (Procura criador)
+	-JMO Assets
 
 Special Thanks:
 	-Spod
