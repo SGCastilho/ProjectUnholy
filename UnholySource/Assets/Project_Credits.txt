@@ -1,6 +1,7 @@
 Audio:
 	-Pixabay
 	-freesound Community
+	-freesound.org
 	-Universfield
 	-Soughtaftersounds
 	-smill.and.welson
@@ -9,6 +10,12 @@ Audio:
 	-Glaneur de sons
 	-EminYILDIRIM
 	-vmgraw
+	-oussamaben
+	-julius_galla
+	-newlocknew
+
+Music:
+	-udio.com
 
 User Interface:
 	-Pixel Perfect
