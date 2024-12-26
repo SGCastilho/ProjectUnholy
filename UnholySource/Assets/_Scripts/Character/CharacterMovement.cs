@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Core.Character
 {
+    public enum CharacterSpeed { WALK, DEFAULT, RUN }
+
     [RequireComponent(typeof(Rigidbody))]
     public class CharacterMovement : MonoBehaviour
     {
@@ -12,7 +14,6 @@ namespace Core.Character
         #endregion
 
         #region Encapsulation
-        public float Speed { get => speed; set => speed = value; }
         public float DashSpeed { get => DASH_TO_SPEED; }
 
         public bool IsMoving 
@@ -51,8 +52,10 @@ namespace Core.Character
         [SerializeField] private LayerMask groundCheckLayer;
         [SerializeField] private bool isGrounded;
 
-        [SerializeField] private bool variableSpeed = true;
-        [SerializeField] [Range(2f, 12f)] private float speed = 5f;
+        [SerializeField] [Tooltip("Only the speed will be modified")] private bool variableSpeed = true;
+        [SerializeField] [Range(0.1F, 12f)] private float walkingSpeed = 2f;
+        [SerializeField] [Range(2f, 12f)] private float defaultSpeed = 5f;
+        [SerializeField] [Range(2f, 15f)] private float runningSpeed = 6f;
 
         [Space(10)]
 
@@ -63,6 +66,8 @@ namespace Core.Character
 
         [SerializeField] private bool isMoving;
         [SerializeField] private bool moveRight;
+
+        private CharacterSpeed _selectedSpeed;
 
         private bool _isDashing;
         private bool _lastIsMovingState;
@@ -102,15 +107,19 @@ namespace Core.Character
         {
             if(variableSpeed)
             {
-                _currentSpeed = Random.Range(speed-1f, speed);
+                _currentSpeed = Random.Range(defaultSpeed-1f, defaultSpeed);
             }
-            else { _currentSpeed = speed; }
+            else 
+            { 
+                SetCurrentSpeed(CharacterSpeed.DEFAULT);
+            }
         }
 
         private void OnDisable() 
         {
             isMoving = false;
 
+            SetCurrentSpeed(CharacterSpeed.DEFAULT);
             EndDash();
         }
 
@@ -266,6 +275,37 @@ namespace Core.Character
             IsMoving = _lastIsMovingState;
 
             _isDashing = false;
+        }
+
+        public void SetCurrentSpeed(CharacterSpeed newSpeed)
+        {
+            switch(newSpeed)
+            {
+                case CharacterSpeed.WALK:
+                    _currentSpeed = walkingSpeed;
+                    break;
+                case CharacterSpeed.DEFAULT:
+                    _currentSpeed = defaultSpeed;
+                    break;
+                case CharacterSpeed.RUN:
+                    _currentSpeed = runningSpeed;
+                    break;
+            }
+
+            _selectedSpeed = newSpeed;
+        }
+
+        private float ResetSpeed()
+        {
+            switch(_selectedSpeed)
+            {
+                case CharacterSpeed.WALK:
+                    return walkingSpeed;
+                case CharacterSpeed.RUN:
+                    return runningSpeed;
+            }
+
+            return defaultSpeed;
         }
 
         #region Editor Function
