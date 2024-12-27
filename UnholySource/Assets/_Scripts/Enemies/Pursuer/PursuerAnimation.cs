@@ -19,7 +19,7 @@ namespace Core.Enemies
         public bool IsSearching { set => animator.SetBool(ANIM_SEARCHING_KEY, value); }
         public bool IsRunning { set => animator.SetBool(ANIM_RUNNING_KEY, value); }
 
-        public bool IsAttacking { set => animator.SetBool(ANIM_ATTACKING_KEY, value); }
+        public bool IsAttacking { get => animator.GetBool(ANIM_ATTACKING_KEY); set => animator.SetBool(ANIM_ATTACKING_KEY, value); }
         public bool IsRunningAttacking { set => animator.SetBool(ANIM_RUNNING_ATTACKING_KEY, value); }
         public int CurrentCombo { set => animator.SetInteger(ANIM_ATTACKING_COMBO_KEY, value); }
         #endregion

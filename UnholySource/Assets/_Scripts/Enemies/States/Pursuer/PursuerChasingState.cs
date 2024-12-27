@@ -106,6 +106,8 @@ namespace Core.Enemies
                 stateMachine.ChangeState(ref nextState);
 
                 behaviour.Animation.IsMoving = false;
+
+                _currentTimeToStartRunning = 0f;
             }
             else
             {

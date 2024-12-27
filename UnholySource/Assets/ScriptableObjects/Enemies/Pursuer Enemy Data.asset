@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pursuer Enemy Data
   m_EditorClassIdentifier: 
   enemyHealth: 0
-  enemyDamage: 66
+  enemyDamage: 33

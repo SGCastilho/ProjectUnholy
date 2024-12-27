@@ -12,6 +12,8 @@ namespace Core.Enemies
         public PursuerAnimation Animation { get => anim; }
 
         internal EnemyData Data { get => data; }
+
+        public int Damage { get => data.Damage; }
         #endregion
 
         [Header("Data")]

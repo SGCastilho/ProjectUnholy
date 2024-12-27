@@ -223,6 +223,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.99986213
+        functionName: FinishAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -254,6 +261,13 @@ ModelImporter:
       events:
       - time: 0.82520956
         functionName: DrawHurtBox
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9917355
+        functionName: FinishAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
