@@ -13,6 +13,7 @@ Audio:
 	-oussamaben
 	-julius_galla
 	-newlocknew
+	-cmusounddesign
 
 Music:
 	-udio.com
@@ -26,6 +27,8 @@ User Interface:
 
 Fonts:
 	-Craft Supply Co
+	-Cat.B
+	-The Branded Quotes
 
 Unity Packages
 	-DOTween (Procura criador)
@@ -33,7 +36,5 @@ Unity Packages
 
 Special Thanks:
 	-Spod
-	-Hiki
-	-Ayumi
 	-Meeme
 	-Konamo
