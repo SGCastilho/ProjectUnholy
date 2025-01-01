@@ -17,7 +17,7 @@ namespace Core.UI
         [SerializeField] private CanvasGroup backgroundCanvasGroup;
         [SerializeField] private CanvasGroup windowNameCanvasGroup;
         [SerializeField] private CanvasGroup buttonsCanvasGroup;
-        
+
         [Header("Settings")]
         [SerializeField] private bool isPaused;
         [SerializeField] private bool canBeCalled = true;

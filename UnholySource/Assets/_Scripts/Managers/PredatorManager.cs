@@ -1,17 +1,25 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Core.Managers
 {
     public sealed class PredatorManager : MonoBehaviour
     {
+        #region Events
+        public delegate void InitChasing();
+        public event InitChasing OnStartChasing;
+
+        public delegate void ExitChasing();
+        public event ExitChasing OnExitChasing;
+
+        public delegate void FinishChasing();
+        public event FinishChasing OnFinishChasing;
+        #endregion
+
         #region Encapsulation
         internal bool IsChasing { get => isChasing; }
         internal bool CountdownFinish { get => countDownFinish; }
         #endregion
-
-        [Header("Classes")]
-        [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
 
         [Header("Settings")]
         [SerializeField] private GameObject predatorInstance;
@@ -41,19 +49,7 @@ namespace Core.Managers
 
         [SerializeField] [Range(10f, 20f)] private float chasingTime = 14f;
 
-        [Header("Unity Events")]
-
-        [Space(10)]
-
-        [SerializeField] private UnityEvent OnStartChasing;
-
-        [Space(10)]
-
-        [SerializeField] private UnityEvent OnExitChasing;
-        
-        [Space(10)]
-
-        [SerializeField] private UnityEvent OnFinishChasing;
+        private ScenarioLoaderManager _scenarioLoaderManager;
 
         private int _continueChasingRoll;
 
@@ -68,6 +64,8 @@ namespace Core.Managers
 
         private void Awake() 
         {
+            _scenarioLoaderManager = FindObjectOfType<ScenarioLoaderManager>();
+
             _continueRollCountdown = predatorAudioClip.length;
         }
 
@@ -141,7 +139,7 @@ namespace Core.Managers
 
             predatorInstance.SetActive(false);
 
-            _predatorSpawnPosistion = scenarioLoaderManager.ReturnFarPredatorPoint();
+            _predatorSpawnPosistion = _scenarioLoaderManager.ReturnFarPredatorPoint();
 
             if(_predatorSpawnPosistion == null) return;
 
@@ -182,7 +180,7 @@ namespace Core.Managers
 
                 predatorInstance.SetActive(false);
 
-                _continueChasingRoll = Random.Range(0, 100);
+                _continueChasingRoll = UnityEngine.Random.Range(0, 100);
 
                 //Debug.Log($"Chasing roll: {_continueChasingRoll}");
 
@@ -218,7 +216,7 @@ namespace Core.Managers
 
         private void RandomizeChasing()
         {
-            _chasingCountdown = Random.Range(minChasingCountdown, maxChasingCountdown);
+            _chasingCountdown = UnityEngine.Random.Range(minChasingCountdown, maxChasingCountdown);
             _currentChasingCountdown = 0f;
         }
     }

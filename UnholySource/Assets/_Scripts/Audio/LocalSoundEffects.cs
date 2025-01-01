@@ -87,5 +87,12 @@ namespace Core.Audio
 
             audioSource.PlayOneShot(selectedAudio.Clip, selectedAudio.Volume);
         }
+
+        public void PlayAudioOneShoot(AudioClip audioClip, float volume)
+        {
+            if(audioClip == null) return;
+
+            audioSource.PlayOneShot(audioClip, volume);
+        }
     }
 }

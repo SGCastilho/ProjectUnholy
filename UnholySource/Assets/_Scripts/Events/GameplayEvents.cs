@@ -10,48 +10,56 @@ namespace Core.Events
 {
     public sealed class GameplayEvents : MonoBehaviour
     {
+        [Header("UI Classes")]
+        [SerializeField] private UIFadeController uIFadeController;
+        [SerializeField] private UIGameplayController uIGameplayController;
+
+        [Header("Audio Classes")]
+        [SerializeField] private MusicManager musicManager;
+        [SerializeField] private LocalSoundEffects globalSoundEffects;
+
         [Header("Managers Classes")]
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
 
-        [Header("UI Classes")]
-        [SerializeField] private UIFadeController uIFadeController;
-        [SerializeField] private UIGameplayController uIGameplayController;
+        private PlayerBehaviour _playerBehaviour;
+        private LocalSoundEffects _playerSoundEffects;
 
-        private PlayerBehaviour playerBehaviour;
-        private LocalSoundEffects playerSoundEffects;
+        private CameraShake _cameraShake;
+        private ChangeCameraRendering _changeCameraRendering;
 
-        private CameraShake cameraShake;
-        private ChangeCameraRendering changeCameraRendering;
+        private PredatorManager _predatorManager;
 
-        private UnlockDoorTrigger[] unlockDoorsTriggers;
-        private PuzzleInteractionTrigger[] puzzleInteractionTriggers;
+        private UnlockDoorTrigger[] _unlockDoorsTriggers;
+        private PuzzleInteractionTrigger[] _puzzleInteractionTriggers;
 
         private void Awake() => CacheVariables();
 
         private void CacheVariables()
         {
-            playerBehaviour = FindObjectOfType<PlayerBehaviour>();
-            playerSoundEffects = playerBehaviour.GetComponentInChildren<LocalSoundEffects>();
+            _playerBehaviour = FindObjectOfType<PlayerBehaviour>();
+            _playerSoundEffects = _playerBehaviour.GetComponentInChildren<LocalSoundEffects>();
 
-            cameraShake = FindObjectOfType<CameraShake>();
-            changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
+            _cameraShake = FindObjectOfType<CameraShake>();
+            _changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
+
+            _predatorManager = FindObjectOfType<PredatorManager>();
 
             var unlockTriggers = FindObjectsOfType<UnlockDoorTrigger>();
 
             if(unlockTriggers != null || unlockTriggers.Length > 0)
             {
-                unlockDoorsTriggers = new UnlockDoorTrigger[unlockTriggers.Length];
-                unlockDoorsTriggers = unlockTriggers;
+                _unlockDoorsTriggers = new UnlockDoorTrigger[unlockTriggers.Length];
+                _unlockDoorsTriggers = unlockTriggers;
             }
 
             var puzzleTriggers = FindObjectsOfType<PuzzleInteractionTrigger>();
 
             if(puzzleTriggers != null || puzzleTriggers.Length > 0)
             {
-                puzzleInteractionTriggers = new PuzzleInteractionTrigger[puzzleTriggers.Length];
-                puzzleInteractionTriggers = puzzleTriggers;
+                _puzzleInteractionTriggers = new PuzzleInteractionTrigger[puzzleTriggers.Length];
+                _puzzleInteractionTriggers = puzzleTriggers;
             }
         }
 
@@ -63,9 +71,9 @@ namespace Core.Events
 
             InventoryEnableEvents();
 
-            if(unlockDoorsTriggers != null && unlockDoorsTriggers.Length > 0)
+            if(_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
             {
-                foreach(UnlockDoorTrigger unlockDoor in unlockDoorsTriggers)
+                foreach(UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
                 {
                     unlockDoor.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory += inventoryManager.RemoveKeyItem;
@@ -73,9 +81,9 @@ namespace Core.Events
                 }
             }
 
-            if(puzzleInteractionTriggers != null && puzzleInteractionTriggers.Length > 0)
+            if(_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
             {
-                foreach(PuzzleInteractionTrigger puzzleUnlock in puzzleInteractionTriggers)
+                foreach(PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
                 {
                     puzzleUnlock.OnReceiveItemFromInventory += inventoryManager.AddKeyItem;
                     puzzleUnlock.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
@@ -83,53 +91,66 @@ namespace Core.Events
                 }
             }
 
+            PredatorEnableEvents();
+
             ScenarioLoaderEnableEvents();
 
             UIEnableEvents();
         }
 
+        private void PredatorEnableEvents()
+        {
+            if(_predatorManager == null) return;
+
+            _predatorManager.OnStartChasing += musicManager.PlayPredatorChasing;
+            _predatorManager.OnExitChasing += musicManager.PlayPredatorSearching;
+            _predatorManager.OnFinishChasing += musicManager.StopPredatorMusic;
+        }
+        
         private void UIEnableEvents()
         {
-            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth += playerSoundEffects.PlayAudioLoop;
-            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth += playerSoundEffects.StopAudioLoop;
+            uIGameplayController.OnPlaySFX += globalSoundEffects.PlayAudioOneShoot;
+
+            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth += _playerSoundEffects.PlayAudioLoop;
+            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth += _playerSoundEffects.StopAudioLoop;
 
             uIGameplayController.UI_Inventory.OnCallingInventory += pauseManager.Pause;
-            uIGameplayController.UI_Inventory.OnCallingInventory += playerBehaviour.Inputs.BlockInputsWhenInventory;
+            uIGameplayController.UI_Inventory.OnCallingInventory += _playerBehaviour.Inputs.BlockInputsWhenInventory;
 
             uIGameplayController.UI_Inventory.OnUnCallingInventory += pauseManager.UnPause;
-            uIGameplayController.UI_Inventory.OnAllowingMenus += playerBehaviour.Inputs.AllowInputsWhenInventory;
+            uIGameplayController.UI_Inventory.OnAllowingMenus += _playerBehaviour.Inputs.AllowInputsWhenInventory;
 
-            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState += playerBehaviour.Equipment.HasMeleeWeapon;
-            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState += playerBehaviour.Equipment.HasRangedWeapon;
+            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState += _playerBehaviour.Equipment.HasMeleeWeapon;
+            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState += _playerBehaviour.Equipment.HasRangedWeapon;
 
-            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState += playerBehaviour.Resources.CurrentHealingBottles;
-            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState += playerBehaviour.Resources.CurrentBullets;
-            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState += playerBehaviour.Resources.CurrentAmmo;
+            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState += _playerBehaviour.Resources.CurrentHealingBottles;
+            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState += _playerBehaviour.Resources.CurrentBullets;
+            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState += _playerBehaviour.Resources.CurrentAmmo;
 
             uIGameplayController.UI_ItemNotification.OnShowInterface += pauseManager.Pause;
             uIGameplayController.UI_ItemNotification.OnHideInteface += pauseManager.UnPause;
 
-            uIGameplayController.UI_ItemNotification.OnAllowControls += playerBehaviour.Inputs.AllowControls;
-            uIGameplayController.UI_ItemNotification.OnBlockControls += playerBehaviour.Inputs.BlockControls;
+            uIGameplayController.UI_ItemNotification.OnAllowControls += _playerBehaviour.Inputs.AllowControls;
+            uIGameplayController.UI_ItemNotification.OnBlockControls += _playerBehaviour.Inputs.BlockControls;
 
             uIGameplayController.UI_PauseGame.OnShowInterface += pauseManager.Pause;
-            uIGameplayController.UI_PauseGame.OnShowInterface += playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
+            uIGameplayController.UI_PauseGame.OnShowInterface += _playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
 
             uIGameplayController.UI_PauseGame.OnHideInteface += pauseManager.UnPause;
-            uIGameplayController.UI_PauseGame.OnHideInteface += playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
+            uIGameplayController.UI_PauseGame.OnHideInteface += _playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
 
-            uIGameplayController.UI_Inventory.OnShowInventoryEnd += changeCameraRendering.OnlyRenderingUI;
-            uIGameplayController.UI_Inventory.OnHideInventoryStarts += changeCameraRendering.BackToDefaultRendering;
+            uIGameplayController.UI_Inventory.OnShowInventoryEnd += _changeCameraRendering.OnlyRenderingUI;
+            uIGameplayController.UI_Inventory.OnHideInventoryStarts += _changeCameraRendering.BackToDefaultRendering;
         }
 
         private void ScenarioLoaderEnableEvents()
         {
             scenarioLoaderManager.OnStartTravel += pauseManager.Pause;
-            scenarioLoaderManager.OnStartTravel += playerBehaviour.Inputs.BlockControls;
+            scenarioLoaderManager.OnStartTravel += _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel += uIFadeController.FadeIn;
 
             scenarioLoaderManager.OnEndTravel += pauseManager.UnPause;
-            scenarioLoaderManager.OnEndTravel += playerBehaviour.Inputs.AllowControls;
+            scenarioLoaderManager.OnEndTravel += _playerBehaviour.Inputs.AllowControls;
             scenarioLoaderManager.OnEndTravel += uIFadeController.FadeOut;
         }
 
@@ -140,21 +161,21 @@ namespace Core.Events
 
         private void PauseEnableEvents()
         {
-            pauseManager.OnPaused += playerBehaviour.Inputs.BlockInputsWhenPaused;
-            pauseManager.OnUnPaused += playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+            pauseManager.OnPaused += _playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnUnPaused += _playerBehaviour.Inputs.AllowInputsWhenUnPaused;
         }
 
         private void PlayerEnableEvents()
         {
-            playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
-            playerBehaviour.Inputs.SubscribePause(uIGameplayController.UI_PauseGame.CallPause);
+            _playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
+            _playerBehaviour.Inputs.SubscribePause(uIGameplayController.UI_PauseGame.CallPause);
 
-            playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
-            playerBehaviour.Status.OnTakingDamage += cameraShake.HittedShake;
-            playerBehaviour.Status.OnDeath += scenarioLoaderManager.ReloadCurrentScene;
+            _playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            _playerBehaviour.Status.OnTakingDamage += _cameraShake.HittedShake;
+            _playerBehaviour.Status.OnDeath += scenarioLoaderManager.ReloadCurrentScene;
 
-            playerBehaviour.Resources.OnRefreshWeaponUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
-            playerBehaviour.Resources.OnRefreshBottlesUI += uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
+            _playerBehaviour.Resources.OnRefreshWeaponUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            _playerBehaviour.Resources.OnRefreshBottlesUI += uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
         }
 
         private void OnDisable()
@@ -165,9 +186,9 @@ namespace Core.Events
 
             InventoryDisableEvents();
 
-            if(unlockDoorsTriggers != null && unlockDoorsTriggers.Length > 0)
+            if(_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
             {
-                foreach(UnlockDoorTrigger unlockDoor in unlockDoorsTriggers)
+                foreach(UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
                 {
                     unlockDoor.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory -= inventoryManager.RemoveKeyItem;
@@ -175,9 +196,9 @@ namespace Core.Events
                 }
             }
 
-            if(puzzleInteractionTriggers != null && puzzleInteractionTriggers.Length > 0)
+            if(_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
             {
-                foreach(PuzzleInteractionTrigger puzzleUnlock in puzzleInteractionTriggers)
+                foreach(PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
                 {
                     puzzleUnlock.OnReceiveItemFromInventory -= inventoryManager.AddKeyItem;
                     puzzleUnlock.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
@@ -185,53 +206,66 @@ namespace Core.Events
                 }
             }
 
+            PredatorDisableEvents();
+
             ScenarioLoaderDisableEvents();
 
             UIDisableEvents();
         }
 
+        private void PredatorDisableEvents()
+        {
+            if(_predatorManager == null) return;
+
+            _predatorManager.OnStartChasing -= musicManager.PlayPredatorChasing;
+            _predatorManager.OnExitChasing -= musicManager.PlayPredatorSearching;
+            _predatorManager.OnFinishChasing -= musicManager.StopPredatorMusic;
+        }
+        
         private void UIDisableEvents()
         {
-            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth -= playerSoundEffects.PlayAudioLoop;
-            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth -= playerSoundEffects.StopAudioLoop;
+            uIGameplayController.OnPlaySFX -= globalSoundEffects.PlayAudioOneShoot;
+
+            uIGameplayController.UI_HurtAlertOverlay.OnEnterCriticalHealth -= _playerSoundEffects.PlayAudioLoop;
+            uIGameplayController.UI_HurtAlertOverlay.OnLeftCriticalHealth -= _playerSoundEffects.StopAudioLoop;
 
             uIGameplayController.UI_Inventory.OnCallingInventory -= pauseManager.Pause;
-            uIGameplayController.UI_Inventory.OnCallingInventory -= playerBehaviour.Inputs.BlockInputsWhenInventory;
+            uIGameplayController.UI_Inventory.OnCallingInventory -= _playerBehaviour.Inputs.BlockInputsWhenInventory;
 
             uIGameplayController.UI_Inventory.OnUnCallingInventory -= pauseManager.UnPause;
-            uIGameplayController.UI_Inventory.OnAllowingMenus -= playerBehaviour.Inputs.AllowInputsWhenInventory;
+            uIGameplayController.UI_Inventory.OnAllowingMenus -= _playerBehaviour.Inputs.AllowInputsWhenInventory;
 
-            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState -= playerBehaviour.Equipment.HasMeleeWeapon;
-            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState -= playerBehaviour.Equipment.HasRangedWeapon;
+            uIGameplayController.UI_Inventory.OnCheckMeleeWeaponState -= _playerBehaviour.Equipment.HasMeleeWeapon;
+            uIGameplayController.UI_Inventory.OnCheckRangedWeaponState -= _playerBehaviour.Equipment.HasRangedWeapon;
 
-            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState -= playerBehaviour.Resources.CurrentHealingBottles;
-            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState -= playerBehaviour.Resources.CurrentBullets;
-            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState -= playerBehaviour.Resources.CurrentAmmo;
+            uIGameplayController.UI_Inventory.OnCheckHealingBottlesState -= _playerBehaviour.Resources.CurrentHealingBottles;
+            uIGameplayController.UI_Inventory.OnCheckWeaponBulletsState -= _playerBehaviour.Resources.CurrentBullets;
+            uIGameplayController.UI_Inventory.OnCheckWeaponAmmoState -= _playerBehaviour.Resources.CurrentAmmo;
 
             uIGameplayController.UI_ItemNotification.OnShowInterface -= pauseManager.Pause;
             uIGameplayController.UI_ItemNotification.OnHideInteface -= pauseManager.UnPause;
 
-            uIGameplayController.UI_ItemNotification.OnAllowControls -= playerBehaviour.Inputs.AllowControls;
-            uIGameplayController.UI_ItemNotification.OnBlockControls -= playerBehaviour.Inputs.BlockControls;
+            uIGameplayController.UI_ItemNotification.OnAllowControls -= _playerBehaviour.Inputs.AllowControls;
+            uIGameplayController.UI_ItemNotification.OnBlockControls -= _playerBehaviour.Inputs.BlockControls;
 
             uIGameplayController.UI_PauseGame.OnShowInterface -= pauseManager.Pause;
-            uIGameplayController.UI_PauseGame.OnShowInterface -= playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
+            uIGameplayController.UI_PauseGame.OnShowInterface -= _playerBehaviour.Inputs.BlockInputsWhenPauseMenu;
 
             uIGameplayController.UI_PauseGame.OnHideInteface -= pauseManager.UnPause;
-            uIGameplayController.UI_PauseGame.OnHideInteface -= playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
+            uIGameplayController.UI_PauseGame.OnHideInteface -= _playerBehaviour.Inputs.AllowInputsWhenPauseMenu;
 
-            uIGameplayController.UI_Inventory.OnShowInventoryEnd -= changeCameraRendering.OnlyRenderingUI;
-            uIGameplayController.UI_Inventory.OnHideInventoryStarts -= changeCameraRendering.BackToDefaultRendering;
+            uIGameplayController.UI_Inventory.OnShowInventoryEnd -= _changeCameraRendering.OnlyRenderingUI;
+            uIGameplayController.UI_Inventory.OnHideInventoryStarts -= _changeCameraRendering.BackToDefaultRendering;
         }
 
         private void ScenarioLoaderDisableEvents()
         {
             scenarioLoaderManager.OnStartTravel -= pauseManager.Pause;
-            scenarioLoaderManager.OnStartTravel -= playerBehaviour.Inputs.BlockControls;
+            scenarioLoaderManager.OnStartTravel -= _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel -= uIFadeController.FadeIn;
 
             scenarioLoaderManager.OnEndTravel -= pauseManager.UnPause;
-            scenarioLoaderManager.OnEndTravel -= playerBehaviour.Inputs.AllowControls;
+            scenarioLoaderManager.OnEndTravel -= _playerBehaviour.Inputs.AllowControls;
             scenarioLoaderManager.OnEndTravel -= uIFadeController.FadeOut;
         }
 
@@ -242,21 +276,21 @@ namespace Core.Events
 
         private void PauseDisableEvents()
         {
-            pauseManager.OnPaused -= playerBehaviour.Inputs.BlockInputsWhenPaused;
-            pauseManager.OnUnPaused -= playerBehaviour.Inputs.AllowInputsWhenUnPaused;
+            pauseManager.OnPaused -= _playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnUnPaused -= _playerBehaviour.Inputs.AllowInputsWhenUnPaused;
         }
 
         private void PlayerDisableEvents()
         {
-            playerBehaviour.Inputs.UnsubscribeInventory();
-            playerBehaviour.Inputs.UnsubscribePause();
+            _playerBehaviour.Inputs.UnsubscribeInventory();
+            _playerBehaviour.Inputs.UnsubscribePause();
 
-            playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
-            playerBehaviour.Status.OnTakingDamage -= cameraShake.HittedShake;
-            playerBehaviour.Status.OnDeath -= scenarioLoaderManager.ReloadCurrentScene;
+            _playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
+            _playerBehaviour.Status.OnTakingDamage -= _cameraShake.HittedShake;
+            _playerBehaviour.Status.OnDeath -= scenarioLoaderManager.ReloadCurrentScene;
 
-            playerBehaviour.Resources.OnRefreshWeaponUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
-            playerBehaviour.Resources.OnRefreshBottlesUI -= uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
+            _playerBehaviour.Resources.OnRefreshWeaponUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
+            _playerBehaviour.Resources.OnRefreshBottlesUI -= uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
         }
     }
 }

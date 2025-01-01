@@ -10,7 +10,7 @@ namespace Core.Translation
             Brazilian
         }
 
-        public static Language language = Language.Brazilian;
+        public static Language language = Language.English;
 
         private static Dictionary<string, string> localisedEN;
         private static Dictionary<string, string> localisedBR;
