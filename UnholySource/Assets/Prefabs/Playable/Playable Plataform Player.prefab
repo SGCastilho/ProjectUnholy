@@ -1705,9 +1705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 6040552402724422954}
-  playerHealthBottles: 10
-  playerBullets: 16
-  playerMunition: 64
+  playerHealthBottles: 0
+  playerBullets: 0
+  playerMunition: 0
 --- !u!114 &845378244454797319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,8 +1723,8 @@ MonoBehaviour:
   behaviour: {fileID: 6040552402724422954}
   meleeData: {fileID: 11400000, guid: b60b595650f29284985a37ff6e95ed2b, type: 2}
   rangedData: {fileID: 11400000, guid: 425ab8a762c37ed4a95d4f3acd43da26, type: 2}
-  meleeEnabled: 1
-  rangedEnabled: 1
+  meleeEnabled: 0
+  rangedEnabled: 0
   meleeEquipped: 0
   rangedEquipped: 0
   meleeWeaponModel: {fileID: 370670084993313053}
@@ -2670,7 +2670,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -3692,12 +3692,12 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 201
+    m_Bits: 4294967295
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

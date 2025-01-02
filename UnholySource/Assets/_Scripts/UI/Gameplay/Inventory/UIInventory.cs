@@ -317,8 +317,6 @@ namespace Core.UI
             if (OnCheckMeleeWeaponState?.Invoke() == false && OnCheckRangedWeaponState?.Invoke() == false)
             {
                 noWeaponsGroup.SetActive(true);
-
-                Debug.Log("All disable"); 
             }
             else 
             { 

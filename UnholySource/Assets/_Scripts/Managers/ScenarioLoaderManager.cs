@@ -197,7 +197,7 @@ namespace Core.Managers
 
             await Task.Delay(1000);
 
-            if(predatorManager.IsChasing)
+            if(predatorManager != null && predatorManager.IsChasing)
             {
                 if(predatorManager.CountdownFinish)
                 {
@@ -268,20 +268,5 @@ namespace Core.Managers
 
             return null;
         }
-
-        //REMOVER DEPOIS DE TERMINAR O PROTIPO
-
-        public async void PrototypeFinish()
-        {
-            OnStartTravel?.Invoke();
-
-            await Task.Delay(1000);
-
-            SceneManager.LoadScene("Prototype_ThanksForPlaying");
-
-            OnEndTravel?.Invoke();
-        }
-
-        //REMOVER DEPOIS DE TERMINAR O PROTIPO
     }
 }
