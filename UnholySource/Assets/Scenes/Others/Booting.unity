@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warningText: {fileID: 625408364}
-  mainMenuScene: Level_Chapter_1
+  mainMenuScene: Menu_Main
 --- !u!1 &1125402998
 GameObject:
   m_ObjectHideFlags: 0

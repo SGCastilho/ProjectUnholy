@@ -1,0 +1,34 @@
+{
+    "name": "MainMenuInputActions",
+    "maps": [
+        {
+            "name": "Main Menu",
+            "id": "ad7d0a92-e7e3-44bb-9a24-5c667ae03c88",
+            "actions": [
+                {
+                    "name": "Any Button",
+                    "type": "Button",
+                    "id": "d9b853c9-d49f-4bc9-84f6-33808c395d42",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4b04ba88-3403-44db-8353-ff55e8b9a682",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
