@@ -18,6 +18,13 @@ Audio:
 Music:
 	-udio.com
 
+Models:
+	-Jeremy
+	-Zsky
+	-burunduk
+	-Poly by Google
+	-Servinox GDL
+
 User Interface:
 	-Pixel Perfect
 	-Freepik
