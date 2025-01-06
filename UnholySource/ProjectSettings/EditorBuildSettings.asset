@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_01.unity
     guid: 5d41724a4b7777c479a80554139ff4b3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_01_OpenDoor.unity
+    guid: 824cc7410c26c1b43bd678ab80219af3
   m_configObjects: {}

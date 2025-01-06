@@ -31,6 +31,7 @@ namespace Core.UI
         [Space(10)]
 
         [SerializeField] private UnityEvent OnFadeOutStarted;
+        [SerializeField] private UnityEvent OnFadeOutEnd;
 
         private bool _enableToFadeOut;
         private bool _pressedAnyButton;
@@ -67,7 +68,13 @@ namespace Core.UI
             pressAnyButtonTMP.DOFade(0f, 0.2f).OnComplete(() => 
             {
                 canvasGroup.DOKill();
-                canvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { canvasGroup.interactable = true; canvasGroup.blocksRaycasts = true; }); 
+                canvasGroup.DOFade(0f, fadeDuration).OnComplete(() => 
+                { 
+                    canvasGroup.interactable = true; 
+                    canvasGroup.blocksRaycasts = true;
+
+                    OnFadeOutEnd?.Invoke(); 
+                }); 
             });
         }
     }
