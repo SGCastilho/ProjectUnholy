@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000006, guid: 63a8ce8982ede7a46973a36e358a4916,
+  m_LightingDataAsset: {fileID: 112000010, guid: 63a8ce8982ede7a46973a36e358a4916,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 9e64f2e33c0142143993430b50052315,
     type: 2}
@@ -301,6 +301,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Light Baked (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 8.1e-44
+      objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -475,7 +485,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.1e-44, z: 1.543e-41, w: 2.6562681e+20}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -803,6 +813,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Light Baked (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.12890625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.03515625
+      objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -915,6 +945,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.13671875
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1186,6 +1236,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Light Baked
       objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 3.4797e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: -52654.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 5.73e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1426,6 +1496,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1929,6 +2009,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.13671875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}

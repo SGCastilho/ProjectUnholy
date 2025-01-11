@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000010, guid: 63a8ce8982ede7a46973a36e358a4916,
+  m_LightingDataAsset: {fileID: 112000014, guid: 63a8ce8982ede7a46973a36e358a4916,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 9e64f2e33c0142143993430b50052315,
     type: 2}
@@ -267,6 +267,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Light Baked (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: -1.8070343e-38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.14453125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.07421875
+      objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,6 +439,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 5.75e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 4.3e-44
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -665,6 +700,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Light Baked (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0.1015625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: -2.1020604e-38
+      objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -803,6 +853,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1019,6 +1089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1285,6 +1360,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Light Baked (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 3.8e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 4.2e-44
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -2030,6 +2115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_InnerSpotAngle
       value: 134.67314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 3.2328e-41
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}

@@ -15,15 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Chapter 1/Level_Chapter_1.unity
     guid: 4aa2622d5e7f8f446b893dc36de875a0
   - enabled: 1
-    path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_00.unity
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/East/LP_School_Room_Interior_East_00.unity
     guid: 39a6c47df93136a438fe06f6ae0985c7
   - enabled: 1
-    path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_01.unity
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/East/LP_School_Room_Interior_East_01.unity
     guid: 5d41724a4b7777c479a80554139ff4b3
   - enabled: 1
-    path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_01_OpenDoor.unity
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/East/LP_School_Room_Interior_East_01_OpenDoor.unity
     guid: 824cc7410c26c1b43bd678ab80219af3
   - enabled: 1
-    path: Assets/Scenes/Levels/Chapter 1/Rooms/LP_School_Room_Interior_East_02.unity
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/East/LP_School_Room_Interior_East_02.unity
     guid: a190d646cdc3d394c8882a9747b25147
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/North/LP_School_Room_Interior_North_00.unity
+    guid: b9c4a593992eb5b4196a46713ca3ba92
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/North/LP_School_Room_Interior_North_01.unity
+    guid: 29e48eb773ab66043a727b23dffe7013
   m_configObjects: {}
