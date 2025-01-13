@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/North/LP_School_Room_Interior_North_01.unity
     guid: 29e48eb773ab66043a727b23dffe7013
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Chapter_1/South/LP_School_Room_Interior_South_00.unity
+    guid: ce5eb38bfbe9fd34e9907fd0a733612f
   m_configObjects: {}
