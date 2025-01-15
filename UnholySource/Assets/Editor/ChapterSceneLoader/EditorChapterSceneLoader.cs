@@ -89,6 +89,8 @@ public sealed class EditorChapterSceneLoader : EditorWindow
                 EditorSceneManager.CloseScene(openedScenes[i], true);
             }
 
+            GetChapters();
+
             Debug.Log("All the scenes are saved with success.");
         }
         catch
