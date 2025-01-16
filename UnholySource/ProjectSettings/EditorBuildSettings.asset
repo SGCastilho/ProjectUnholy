@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Rooms/South/LP_School_Room_Interior_South_03.unity
     guid: 1cee0adab47223848874846fb51352c5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/South/LP_School_Room_Interior_South_04.unity
+    guid: 57831304557881c46aec1fce988c2f4f
   m_configObjects: {}
