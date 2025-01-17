@@ -47,4 +47,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Rooms/South/LP_School_Room_Interior_South_04.unity
     guid: 57831304557881c46aec1fce988c2f4f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Southeast/LP_School_Room_Interior_Southeast_00.unity
+    guid: a0b1f29ce82034643a55f624e27617c2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Southeast/LP_School_Room_Interior_Southeast_01.unity
+    guid: 43b2a931f9860e247ba4b5c82b30a698
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Southeast/LP_School_Room_Interior_Southeast_02.unity
+    guid: 6f7c06bc56a4e5d419e74e813b521d41
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Southeast/LP_School_Room_Interior_Southeast_03.unity
+    guid: 68a504c61d86a8c4bbcc6812b6ff9854
   m_configObjects: {}
