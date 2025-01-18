@@ -473,7 +473,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1067713473}
   - {fileID: 1541775462}
   - {fileID: 986371055}
   m_Father: {fileID: 1650150431}
@@ -1272,7 +1271,7 @@ PrefabInstance:
     - target: {fileID: 778055405826699793, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_Name
-      value: Top Light Baked (2)
+      value: Top Light Baked (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1413,100 +1412,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2524850502445346631, guid: cc2342320356e3548a641c8c5d5b1ea0,
     type: 3}
   m_PrefabInstance: {fileID: 1018042862}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1067713472
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 486892896}
-    m_Modifications:
-    - target: {fileID: 778055405826699793, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_Name
-      value: Top Light Baked
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 41
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 0.4609375
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0.1796875
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.403
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 73787bd4c1298794685088f6377ed82b, type: 3}
---- !u!4 &1067713473 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1067713472}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114216870
 GameObject:
@@ -1655,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 778055405826699793, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_Name
-      value: Top Light Baked (1)
+      value: Top Light Baked
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
