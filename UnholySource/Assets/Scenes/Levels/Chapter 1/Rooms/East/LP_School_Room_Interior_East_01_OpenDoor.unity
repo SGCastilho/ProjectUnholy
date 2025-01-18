@@ -261,6 +261,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 67
       objectReference: {fileID: 0}
+    - target: {fileID: -6812160581195412943, guid: ea4eaf3c239fb394b9c9942420f318c2,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea4eaf3c239fb394b9c9942420f318c2,
         type: 3}
       propertyPath: m_Name
@@ -623,6 +628,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -42.520996
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f41cd1197f9738343ba8ac3dfb305d9f,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f41cd1197f9738343ba8ac3dfb305d9f,
         type: 3}
       propertyPath: m_Name
@@ -876,6 +886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 26.29
+      objectReference: {fileID: 0}
+    - target: {fileID: -8428437661094547955, guid: 7dbab5fa4e716654f9e834d75d2fe5ab,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7dbab5fa4e716654f9e834d75d2fe5ab,
         type: 3}
@@ -1324,6 +1339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: -6812160581195412943, guid: ea4eaf3c239fb394b9c9942420f318c2,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea4eaf3c239fb394b9c9942420f318c2,
         type: 3}
@@ -2573,6 +2593,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8526869111348745359, guid: fbcff5b7a5c1d6b489bc23b7ce8f7f0f,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: -6450612630835871993, guid: fbcff5b7a5c1d6b489bc23b7ce8f7f0f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2921,6 +2946,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 67
       objectReference: {fileID: 0}
+    - target: {fileID: -6812160581195412943, guid: ea4eaf3c239fb394b9c9942420f318c2,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea4eaf3c239fb394b9c9942420f318c2,
         type: 3}
       propertyPath: m_Name
@@ -3087,6 +3117,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -16.1
       objectReference: {fileID: 0}
+    - target: {fileID: -4453247033180462182, guid: 3ca1dd2ff56c4e444bd759c22f3b3019,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3ca1dd2ff56c4e444bd759c22f3b3019,
         type: 3}
       propertyPath: m_Name
@@ -3175,6 +3210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: -6812160581195412943, guid: ea4eaf3c239fb394b9c9942420f318c2,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea4eaf3c239fb394b9c9942420f318c2,
         type: 3}
@@ -3630,6 +3670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3782ba5b461ed0b49b673f747c4a3c20,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3782ba5b461ed0b49b673f747c4a3c20,
         type: 3}
