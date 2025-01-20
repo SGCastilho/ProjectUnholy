@@ -48,6 +48,8 @@ namespace Core.Player
             _gameplayInputActions.Gameplay.Inventory.started += InventoryInput;
 
             _gameplayInputActions.Gameplay.Pause.started += PauseInput;
+
+            BlockControls();
         }
 
         private void OnDisable() 
@@ -114,7 +116,7 @@ namespace Core.Player
 
         public void HealInput(InputAction.CallbackContext context)
         {
-            if(behaviour.Status.IsDead || behaviour.Actions.IsReloading) return;
+            if(behaviour.Actions.IsReloading) return;
 
             behaviour.Actions.Healing();
         }

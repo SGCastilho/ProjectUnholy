@@ -6524,6 +6524,7 @@ MonoBehaviour:
   uIGameplayController: {fileID: 1639066765}
   musicManager: {fileID: 1464374883}
   globalSoundEffects: {fileID: 1197534624}
+  gameManager: {fileID: 1284136790}
   pauseManager: {fileID: 44422095}
   inventoryManager: {fileID: 1817070906}
   scenarioLoaderManager: {fileID: 1416651630}
@@ -8600,6 +8601,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &818555505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818555506}
+  - component: {fileID: 818555507}
+  m_Layer: 0
+  m_Name: ChapterEventsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818555506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818555505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818555507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818555505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b39c9e3312dc146a4ffde462f93ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapterEvents: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -13050,6 +13096,55 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &1284136789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284136791}
+  - component: {fileID: 1284136790}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1284136790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284136789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4394e821c5da2e74e93122113b053be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLoaded: 0
+  chapterStartedFadeOut: 4
+  chapterStartedFadeOutDelay: 2
+  chapterLoadedFadeOut: 1
+  chapterLoadedFadeOutDelay: 1
+--- !u!4 &1284136791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284136789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303786680
 GameObject:
   m_ObjectHideFlags: 0
@@ -24677,9 +24772,11 @@ SceneRoots:
   - {fileID: 546043241}
   - {fileID: 276322209}
   - {fileID: 1464374881}
-  - {fileID: 1197534625}
   - {fileID: 44422094}
+  - {fileID: 1284136791}
   - {fileID: 1817070905}
+  - {fileID: 1197534625}
+  - {fileID: 818555506}
   - {fileID: 1416651629}
   - {fileID: 348512112}
   - {fileID: 711269767}

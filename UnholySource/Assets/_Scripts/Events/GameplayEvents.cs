@@ -19,6 +19,7 @@ namespace Core.Events
         [SerializeField] private LocalSoundEffects globalSoundEffects;
 
         [Header("Managers Classes")]
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
@@ -71,9 +72,9 @@ namespace Core.Events
 
             InventoryEnableEvents();
 
-            if(_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
+            if (_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
             {
-                foreach(UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
+                foreach (UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
                 {
                     unlockDoor.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory += inventoryManager.RemoveKeyItem;
@@ -81,9 +82,9 @@ namespace Core.Events
                 }
             }
 
-            if(_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
+            if (_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
             {
-                foreach(PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
+                foreach (PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
                 {
                     puzzleUnlock.OnReceiveItemFromInventory += inventoryManager.AddKeyItem;
                     puzzleUnlock.OnCheckIfPlayerHasTheItem += inventoryManager.CheckIfHasItem;
@@ -96,6 +97,16 @@ namespace Core.Events
             ScenarioLoaderEnableEvents();
 
             UIEnableEvents();
+
+            GameManagerEnableEvents();
+        }
+
+        private void GameManagerEnableEvents()
+        {
+            gameManager.EnablePlayerControlls += _playerBehaviour.Inputs.AllowControls;
+
+            gameManager.OnGameStarted += uIFadeController.CustomFadeOut;
+            gameManager.OnGameLoaded += uIFadeController.CustomFadeOut;
         }
 
         private void PredatorEnableEvents()
@@ -172,7 +183,7 @@ namespace Core.Events
 
             _playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             _playerBehaviour.Status.OnTakingDamage += _cameraShake.HittedShake;
-            _playerBehaviour.Status.OnDeath += scenarioLoaderManager.ReloadCurrentScene;
+            _playerBehaviour.Status.OnDeath += gameManager.GameOver;
 
             _playerBehaviour.Resources.OnRefreshWeaponUI += uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
             _playerBehaviour.Resources.OnRefreshBottlesUI += uIGameplayController.UI_HealingBottles.RefreshHealingInfo;
@@ -211,6 +222,16 @@ namespace Core.Events
             ScenarioLoaderDisableEvents();
 
             UIDisableEvents();
+
+            GameManagerDisableEvents();
+        }
+
+        private void GameManagerDisableEvents()
+        {
+            gameManager.EnablePlayerControlls -= _playerBehaviour.Inputs.AllowControls;
+
+            gameManager.OnGameStarted -= uIFadeController.CustomFadeOut;
+            gameManager.OnGameLoaded -= uIFadeController.CustomFadeOut;
         }
 
         private void PredatorDisableEvents()
@@ -287,7 +308,7 @@ namespace Core.Events
 
             _playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             _playerBehaviour.Status.OnTakingDamage -= _cameraShake.HittedShake;
-            _playerBehaviour.Status.OnDeath -= scenarioLoaderManager.ReloadCurrentScene;
+            _playerBehaviour.Status.OnDeath -= gameManager.GameOver;
 
             _playerBehaviour.Resources.OnRefreshWeaponUI -= uIGameplayController.UI_RangedWeapon.RefreshWeaponInfo;
             _playerBehaviour.Resources.OnRefreshBottlesUI -= uIGameplayController.UI_HealingBottles.RefreshHealingInfo;

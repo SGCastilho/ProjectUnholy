@@ -29,8 +29,6 @@ namespace Core.Player
         #region Encapsulation
         public int Health { get => playerHealth; }
         public int MaxHealth { get => playerMaxHealth; }
-
-        public bool IsDead { get => isDead; }
         #endregion
 
         [Header("Behaviour")]
@@ -47,10 +45,6 @@ namespace Core.Player
 
         [SerializeField] private int maxHittedSFX = 1;
         [SerializeField] private int maxHealingSFX = 2;
-        
-        [Space(10)]
-
-        [SerializeField] private bool isDead;
 
         private float _currentHittedSFX = 0;
         private float _currentHealingSFX = 0;
@@ -89,14 +83,10 @@ namespace Core.Player
 
         private void DeathSequence()
         {
-            //TEMPORARIO!!! JOGAR TUDO ISSO PARA O GAME CONTROLLER
-            isDead = true;
-
             behaviour.Inputs.BlockControls();
             behaviour.Animation.CallDeathTrigger();
 
             OnDeath?.Invoke();
-            //TEMPORARIO!!! JOGAR TUDO ISSO PARA O GAME CONTROLLER
         }
 
         public void ApplyDamage(int damageToApply)

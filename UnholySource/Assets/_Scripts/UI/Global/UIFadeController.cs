@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,20 +22,18 @@ namespace Core.UI
             }
         }
 
-        private void Start() => FadeOut();
-
         public void FadeOut()
         {
             canvasGroup.DOKill();
             canvasGroup.DOFade(0f, fadeDuration).SetUpdate(true);
         }
 
-        public void FadeOut(int customDuration)
+        public void CustomFadeOut(float customDuration, float delay, Action OnFadeOutEnd)
         {
             if(customDuration <= 0f) return;
 
             canvasGroup.DOKill();
-            canvasGroup.DOFade(0f, customDuration).SetUpdate(true);
+            canvasGroup.DOFade(0f, customDuration).SetUpdate(true).SetDelay(delay).OnComplete(()=> { OnFadeOutEnd?.Invoke(); });
         }
 
         public void FadeIn()
@@ -43,12 +42,12 @@ namespace Core.UI
             canvasGroup.DOFade(1f, fadeDuration).SetUpdate(true);
         }
 
-        public void FadeIn(int customDuration)
+        public void CustomFadeIn(float customDuration, float delay, Action OnFadeOutEnd)
         {
             if(customDuration <= 0f) return;
 
             canvasGroup.DOKill();
-            canvasGroup.DOFade(1f, customDuration).SetUpdate(true);
+            canvasGroup.DOFade(1f, customDuration).SetUpdate(true).OnComplete(()=> { OnFadeOutEnd?.Invoke(); });
         }
     }
 }

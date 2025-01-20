@@ -69,7 +69,7 @@ namespace Core.Player
 
         internal void Attack()
         {
-            if(behaviour.Status.IsDead ||_isAttacking || isHealing) return;
+            if(_isAttacking || isHealing) return;
 
             if(isAiming && behaviour.Equipment.RangedEnabled)
             {
