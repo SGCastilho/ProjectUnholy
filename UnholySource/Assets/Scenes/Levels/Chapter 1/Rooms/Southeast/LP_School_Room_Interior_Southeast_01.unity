@@ -677,10 +677,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: 121
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &705340676 stripped
 Transform:
@@ -751,10 +760,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: 119
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &847498932 stripped
 Transform:
@@ -1298,10 +1316,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: 118
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &1092042409 stripped
 Transform:
@@ -1565,10 +1592,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: 117
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &1827128478 stripped
 Transform:
@@ -1672,10 +1708,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &2013375763 stripped
 Transform:

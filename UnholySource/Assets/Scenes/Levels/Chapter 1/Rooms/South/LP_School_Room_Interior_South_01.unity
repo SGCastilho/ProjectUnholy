@@ -1202,10 +1202,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: B105
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &1827128478 stripped
 Transform:
@@ -1447,10 +1466,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Static Door 0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_text
+      value: B106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574579621336107265, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8748265945083349734, guid: cc2342320356e3548a641c8c5d5b1ea0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cc2342320356e3548a641c8c5d5b1ea0, type: 3}
 --- !u!4 &2145459122 stripped
 Transform:
