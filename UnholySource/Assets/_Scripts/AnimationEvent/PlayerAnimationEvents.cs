@@ -34,7 +34,7 @@ namespace Core.AnimationEvents
 
         [Header("Settings")]
         [SerializeField] private Vector3 hurtBoxSize;
-        [SerializeField] private LayerMask enemyLayer;
+        [SerializeField] private LayerMask damagableLayer;
 
         [Space(10)]
 
@@ -85,7 +85,7 @@ namespace Core.AnimationEvents
 
         private void DrawHurtBox()
         {
-            _searchingEnemy = Physics.OverlapBox(hurtBoxTransform.position, hurtBoxSize, hurtBoxTransform.rotation, enemyLayer);
+            _searchingEnemy = Physics.OverlapBox(hurtBoxTransform.position, hurtBoxSize, hurtBoxTransform.rotation, damagableLayer);
 
             if(_searchingEnemy == null || _searchingEnemy.Length <= 0) return;
 
@@ -117,7 +117,7 @@ namespace Core.AnimationEvents
                 _rayDetection = new Ray(shootingRayTransform.position, Vector3.forward);
                 _raycastHitDetection = new RaycastHit();
 
-                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, enemyLayer))
+                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, damagableLayer))
                 {
                     if(_raycastHitDetection.transform.GetComponent<IDamagable>() == null) return;
                     
@@ -129,7 +129,7 @@ namespace Core.AnimationEvents
                 _rayDetection = new Ray(shootingRayTransform.position, Vector3.back);
                 _raycastHitDetection = new RaycastHit();
 
-                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, enemyLayer))
+                if(Physics.Raycast(_rayDetection, out _raycastHitDetection, raycastLegth, damagableLayer))
                 {
                     if(_raycastHitDetection.transform.GetComponent<IDamagable>() == null) return;
 

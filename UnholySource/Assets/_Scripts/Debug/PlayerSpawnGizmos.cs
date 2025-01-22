@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Core.Debug
 {
-    #if UNITY_EDITOR
     public sealed class PlayerSpawnGizmos : MonoBehaviour
     {
+        #if UNITY_EDITOR
         [Header("Settings")]
         [SerializeField] private Color gizmosColor = Color.red;
 
@@ -23,6 +23,6 @@ namespace Core.Debug
             Gizmos.color = gizmosColor;
             Gizmos.DrawWireCube(_gizmosPosition, _gizmosSize);
         }
+        #endif
     }
-    #endif
 }

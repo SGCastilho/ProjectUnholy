@@ -1,0 +1,16 @@
+{
+    "name": "Core.Destructables",
+    "rootNamespace": "Core.Destructables",
+    "references": [
+        "GUID:8d88350da9d890c4a8755c382d3998d5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

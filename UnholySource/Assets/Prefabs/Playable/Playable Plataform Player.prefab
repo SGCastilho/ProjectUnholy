@@ -476,9 +476,9 @@ MonoBehaviour:
   shootingRayTransform: {fileID: 3299881209380579657}
   vfxMuzzleFlash: {fileID: 2172733494762777315}
   hurtBoxSize: {x: 0, y: 0, z: 0}
-  enemyLayer:
+  damagableLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1032
   raycastLegth: 7.4
   maxFootstepSFX: 2
   maxWoodImpactSFX: 2
@@ -1678,7 +1678,6 @@ MonoBehaviour:
   playerMaxHealth: 100
   maxHittedSFX: 1
   maxHealingSFX: 2
-  isDead: 0
 --- !u!114 &797605166636515633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1728,8 @@ MonoBehaviour:
   rangedEquipped: 0
   meleeWeaponModel: {fileID: 370670084993313053}
   rangedWeaponModel: {fileID: 4654337843221589540}
+  startWithFlashLightOn: 0
+  flashLightObject: {fileID: 6121068448924797529}
   healingBottleModel: {fileID: 7505240032160012947}
 --- !u!114 &7747935306553991122
 MonoBehaviour:

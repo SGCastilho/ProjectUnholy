@@ -41,6 +41,12 @@ namespace Core.Player
 
         [Space(6)]
 
+        [SerializeField] private bool startWithFlashLightOn;
+
+        [SerializeField] private GameObject flashLightObject;
+
+        [Space(6)]
+
         [SerializeField] private GameObject healingBottleModel;
 
         private int _currentWeaponDamage;
@@ -55,9 +61,9 @@ namespace Core.Player
             if(meleeData && rangedData == null) return;
 
             _currentWeaponDamage = meleeData.Damage;
-        }
 
-        private void Start() => EquipMeleeWeapon(); //TEMPORARIO
+            if(startWithFlashLightOn) { FlashlightStatus(true); }
+        }
 
         internal void EquipMeleeWeapon()
         {
@@ -101,6 +107,11 @@ namespace Core.Player
         public bool HasRangedWeapon()
         {
             return rangedEnabled;
+        }
+
+        public void FlashlightStatus(bool isOn)
+        {
+            flashLightObject.SetActive(isOn);
         }
     }
 }

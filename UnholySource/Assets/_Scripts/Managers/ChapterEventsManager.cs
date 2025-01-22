@@ -24,12 +24,23 @@ namespace Core.Managers
 
         [Header("Settings")]
         [SerializeField] private ChapterEvent[] chapterEvents;
+        
+        public void EndEvent(string eventKey)
+        {
+            for(int i = 0; i < chapterEvents.Length; i++)
+            {
+                if(chapterEvents[i].Key == eventKey)
+                {
+                    chapterEvents[i].IsTriggered = true;
+                }
+            }
+        }
 
         /// <summary>
         /// End a event and execute OnEventTriggered
         /// </summary>
         /// <param name="eventKey"></param>
-        public void EndEvent(string eventKey)
+        public void EndEventAndExcute(string eventKey)
         {
             for(int i = 0; i < chapterEvents.Length; i++)
             {
@@ -45,7 +56,7 @@ namespace Core.Managers
         /// <summary>
         /// Execute all the ended events triggered by the player
         /// </summary>
-        private void ExecuteEndedEvents()
+        internal void ExecuteEndedEvents()
         {
             for(int i = 0; i < chapterEvents.Length; i++)
             {

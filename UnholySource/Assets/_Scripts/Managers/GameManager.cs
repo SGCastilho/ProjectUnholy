@@ -50,6 +50,9 @@ namespace Core.Managers
         {
             //Checka se existe umas instancia do save file loader, e pega todas suas informações para aplica-los na cena
             //Se o mesmo não existir, toda essa função sera ignorada e o jogo será iniciado
+
+            //DEBUG
+            _chapterEventsManager.ExecuteEndedEvents();
         }
 
         public void GameStart()
