@@ -18,6 +18,8 @@ namespace Core.Utilities
 
         [SerializeField] [Range(0.1f, 4f)] private float transistionSpeed = 2f;
 
+        private Tween weightTween;
+
         private void Start() 
         {
             gameObject.SetActive(enabledWhenStarted);
@@ -27,22 +29,15 @@ namespace Core.Utilities
         {
             gameObject.SetActive(true);
 
-            StartCoroutine(FadeIn());
-        }
-
-        private IEnumerator FadeIn()
-        {
-            while(posprocessingProfile.weight < 1f)
-            {
-                posprocessingProfile.weight = Mathf.Lerp(0f, 1f, transistionSpeed);
-
-                yield return null;
-            }
+            weightTween = null;
+            weightTween = DOTween.To(() => posprocessingProfile.weight, x => posprocessingProfile.weight = x, 1f, transistionSpeed);
         }
 
         public void Hide()
         {
-
+            weightTween = null;
+            weightTween = DOTween.To(() => posprocessingProfile.weight, x => posprocessingProfile.weight = x, 0f, transistionSpeed)
+            .OnComplete(() => { gameObject.SetActive(false); weightTween = null; });
         }
     }
 }

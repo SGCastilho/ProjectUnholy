@@ -71,6 +71,17 @@ namespace Core.Audio
             loopingAudioSource.DOFade(0f, loopingFadeDuration).SetUpdate(true).OnComplete(() => { loopingAudioSource.clip = null; });
         }
 
+        public void StopAudioLoop(float customDuration)
+        {
+            AudioFadeOut(customDuration);
+        }
+
+        private void AudioFadeOut(float duration)
+        {
+            loopingAudioSource.DOKill();
+            loopingAudioSource.DOFade(0f, duration).SetUpdate(true).OnComplete(() => { loopingAudioSource.clip = null; });
+        }
+
         public void PlayAudioOneShoot(string audioKey)
         {
             AudioSettings selectedAudio = new AudioSettings();
