@@ -45,6 +45,30 @@ namespace Core.Audio
             if(selectedAudio.Key == null || selectedAudio.Key == string.Empty) return;
 
             loopingAudioSource.clip = selectedAudio.Clip;
+            loopingAudioSource.loop = true;
+            
+            _loopingVolume = selectedAudio.Volume;
+
+            AudioFadeIn();
+        }
+
+        public void PlayerAudioNoLoop(string audioKey)
+        {
+            AudioSettings selectedAudio = new AudioSettings();
+
+            foreach(AudioSettings audio in audioSettings)
+            {
+                if(audio.Key == audioKey)
+                {
+                    selectedAudio = audio;
+                }
+            }
+
+            if(selectedAudio.Key == null || selectedAudio.Key == string.Empty) return;
+            
+            loopingAudioSource.clip = selectedAudio.Clip;
+            loopingAudioSource.loop = false;
+
             _loopingVolume = selectedAudio.Volume;
 
             AudioFadeIn();

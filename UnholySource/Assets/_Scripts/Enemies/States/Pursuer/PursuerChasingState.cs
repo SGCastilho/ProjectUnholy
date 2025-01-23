@@ -45,7 +45,11 @@ namespace Core.Enemies
 
         public override void ResetState()
         {
+            _isRunning = false;
+            _timeSetted = false;
             _currentUpdateTick = 0f;
+
+            Debug.Log("Chasing reset");
         }
 
         public override void StateAction()
@@ -91,7 +95,7 @@ namespace Core.Enemies
             {
                 behaviour.Movement.IsMoving = false;
 
-                ResetState();
+                _currentUpdateTick = 0f;
 
                 if(_isRunning)
                 {

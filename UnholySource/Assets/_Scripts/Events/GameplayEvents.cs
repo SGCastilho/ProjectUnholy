@@ -21,6 +21,7 @@ namespace Core.Events
         [Header("Managers Classes")]
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PauseManager pauseManager;
+        [SerializeField] private ChaserManager chaserManager;
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
 
@@ -29,8 +30,6 @@ namespace Core.Events
 
         private CameraShake _cameraShake;
         private ChangeCameraRendering _changeCameraRendering;
-
-        private PredatorManager _predatorManager;
 
         private UnlockDoorTrigger[] _unlockDoorsTriggers;
         private PuzzleInteractionTrigger[] _puzzleInteractionTriggers;
@@ -44,8 +43,6 @@ namespace Core.Events
 
             _cameraShake = FindObjectOfType<CameraShake>();
             _changeCameraRendering = FindObjectOfType<ChangeCameraRendering>();
-
-            _predatorManager = FindObjectOfType<PredatorManager>();
 
             var unlockTriggers = FindObjectsOfType<UnlockDoorTrigger>();
 
@@ -92,7 +89,10 @@ namespace Core.Events
                 }
             }
 
-            PredatorEnableEvents();
+            chaserManager.OnChaserEmitSounds += musicManager.BlockMusic;
+            chaserManager.OnEmitSound += globalSoundEffects.PlayerAudioNoLoop;
+            chaserManager.OnStopEmittingSound += globalSoundEffects.StopAudioLoop;
+            chaserManager.OnChaserStopEmitingSounds += musicManager.UnBlockMusic;
 
             ScenarioLoaderEnableEvents();
 
@@ -107,15 +107,6 @@ namespace Core.Events
 
             gameManager.OnGameStarted += uIFadeController.CustomFadeOut;
             gameManager.OnGameLoaded += uIFadeController.CustomFadeOut;
-        }
-
-        private void PredatorEnableEvents()
-        {
-            if(_predatorManager == null) return;
-
-            _predatorManager.OnStartChasing += musicManager.PlayPredatorChasing;
-            _predatorManager.OnExitChasing += musicManager.PlayPredatorSearching;
-            _predatorManager.OnFinishChasing += musicManager.StopPredatorMusic;
         }
         
         private void UIEnableEvents()
@@ -217,7 +208,10 @@ namespace Core.Events
                 }
             }
 
-            PredatorDisableEvents();
+            chaserManager.OnChaserEmitSounds -= musicManager.BlockMusic;
+            chaserManager.OnEmitSound -= globalSoundEffects.PlayerAudioNoLoop;
+            chaserManager.OnStopEmittingSound -= globalSoundEffects.StopAudioLoop;
+            chaserManager.OnChaserStopEmitingSounds -= musicManager.UnBlockMusic;
 
             ScenarioLoaderDisableEvents();
 
@@ -232,15 +226,6 @@ namespace Core.Events
 
             gameManager.OnGameStarted -= uIFadeController.CustomFadeOut;
             gameManager.OnGameLoaded -= uIFadeController.CustomFadeOut;
-        }
-
-        private void PredatorDisableEvents()
-        {
-            if(_predatorManager == null) return;
-
-            _predatorManager.OnStartChasing -= musicManager.PlayPredatorChasing;
-            _predatorManager.OnExitChasing -= musicManager.PlayPredatorSearching;
-            _predatorManager.OnFinishChasing -= musicManager.StopPredatorMusic;
         }
         
         private void UIDisableEvents()

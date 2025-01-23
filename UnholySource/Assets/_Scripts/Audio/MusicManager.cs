@@ -9,6 +9,7 @@ namespace Core.Audio
         [SerializeField] private AudioSource audioSource;
 
         [Header("Settings")]
+        [SerializeField] private bool blockMusic;
         [SerializeField] private bool inTransition;
         [SerializeField] private bool predatorChasing;
         [SerializeField] [Range(0.1f, 4f)] private float fadeDuration = 1f;
@@ -29,7 +30,7 @@ namespace Core.Audio
 
         public void PlayAudio(AudioClip musicAudio)
         {
-            if(inTransition || predatorChasing || audioSource.clip == musicAudio) return;
+            if(blockMusic || inTransition || predatorChasing || audioSource.clip == musicAudio) return;
 
             audioSource.clip = musicAudio;
             audioSource.volume = _maxVolume;
@@ -39,7 +40,7 @@ namespace Core.Audio
 
         public void PlayAudioFadeIn(AudioClip musicAudio)
         {
-            if(inTransition || predatorChasing || audioSource.clip == musicAudio) return;
+            if(blockMusic || inTransition || predatorChasing || audioSource.clip == musicAudio) return;
 
             audioSource.clip = musicAudio;
             audioSource.volume = 0f;
@@ -55,7 +56,7 @@ namespace Core.Audio
 
         public void TransitateTo(AudioClip musicAudio)
         {
-            if(inTransition || predatorChasing) return;
+            if(blockMusic || inTransition || predatorChasing) return;
 
             audioSource.DOKill();
 
@@ -143,6 +144,17 @@ namespace Core.Audio
             audioSource.clip = null;
 
             predatorChasing = false;
+        }
+
+        public void BlockMusic()
+        {
+            blockMusic = true;
+            StopAudioFadeOut();
+        }
+
+        public void UnBlockMusic()
+        {
+            blockMusic = false;
         }
     }
 }

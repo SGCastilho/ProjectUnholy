@@ -37,10 +37,10 @@ namespace Core.Managers
         public delegate void EndTravel();
         public event EndTravel OnEndTravel;
         #endregion
-
-        [Header("Classes")]
-        [SerializeField] private PredatorManager predatorManager;
         
+        [Header("Classes")]
+        [SerializeField] private ChaserManager chaserManager;
+
         [Header("Scenes To Load")]
         [SerializeField] private SceneLoaderSettings[] scenes;
         
@@ -195,17 +195,24 @@ namespace Core.Managers
 
             OnEndTravel?.Invoke();
 
+            if(chaserManager.IsEnabled && !chaserManager.IsChasing)
+            {
+                chaserManager.ChaserGetCloser();
+            }
+
             await Task.Delay(1000);
 
-            if(predatorManager != null && predatorManager.IsChasing)
+            if(chaserManager.IsChasing)
             {
-                if(predatorManager.CountdownFinish)
+                chaserManager.ChaserCountToHideAgain();
+
+                if(chaserManager.FirstTimeSpawn)
                 {
-                    predatorManager.EndChasing();
+                    chaserManager.SpawnChaser(ReturnFarPredatorPoint());
                 }
                 else
                 {
-                    predatorManager.SpawnPredator(ref _travelPointTransform);
+                    chaserManager.SpawnChaser(_travelPointTransform);
                 }
             }
         }

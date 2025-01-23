@@ -34,7 +34,7 @@ namespace Core.StateMachines
         {
             if(defaultState == null) enabled = false;
 
-            _currentState = defaultState;
+            ResetStateMachine();
         }
 
         public virtual void Update() 
@@ -103,6 +103,7 @@ namespace Core.StateMachines
         public void ResetStateMachine()
         {
             _currentState = defaultState;
+            _currentState.ResetState();
         }
     }
 

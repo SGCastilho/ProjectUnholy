@@ -26,5 +26,16 @@ namespace Core.Enemies
 
         [Header("Classes")]
         [SerializeField] private Animator animator;
+
+        public void ResetAnimator()
+        {
+            IsMoving = false;
+            IsSearching = false;
+            IsRunning = false;
+            
+            IsAttacking = false;
+            IsRunningAttacking = false;
+            CurrentCombo = 0;
+        }
     }
 }

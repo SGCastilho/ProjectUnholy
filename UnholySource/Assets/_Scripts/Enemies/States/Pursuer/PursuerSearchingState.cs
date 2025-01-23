@@ -99,8 +99,13 @@ namespace Core.Enemies
             }
         }
 
+        public override void ResetState()
+        {
+            behaviour.Animation.ResetAnimator();
+        }
+
         #region Editor Function
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnDrawGizmos() 
         {
             if(showGizmos)

@@ -1570,6 +1570,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138348070}
   m_CullTransparentMesh: 1
+--- !u!1 &140757771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140757772}
+  - component: {fileID: 140757775}
+  - component: {fileID: 140757774}
+  - component: {fileID: 140757773}
+  m_Layer: 3
+  m_Name: Left Eye Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140757772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140757771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.25488704, y: -0.16773133, z: 0.04494348, w: 0.95125127}
+  m_LocalPosition: {x: -0.00093, y: 0.00203, z: 0.00112}
+  m_LocalScale: {x: 0.010000001, y: 0.010000002, z: 0.0100000035}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8296313967056829668}
+  m_LocalEulerAnglesHint: {x: 30, y: -20, z: 0}
+--- !u!114 &140757773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140757771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
+--- !u!114 &140757774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140757771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &140757775
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140757771}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
+  m_Intensity: 10
+  m_Range: 4.5
+  m_SpotAngle: 67.90471
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &176860851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5027,6 +5161,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 692650473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &383064665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383064666}
+  - component: {fileID: 383064667}
+  m_Layer: 0
+  m_Name: Left Travel Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383064666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383064665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -24.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303786681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &383064667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383064665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fc6e88bda30e94cbe64edea2dc93a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  playerHeight: 2.56
 --- !u!1 &391150244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,6 +7686,7 @@ MonoBehaviour:
   globalSoundEffects: {fileID: 1197534624}
   gameManager: {fileID: 1284136790}
   pauseManager: {fileID: 44422095}
+  chaserManager: {fileID: 2116752499}
   inventoryManager: {fileID: 1817070906}
   scenarioLoaderManager: {fileID: 1416651630}
 --- !u!1 &551637778
@@ -9264,61 +9445,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &711269766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 711269767}
-  - component: {fileID: 711269768}
-  m_Layer: 0
-  m_Name: PursuerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &711269767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711269766}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &711269768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711269766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c1f75f57e6e1448b4a870082b7aa76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pursuerPrefab: {fileID: 1079368268}
-  enablePursuer: 0
-  timeToSpawn: 12
-  timeToEndChasing: 12
-  stepsRange: 3
-  currentStep: 0
-  stepsAudioClips:
-  - {fileID: 8300000, guid: 3cb977862936a6348bdb51d7ee2ce4d2, type: 3}
-  - {fileID: 8300000, guid: aa85151679b84b24f840339801fc926e, type: 3}
-  - {fileID: 8300000, guid: 83b735a2c1c6d5149a476cdc2371ea24, type: 3}
-  timeToNextStep: 6
 --- !u!1 &715026494
 GameObject:
   m_ObjectHideFlags: 0
@@ -13540,7 +13666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1079368269
 Transform:
   m_ObjectHideFlags: 0
@@ -15023,6 +15149,15 @@ MonoBehaviour:
   - audioKey: sfx_whispers
     audioVolume: 0.5
     audioClip: {fileID: 8300000, guid: ab0bb30d2dba8294ba8239c1149f6f43, type: 3}
+  - audioKey: sfx_pursuer_phase_0
+    audioVolume: 0.2
+    audioClip: {fileID: 8300000, guid: 3cb977862936a6348bdb51d7ee2ce4d2, type: 3}
+  - audioKey: sfx_pursuer_phase_1
+    audioVolume: 0.2
+    audioClip: {fileID: 8300000, guid: aa85151679b84b24f840339801fc926e, type: 3}
+  - audioKey: sfx_pursuer_phase_2
+    audioVolume: 0.3
+    audioClip: {fileID: 8300000, guid: 83b735a2c1c6d5149a476cdc2371ea24, type: 3}
   audioSource: {fileID: 1197534623}
   loopingAudioSource: {fileID: 1197534623}
   loopingFadeDuration: 0.2
@@ -15337,6 +15472,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1346293296}
         m_TargetAssemblyTypeName: Core.Utilities.DestroyObject, Core.Utilities
         m_MethodName: DestroyObj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: appears_chaserPursuer
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2116752499}
+        m_TargetAssemblyTypeName: Core.Managers.ChaserManager, Core.Managers
+        m_MethodName: EnableChaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16139,6 +16286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 448601645}
+  - {fileID: 383064666}
   m_Father: {fileID: 2119930820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305404416
@@ -16536,6 +16684,140 @@ Transform:
   - {fileID: 118232444}
   m_Father: {fileID: 2119930820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1344464696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344464697}
+  - component: {fileID: 1344464700}
+  - component: {fileID: 1344464699}
+  - component: {fileID: 1344464698}
+  m_Layer: 3
+  m_Name: Right Eye Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344464697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344464696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.25488704, y: 0.16773126, z: -0.044943456, w: 0.95125127}
+  m_LocalPosition: {x: 0.00093, y: 0.00203, z: 0.00112}
+  m_LocalScale: {x: 0.009999999, y: 0.010000003, z: 0.010000003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8296313967056829668}
+  m_LocalEulerAnglesHint: {x: 30, y: 20, z: 0}
+--- !u!114 &1344464698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344464696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
+--- !u!114 &1344464699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344464696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &1344464700
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344464696}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
+  m_Intensity: 10
+  m_Range: 4.5
+  m_SpotAngle: 67.90471
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1346293294
 GameObject:
   m_ObjectHideFlags: 0
@@ -16682,6 +16964,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1212869781}
         m_TargetAssemblyTypeName: Core.Utilities.DestroyObject, Core.Utilities
         m_MethodName: DestroyObj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: appears_chaserPursuer
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2116752499}
+        m_TargetAssemblyTypeName: Core.Managers.ChaserManager, Core.Managers
+        m_MethodName: EnableChaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17595,7 +17889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c1716774101d04292b0c6284c0b3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  predatorManager: {fileID: 0}
+  chaserManager: {fileID: 2116752499}
   scenes:
   - sceneName: LP_School_Room_Interior_East_00
     enemiesToEnable: {fileID: 0}
@@ -17610,7 +17904,7 @@ MonoBehaviour:
   - sceneName: LP_School_Room_Interior_East_01_OpenDoor
     enemiesToEnable: {fileID: 0}
     interactableToEnable: {fileID: 966816099}
-    predatorLeftSpawn: {fileID: 0}
+    predatorLeftSpawn: {fileID: 383064666}
     predatorRightSpawn: {fileID: 448601645}
   - sceneName: LP_School_Room_Interior_East_02
     enemiesToEnable: {fileID: 0}
@@ -19112,6 +19406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1464374882}
+  blockMusic: 0
   inTransition: 0
   predatorChasing: 0
   fadeDuration: 1
@@ -26579,6 +26874,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localisedString:
     key: menuName_inventory
+--- !u!1 &2116752498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116752500}
+  - component: {fileID: 2116752499}
+  m_Layer: 0
+  m_Name: Chaser Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2116752499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116752498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5abf85b915b1044a76228033f4ba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaserPrefab: {fileID: 1079368268}
+  chaserEnabled: 0
+  emitSoundWhenGettingCloser: 1
+  emitSoundSFXKeys:
+  - sfx_pursuer_phase_0
+  - sfx_pursuer_phase_1
+  - sfx_pursuer_phase_2
+  isChasing: 0
+  firstTimeSpawn: 0
+  maxRoomsToSpawn: 6
+  currentRoomsToSpawn: 0
+  targetRoomToSinalize: 4
+  maxRoomsToDeSpawn: 6
+  currentNeededRoomsToDeSpawn: 0
+--- !u!4 &2116752500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116752498}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119930819
 GameObject:
   m_ObjectHideFlags: 0
@@ -31900,7 +32253,9 @@ Transform:
   m_LocalPosition: {x: -3.6769303e-17, y: 0.00114166, z: -1.9522849e-10}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1344464697}
+  - {fileID: 140757772}
   m_Father: {fileID: 8282048225756713920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8317923597461505653
@@ -32402,7 +32757,7 @@ SceneRoots:
   - {fileID: 818555506}
   - {fileID: 1416651629}
   - {fileID: 348512112}
-  - {fileID: 711269767}
+  - {fileID: 2116752500}
   - {fileID: 1138728914}
   - {fileID: 410087041}
   - {fileID: 832575519}
