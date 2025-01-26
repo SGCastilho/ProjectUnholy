@@ -16,6 +16,8 @@ namespace Core.StateMachines
 
         #region Encapsulation
         public State LastState { get => _lastState; }
+
+        public bool ChasingState { get => _chasingState; set => _chasingState = value; }
         #endregion
 
         [Header("States")]
@@ -28,6 +30,7 @@ namespace Core.StateMachines
         private State _currentState;
         private State _lastState;
 
+        private bool _chasingState;
         private bool _skipLastState;
 
         public virtual void OnEnable() 
@@ -105,6 +108,8 @@ namespace Core.StateMachines
             _currentState = defaultState;
             _currentState.ResetState();
         }
+
+        public void ChasingStateOver() => _chasingState = false;
     }
 
     #region Custom Editor

@@ -48,8 +48,6 @@ namespace Core.Enemies
             _isRunning = false;
             _timeSetted = false;
             _currentUpdateTick = 0f;
-
-            Debug.Log("Chasing reset");
         }
 
         public override void StateAction()

@@ -249,27 +249,19 @@ namespace Core.Managers
             if(currentScene.LeftSpawn != null)
             {
                 leftSpawnDistance = Mathf.Abs(Vector3.Distance(_playerTransform.position, currentScene.LeftSpawn.position));
-
-                Debug.Log($"Left: {leftSpawnDistance}");
             }
 
             if(currentScene.RightSpawn != null)
             {
                 rightSpawnDistance = Mathf.Abs(Vector3.Distance(_playerTransform.position, currentScene.RightSpawn.position));
-
-                Debug.Log($"Right: {rightSpawnDistance}");
             }
 
             if(rightSpawnDistance > leftSpawnDistance)
             {
-                Debug.Log("Return right spawn");
-
                 return currentScene.RightSpawn;
             }
             else if(rightSpawnDistance < leftSpawnDistance)
             {
-                Debug.Log("Return left spawn");
-
                 return currentScene.LeftSpawn;
             }
 

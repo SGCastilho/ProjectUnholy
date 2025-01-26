@@ -45,6 +45,12 @@ namespace Core.UI
         public delegate bool GetClientVolumetricLight();
         public event GetClientVolumetricLight OnGetClientVolumetricLight;
 
+        public delegate float GetClientSoundEffectVolume();
+        public event GetClientSoundEffectVolume OnGetClientSoundEffectVolume;
+
+        public delegate float GetClientSoundTrackVolume();
+        public event GetClientSoundTrackVolume OnGetClientSoundTrackVolume;
+
         #endregion
 
         [Header("Classes")]
@@ -81,12 +87,19 @@ namespace Core.UI
         [SerializeField] private Toggle ambientOcclusionToggle;
         [SerializeField] private Toggle volumetricLightToggle;
 
+        [Space(10)]
+
+        [SerializeField] private Slider soundEffectsSlider;
+        [SerializeField] private Slider soundTrackSlider;
+
         private void Awake()
         {
             GetClientVideoOptions();
             SetClientCurrentVideoSettings();
 
             SetClientCurrentGraphicsSettings();
+
+            SetClientCurrentSoundSettings();
 
             ResetToDefault();
         }
@@ -256,8 +269,39 @@ namespace Core.UI
             ambientOcclusionToggle.isOn = OnGetClientAmbientOcclusion();
             volumetricLightToggle.isOn = OnGetClientVolumetricLight();
         }
+
+        public int SelectedTextureQualityIndex()
+        {
+            return texturesDropdown.value;
+        }
+
+        public int SelectedShadowQualityIndex()
+        {
+            return shadowsDropdown.value;
+        }
+
+        public bool SelectedBloom()
+        {
+            return bloomToggle.isOn;
+        }
+
+        public bool SelectedAntialiasing()
+        {
+            return antialiasingToggle.isOn;
+        }
+
+        public bool SelectedAmbientOcclusion()
+        {
+            return ambientOcclusionToggle.isOn;
+        }
+
+        public bool SelectedVolumetricLight()
+        {
+            return volumetricLightToggle.isOn;
+        }
         #endregion
 
+        #region Sound Functions
         public void AudioOptions()
         {
             videoOptionsWindow.SetActive(false);
@@ -265,6 +309,23 @@ namespace Core.UI
             audioOptionsWindow.SetActive(true);
             othersOptionsWindow.SetActive(false);
         }
+
+        private void SetClientCurrentSoundSettings()
+        {
+            soundTrackSlider.value = OnGetClientSoundTrackVolume();
+            soundEffectsSlider.value = OnGetClientSoundEffectVolume();
+        }
+
+        public float SelectedSoundTrackVolume()
+        {
+            return soundTrackSlider.value;
+        }
+        
+        public float SelectedSoundEffectVolume()
+        {
+            return soundEffectsSlider.value;
+        }
+        #endregion
 
         public void OthersOptions()
         {

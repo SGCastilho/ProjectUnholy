@@ -36,9 +36,9 @@ namespace Core.Enemies
         [SerializeField] [Range(0.1f, 0.6f)] private float updateTick = 0.2f;
 
         private Collider[] searchingPlayer;
-
-        private float _currentUpdateTick;
+        
         private bool _speedSetted;
+        private float _currentUpdateTick;
 
         private void OnDisable() 
         {
@@ -70,6 +70,19 @@ namespace Core.Enemies
 
                 _currentUpdateTick = 0f;
             }
+
+            if(stateMachine.ChasingState)
+            {
+                behaviour.Animation.IsSearching = false;
+                behaviour.Movement.SetCurrentSpeed(Character.CharacterSpeed.DEFAULT);
+
+                stateMachine.ChangeState(ref nextState);
+
+                _speedSetted = false;
+
+                searchingPlayer = null;
+                _currentUpdateTick = 0f;
+            }
         }
 
         private void SearchPlayer()
@@ -82,12 +95,12 @@ namespace Core.Enemies
             {
                 if(player.CompareTag("Player"))
                 {
+                    stateMachine.ChasingState = true;
+
                     behaviour.Animation.IsSearching = false;
                     behaviour.Movement.SetCurrentSpeed(Character.CharacterSpeed.DEFAULT);
 
                     stateMachine.ChangeState(ref nextState);
-
-                    Debug.Log("Player Founded");
 
                     _speedSetted = false;
 

@@ -26,13 +26,30 @@ namespace Core.Events
         private void OnEnable()
         {
             EnableVideoSettings();
+            EnableGraphicsSettings();
 
+            _uiOptionsMenu.OnGetClientSoundTrackVolume += _optionsManager.GetClientSoundTrackVolume;
+            _uiOptionsMenu.OnGetClientSoundEffectVolume += _optionsManager.GetClientSoundEffectVolume;
+
+            _optionsManager.OnSelectedSoundTrackVolume += _uiOptionsMenu.SelectedSoundTrackVolume;
+            _optionsManager.OnSelectedSoundEffectVolume += _uiOptionsMenu.SelectedSoundEffectVolume;
+        }
+
+        private void EnableGraphicsSettings()
+        {
             _uiOptionsMenu.OnGetClientTextureQuality += _optionsManager.GetClientTextures;
             _uiOptionsMenu.OnGetClientShadowQuality += _optionsManager.GetClientShadowQuality;
             _uiOptionsMenu.OnGetClientBloomState += _optionsManager.GetClientBloomStatus;
             _uiOptionsMenu.OnGetClientAntialiasingState += _optionsManager.GetClientAntialiasingStatus;
             _uiOptionsMenu.OnGetClientAmbientOcclusion += _optionsManager.GetClientAmbientOcclusion;
             _uiOptionsMenu.OnGetClientVolumetricLight += _optionsManager.GetClientVolumetricLight;
+
+            _optionsManager.OnSelectedTextureQuality += _uiOptionsMenu.SelectedTextureQualityIndex;
+            _optionsManager.OnSelectedShadowQuality += _uiOptionsMenu.SelectedShadowQualityIndex;
+            _optionsManager.OnSelectedBloom += _uiOptionsMenu.SelectedBloom;
+            _optionsManager.OnSelectedAntialiasing += _uiOptionsMenu.SelectedAntialiasing;
+            _optionsManager.OnSelectedAmbientOcclusion += _uiOptionsMenu.SelectedAmbientOcclusion;
+            _optionsManager.OnSelectedVolumetricLight += _uiOptionsMenu.SelectedVolumetricLight;
         }
 
         private void EnableVideoSettings()
@@ -55,13 +72,30 @@ namespace Core.Events
         private void OnDisable()
         {
             DisableVideoSettigs();
+            DisableGraphicsSettings();
 
+            _uiOptionsMenu.OnGetClientSoundTrackVolume -= _optionsManager.GetClientSoundTrackVolume;
+            _uiOptionsMenu.OnGetClientSoundEffectVolume -= _optionsManager.GetClientSoundEffectVolume;
+
+            _optionsManager.OnSelectedSoundTrackVolume -= _uiOptionsMenu.SelectedSoundTrackVolume;
+            _optionsManager.OnSelectedSoundEffectVolume -= _uiOptionsMenu.SelectedSoundEffectVolume;
+        }
+
+        private void DisableGraphicsSettings()
+        {
             _uiOptionsMenu.OnGetClientTextureQuality -= _optionsManager.GetClientTextures;
             _uiOptionsMenu.OnGetClientShadowQuality -= _optionsManager.GetClientShadowQuality;
             _uiOptionsMenu.OnGetClientBloomState -= _optionsManager.GetClientBloomStatus;
             _uiOptionsMenu.OnGetClientAntialiasingState -= _optionsManager.GetClientAntialiasingStatus;
             _uiOptionsMenu.OnGetClientAmbientOcclusion -= _optionsManager.GetClientAmbientOcclusion;
             _uiOptionsMenu.OnGetClientVolumetricLight -= _optionsManager.GetClientVolumetricLight;
+
+            _optionsManager.OnSelectedTextureQuality -= _uiOptionsMenu.SelectedTextureQualityIndex;
+            _optionsManager.OnSelectedShadowQuality -= _uiOptionsMenu.SelectedShadowQualityIndex;
+            _optionsManager.OnSelectedBloom -= _uiOptionsMenu.SelectedBloom;
+            _optionsManager.OnSelectedAntialiasing -= _uiOptionsMenu.SelectedAntialiasing;
+            _optionsManager.OnSelectedAmbientOcclusion -= _uiOptionsMenu.SelectedAmbientOcclusion;
+            _optionsManager.OnSelectedVolumetricLight -= _uiOptionsMenu.SelectedVolumetricLight;
         }
 
         private void DisableVideoSettigs()

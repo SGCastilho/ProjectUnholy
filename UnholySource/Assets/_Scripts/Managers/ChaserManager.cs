@@ -16,6 +16,9 @@ namespace Core.Managers
 
         public delegate void ChaserStopEmitingSounds();
         public event ChaserStopEmitingSounds OnChaserStopEmitingSounds;
+
+        public delegate void ChasingEnd();
+        public event ChasingEnd OnChasingEnd;
         #endregion
 
         #region Encapsulation
@@ -85,8 +88,6 @@ namespace Core.Managers
 
             currentRoomsToSpawn++;
 
-            Debug.Log(currentRoomsToSpawn);
-
             if(emitSoundWhenGettingCloser)
             {
                 if(currentRoomsToSpawn >= targetRoomToSinalize-1 && currentRoomsToSpawn < maxRoomsToSpawn)
@@ -152,6 +153,8 @@ namespace Core.Managers
             firstTimeSpawn = true;
 
             isChasing = false;
+
+            OnChasingEnd?.Invoke();
         }
     }
 }

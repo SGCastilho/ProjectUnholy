@@ -8550,6 +8550,8 @@ MonoBehaviour:
   antialiasingToggle: {fileID: 2525469945784576846}
   ambientOcclusionToggle: {fileID: 5116569882861336400}
   volumetricLightToggle: {fileID: 2928535818585357251}
+  soundEffectsSlider: {fileID: 2748281307625360992}
+  soundTrackSlider: {fileID: 3110250348244579149}
 --- !u!225 &7924913821074886314
 CanvasGroup:
   m_ObjectHideFlags: 0

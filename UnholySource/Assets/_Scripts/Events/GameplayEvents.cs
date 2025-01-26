@@ -4,6 +4,7 @@ using Core.Player;
 using Core.Triggers;
 using Core.Managers;
 using Core.GameCamera;
+using Core.StateMachines;
 using UnityEngine;
 
 namespace Core.Events
@@ -24,6 +25,9 @@ namespace Core.Events
         [SerializeField] private ChaserManager chaserManager;
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
+
+        [Header("State Machines Classes")]
+        [SerializeField] private StateMachine chasersStateMachine;
 
         private PlayerBehaviour _playerBehaviour;
         private LocalSoundEffects _playerSoundEffects;
@@ -93,6 +97,11 @@ namespace Core.Events
             chaserManager.OnEmitSound += globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound += globalSoundEffects.StopAudioLoop;
             chaserManager.OnChaserStopEmitingSounds += musicManager.UnBlockMusic;
+
+            if(chasersStateMachine != null)
+            {
+                chaserManager.OnChasingEnd += chasersStateMachine.ChasingStateOver;
+            }
 
             ScenarioLoaderEnableEvents();
 
@@ -212,6 +221,11 @@ namespace Core.Events
             chaserManager.OnEmitSound -= globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound -= globalSoundEffects.StopAudioLoop;
             chaserManager.OnChaserStopEmitingSounds -= musicManager.UnBlockMusic;
+
+            if(chasersStateMachine != null)
+            {
+                chaserManager.OnChasingEnd -= chasersStateMachine.ChasingStateOver;
+            }
 
             ScenarioLoaderDisableEvents();
 
