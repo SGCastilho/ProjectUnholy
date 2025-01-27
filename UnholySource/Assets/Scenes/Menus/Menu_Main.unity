@@ -3093,6 +3093,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471507574}
   m_CullTransparentMesh: 1
+--- !u!1 &1518568245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518568247}
+  - component: {fileID: 1518568246}
+  m_Layer: 0
+  m_Name: SettingsLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1518568246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518568245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea638838492cc984ba6cedc033906592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentUrpAsset: {fileID: 0}
+  urpAssetData: {fileID: 0}
+  shadowPresets: []
+  posprocessingProfile: {fileID: 0}
+  soundTrackAudioMixer: {fileID: 0}
+  soundEffectsAudioMixer: {fileID: 0}
+--- !u!4 &1518568247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518568245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561730404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,6 +4047,7 @@ SceneRoots:
   - {fileID: 778847603}
   - {fileID: 1561730406}
   - {fileID: 682719915}
+  - {fileID: 1518568247}
   - {fileID: 1080956191}
   - {fileID: 2121451289}
   - {fileID: 1362482405}

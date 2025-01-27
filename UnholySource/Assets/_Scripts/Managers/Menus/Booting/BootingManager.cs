@@ -1,3 +1,4 @@
+using System.IO;
 using Core.Translation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,20 @@ namespace Core.Managers
         [Header("Settings")]
         [SerializeField] private string mainMenuScene = "scene name here";
 
+        private SettingsLoader _settingsLoader;
+
+        private void OnEnable() 
+        {
+            _settingsLoader = FindObjectOfType<SettingsLoader>();
+
+            if(SettingsSetted())
+            {
+                _settingsLoader.LoadSettings();
+                
+                ChangeLanguage(_settingsLoader.GetClientSavedLanguage());
+            }
+        }
+
         public void ChangeLanguage(int languageIndex)
         {
             switch(languageIndex)
@@ -37,11 +52,21 @@ namespace Core.Managers
             scriptableObjectLoader.Translate();
 
             OnLanguageChanged?.Invoke();
+
+            if(!SettingsSetted())
+            {
+                _settingsLoader.CreateSettingsFile(languageIndex);
+            }
         }
 
         public void LoadMainMenu()
         {
             SceneManager.LoadScene(mainMenuScene);
+        }
+
+        public bool SettingsSetted()
+        {
+            return File.Exists(Application.persistentDataPath + "/config.txt");
         }
     }
 }

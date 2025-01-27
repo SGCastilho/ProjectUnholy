@@ -7,6 +7,9 @@ namespace Core.UI
     public sealed class UIBooting : MonoBehaviour
     {
         #region Events
+        public delegate bool SettingsSetted();
+        public event SettingsSetted OnSettingsSetted;
+
         public delegate void LanguageSelected(int languageIndex);
         public event LanguageSelected OnLanguageSelected;
 
@@ -46,7 +49,14 @@ namespace Core.UI
 
         private void Start() 
         {
-            LanguageFadeIn();
+            if(OnSettingsSetted())
+            {
+                WarningWindowFadeIn();
+            }
+            else
+            {
+                LanguageFadeIn();
+            }
         }
 
         private void Update() 

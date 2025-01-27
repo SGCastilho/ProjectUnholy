@@ -73,6 +73,9 @@ namespace Core.Managers
         [SerializeField] private AudioMixer soundTrackAudioMixer;
         [SerializeField] private AudioMixer soundEffectsAudioMixer;
 
+        private SettingsLoader _settingsLoader;
+        private SettingsSaved _settingsSaved;
+
         private Resolution[] _clientSupportedResolutions;
 
         private float _soundTrackVolume;
@@ -80,6 +83,8 @@ namespace Core.Managers
 
         private void Awake() 
         {
+            _settingsLoader = FindObjectOfType<SettingsLoader>();
+
             currentUrpAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
 
             _clientSupportedResolutions = GetClientSupportedResolutions();
@@ -202,20 +207,29 @@ namespace Core.Managers
 
         public void SaveButton()
         {
+            _settingsSaved = new SettingsSaved();   
+
             ApplyVideoSettings();
             ApplyGraphicsSettings();
             ApplySoundSettings();
+
+            _settingsLoader.CreateSettingsJSON(_settingsSaved);
         }
 
         private void ApplySoundSettings()
         {
             soundTrackAudioMixer.SetFloat(KEY_SOUND_TRACK, OnSelectedSoundTrackVolume());
+            _settingsSaved.ClientSoundTrackVolume = OnSelectedSoundTrackVolume();
+
             soundEffectsAudioMixer.SetFloat(KEY_SOUND_EFFECT, OnSelectedSoundEffectVolume());
+            _settingsSaved.ClientSoundEffectsVolume = OnSelectedSoundEffectVolume();
         }
 
         private void ApplyGraphicsSettings()
         {
             QualitySettings.globalTextureMipmapLimit = OnSelectedTextureQuality();
+
+            _settingsSaved.ClientTextureQuality = OnSelectedTextureQuality();
 
             switch (OnSelectedTextureQuality())
             {
@@ -233,9 +247,13 @@ namespace Core.Managers
                     break;
             }
 
+            _settingsSaved.ClientAnisotropicFiltering = QualitySettings.anisotropicFiltering;
+
             QualitySettings.renderPipeline = shadowPresets[OnSelectedShadowQuality()];
 
             currentUrpAsset = (UniversalRenderPipelineAsset)QualitySettings.renderPipeline;
+
+            _settingsSaved.ClientShadowQuality = OnSelectedShadowQuality();
 
             for (int i = 0; i < posprocessingProfile.components.Count; i++)
             {
@@ -246,6 +264,8 @@ namespace Core.Managers
                 }
             }
 
+            _settingsSaved.ClientBloomActived = OnSelectedBloom();
+
             if (OnSelectedAntialiasing())
             {
                 currentUrpAsset.msaaSampleCount = 4;
@@ -255,8 +275,13 @@ namespace Core.Managers
                 currentUrpAsset.msaaSampleCount = 1;
             }
 
+            _settingsSaved.ClientAntialiasingActived = OnSelectedAntialiasing();
+
             urpAssetData.rendererFeatures[0].SetActive(OnSelectedAmbientOcclusion());
+            _settingsSaved.ClientAmbientOcclusionActived = OnSelectedAmbientOcclusion();
+
             urpAssetData.rendererFeatures[1].SetActive(OnSelectedVolumetricLight());
+            _settingsSaved.ClientVolumetricLightActived = OnSelectedVolumetricLight();
         }
 
         private void ApplyVideoSettings()
@@ -279,12 +304,20 @@ namespace Core.Managers
                     break;
             }
 
+            _settingsSaved.ClientFullScreenMode = selectedFullScreenMode; 
+
             Screen.SetResolution(_clientSupportedResolutions[OnSelectedResolutionIndex()].width,
                 _clientSupportedResolutions[OnSelectedResolutionIndex()].height, selectedFullScreenMode);
+            
+            _settingsSaved.ClientResolution = _clientSupportedResolutions[OnSelectedResolutionIndex()];
 
             QualitySettings.vSyncCount = OnSelectedVSync();
 
+            _settingsSaved.ClientVSync = OnSelectedVSync();
+
             Application.targetFrameRate = OnSelectedTargetFrameRateIndex();
+
+            _settingsSaved.ClientTargetFrameRate = OnSelectedTargetFrameRateIndex();
         }
     }
 }

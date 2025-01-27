@@ -18,6 +18,8 @@ namespace Core.Events
             uIBooting.OnLoadMenu += bootingManager.LoadMainMenu;
             uIBooting.OnLanguageSelected += bootingManager.ChangeLanguage;
 
+            uIBooting.OnSettingsSetted += bootingManager.SettingsSetted;
+
             bootingManager.OnLanguageChanged += uIBooting.WarningWindowFadeIn;
         }
 
@@ -25,6 +27,8 @@ namespace Core.Events
         {
             uIBooting.OnLoadMenu -= bootingManager.LoadMainMenu;
             uIBooting.OnLanguageSelected -= bootingManager.ChangeLanguage;
+
+            uIBooting.OnSettingsSetted -= bootingManager.SettingsSetted;
 
             bootingManager.OnLanguageChanged -= uIBooting.WarningWindowFadeIn;
         }
