@@ -44,6 +44,10 @@ namespace Core.Triggers
 
         [Space(10)]
 
+        [SerializeField] private UnityEvent OnHasBeenUnlocked;
+
+        [Space(10)]
+
         [SerializeField] private UnityEvent OnDoorLocked;
 
         public void UnlockDoor()
@@ -64,6 +68,7 @@ namespace Core.Triggers
 
                     OnUnlockedDoor?.Invoke(ref unlockedSprite);
                     OnRemoveItemFromInventory?.Invoke(keyToUnlock);
+                    OnHasBeenUnlocked?.Invoke();
                 }
                 else
                 {

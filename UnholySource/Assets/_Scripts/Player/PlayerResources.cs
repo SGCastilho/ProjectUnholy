@@ -112,9 +112,9 @@ namespace Core.Player
                 {
                     playerHealthBottles = 0;
                 }
-            }
 
-            OnRefreshBottlesUI?.Invoke(ref playerHealthBottles);
+                OnRefreshBottlesUI?.Invoke(ref playerHealthBottles);
+            }
         }
 
         public void AddHealingBottles() => ModifyHealingBottles(true, 1);
