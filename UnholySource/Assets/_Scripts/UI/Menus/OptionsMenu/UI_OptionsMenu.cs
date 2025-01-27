@@ -107,7 +107,7 @@ namespace Core.UI
         public void OpenOptionsMenu()
         {
             optionsCanvasGroup.DOKill();
-            optionsCanvasGroup.DOFade(1f, 0.2f);
+            optionsCanvasGroup.DOFade(1f, 0.2f).SetUpdate(true);
 
             optionsCanvasGroup.blocksRaycasts = true;
         }
@@ -115,7 +115,7 @@ namespace Core.UI
         public void CloseOptionsMenu()
         {
             optionsCanvasGroup.DOKill();
-            optionsCanvasGroup.DOFade(0f, 0.2f);
+            optionsCanvasGroup.DOFade(0f, 0.2f).SetUpdate(true).OnComplete(() => { ResetToDefault(); });
 
             optionsCanvasGroup.blocksRaycasts = false;
 

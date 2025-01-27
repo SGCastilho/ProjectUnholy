@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8893680564771529100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8757786802577168860}
+  - component: {fileID: 2621037413254763109}
+  m_Layer: 0
+  m_Name: SettingsLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8757786802577168860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893680564771529100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2621037413254763109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893680564771529100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea638838492cc984ba6cedc033906592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentUrpAsset: {fileID: 11400000, guid: 42b3e95336632964585f207de0a4300e, type: 2}
+  urpAssetData: {fileID: 11400000, guid: 23aa247a4067ace4b951b7ab1eb95741, type: 2}
+  shadowPresets:
+  - {fileID: 11400000, guid: 9b7a0fd1506aede47be2bf4944148b00, type: 2}
+  - {fileID: 11400000, guid: ff9ba57ffc3c1d34880e4bf168d85b55, type: 2}
+  - {fileID: 11400000, guid: 96ca938b88522a843823324e1e3b1e9c, type: 2}
+  - {fileID: 11400000, guid: e25b627bbd2ebf14ebb5488c33a96275, type: 2}
+  - {fileID: 11400000, guid: 42b3e95336632964585f207de0a4300e, type: 2}
+  posprocessingProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823,
+    type: 2}
+  soundTrackAudioMixer: {fileID: 24100000, guid: c8ad0b1964a2e334f87a9ca9421ee4ef,
+    type: 2}
+  soundEffectsAudioMixer: {fileID: 24100000, guid: 9c3aa71afb7d6c74cb71e5079105c034,
+    type: 2}
