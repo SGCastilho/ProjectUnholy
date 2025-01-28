@@ -19,6 +19,9 @@ namespace Core.Managers
 
         public delegate void ChasingEnd();
         public event ChasingEnd OnChasingEnd;
+
+        public delegate Transform GetPlayerLastSpawn();
+        public event GetPlayerLastSpawn OnGetPlayerLastSpawn;
         #endregion
 
         #region Encapsulation
@@ -75,6 +78,24 @@ namespace Core.Managers
         {
             chaserEnabled = false;
             ResetChaser();
+        }
+
+        /// <summary>
+        /// Spawn the chaser ignoring all the conditions to appears
+        /// </summary>
+        public void SpawnChaserWithoutRules()
+        {
+            if(isChasing || !chaserEnabled) return;
+
+            _currentEmittedSound = 0;
+            _emitingSounds = false;
+
+            OnChaserStopEmitingSounds?.Invoke();
+
+            isChasing = true;
+            currentRoomsToSpawn = maxRoomsToSpawn;
+
+            SpawnChaser(OnGetPlayerLastSpawn());
         }
 
         /// <summary>

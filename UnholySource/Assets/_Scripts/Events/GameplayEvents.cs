@@ -97,6 +97,7 @@ namespace Core.Events
             chaserManager.OnEmitSound += globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound += globalSoundEffects.StopAudioLoop;
             chaserManager.OnChaserStopEmitingSounds += musicManager.UnBlockMusic;
+            chaserManager.OnGetPlayerLastSpawn += scenarioLoaderManager.ReturnPlayerLastSpawn;
 
             if(chasersStateMachine != null)
             {
@@ -221,6 +222,7 @@ namespace Core.Events
             chaserManager.OnEmitSound -= globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound -= globalSoundEffects.StopAudioLoop;
             chaserManager.OnChaserStopEmitingSounds -= musicManager.UnBlockMusic;
+            chaserManager.OnGetPlayerLastSpawn -= scenarioLoaderManager.ReturnPlayerLastSpawn;
 
             if(chasersStateMachine != null)
             {

@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000038, guid: 63a8ce8982ede7a46973a36e358a4916,
+  m_LightingDataAsset: {fileID: 112000042, guid: 63a8ce8982ede7a46973a36e358a4916,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 9e64f2e33c0142143993430b50052315,
     type: 2}
@@ -293,17 +293,17 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1.469519e-39
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.469469e-39
+      value: -1.3734126e-18
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 6.29e-43
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1261,12 +1261,12 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -247.87915
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 12
+      value: 3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1276,7 +1276,7 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 1.82e-43
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}

@@ -68,4 +68,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Rooms/Doors/LP_School_Room_Interior_Door_B109.unity
     guid: f28c341c132e2a043a7adabf86b0b1f8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Doors/LP_School_Room_Interior_Door_BathRoom.unity
+    guid: 4da8e7a49c3149b4cb03a984d4f4ce89
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1/Rooms/Doors/LP_School_Room_Interior_Door_109.unity
+    guid: c31e2c8a0e86b7d4ab73e93d23e5a062
   m_configObjects: {}

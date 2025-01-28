@@ -267,5 +267,10 @@ namespace Core.Managers
 
             return null;
         }
+
+        public Transform ReturnPlayerLastSpawn()
+        {
+            return _travelPointTransform;
+        }
     }
 }
