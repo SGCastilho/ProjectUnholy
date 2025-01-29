@@ -1445,6 +1445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2240265515203498890, guid: 98887ebd0b66ab849a69942c479cb94c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2785362488462366966, guid: 98887ebd0b66ab849a69942c479cb94c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3904,6 +3909,81 @@ Transform:
   - {fileID: 783554165}
   m_Father: {fileID: 1067727287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &215178450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215178451}
+  - component: {fileID: 215178453}
+  - component: {fileID: 215178452}
+  m_Layer: 5
+  m_Name: Background Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &215178451
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215178450}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 787152984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1280, y: 89}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &215178452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215178450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 43b72d9d8b7e8b9499a3912d84694320, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &215178453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215178450}
+  m_CullTransparentMesh: 1
 --- !u!1 &218422773
 GameObject:
   m_ObjectHideFlags: 0
@@ -8892,12 +8972,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 696437443}
   - {fileID: 1807950898}
-  - {fileID: 1169806065}
   - {fileID: 1274263853}
   - {fileID: 1479258905}
   - {fileID: 1006254814}
   - {fileID: 1676147730}
+  - {fileID: 1169806065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12751,6 +12832,55 @@ Canvas:
   m_SortingLayerID: 151606041
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &696437442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696437443}
+  - component: {fileID: 696437444}
+  m_Layer: 5
+  m_Name: Thinking Dialogue Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &696437443
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696437442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 787152984}
+  m_Father: {fileID: 482739473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &696437444
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696437442}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &702067109
 GameObject:
   m_ObjectHideFlags: 0
@@ -14030,6 +14160,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 213403251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &787152983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787152984}
+  m_Layer: 5
+  m_Name: Message Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &787152984
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787152983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 215178451}
+  - {fileID: 991523278}
+  m_Father: {fileID: 696437443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 48}
+  m_SizeDelta: {x: 0, y: 200}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &793923132
 GameObject:
   m_ObjectHideFlags: 0
@@ -17066,6 +17233,141 @@ Canvas:
   m_SortingLayerID: 151606041
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &991523277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991523278}
+  - component: {fileID: 991523280}
+  - component: {fileID: 991523279}
+  m_Layer: 5
+  m_Name: Message TMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &991523278
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991523277}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 787152984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 0, y: 100}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &991523279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991523277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: YOUR MESSAGE HERE!!!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 3c3333ff72686794683ad6791f52fbac, type: 2}
+  m_sharedMaterial: {fileID: -4154950040267806487, guid: 3c3333ff72686794683ad6791f52fbac,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 55
+  m_fontSizeBase: 90
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 50
+  m_fontSizeMax: 55
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &991523280
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991523277}
+  m_CullTransparentMesh: 1
 --- !u!1 &991991015
 GameObject:
   m_ObjectHideFlags: 0
@@ -18864,9 +19166,33 @@ MonoBehaviour:
           m_StringArgument: unlock_door_105
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoorLocked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1065003415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21770,9 +22096,33 @@ MonoBehaviour:
           m_StringArgument: unlock_door_109
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoorLocked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1204546668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26022,7 +26372,7 @@ MonoBehaviour:
         m_MethodName: TravelTo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1732201033}
+          m_ObjectArgument: {fileID: 1137943856}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -26068,9 +26418,33 @@ MonoBehaviour:
           m_StringArgument: unlock_door_B109
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoorLocked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1413072079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32012,9 +32386,33 @@ MonoBehaviour:
           m_StringArgument: unlock_door_B101
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoorLocked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1619092634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32122,6 +32520,7 @@ GameObject:
   - component: {fileID: 1639066767}
   - component: {fileID: 1639066768}
   - component: {fileID: 1639066771}
+  - component: {fileID: 1639066773}
   - component: {fileID: 1639066772}
   m_Layer: 0
   m_Name: UIGameplay Controller
@@ -32345,6 +32744,23 @@ MonoBehaviour:
   - audioKey: sfx_cancel
     audioVolume: 0.8
     audioClip: {fileID: 8300000, guid: fe070f04a2990634f938332fc5e94bbc, type: 3}
+--- !u!114 &1639066773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639066761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4585dae131f488b4383c37229f7200c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 696437444}
+  messageTMP: {fileID: 991523279}
+  emitingMessage: 0
+  fadeDuration: 0.1
+  messageDuration: 2
 --- !u!1 &1641739942
 GameObject:
   m_ObjectHideFlags: 0
@@ -36456,9 +36872,33 @@ MonoBehaviour:
           m_StringArgument: unlock_door_133
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoorLocked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908168839
 MonoBehaviour:
   m_ObjectHideFlags: 0
