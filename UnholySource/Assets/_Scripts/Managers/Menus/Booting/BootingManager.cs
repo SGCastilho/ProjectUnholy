@@ -47,8 +47,6 @@ namespace Core.Managers
 
             warningText.ReloadTranslation();
 
-            scriptableObjectLoader = new ScriptableObjectLoader();
-
             scriptableObjectLoader.Translate();
 
             OnLanguageChanged?.Invoke();
