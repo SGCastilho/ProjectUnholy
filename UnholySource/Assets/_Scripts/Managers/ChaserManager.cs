@@ -104,7 +104,7 @@ namespace Core.Managers
 
             SpawnChaser(OnGetPlayerLastSpawn());
 
-            OnSpawnNoRules?.Invoke(SFX_DOOR_OPEN, 1f);
+            OnSpawnNoRules?.Invoke(SFX_DOOR_OPEN, 0.5f);
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Core.Managers
             }
         }
 
-        private void ResetChaser()
+        public void ResetChaser()
         {
             chaserPrefab.SetActive(false);
 
@@ -181,6 +181,8 @@ namespace Core.Managers
             currentNeededRoomsToDeSpawn = 0;
 
             firstTimeSpawn = true;
+
+            OnChaserStopEmitingSounds?.Invoke();
 
             isChasing = false;
 
