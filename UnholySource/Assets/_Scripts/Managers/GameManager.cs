@@ -18,6 +18,10 @@ namespace Core.Managers
         #endregion
 
         [Header("Settings")]
+        [SerializeField] private string currentChapter = "Chapter 1";
+
+        [Space(10)]
+
         [SerializeField] private bool gameLoaded;
 
         [Space(10)]
@@ -70,6 +74,11 @@ namespace Core.Managers
         public void GameOver()
         {
             Debug.Log("Game Over");
+        }
+
+        public string GetCurrentChapter()
+        {
+            return currentChapter;
         }
     }
 }

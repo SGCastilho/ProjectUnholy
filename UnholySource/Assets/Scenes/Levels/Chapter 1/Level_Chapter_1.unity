@@ -11237,10 +11237,12 @@ MonoBehaviour:
   uIGameplayController: {fileID: 1639066765}
   musicManager: {fileID: 1464374883}
   globalSoundEffects: {fileID: 1197534624}
+  saveManager: {fileID: 1311190463}
   gameManager: {fileID: 1284136790}
   pauseManager: {fileID: 44422095}
   chaserManager: {fileID: 2116752499}
   inventoryManager: {fileID: 1817070906}
+  chapterEventsManager: {fileID: 818555507}
   scenarioLoaderManager: {fileID: 1416651630}
   chasersStateMachine: {fileID: 715026496}
 --- !u!1 &551637778
@@ -24799,6 +24801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4394e821c5da2e74e93122113b053be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentChapter: Chapter 1
   gameLoaded: 1
   chapterStartedFadeOut: 4
   chapterStartedFadeOutDelay: 2
@@ -25810,6 +25813,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1311190461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311190462}
+  - component: {fileID: 1311190463}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311190462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311190461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1311190463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311190461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b205e080ef42e984a8ce66aa733797ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311795261
 GameObject:
   m_ObjectHideFlags: 0
@@ -28385,8 +28432,8 @@ MonoBehaviour:
     predatorRightSpawn: {fileID: 282480333}
   loadFirstScene: 1
   loadDebugScene: 0
-  sceneToDebug: LP_School_Room_Interior_South_00
-  travelPosistion: {fileID: 1823473568}
+  sceneToDebug: LP_School_Room_Interior_North_02_SaveRoom
+  travelPosistion: {fileID: 24034955}
 --- !u!1 &1424582359
 GameObject:
   m_ObjectHideFlags: 0
@@ -43454,7 +43501,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnInteractionEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1311190463}
+        m_TargetAssemblyTypeName: Core.Managers.SaveManager, Core.Managers
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The game has been saved.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
       m_Calls:
@@ -50777,6 +50848,7 @@ SceneRoots:
   - {fileID: 1393535911}
   - {fileID: 546043241}
   - {fileID: 276322209}
+  - {fileID: 1311190462}
   - {fileID: 1851677305}
   - {fileID: 1464374881}
   - {fileID: 44422094}

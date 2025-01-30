@@ -83,7 +83,7 @@ namespace Core.Managers
             }
         }
 
-        internal string[] GetAllEndedEvents()
+        public string[] GetAllEndedEvents()
         {
             List<string> endedEvents = new List<string>();
 

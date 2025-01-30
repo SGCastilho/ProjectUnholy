@@ -20,10 +20,12 @@ namespace Core.Events
         [SerializeField] private LocalSoundEffects globalSoundEffects;
 
         [Header("Managers Classes")]
+        [SerializeField] private SaveManager saveManager;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PauseManager pauseManager;
         [SerializeField] private ChaserManager chaserManager;
         [SerializeField] private InventoryManager inventoryManager;
+        [SerializeField] private ChapterEventsManager chapterEventsManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
 
         [Header("State Machines Classes")]
@@ -93,6 +95,44 @@ namespace Core.Events
                 }
             }
 
+            ChaserManagerEnableEvents();
+
+            ScenarioLoaderEnableEvents();
+
+            UIEnableEvents();
+
+            GameManagerEnableEvents();
+
+            SaveManagerEnableEvents();
+        }
+
+        private void SaveManagerEnableEvents()
+        {
+            saveManager.OnGetCurrentChapter += gameManager.GetCurrentChapter;
+
+            saveManager.OnGetCurrentLevel += scenarioLoaderManager.GetCurrentScene;
+            saveManager.OnGetCurrentRoom += scenarioLoaderManager.GetCurrentRoom;
+
+            saveManager.OnGetPlayerCurrentPos += _playerBehaviour.GetCurrentPosistion;
+
+            saveManager.OnGetPlayerCurrentHealth += _playerBehaviour.Status.GetCurrentHealth;
+
+            saveManager.OnGetPlayerCurrentHealthBottles += _playerBehaviour.Resources.CurrentHealingBottles;
+            saveManager.OnGetPlayerCurrentBullets += _playerBehaviour.Resources.CurrentBullets;
+            saveManager.OnGetPlayerCurrentMunition += _playerBehaviour.Resources.CurrentAmmo;
+
+            saveManager.OnGetPlayerMeleeStatus += _playerBehaviour.Equipment.HasMeleeWeapon;
+            saveManager.OnGetPlayerRangedStatus += _playerBehaviour.Equipment.HasRangedWeapon;
+
+            saveManager.OnGetInventoryItems += inventoryManager.GetInventoryItems;
+
+            saveManager.OnGetChaserStatus += chaserManager.GetChaserStatus;
+
+            saveManager.OnGetChapterEventsTriggereds += chapterEventsManager.GetAllEndedEvents;
+        }
+
+        private void ChaserManagerEnableEvents()
+        {
             chaserManager.OnChaserEmitSounds += musicManager.BlockMusic;
             chaserManager.OnEmitSound += globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound += globalSoundEffects.StopAudioLoop;
@@ -100,16 +140,10 @@ namespace Core.Events
             chaserManager.OnSpawnNoRules += globalSoundEffects.PlayAudioOneShootWithDelay;
             chaserManager.OnGetPlayerLastSpawn += scenarioLoaderManager.ReturnPlayerLastSpawn;
 
-            if(chasersStateMachine != null)
+            if (chasersStateMachine != null)
             {
                 chaserManager.OnChasingEnd += chasersStateMachine.ChasingStateOver;
             }
-
-            ScenarioLoaderEnableEvents();
-
-            UIEnableEvents();
-
-            GameManagerEnableEvents();
         }
 
         private void GameManagerEnableEvents()
@@ -199,9 +233,9 @@ namespace Core.Events
 
             InventoryDisableEvents();
 
-            if(_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
+            if (_unlockDoorsTriggers != null && _unlockDoorsTriggers.Length > 0)
             {
-                foreach(UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
+                foreach (UnlockDoorTrigger unlockDoor in _unlockDoorsTriggers)
                 {
                     unlockDoor.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
                     unlockDoor.OnRemoveItemFromInventory -= inventoryManager.RemoveKeyItem;
@@ -209,9 +243,9 @@ namespace Core.Events
                 }
             }
 
-            if(_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
+            if (_puzzleInteractionTriggers != null && _puzzleInteractionTriggers.Length > 0)
             {
-                foreach(PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
+                foreach (PuzzleInteractionTrigger puzzleUnlock in _puzzleInteractionTriggers)
                 {
                     puzzleUnlock.OnReceiveItemFromInventory -= inventoryManager.AddKeyItem;
                     puzzleUnlock.OnCheckIfPlayerHasTheItem -= inventoryManager.CheckIfHasItem;
@@ -219,6 +253,43 @@ namespace Core.Events
                 }
             }
 
+            ChaserManagerDisableEvents();
+
+            ScenarioLoaderDisableEvents();
+
+            UIDisableEvents();
+
+            GameManagerDisableEvents();
+
+            SaveManagerDisableEvents();
+        }
+
+        private void SaveManagerDisableEvents()
+        {
+            saveManager.OnGetCurrentChapter -= gameManager.GetCurrentChapter;
+            saveManager.OnGetCurrentLevel -= scenarioLoaderManager.GetCurrentScene;
+            saveManager.OnGetCurrentRoom -= scenarioLoaderManager.GetCurrentRoom;
+
+            saveManager.OnGetPlayerCurrentPos -= _playerBehaviour.GetCurrentPosistion;
+
+            saveManager.OnGetPlayerCurrentHealth -= _playerBehaviour.Status.GetCurrentHealth;
+
+            saveManager.OnGetPlayerCurrentHealthBottles -= _playerBehaviour.Resources.CurrentHealingBottles;
+            saveManager.OnGetPlayerCurrentBullets -= _playerBehaviour.Resources.CurrentBullets;
+            saveManager.OnGetPlayerCurrentMunition -= _playerBehaviour.Resources.CurrentAmmo;
+
+            saveManager.OnGetPlayerMeleeStatus -= _playerBehaviour.Equipment.HasMeleeWeapon;
+            saveManager.OnGetPlayerRangedStatus -= _playerBehaviour.Equipment.HasRangedWeapon;
+
+            saveManager.OnGetInventoryItems -= inventoryManager.GetInventoryItems;
+
+            saveManager.OnGetChaserStatus -= chaserManager.GetChaserStatus;
+
+            saveManager.OnGetChapterEventsTriggereds -= chapterEventsManager.GetAllEndedEvents;
+        }
+
+        private void ChaserManagerDisableEvents()
+        {
             chaserManager.OnChaserEmitSounds -= musicManager.BlockMusic;
             chaserManager.OnEmitSound -= globalSoundEffects.PlayerAudioNoLoop;
             chaserManager.OnStopEmittingSound -= globalSoundEffects.StopAudioLoop;
@@ -226,16 +297,10 @@ namespace Core.Events
             chaserManager.OnSpawnNoRules -= globalSoundEffects.PlayAudioOneShootWithDelay;
             chaserManager.OnGetPlayerLastSpawn -= scenarioLoaderManager.ReturnPlayerLastSpawn;
 
-            if(chasersStateMachine != null)
+            if (chasersStateMachine != null)
             {
                 chaserManager.OnChasingEnd -= chasersStateMachine.ChasingStateOver;
             }
-
-            ScenarioLoaderDisableEvents();
-
-            UIDisableEvents();
-
-            GameManagerDisableEvents();
         }
 
         private void GameManagerDisableEvents()

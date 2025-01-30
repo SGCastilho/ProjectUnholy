@@ -67,5 +67,10 @@ namespace Core.Player
         {
             return !movement.IsFlipped;
         }
+
+        public Vector3 GetCurrentPosistion()
+        {
+            return _transform.position;
+        }
     }
 }

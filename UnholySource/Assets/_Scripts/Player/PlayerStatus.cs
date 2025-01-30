@@ -134,5 +134,10 @@ namespace Core.Player
 
             _currentHealingSFX++;
         }
+
+        public int GetCurrentHealth()
+        {
+            return playerHealth;
+        }
     }
 }

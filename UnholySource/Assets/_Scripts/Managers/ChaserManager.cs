@@ -188,5 +188,10 @@ namespace Core.Managers
 
             OnChasingEnd?.Invoke();
         }
+
+        public bool GetChaserStatus()
+        {
+            return chaserEnabled;
+        }
     }
 }

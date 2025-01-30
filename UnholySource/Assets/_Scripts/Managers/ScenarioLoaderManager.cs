@@ -272,5 +272,15 @@ namespace Core.Managers
         {
             return _travelPointTransform;
         }
+
+        public string GetCurrentRoom()
+        {
+            return _currentRoomScene;
+        }
+
+        public string GetCurrentScene()
+        {
+            return _currentLevelLoaded;
+        }
     }
 }

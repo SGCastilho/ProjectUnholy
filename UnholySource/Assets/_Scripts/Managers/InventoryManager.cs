@@ -46,21 +46,11 @@ namespace Core.Managers
             return false;
         }
 
-        public void LoadKeyInventory(ref Dictionary<string, ItemData> inventoryToLoad)
+        public string[] GetInventoryItems()
         {
-            if(inventoryToLoad == null) return;
+            List<string> items = new List<string>(_keyItemInventory.Keys);
 
-            List<string> inventoryKeys = new List<string>();
-
-            foreach(KeyValuePair<string, ItemData> inventory in inventoryToLoad)
-            {
-                inventoryKeys.Add(inventory.Key);
-            }
-
-            for(int i = 0; i < inventoryToLoad.Count; i++)
-            {
-                AddKeyItem(inventoryToLoad[inventoryKeys[i]]);
-            }
+            return items.ToArray();
         }
     }
 }
