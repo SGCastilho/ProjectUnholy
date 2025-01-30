@@ -2,6 +2,7 @@
     "name": "Core.Enemies",
     "rootNamespace": "Core.Enemies",
     "references": [
+        "GUID:f8fc2ad7a4703ab4487e5d560f769a4b",
         "GUID:b880f133fd5394b458c7d04e1a3ce492",
         "GUID:8d88350da9d890c4a8755c382d3998d5",
         "GUID:0f4d5afe199184d408bf4a83cb8a402a",

@@ -1,3 +1,4 @@
+using Core.Audio;
 using Core.Character;
 using Core.ScriptableObjects;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Core.Enemies
         public Transform PursuerTransform { get => _transform; }
         public CharacterMovement Movement { get => movement; }
         public PursuerAnimation Animation { get => anim; }
+        public LocalSoundEffects SFXManager { get => localSoundEffects; }
 
         internal EnemyData Data { get => data; }
 
@@ -22,6 +24,7 @@ namespace Core.Enemies
         [Header("Classes")]
         [SerializeField] private PursuerAnimation anim;
         [SerializeField] private CharacterMovement movement;
+        [SerializeField] private LocalSoundEffects localSoundEffects;
 
         private Transform _playerPosistion;
 

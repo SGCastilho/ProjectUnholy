@@ -28,7 +28,29 @@ namespace Core.Audio
         [Header("Settings")]
         [SerializeField] [Range(0.1f , 1f)] private float loopingFadeDuration = 0.2f;
 
+        public AudioSettings _oneShootDelayClip;
+
+        private bool _isDelaying;
+
         private float _loopingVolume;
+
+        private float _oneShootDelay;
+        private float _currentOneShootDelay;
+
+        private void Update() 
+        {
+            if(_isDelaying)
+            {
+                _currentOneShootDelay += Time.deltaTime;
+                if(_currentOneShootDelay >= _oneShootDelay)
+                {
+                    _isDelaying = false;
+                    _currentOneShootDelay = 0f;
+
+                    audioSource.PlayOneShot(_oneShootDelayClip.Clip, _oneShootDelayClip.Volume);
+                }
+            }
+        }
         
         public void PlayAudioLoop(string audioKey)
         {
@@ -128,6 +150,30 @@ namespace Core.Audio
             if(audioClip == null) return;
 
             audioSource.PlayOneShot(audioClip, volume);
+        }
+
+        public void PlayAudioOneShootWithDelay(string audioKey, float delay)
+        {
+            if(_isDelaying) return;
+
+            _oneShootDelayClip = new AudioSettings();
+
+            AudioSettings selectedAudio = new AudioSettings();
+
+            foreach(AudioSettings audio in audioSettings)
+            {
+                if(audio.Key == audioKey)
+                {
+                    selectedAudio = audio;
+                }
+            }
+
+            if(selectedAudio.Key == null || selectedAudio.Key == string.Empty) return;
+
+            _oneShootDelay = delay;
+            _oneShootDelayClip = selectedAudio;
+
+            _isDelaying = true;
         }
     }
 }

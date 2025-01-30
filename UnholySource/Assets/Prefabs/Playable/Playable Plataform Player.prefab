@@ -2410,13 +2410,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSettings:
   - audioKey: audio_footstep_0
-    audioVolume: 0.4
+    audioVolume: 0.2
     audioClip: {fileID: 8300000, guid: fc2b75a03ab31ad4fbb6e33f80006af7, type: 3}
   - audioKey: audio_footstep_1
-    audioVolume: 0.4
+    audioVolume: 0.2
     audioClip: {fileID: 8300000, guid: 6bb745d74a72d294e804f29a6beb7432, type: 3}
   - audioKey: audio_footstep_2
-    audioVolume: 0.4
+    audioVolume: 0.2
     audioClip: {fileID: 8300000, guid: 96b9de73878d95d4d85931ebd1913c26, type: 3}
   - audioKey: audio_pistol_shoot
     audioVolume: 0.8
@@ -2457,6 +2457,10 @@ MonoBehaviour:
   audioSource: {fileID: 7815577937247029353}
   loopingAudioSource: {fileID: 3795952083069014118}
   loopingFadeDuration: 0.2
+  _oneShootDelayClip:
+    audioKey: 
+    audioVolume: 0
+    audioClip: {fileID: 0}
 --- !u!1 &5580795559548789881
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,15 @@ namespace Core.Managers
         public delegate void ChasingEnd();
         public event ChasingEnd OnChasingEnd;
 
+        public delegate void SpawnNoRules(string sfxKey, float delay);
+        public event SpawnNoRules OnSpawnNoRules;
+
         public delegate Transform GetPlayerLastSpawn();
         public event GetPlayerLastSpawn OnGetPlayerLastSpawn;
+        #endregion
+
+        #region Constants
+        private const string SFX_DOOR_OPEN = "sfx_door_open";
         #endregion
 
         #region Encapsulation
@@ -96,6 +103,8 @@ namespace Core.Managers
             currentRoomsToSpawn = maxRoomsToSpawn;
 
             SpawnChaser(OnGetPlayerLastSpawn());
+
+            OnSpawnNoRules?.Invoke(SFX_DOOR_OPEN, 1f);
         }
 
         /// <summary>

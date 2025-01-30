@@ -7,6 +7,12 @@ namespace Core.AnimationEvents
 {
     public class PursuerAnimationEvent : MonoBehaviour
     {
+        #region Constants
+        private const string SFX_FOOTSTEP_0 = "audio_footstep_0";
+        private const string SFX_FOOTSTEP_1 = "audio_footstep_1";
+        private const string SFX_FOOTSTEP_2 = "audio_footstep_2";
+        #endregion
+
         [Header("Behaviour")]
         [SerializeField] private PursuerBehaviour behaviour;
 
@@ -18,10 +24,16 @@ namespace Core.AnimationEvents
         [SerializeField] private Vector3 searchingBoxSize;
         [SerializeField] private LayerMask searchingLayer;
 
+        [Space(10)]
+
+        [SerializeField] private int maxFootstepSFX = 2;
+
         private Transform _playerTransform;
         private Collider[] _searchingPlayer;
 
         private bool _damageApplied;
+
+        private int _currentFootstepSFX;
 
         #region Editor Variable
         #if UNITY_EDITOR
@@ -35,6 +47,31 @@ namespace Core.AnimationEvents
         private void Awake() 
         {
             _playerTransform = FindObjectOfType<PlayerBehaviour>().GetComponent<Transform>();
+        }
+
+        private void Start() 
+        {
+            _currentFootstepSFX = 0;
+        }
+
+        public void WalkingSFX()
+        {
+            if(_currentFootstepSFX > maxFootstepSFX) { _currentFootstepSFX = 0; }
+
+            switch(_currentFootstepSFX)
+            {
+                case 0:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_0);
+                    break;
+                case 1:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_1);
+                    break;
+                case 2:
+                    behaviour.SFXManager.PlayAudioOneShoot(SFX_FOOTSTEP_2);
+                    break;
+            }
+
+            _currentFootstepSFX++;
         }
         
         public void FinishAttack()
