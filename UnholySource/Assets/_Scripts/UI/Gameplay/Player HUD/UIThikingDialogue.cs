@@ -21,8 +21,16 @@ namespace Core.UI
 
         [SerializeField] [Range(1f , 4f)] private float messageDuration = 1.6f;
 
+        private float _messageDelay;
+        private float _currenteMessageTimer;
         private float _currentMessageDuration;
+
         private string _lastMessage;
+
+        private void OnEnable() 
+        {
+            _currenteMessageTimer = messageDuration;
+        }
 
         //TROCAR PARA UM SCRIPTABLE OBJECT
         public void EmitMessage(string message)
@@ -38,10 +46,19 @@ namespace Core.UI
                 _lastMessage = message;
 
                 messageTMP.text = message;
-                emitingMessage = true;
 
                 FadeIn();
             }
+        }
+
+        public void SetDelay(float delay)
+        {
+            _messageDelay = delay;
+        }
+
+        public void SetDuration(float duration)
+        {
+            _currenteMessageTimer = duration;
         }
 
         private void Update() 
@@ -49,7 +66,7 @@ namespace Core.UI
             if(emitingMessage)
             {
                 _currentMessageDuration += Time.deltaTime;
-                if(_currentMessageDuration >= messageDuration)
+                if(_currentMessageDuration >= _currenteMessageTimer)
                 {
                     emitingMessage = false;
                     _currentMessageDuration = 0f;
@@ -62,7 +79,7 @@ namespace Core.UI
         private void FadeIn()
         {
             canvasGroup.DOKill();
-            canvasGroup.DOFade(1f, fadeDuration);
+            canvasGroup.DOFade(1f, fadeDuration).OnComplete(() => { emitingMessage = true; }).SetDelay(_messageDelay);
         }
 
         private void FadeOut()
@@ -72,6 +89,9 @@ namespace Core.UI
             {                 
                 _lastMessage = string.Empty;
                 messageTMP.text = string.Empty;
+
+                _messageDelay = 0f;
+                _currenteMessageTimer = messageDuration;
             });
         }
 
@@ -85,7 +105,10 @@ namespace Core.UI
                 messageTMP.text = newMessage;
 
                 emitingMessage = true;
+
+                _currenteMessageTimer = messageDuration;
                 _currentMessageDuration = 0f;
+                _messageDelay = 0f;
 
                 FadeIn();
             });
