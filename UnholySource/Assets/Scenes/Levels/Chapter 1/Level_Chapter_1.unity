@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7887751}
   - component: {fileID: 7887749}
   m_Layer: 3
-  m_Name: Local Sound Effects
+  m_Name: Pursuer Local Sound Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,14 +268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSettings:
   - audioKey: audio_footstep_0
-    audioVolume: 0.6
+    audioVolume: 0.3
     audioClip: {fileID: 8300000, guid: 2bca310a6d0e3fa459e6fdefac1f27cb, type: 3}
   - audioKey: audio_footstep_1
-    audioVolume: 0.6
+    audioVolume: 0.3
     audioClip: {fileID: 8300000, guid: b015fe2e1de8c014497a9d52ad3eb803, type: 3}
-  - audioKey: audio_footstep_2
-    audioVolume: 0.6
-    audioClip: {fileID: 8300000, guid: 7c9914473c231b0458f25be9fb1ffbee, type: 3}
   audioSource: {fileID: 7887749}
   loopingAudioSource: {fileID: 0}
   loopingFadeDuration: 0.2
@@ -8207,7 +8204,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6500
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 9.1835e-41, y: 6e-44, z: 8e-45, w: 2.5787e-41}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 3.4e-44, z: 2.8732e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -11364,6 +11361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIFadeController: {fileID: 264175744}
   uIGameplayController: {fileID: 1639066765}
+  uIAreaNotification: {fileID: 1639066768}
   musicManager: {fileID: 1464374883}
   globalSoundEffects: {fileID: 1197534624}
   saveManager: {fileID: 1311190463}
@@ -11376,6 +11374,7 @@ MonoBehaviour:
   scenarioLoaderManager: {fileID: 1416651630}
   gameOverVolumeProfile: {fileID: 863817502}
   chasersStateMachine: {fileID: 715026496}
+  pursuerSearchingState: {fileID: 1147222773}
 --- !u!1 &551637778
 GameObject:
   m_ObjectHideFlags: 0
@@ -31213,11 +31212,10 @@ MonoBehaviour:
   audioSource: {fileID: 1464374882}
   blockMusic: 0
   inTransition: 0
-  predatorChasing: 0
+  isChasing: 0
   fadeDuration: 1
-  predatorChasingClip: {fileID: 8300000, guid: 9f6cd258a49bed6429a79016db528870, type: 3}
-  predatorSearchingClip: {fileID: 8300000, guid: e5510fb0e2e098c4f90d2413ae5ef95f,
-    type: 3}
+  chasingClip: {fileID: 8300000, guid: 0e36cf3c1ba2e9946afa3fdaae9c6572, type: 3}
+  _chasingVolume: 0.08
 --- !u!1 &1467794977
 GameObject:
   m_ObjectHideFlags: 0
@@ -37683,6 +37681,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 317cefd60dddca1458c277f1a14ff16f, type: 2}
   - {fileID: 11400000, guid: 88cccea6abb371842afb1110ee7e0bf1, type: 2}
   itemToReceive: {fileID: 11400000, guid: dc8e3518fa87a5e428c99aae09bb90cd, type: 2}
+  OnPuzzleLocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: SetDuration
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It seems i need three Amulets to open this.
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPuzzleUnlocked:
     m_PersistentCalls:
       m_Calls:
@@ -43802,6 +43827,7 @@ MonoBehaviour:
   - sfx_pursuer_phase_0
   - sfx_pursuer_phase_1
   - sfx_pursuer_phase_2
+  chaserLocalAudioSource: {fileID: 7887749}
   isChasing: 0
   firstTimeSpawn: 0
   maxRoomsToSpawn: 6
@@ -45000,7 +45026,7 @@ MonoBehaviour:
   searchingLayer:
     serializedVersion: 2
     m_Bits: 129
-  maxFootstepSFX: 2
+  maxFootstepSFX: 1
   showGizmos: 1
   searchingBoxColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &936164587660556145

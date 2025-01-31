@@ -34,6 +34,9 @@ namespace Core.Managers
         public delegate void GameLoaded(float fadeDuration, float delay, Action OnFadeEnded);
         public event GameLoaded OnGameLoaded;
 
+        public delegate void GameLoadedEnd();
+        public event GameLoadedEnd OnGameLoadedEnd;
+
         public delegate void GameWinEnded(string sceneToLoad);
         public event GameWinEnded OnGameWinEnded;
 
@@ -113,6 +116,8 @@ namespace Core.Managers
 
                 OnLoadChapterEndedEvents?.Invoke(loadedSave.currentTriggeredScenarioEvents);
 
+                OnGameLoadedEnd?.Invoke();
+                
                 Time.timeScale = 1;
 
                 Destroy(_saveFileLoaded.gameObject);

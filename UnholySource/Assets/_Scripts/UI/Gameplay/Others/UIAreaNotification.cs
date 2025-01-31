@@ -100,5 +100,10 @@ namespace Core.UI
             _showingNotification = false;
             _currentScreenDuration = 0;
         }
+
+        public void DisableNotificationOnStart()
+        {
+            emitNotificationOnStart = false;
+        }
     }
 }

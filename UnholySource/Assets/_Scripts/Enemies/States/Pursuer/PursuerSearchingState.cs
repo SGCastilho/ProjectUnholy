@@ -5,6 +5,11 @@ namespace Core.Enemies
 {
     public sealed class PursuerSearchingState : State
     {
+        #region Events
+        public delegate void ChasingStarted();
+        public event ChasingStarted OnChasingStarted;
+        #endregion
+
         [Header("State Machine")]
         [SerializeField] private StateMachine stateMachine;
 
@@ -77,6 +82,8 @@ namespace Core.Enemies
                 behaviour.Movement.SetCurrentSpeed(Character.CharacterSpeed.DEFAULT);
 
                 stateMachine.ChangeState(ref nextState);
+
+                OnChasingStarted?.Invoke();
 
                 _speedSetted = false;
 

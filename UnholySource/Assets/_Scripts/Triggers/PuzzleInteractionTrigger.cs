@@ -27,7 +27,9 @@ namespace Core.Triggers
         [Header("Unity Events")]
 
         [Space(10)]
+        [SerializeField] private UnityEvent OnPuzzleLocked;
 
+        [Space(10)]
         [SerializeField] private UnityEvent OnPuzzleUnlocked;
 
         public void UnlockPuzzle()
@@ -51,8 +53,10 @@ namespace Core.Triggers
 
                 OnReceiveItemFromInventory?.Invoke(itemToReceive);
                 OnPuzzleUnlocked?.Invoke();
-
-                Debug.Log("Puzzle Unlocked");
+            }
+            else
+            {
+                OnPuzzleLocked?.Invoke();
             }
         }
     }

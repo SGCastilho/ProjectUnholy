@@ -216,6 +216,8 @@ namespace Core.Managers
 
             if(chaserManager.IsChasing)
             {
+                chaserManager.MuteSFX();
+
                 chaserManager.ChaserCountToHideAgain();
 
                 if(chaserManager.FirstTimeSpawn)

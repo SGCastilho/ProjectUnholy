@@ -1599,22 +1599,22 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.000022874665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.21e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: -2.0826239e-30
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 6.21e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}

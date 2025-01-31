@@ -293,22 +293,22 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.0037240926
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.21e-43
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 7.1e-44
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 1.54574e-40
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
@@ -1266,22 +1266,22 @@ PrefabInstance:
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.00006397144
+      value: 3.947e-42
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.21e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 7.1e-44
+      value: -2.9217574e-18
       objectReference: {fileID: 0}
     - target: {fileID: 1400702618567508507, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 8.74e-43
       objectReference: {fileID: 0}
     - target: {fileID: 7680451113456463026, guid: 73787bd4c1298794685088f6377ed82b,
         type: 3}

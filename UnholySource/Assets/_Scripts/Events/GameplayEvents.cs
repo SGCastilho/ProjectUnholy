@@ -1,6 +1,7 @@
 using Core.UI;
 using Core.Audio;
 using Core.Player;
+using Core.Enemies;
 using Core.Triggers;
 using Core.Utilities;
 using Core.Managers;
@@ -15,6 +16,7 @@ namespace Core.Events
         [Header("UI Classes")]
         [SerializeField] private UIFadeController uIFadeController;
         [SerializeField] private UIGameplayController uIGameplayController;
+        [SerializeField] private UIAreaNotification uIAreaNotification;
 
         [Header("Audio Classes")]
         [SerializeField] private MusicManager musicManager;
@@ -35,6 +37,9 @@ namespace Core.Events
 
         [Header("State Machines Classes")]
         [SerializeField] private StateMachine chasersStateMachine;
+
+        [Header("Pursuer Classes")]
+        [SerializeField] private PursuerSearchingState pursuerSearchingState;
 
         private PlayerBehaviour _playerBehaviour;
         private LocalSoundEffects _playerSoundEffects;
@@ -111,6 +116,11 @@ namespace Core.Events
             SaveManagerEnableEvents();
 
             LoaderManagerEnableEvents();
+
+            if(pursuerSearchingState != null)
+            {
+                pursuerSearchingState.OnChasingStarted += musicManager.PlayerChasing;
+            }
         }
 
         private void LoaderManagerEnableEvents()
@@ -153,6 +163,8 @@ namespace Core.Events
             chaserManager.OnSpawnNoRules += globalSoundEffects.PlayAudioOneShootWithDelay;
             chaserManager.OnGetPlayerLastSpawn += scenarioLoaderManager.ReturnPlayerLastSpawn;
 
+            chaserManager.OnChasingEnd += musicManager.StopChasing;
+
             if (chasersStateMachine != null)
             {
                 chaserManager.OnChasingEnd += chasersStateMachine.ChasingStateOver;
@@ -168,6 +180,8 @@ namespace Core.Events
             gameManager.OnLoadPlayerInventory += inventoryManager.LoadPlayerInventory;
             gameManager.OnLoadChaserStatus += chaserManager.LoadChaserStatus;
             gameManager.OnLoadChapterEndedEvents += chapterEventsManager.LoadEndedEvents;
+
+            gameManager.OnGameLoadedEnd += uIAreaNotification.DisableNotificationOnStart;
 
             gameManager.EnablePlayerControlls += _playerBehaviour.Inputs.AllowControls;
 
@@ -291,6 +305,11 @@ namespace Core.Events
             SaveManagerDisableEvents();
 
             LoaderManagerDisableEvents();
+
+            if(pursuerSearchingState != null)
+            {
+                pursuerSearchingState.OnChasingStarted -= musicManager.PlayerChasing;
+            }
         }
 
         private void LoaderManagerDisableEvents()
@@ -332,6 +351,8 @@ namespace Core.Events
             chaserManager.OnSpawnNoRules -= globalSoundEffects.PlayAudioOneShootWithDelay;
             chaserManager.OnGetPlayerLastSpawn -= scenarioLoaderManager.ReturnPlayerLastSpawn;
 
+            chaserManager.OnChasingEnd -= musicManager.StopChasing;
+
             if (chasersStateMachine != null)
             {
                 chaserManager.OnChasingEnd -= chasersStateMachine.ChasingStateOver;
@@ -346,6 +367,8 @@ namespace Core.Events
             gameManager.OnLoadPlayerEquipment -= _playerBehaviour.Equipment.LoadPlayerEquipment;
             gameManager.OnLoadPlayerInventory -= inventoryManager.LoadPlayerInventory;
             gameManager.OnLoadChapterEndedEvents -= chapterEventsManager.LoadEndedEvents;
+
+            gameManager.OnGameLoadedEnd -= uIAreaNotification.DisableNotificationOnStart;
 
             gameManager.EnablePlayerControlls -= _playerBehaviour.Inputs.AllowControls;
 

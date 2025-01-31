@@ -11,13 +11,13 @@ namespace Core.Audio
         [Header("Settings")]
         [SerializeField] private bool blockMusic;
         [SerializeField] private bool inTransition;
-        [SerializeField] private bool predatorChasing;
+        [SerializeField] private bool isChasing;
         [SerializeField] [Range(0.1f, 4f)] private float fadeDuration = 1f;
 
         [Space(10)]
 
-        [SerializeField] private AudioClip predatorChasingClip;
-        [SerializeField] private AudioClip predatorSearchingClip;
+        [SerializeField] private AudioClip chasingClip;
+        [SerializeField] private float _chasingVolume;
 
         private float _maxVolume;
 
@@ -30,7 +30,7 @@ namespace Core.Audio
 
         public void PlayAudio(AudioClip musicAudio)
         {
-            if(blockMusic || inTransition || predatorChasing || audioSource.clip == musicAudio) return;
+            if(blockMusic || inTransition || isChasing || audioSource.clip == musicAudio) return;
 
             audioSource.clip = musicAudio;
             audioSource.volume = _maxVolume;
@@ -40,7 +40,7 @@ namespace Core.Audio
 
         public void PlayAudioFadeIn(AudioClip musicAudio)
         {
-            if(blockMusic || inTransition || predatorChasing || audioSource.clip == musicAudio) return;
+            if(blockMusic || inTransition || isChasing || audioSource.clip == musicAudio) return;
 
             audioSource.clip = musicAudio;
             audioSource.volume = 0f;
@@ -56,7 +56,7 @@ namespace Core.Audio
 
         public void TransitateTo(AudioClip musicAudio)
         {
-            if(blockMusic || inTransition || predatorChasing) return;
+            if(blockMusic || inTransition || isChasing) return;
 
             audioSource.DOKill();
 
@@ -78,7 +78,7 @@ namespace Core.Audio
 
         public void StopAudio()
         {
-            if(inTransition || predatorChasing) return;
+            if(inTransition || isChasing) return;
 
             audioSource.Stop();
 
@@ -87,7 +87,7 @@ namespace Core.Audio
 
         public void StopAudioFadeOut()
         {
-            if(inTransition || predatorChasing) return;
+            if(inTransition || isChasing) return;
 
             audioSource.DOKill();
 
@@ -103,22 +103,22 @@ namespace Core.Audio
             }).SetUpdate(true);
         }
 
-        public void PlayPredatorChasing()
+        public void PlayerChasing()
         {
-            if(predatorChasing) return;
+            if(isChasing) return;
 
-            predatorChasing = true;
+            isChasing = true;
 
             audioSource.Stop();
             audioSource.clip = null;
 
-            audioSource.clip = predatorChasingClip;
-            audioSource.volume = _maxVolume;
+            audioSource.clip = chasingClip;
+            audioSource.volume = _chasingVolume;
 
             audioSource.Play();
         }
 
-        public void PlayPredatorSearching()
+        public void StopChasing()
         {
             audioSource.DOKill();
 
@@ -127,23 +127,12 @@ namespace Core.Audio
             audioSource.DOFade(0f, fadeDuration).OnComplete(() => 
             {
                 audioSource.Stop();
+                audioSource.clip = null;
 
-                audioSource.clip = predatorSearchingClip;
-                audioSource.volume = 0f;
-
-                audioSource.Play();
-
-                audioSource.DOKill();
-                audioSource.DOFade(_maxVolume, fadeDuration).OnComplete(() => { inTransition = false; });
+                isChasing = false;
+                
+                inTransition = false;
             }).SetUpdate(true);
-        }
-
-        public void StopPredatorMusic()
-        {
-            audioSource.Stop();
-            audioSource.clip = null;
-
-            predatorChasing = false;
         }
 
         public void BlockMusic()

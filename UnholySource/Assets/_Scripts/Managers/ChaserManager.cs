@@ -51,6 +51,10 @@ namespace Core.Managers
 
         [Space(10)]
 
+        [SerializeField] private AudioSource chaserLocalAudioSource;
+
+        [Space(10)]
+
         [SerializeField] private bool isChasing;
         [SerializeField] private bool firstTimeSpawn;
 
@@ -156,6 +160,8 @@ namespace Core.Managers
 
             chaserPrefab.SetActive(true);
 
+            UnMuteSFX();
+
             if(firstTimeSpawn) { firstTimeSpawn = false; }
         }
 
@@ -187,6 +193,16 @@ namespace Core.Managers
             isChasing = false;
 
             OnChasingEnd?.Invoke();
+        }
+
+        public void MuteSFX()
+        {
+            chaserLocalAudioSource.volume = 0f;
+        }
+
+        public void UnMuteSFX()
+        {
+            chaserLocalAudioSource.volume = 0.2f;
         }
 
         public bool GetChaserStatus()
