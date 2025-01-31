@@ -11240,6 +11240,7 @@ MonoBehaviour:
   saveManager: {fileID: 1311190463}
   gameManager: {fileID: 1284136790}
   pauseManager: {fileID: 44422095}
+  loaderManager: {fileID: 1854103656}
   chaserManager: {fileID: 2116752499}
   inventoryManager: {fileID: 1817070906}
   chapterEventsManager: {fileID: 818555507}
@@ -21752,7 +21753,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1108259800}
   m_OnClick:
     m_PersistentCalls:
@@ -21760,6 +21761,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066765}
         m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
         m_MethodName: PlaySFXConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1854103656}
+        m_TargetAssemblyTypeName: Core.Managers.LoaderManager, Core.Managers
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25813,45 +25826,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1311190461
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1311190462}
-  - component: {fileID: 1311190463}
-  m_Layer: 0
-  m_Name: SaveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1311190462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311190461}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1311190463
+--- !u!114 &1311190463 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3859137803199857799, guid: c1827afcf040b6d4d80adcb90ba85b99,
+    type: 3}
+  m_PrefabInstance: {fileID: 2331327428239068378}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311190461}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b205e080ef42e984a8ce66aa733797ba, type: 3}
@@ -28431,9 +28412,10 @@ MonoBehaviour:
     predatorLeftSpawn: {fileID: 424295265}
     predatorRightSpawn: {fileID: 282480333}
   loadFirstScene: 1
-  loadDebugScene: 0
-  sceneToDebug: LP_School_Room_Interior_North_02_SaveRoom
+  loadSaveFileRoom: 0
+  sceneToLoad: Put the scene here
   travelPosistion: {fileID: 24034955}
+  loadDebugScene: 0
 --- !u!1 &1424582359
 GameObject:
   m_ObjectHideFlags: 0
@@ -28765,8 +28747,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285493103
-  m_fontColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -38136,6 +38118,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4467c5c4b64e447a18dc1c18957875, type: 3}
+--- !u!1 &1854103654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854103655}
+  - component: {fileID: 1854103656}
+  m_Layer: 0
+  m_Name: LoaderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854103655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854103654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854103656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854103654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2470b10b2603894496f01c5e2a1c501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFileLoadedPrefab: {fileID: 3289921354672339268, guid: 5cdadaabb1559184aadc77cedee16dcc,
+    type: 3}
 --- !u!1 &1863988205
 GameObject:
   m_ObjectHideFlags: 0
@@ -45442,6 +45470,74 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
+--- !u!1001 &2331327428239068378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339706930305773959, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742971318784053613, guid: c1827afcf040b6d4d80adcb90ba85b99,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1827afcf040b6d4d80adcb90ba85b99, type: 3}
 --- !u!4 &2392762241840411781
 Transform:
   m_ObjectHideFlags: 0
@@ -50848,11 +50944,12 @@ SceneRoots:
   - {fileID: 1393535911}
   - {fileID: 546043241}
   - {fileID: 276322209}
-  - {fileID: 1311190462}
+  - {fileID: 2331327428239068378}
   - {fileID: 1851677305}
   - {fileID: 1464374881}
   - {fileID: 44422094}
   - {fileID: 1284136791}
+  - {fileID: 1854103655}
   - {fileID: 236200040}
   - {fileID: 1817070905}
   - {fileID: 1197534625}

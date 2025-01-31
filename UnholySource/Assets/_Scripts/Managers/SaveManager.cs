@@ -94,6 +94,9 @@ namespace Core.Managers
             saveFile.currentPlayerBullets = OnGetPlayerCurrentBullets();
             saveFile.currentPlayerMunition = OnGetPlayerCurrentMunition();
 
+            saveFile.currentWeaponMeleeStatus = OnGetPlayerMeleeStatus();
+            saveFile.currentWeaponRangedStatus = OnGetPlayerRangedStatus();
+
             saveFile.currentInventoryItems = OnGetInventoryItems();
 
             saveFile.currentCharserEnabled = OnGetChaserStatus();

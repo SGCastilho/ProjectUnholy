@@ -113,5 +113,13 @@ namespace Core.Player
         {
             flashLightObject.SetActive(isOn);
         }
+
+        public void LoadPlayerEquipment(bool meleeOn, bool rangedOn)
+        {
+            meleeEnabled = meleeOn;
+            rangedEnabled = rangedOn;
+
+            EquipMeleeWeapon();
+        }
     }
 }

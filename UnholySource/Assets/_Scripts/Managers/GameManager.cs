@@ -6,6 +6,27 @@ namespace Core.Managers
     public sealed class GameManager : MonoBehaviour
     {
         #region Events
+        public delegate void LoadRoom(string roomName, Vector3 playerPosition);
+        public event LoadRoom OnLoadRoom;
+
+        public delegate void LoadPlayerHealth(int loadedHealth);
+        public event LoadPlayerHealth OnLoadPlayerHealth;
+
+        public delegate void LoadPlayerResources(int healthBottles, int bullets, int ammo);
+        public event LoadPlayerResources OnLoadPlayerResources;
+
+        public delegate void LoadPlayerEquipment(bool meleeOn, bool rangedOn);
+        public event LoadPlayerEquipment OnLoadPlayerEquipment;
+
+        public delegate void LoadPlayerInventory(string[] loadedInventory);
+        public event LoadPlayerInventory OnLoadPlayerInventory;
+
+        public delegate void LoadChaserStatus(bool isEnabled);
+        public event LoadChaserStatus OnLoadChaserStatus;
+
+        public delegate void LoadChapterEndedEvents(string[] endedEvents);
+        public event LoadChapterEndedEvents OnLoadChapterEndedEvents;
+
         public delegate void GameStarted(float fadeDuration, float delay, Action OnFadeEnded);
         public event GameStarted OnGameStarted;
 
@@ -34,6 +55,7 @@ namespace Core.Managers
         [SerializeField] [Range(1f, 4f)] private float chapterLoadedFadeOut = 1f;
         [SerializeField] [Range(1f, 6f)] private float chapterLoadedFadeOutDelay = 1f;
 
+        private SaveFileLoaded _saveFileLoaded;
         private ChapterEventsManager _chapterEventsManager;
 
         private void Awake() => CacheVariables();
@@ -52,11 +74,37 @@ namespace Core.Managers
 
         private void CheckForSaveFileLoader()
         {
-            //Checka se existe umas instancia do save file loader, e pega todas suas informações para aplica-los na cena
-            //Se o mesmo não existir, toda essa função sera ignorada e o jogo será iniciado
+            _saveFileLoaded = FindObjectOfType<SaveFileLoaded>();
 
-            //DEBUG
-            _chapterEventsManager.ExecuteEndedEvents();
+            if(_saveFileLoaded != null)
+            {
+                gameLoaded = true;
+
+                Time.timeScale = 0;
+
+                SaveFile loadedSave = _saveFileLoaded.File;
+                
+                OnLoadRoom?.Invoke(loadedSave.currentLoadedRoom, loadedSave.currentPlayerLocation);
+
+                OnLoadPlayerHealth?.Invoke(loadedSave.currentPlayerHealth);
+
+                OnLoadPlayerResources?.Invoke(loadedSave.currentPlayerHealthBottles, loadedSave.currentPlayerBullets, 
+                    loadedSave.currentPlayerMunition);
+
+                OnLoadPlayerEquipment?.Invoke(loadedSave.currentWeaponMeleeStatus, loadedSave.currentWeaponRangedStatus);
+
+                OnLoadPlayerInventory?.Invoke(loadedSave.currentInventoryItems);
+
+                OnLoadChaserStatus?.Invoke(loadedSave.currentCharserEnabled);
+
+                OnLoadChapterEndedEvents?.Invoke(loadedSave.currentTriggeredScenarioEvents);
+
+                Time.timeScale = 1;
+            }
+            else
+            {
+                gameLoaded = false;
+            }
         }
 
         public void GameStart()

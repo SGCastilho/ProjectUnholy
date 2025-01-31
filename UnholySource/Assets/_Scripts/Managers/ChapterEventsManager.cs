@@ -97,5 +97,13 @@ namespace Core.Managers
 
             return endedEvents.ToArray();
         }
+
+        public void LoadEndedEvents(string[] endedEvents)
+        {
+            for(int i = 0; i < endedEvents.Length; i++)
+            {
+                EndEventAndExcute(endedEvents[i]);
+            }
+        }
     }
 }

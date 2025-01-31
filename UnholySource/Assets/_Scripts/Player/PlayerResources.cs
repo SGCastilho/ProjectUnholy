@@ -163,5 +163,12 @@ namespace Core.Player
         {
             return playerMunition;
         }
+
+        public void LoadPlayerResources(int healthBottles, int bullets, int ammo)
+        {
+            playerHealthBottles = healthBottles;
+            playerBullets = bullets;
+            playerMunition = ammo;
+        }
     }
 }

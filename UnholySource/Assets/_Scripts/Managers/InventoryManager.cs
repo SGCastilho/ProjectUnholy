@@ -52,5 +52,30 @@ namespace Core.Managers
 
             return items.ToArray();
         }
+
+        public void LoadPlayerInventory(string[] loadedInventory)
+        {
+            List<ItemData> existingItems = new List<ItemData>();
+
+            var keyItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Inventory/Keys");
+            var puzzleItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Inventory/Puzzles");
+            var abstractItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Abstract");
+
+            existingItems.AddRange(keyItemsToTranslate);
+            existingItems.AddRange(puzzleItemsToTranslate);
+            existingItems.AddRange(abstractItemsToTranslate);
+
+            foreach(ItemData loadedItem in existingItems)
+            {
+                for(int i = 0; i < loadedInventory.Length; i++)
+                {
+                    if(loadedItem.NameKey == loadedInventory[i])
+                    {
+                        AddKeyItem(loadedItem);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

@@ -193,5 +193,10 @@ namespace Core.Managers
         {
             return chaserEnabled;
         }
+
+        public void LoadChaserStatus(bool enabled)
+        {
+            chaserEnabled = enabled;
+        }
     }
 }

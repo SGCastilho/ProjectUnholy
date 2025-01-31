@@ -47,20 +47,18 @@ namespace Core.Managers
         [Header("Settings")]
         [SerializeField] private bool loadFirstScene;
 
-        #region Editor Variables
-        #if UNITY_EDITOR
-
+        [SerializeField] private bool loadSaveFileRoom;
+        [SerializeField] private string sceneToLoad = "Put the scene here";
+        [SerializeField] private Transform travelPosistion;
+        
         [Header("Debug Tools")]
         [SerializeField] private bool loadDebugScene;
-        [SerializeField] private string sceneToDebug = "Put the scene here";
-        [SerializeField] private Transform travelPosistion;
-        #endif
-        #endregion
 
         private bool _loadingScene;
         private bool _isTraveling;
         private string _currentRoomScene;
         private string _currentLevelLoaded;
+        private Vector3 _savedPlayerPosistion;
 
         private AsyncOperation _currentLoadingOperation;
 
@@ -85,18 +83,25 @@ namespace Core.Managers
                 if(scenes[i].InteractablesToEnable != null) { scenes[i].InteractablesToEnable.SetActive(false); }
             }
 
-            #if UNITY_EDITOR
-            if(loadDebugScene)
+            if(loadSaveFileRoom)
             {
                 loadFirstScene = false;
 
                 _playerTransform.gameObject.SetActive(false);
-                _playerTransform.position = travelPosistion.position;
+                
+                if(!loadDebugScene)
+                {
+                    _playerTransform.position = _savedPlayerPosistion;
+                }
+                else
+                {
+                    _playerTransform.position = travelPosistion.position;
+                }
+
                 _playerTransform.gameObject.SetActive(true);
 
-                LoadRoomAddictive(sceneToDebug);
+                LoadRoomAddictive(sceneToLoad);
             }
-            #endif
 
             if(loadFirstScene)
             {
@@ -228,6 +233,25 @@ namespace Core.Managers
             SceneManager.LoadScene(_currentLevelLoaded);
 
             OnEndTravel?.Invoke();
+        }
+
+        public async void LoadScene(string sceneToLoad)
+        {
+            OnStartTravel?.Invoke();
+
+            await Task.Delay(1000);
+
+            SceneManager.LoadScene(sceneToLoad);
+
+            OnEndTravel?.Invoke();
+        }
+
+        public void LoadRoom(string roomName, Vector3 playerPosition)
+        {
+            sceneToLoad = roomName;
+            _savedPlayerPosistion = playerPosition;
+            
+            loadSaveFileRoom = true;
         }
 
         public Transform ReturnFarPredatorPoint()

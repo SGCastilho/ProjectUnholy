@@ -23,6 +23,7 @@ namespace Core.Events
         [SerializeField] private SaveManager saveManager;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PauseManager pauseManager;
+        [SerializeField] private LoaderManager loaderManager;
         [SerializeField] private ChaserManager chaserManager;
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ChapterEventsManager chapterEventsManager;
@@ -104,6 +105,14 @@ namespace Core.Events
             GameManagerEnableEvents();
 
             SaveManagerEnableEvents();
+
+            LoaderManagerEnableEvents();
+        }
+
+        private void LoaderManagerEnableEvents()
+        {
+            loaderManager.OnStartLoadSaveGame += _playerBehaviour.Inputs.BlockActions;
+            loaderManager.OnLoadSaveGame += scenarioLoaderManager.LoadScene;
         }
 
         private void SaveManagerEnableEvents()
@@ -148,6 +157,14 @@ namespace Core.Events
 
         private void GameManagerEnableEvents()
         {
+            gameManager.OnLoadRoom += scenarioLoaderManager.LoadRoom;
+            gameManager.OnLoadPlayerHealth += _playerBehaviour.Status.LoadedPlayerHealth;
+            gameManager.OnLoadPlayerResources += _playerBehaviour.Resources.LoadPlayerResources;
+            gameManager.OnLoadPlayerEquipment += _playerBehaviour.Equipment.LoadPlayerEquipment;
+            gameManager.OnLoadPlayerInventory += inventoryManager.LoadPlayerInventory;
+            gameManager.OnLoadChaserStatus += chaserManager.LoadChaserStatus;
+            gameManager.OnLoadChapterEndedEvents += chapterEventsManager.LoadEndedEvents;
+
             gameManager.EnablePlayerControlls += _playerBehaviour.Inputs.AllowControls;
 
             gameManager.OnGameStarted += uIFadeController.CustomFadeOut;
@@ -262,6 +279,14 @@ namespace Core.Events
             GameManagerDisableEvents();
 
             SaveManagerDisableEvents();
+
+            LoaderManagerDisableEvents();
+        }
+
+        private void LoaderManagerDisableEvents()
+        {
+            loaderManager.OnStartLoadSaveGame -= _playerBehaviour.Inputs.BlockActions;
+            loaderManager.OnLoadSaveGame -= scenarioLoaderManager.LoadScene;
         }
 
         private void SaveManagerDisableEvents()
@@ -305,6 +330,13 @@ namespace Core.Events
 
         private void GameManagerDisableEvents()
         {
+            gameManager.OnLoadRoom -= scenarioLoaderManager.LoadRoom;
+            gameManager.OnLoadPlayerHealth -= _playerBehaviour.Status.LoadedPlayerHealth;
+            gameManager.OnLoadPlayerResources -= _playerBehaviour.Resources.LoadPlayerResources;
+            gameManager.OnLoadPlayerEquipment -= _playerBehaviour.Equipment.LoadPlayerEquipment;
+            gameManager.OnLoadPlayerInventory -= inventoryManager.LoadPlayerInventory;
+            gameManager.OnLoadChapterEndedEvents -= chapterEventsManager.LoadEndedEvents;
+
             gameManager.EnablePlayerControlls -= _playerBehaviour.Inputs.AllowControls;
 
             gameManager.OnGameStarted -= uIFadeController.CustomFadeOut;

@@ -139,5 +139,11 @@ namespace Core.Player
         {
             return playerHealth;
         }
+
+        public void LoadedPlayerHealth(int savedHealth)
+        {
+            playerHealth = savedHealth;
+            OnModifingHealth?.Invoke(ref playerHealth);
+        }
     }
 }
