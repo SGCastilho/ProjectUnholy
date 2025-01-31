@@ -43,6 +43,8 @@ namespace Core.UI
 
         private void Start() 
         {
+            backgroundCanvasGroup.interactable = false;
+
             buttonsRectTransform = buttonsCanvasGroup.GetComponent<RectTransform>();
 
             _currentWindowPosistionY = buttonsRectTransform.anchoredPosition.y;
@@ -104,6 +106,7 @@ namespace Core.UI
             buttonsCanvasGroup.DOKill();
             buttonsCanvasGroup.DOFade(1f, fadeDuration).SetDelay(delayDuration).SetUpdate(true);
 
+            backgroundCanvasGroup.interactable = true;
             buttonsCanvasGroup.blocksRaycasts = true;
         }
 
@@ -111,6 +114,7 @@ namespace Core.UI
         {
             OnHideInteface?.Invoke();
 
+            backgroundCanvasGroup.interactable = false;
             buttonsCanvasGroup.blocksRaycasts = false;
 
             backgroundCanvasGroup.DOKill();

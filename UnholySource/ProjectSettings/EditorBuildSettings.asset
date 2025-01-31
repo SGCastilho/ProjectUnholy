@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Menu_Main.unity
     guid: 7a9a26d918b759346bc7c75c40925764
   - enabled: 1
+    path: Assets/Scenes/Others/GameOver.unity
+    guid: bd7028d07451bce4390474bf7be7f763
+  - enabled: 1
+    path: Assets/Scenes/Others/GameWin_ThanksForPlaying.unity
+    guid: 93b41a2a2aba9594a85941030ee61da6
+  - enabled: 1
     path: Assets/Scenes/Levels/Chapter 1/Level_Chapter_1.unity
     guid: 4aa2622d5e7f8f446b893dc36de875a0
   - enabled: 1

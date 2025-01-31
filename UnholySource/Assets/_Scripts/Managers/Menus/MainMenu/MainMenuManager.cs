@@ -7,6 +7,12 @@ namespace Core.Managers
     {
         [Header("Settings")]
         [SerializeField] private string newGameSceneToLoad = "put your scene name here";
+        
+        private void Start() 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
         public void LoadNewGame()
         {

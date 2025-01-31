@@ -47,9 +47,16 @@ namespace Core.Managers
         [Header("Settings")]
         [SerializeField] private bool loadFirstScene;
 
+        [Space(10)]
+
         [SerializeField] private bool loadSaveFileRoom;
         [SerializeField] private string sceneToLoad = "Put the scene here";
         [SerializeField] private Transform travelPosistion;
+
+        [Space(10)]
+
+        [SerializeField] private string mainMenuScene;
+        [SerializeField] private string gameOverScene;
         
         [Header("Debug Tools")]
         [SerializeField] private bool loadDebugScene;
@@ -222,15 +229,13 @@ namespace Core.Managers
             }
         }
 
-        public async void ReloadCurrentScene()
+        public async void GameOverLoadScene()
         {
-            await Task.Delay(4000);
-
             OnStartTravel?.Invoke();
 
             await Task.Delay(1000);
 
-            SceneManager.LoadScene(_currentLevelLoaded);
+            SceneManager.LoadScene(gameOverScene);
 
             OnEndTravel?.Invoke();
         }
@@ -305,6 +310,11 @@ namespace Core.Managers
         public string GetCurrentScene()
         {
             return _currentLevelLoaded;
+        }
+
+        public void BackToMainMenu()
+        {
+            LoadScene(mainMenuScene);
         }
     }
 }

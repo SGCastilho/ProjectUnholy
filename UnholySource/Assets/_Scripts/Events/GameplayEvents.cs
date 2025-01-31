@@ -2,6 +2,7 @@ using Core.UI;
 using Core.Audio;
 using Core.Player;
 using Core.Triggers;
+using Core.Utilities;
 using Core.Managers;
 using Core.GameCamera;
 using Core.StateMachines;
@@ -28,6 +29,9 @@ namespace Core.Events
         [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private ChapterEventsManager chapterEventsManager;
         [SerializeField] private ScenarioLoaderManager scenarioLoaderManager;
+
+        [Header("Utilities Classes")]
+        [SerializeField] private VolumeProfileHandler gameOverVolumeProfile;
 
         [Header("State Machines Classes")]
         [SerializeField] private StateMachine chasersStateMachine;
@@ -169,6 +173,11 @@ namespace Core.Events
 
             gameManager.OnGameStarted += uIFadeController.CustomFadeOut;
             gameManager.OnGameLoaded += uIFadeController.CustomFadeOut;
+
+            gameManager.OnGameWinEnded += scenarioLoaderManager.LoadScene;
+
+            gameManager.OnGameOverStart += gameOverVolumeProfile.Show;
+            gameManager.OnGameOverEnd += scenarioLoaderManager.GameOverLoadScene;
         }
         
         private void UIEnableEvents()
@@ -209,7 +218,7 @@ namespace Core.Events
 
         private void ScenarioLoaderEnableEvents()
         {
-            scenarioLoaderManager.OnStartTravel += pauseManager.Pause;
+            scenarioLoaderManager.OnStartTravel += pauseManager.PauseWithoutShowingCursor;
             scenarioLoaderManager.OnStartTravel += _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel += uIFadeController.FadeIn;
 
@@ -226,6 +235,7 @@ namespace Core.Events
         private void PauseEnableEvents()
         {
             pauseManager.OnPaused += _playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnPausedWithoutShowingCursor += _playerBehaviour.Inputs.BlockInputsWhenPausedNoCursor;
             pauseManager.OnUnPaused += _playerBehaviour.Inputs.AllowInputsWhenUnPaused;
         }
 
@@ -341,6 +351,11 @@ namespace Core.Events
 
             gameManager.OnGameStarted -= uIFadeController.CustomFadeOut;
             gameManager.OnGameLoaded -= uIFadeController.CustomFadeOut;
+
+            gameManager.OnGameWinEnded -= scenarioLoaderManager.LoadScene;
+
+            gameManager.OnGameOverStart -= gameOverVolumeProfile.Show;
+            gameManager.OnGameOverEnd -= scenarioLoaderManager.GameOverLoadScene;
         }
         
         private void UIDisableEvents()
@@ -381,7 +396,7 @@ namespace Core.Events
 
         private void ScenarioLoaderDisableEvents()
         {
-            scenarioLoaderManager.OnStartTravel -= pauseManager.Pause;
+            scenarioLoaderManager.OnStartTravel -= pauseManager.PauseWithoutShowingCursor;
             scenarioLoaderManager.OnStartTravel -= _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel -= uIFadeController.FadeIn;
 
@@ -398,6 +413,7 @@ namespace Core.Events
         private void PauseDisableEvents()
         {
             pauseManager.OnPaused -= _playerBehaviour.Inputs.BlockInputsWhenPaused;
+            pauseManager.OnPausedWithoutShowingCursor -= _playerBehaviour.Inputs.BlockInputsWhenPausedNoCursor;
             pauseManager.OnUnPaused -= _playerBehaviour.Inputs.AllowInputsWhenUnPaused;
         }
 

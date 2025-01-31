@@ -218,6 +218,22 @@ namespace Core.Player
             behaviour.HideCursor(false);
         }
 
+        public void AllowInputsWhenUnPausedNoCursor()
+        {
+            AllowActions();
+            AllowMovement();
+
+            behaviour.HideCursor(true);
+        }
+
+        public void BlockInputsWhenPausedNoCursor()
+        {
+            BlockActions();
+            BlockMovement();
+
+            behaviour.HideCursor(true);
+        }
+
         public void AllowInputsWhenInventory()
         {
             _gameplayInputActions.Gameplay.Pause.Enable();

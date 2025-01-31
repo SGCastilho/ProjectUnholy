@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Core.Managers
@@ -32,6 +33,15 @@ namespace Core.Managers
 
         public delegate void GameLoaded(float fadeDuration, float delay, Action OnFadeEnded);
         public event GameLoaded OnGameLoaded;
+
+        public delegate void GameWinEnded(string sceneToLoad);
+        public event GameWinEnded OnGameWinEnded;
+
+        public delegate void GameOverStart();
+        public event GameOverStart OnGameOverStart;
+
+        public delegate void GameOverEnd();
+        public event GameOverEnd OnGameOverEnd;
         #endregion
 
         #region Actions
@@ -54,6 +64,10 @@ namespace Core.Managers
 
         [SerializeField] [Range(1f, 4f)] private float chapterLoadedFadeOut = 1f;
         [SerializeField] [Range(1f, 6f)] private float chapterLoadedFadeOutDelay = 1f;
+
+        [Space(5)]
+
+        [SerializeField] [Range(1f, 8f)] private float deathSequenceTime = 6f;
 
         private SaveFileLoaded _saveFileLoaded;
         private ChapterEventsManager _chapterEventsManager;
@@ -100,6 +114,8 @@ namespace Core.Managers
                 OnLoadChapterEndedEvents?.Invoke(loadedSave.currentTriggeredScenarioEvents);
 
                 Time.timeScale = 1;
+
+                Destroy(_saveFileLoaded.gameObject);
             }
             else
             {
@@ -119,9 +135,23 @@ namespace Core.Managers
             }
         }
 
+        public void GameWin()
+        {
+            OnGameWinEnded?.Invoke("GameWin_ThanksForPlaying");
+        }
+
         public void GameOver()
         {
-            Debug.Log("Game Over");
+            StartCoroutine(GameOverSequence());
+        }
+
+        private IEnumerator GameOverSequence()
+        {
+            OnGameOverStart?.Invoke();
+
+            yield return new WaitForSeconds(deathSequenceTime);
+
+            OnGameOverEnd?.Invoke();
         }
 
         public string GetCurrentChapter()

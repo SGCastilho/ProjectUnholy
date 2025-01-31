@@ -3536,6 +3536,108 @@ Canvas:
   m_SortingLayerID: 151606041
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &185353416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185353417}
+  - component: {fileID: 185353420}
+  - component: {fileID: 185353419}
+  - component: {fileID: 185353418}
+  m_Layer: 0
+  m_Name: TriggerCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &185353417
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185353416}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 746278882}
+  m_Father: {fileID: 710599522}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.07, y: 2.2}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &185353418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185353416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &185353419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185353416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 1
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &185353420
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185353416}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 151606041
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &192662229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,6 +4942,7 @@ Transform:
   - {fileID: 768870456}
   - {fileID: 8469122798601054496}
   - {fileID: 1770945872}
+  - {fileID: 710599522}
   m_Father: {fileID: 866326885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244929778
@@ -8825,6 +8928,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1479258906}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_blocksRaycasts
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1639066765}
         m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
         m_MethodName: UnSelectButton
@@ -8840,6 +8955,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066765}
         m_TargetAssemblyTypeName: Core.UI.UIGameplayController, Core.UI
         m_MethodName: PlaySFXConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11245,6 +11372,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 1817070906}
   chapterEventsManager: {fileID: 818555507}
   scenarioLoaderManager: {fileID: 1416651630}
+  gameOverVolumeProfile: {fileID: 863817502}
   chasersStateMachine: {fileID: 715026496}
 --- !u!1 &551637778
 GameObject:
@@ -13888,6 +14016,235 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708450457}
   m_CullTransparentMesh: 1
+--- !u!1 &710599521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710599522}
+  - component: {fileID: 710599526}
+  - component: {fileID: 710599525}
+  - component: {fileID: 710599524}
+  - component: {fileID: 710599523}
+  m_Layer: 0
+  m_Name: Door Locked Chapter End Travel Trigger Interaction
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &710599522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710599521}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.67, y: 0, z: -55.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 185353417}
+  m_Father: {fileID: 236912607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &710599523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710599521}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 2, z: 2}
+  m_Center: {x: 2, y: 1, z: 0}
+--- !u!114 &710599524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710599521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40436521efbfabe47a198b21ea4ac022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerImage: {fileID: 746278883}
+  triggerCanvas: {fileID: 185353420}
+  interactionSprite: {fileID: 21300000, guid: b59940806be181a44b1897657bb9ebda, type: 3}
+  arrowDirection: 0
+  fadeTime: 0.2
+  canvasUpMovementY: 2.86
+  canvasBackMovementY: 2.4
+--- !u!114 &710599525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710599521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ace1e05ee66574c922f5705d3a50eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToUnlock: {fileID: 11400000, guid: dc8e3518fa87a5e428c99aae09bb90cd, type: 2}
+  doorUnlocked: 0
+  unlockedSprite: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
+  OnDoorUnlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1284136790}
+        m_TargetAssemblyTypeName: Core.Managers.GameManager, Core.Managers
+        m_MethodName: GameWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1197534624}
+        m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
+        m_MethodName: PlayAudioOneShoot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHasBeenUnlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: The door has been unlocked.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1197534624}
+        m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
+        m_MethodName: PlayAudioOneShoot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_unlock
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoorLocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1639066773}
+        m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
+        m_MethodName: EmitMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: It's locked.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1197534624}
+        m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
+        m_MethodName: PlayAudioOneShoot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_locked
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &710599526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710599521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156b88796584d52428b8a256038637f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteractionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710599525}
+        m_TargetAssemblyTypeName: Core.Triggers.UnlockDoorTrigger, Core.Triggers
+        m_MethodName: UnlockDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerEnterUI:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710599524}
+        m_TargetAssemblyTypeName: Core.UI.UIOverworldTriggerIcon, Core.UI
+        m_MethodName: ShowInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerExitUI:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 710599524}
+        m_TargetAssemblyTypeName: Core.UI.UIOverworldTriggerIcon, Core.UI
+        m_MethodName: HideInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &710969192
 GameObject:
   m_ObjectHideFlags: 0
@@ -14490,6 +14847,81 @@ Transform:
   - {fileID: 765706627}
   m_Father: {fileID: 968916720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &746278881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746278882}
+  - component: {fileID: 746278884}
+  - component: {fileID: 746278883}
+  m_Layer: 0
+  m_Name: TriggerImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &746278882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746278881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185353417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &746278883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746278881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &746278884
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746278881}
+  m_CullTransparentMesh: 1
 --- !u!1 &753963310
 GameObject:
   m_ObjectHideFlags: 0
@@ -24815,11 +25247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChapter: Chapter 1
-  gameLoaded: 1
-  chapterStartedFadeOut: 4
-  chapterStartedFadeOutDelay: 2
+  gameLoaded: 0
+  chapterStartedFadeOut: 2.6
+  chapterStartedFadeOutDelay: 1.4
   chapterLoadedFadeOut: 1
   chapterLoadedFadeOutDelay: 1
+  deathSequenceTime: 4
 --- !u!4 &1284136791
 Transform:
   m_ObjectHideFlags: 0
@@ -28415,6 +28848,8 @@ MonoBehaviour:
   loadSaveFileRoom: 0
   sceneToLoad: Put the scene here
   travelPosistion: {fileID: 24034955}
+  mainMenuScene: Menu_Main
+  gameOverScene: GameOver
   loadDebugScene: 0
 --- !u!1 &1424582359
 GameObject:
@@ -36615,7 +37050,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: baebe4292e9add542a85edd14d4b44f8, type: 2}
   - {fileID: 11400000, guid: 317cefd60dddca1458c277f1a14ff16f, type: 2}
   - {fileID: 11400000, guid: 88cccea6abb371842afb1110ee7e0bf1, type: 2}
-  itemToReceive: {fileID: 11400000, guid: 5a540190badcd294b8fb68fed419220d, type: 2}
+  itemToReceive: {fileID: 11400000, guid: dc8e3518fa87a5e428c99aae09bb90cd, type: 2}
   OnPuzzleUnlocked:
     m_PersistentCalls:
       m_Calls:
@@ -36653,6 +37088,31 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: SEXO 3
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1639066767}
+        m_TargetAssemblyTypeName: Core.UI.UIItemNotificantion, Core.UI
+        m_MethodName: ShowNotification
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: dc8e3518fa87a5e428c99aae09bb90cd,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.ItemData, Core.ScriptableObjects
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SEXO 3
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1197534624}
+        m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
+        m_MethodName: PlayAudioOneShoot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_get_key
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1772640512
@@ -38118,52 +38578,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4467c5c4b64e447a18dc1c18957875, type: 3}
---- !u!1 &1854103654
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1854103655}
-  - component: {fileID: 1854103656}
-  m_Layer: 0
-  m_Name: LoaderManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1854103655
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854103654}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1854103656
+--- !u!114 &1854103656 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 287184701814476684, guid: 733a0037d066acf4c96ade0f7ef16f00,
+    type: 3}
+  m_PrefabInstance: {fileID: 7877681803185454910}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854103654}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2470b10b2603894496f01c5e2a1c501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveFileLoadedPrefab: {fileID: 3289921354672339268, guid: 5cdadaabb1559184aadc77cedee16dcc,
-    type: 3}
 --- !u!1 &1863988205
 GameObject:
   m_ObjectHideFlags: 0
@@ -50052,6 +50478,74 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1001 &7877681803185454910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430351560476455288, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4593061858871692353, guid: 733a0037d066acf4c96ade0f7ef16f00,
+        type: 3}
+      propertyPath: m_Name
+      value: LoaderManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 733a0037d066acf4c96ade0f7ef16f00, type: 3}
 --- !u!1 &7930418671610626865
 GameObject:
   m_ObjectHideFlags: 0
@@ -50949,7 +51443,7 @@ SceneRoots:
   - {fileID: 1464374881}
   - {fileID: 44422094}
   - {fileID: 1284136791}
-  - {fileID: 1854103655}
+  - {fileID: 7877681803185454910}
   - {fileID: 236200040}
   - {fileID: 1817070905}
   - {fileID: 1197534625}

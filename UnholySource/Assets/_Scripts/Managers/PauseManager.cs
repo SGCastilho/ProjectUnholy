@@ -8,6 +8,9 @@ namespace Core.Managers
         public delegate void Paused();
         public event Paused OnPaused;
 
+        public delegate void PausedWithoutShowingCursor();
+        public event PausedWithoutShowingCursor OnPausedWithoutShowingCursor;
+
         public delegate void UnPaused();
         public event UnPaused OnUnPaused;
         #endregion
@@ -23,6 +26,17 @@ namespace Core.Managers
             if(_isPaused) return;
 
             OnPaused?.Invoke();
+
+            Time.timeScale = 0;
+
+            _isPaused = true;
+        }
+
+        public void PauseWithoutShowingCursor()
+        {
+            if(_isPaused) return;
+
+            OnPausedWithoutShowingCursor?.Invoke();
 
             Time.timeScale = 0;
 

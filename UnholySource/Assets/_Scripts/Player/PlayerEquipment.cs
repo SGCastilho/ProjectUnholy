@@ -118,8 +118,6 @@ namespace Core.Player
         {
             meleeEnabled = meleeOn;
             rangedEnabled = rangedOn;
-
-            EquipMeleeWeapon();
         }
     }
 }

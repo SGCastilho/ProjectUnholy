@@ -20,6 +20,7 @@ namespace Core.UI
         [Header("Classes")]
         [SerializeField] private CanvasGroup languageCanvasGroup;
         [SerializeField] private CanvasGroup warningCanvasGroup;
+        [SerializeField] private CanvasGroup logoCanvasGroup;
 
         [Space(6)]
 
@@ -35,8 +36,9 @@ namespace Core.UI
 
         [Space(6)]
 
-        [SerializeField] [Range(14f, 20f)] private float warningWindowDuration = 14f;
+        [SerializeField] [Range(6f, 20f)] private float warningWindowDuration = 14f;
         
+        private bool _showLogo;
         private bool _warningWindow;
         private float _currentWarningWindowDuration;
 
@@ -72,6 +74,18 @@ namespace Core.UI
                     WarningWindowFadeOut();
                 }
             }
+
+            if(_showLogo)
+            {
+                _currentWarningWindowDuration += Time.deltaTime;
+                if(_currentWarningWindowDuration >= warningWindowDuration)
+                {
+                    _showLogo = false;
+                    _currentWarningWindowDuration = 0f;
+
+                    LogoWindowFadeOut();
+                }
+            }
         }
 
         public void ConfirmButton()
@@ -80,6 +94,21 @@ namespace Core.UI
 
             LanguageFadeOut();
         }
+
+        public void LogoWindowFadeIn()
+        {
+            logoCanvasGroup.DOKill();
+            logoCanvasGroup.DOFade(1f, fadeDuration).SetDelay(1f);
+
+            _showLogo = true;
+        }
+
+        public void LogoWindowFadeOut()
+        {
+            logoCanvasGroup.DOKill();
+            logoCanvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { OnLoadMenu?.Invoke(); });
+        }
+
 
         public void WarningWindowFadeIn()
         {
@@ -92,9 +121,7 @@ namespace Core.UI
         public void WarningWindowFadeOut()
         {
             warningCanvasGroup.DOKill();
-            warningCanvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { OnLoadMenu?.Invoke(); });
-
-            //Carregar menu principal quando animação terminar
+            warningCanvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { LogoWindowFadeIn(); });
         }
 
         private void LanguageFadeIn()

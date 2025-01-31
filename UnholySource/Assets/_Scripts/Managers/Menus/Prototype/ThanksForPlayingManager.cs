@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core.Managers
 {
@@ -27,7 +28,7 @@ namespace Core.Managers
             {
                 _currentTimeToQuit = 999f;
 
-                canvasGroup.DOFade(0f, 2f).OnComplete(() => { Application.Quit(); });
+                canvasGroup.DOFade(0f, 2f).OnComplete(() => { SceneManager.LoadScene("Menu_Main"); });
             }
         }
     }

@@ -22,6 +22,8 @@ namespace Core.Managers
         {
             if(File.Exists(_savePath))
             {
+                OnStartLoadSaveGame?.Invoke();
+
                 SaveFileLoaded instance = Instantiate(saveFileLoadedPrefab).GetComponent<SaveFileLoaded>();
 
                 string jsonFile = string.Empty;
