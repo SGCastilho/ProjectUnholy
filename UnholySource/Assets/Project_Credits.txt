@@ -1,4 +1,16 @@
-Audio:
+Game Creator
+	-Sergio G Castilho
+
+Game Programmer
+	-Sergio G Castilho
+
+Modeling
+	-Sergio G Castilho
+
+User Interface
+	-Sergio G Castilho
+
+Audio
 	-Pixabay
 	-freesound Community
 	-freesound.org
@@ -18,36 +30,38 @@ Audio:
 	-ClementPanchout
 	-SilverIllusionist
 
-Music:
+Music
 	-udio.com
 
-Models:
+Models
 	-Jeremy
 	-Zsky
 	-burunduk
 	-Poly by Google
 	-Servinox GDL
 
-User Interface:
+User Interface
 	-Pixel Perfect
 	-Freepik
 	-Those Icons
 	-riajulislam
 	-Flaticon
 
-Fonts:
+Fonts
 	-Craft Supply Co
 	-Cat.B
 	-The Branded Quotes
 
 Unity Packages
-	-DOTween (Procura criador)
+	-DOTween
 	-JMO Assets
 	-Cristian Qiu (URP - Volumetric Lightining)
 
-Special Thanks:
+Special Thanks
+	-Kobi
+	-Akuracy
 	-Spod
 	-Meeme
 	-Konamo
-	-Ayumi <3
+	-Ayumi
 	-Honjo

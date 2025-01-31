@@ -37,5 +37,10 @@ namespace Core.Managers
                 OnLoadSaveGame?.Invoke(saveFile.currentScene);
             }
         }
+
+        public bool SaveFileExists()
+        {
+            return File.Exists(_savePath);
+        }
     }
 }

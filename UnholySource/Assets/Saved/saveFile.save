@@ -1,0 +1,22 @@
+{
+    "currentChapter": "Chapter 1",
+    "currentScene": "Level_Chapter_1",
+    "currentLoadedRoom": "LP_School_Room_Interior_North_02_SaveRoom",
+    "currentPlayerLocation": {
+        "x": 50.356998443603519,
+        "y": 0.0,
+        "z": -20.467575073242189
+    },
+    "currentPlayerHealth": 100,
+    "currentPlayerHealthBottles": 0,
+    "currentPlayerBullets": 0,
+    "currentPlayerMunition": 0,
+    "currentWeaponMeleeStatus": true,
+    "currentWeaponRangedStatus": false,
+    "currentInventoryItems": [],
+    "currentCharserEnabled": false,
+    "currentTriggeredScenarioEvents": [
+        "destructable_barricade",
+        "get_melee_weapon"
+    ]
+}

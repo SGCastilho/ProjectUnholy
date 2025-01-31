@@ -34,7 +34,14 @@ namespace Core.UI
 
         private void Start() 
         {
-            if(button.interactable == false) { tmpPro.colorGradientPreset = disableColors; }
+            if(button.interactable == false) 
+            { 
+                tmpPro.colorGradientPreset = disableColors; 
+            }
+            else
+            {
+                tmpPro.colorGradientPreset = defaultColors;
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
