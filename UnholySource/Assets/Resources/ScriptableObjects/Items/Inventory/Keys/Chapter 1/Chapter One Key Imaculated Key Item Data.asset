@@ -16,7 +16,7 @@ MonoBehaviour:
   itemKey: item_chapterOne_keyImaculated_name
   itemKeyDescription: item_chapterOne_keyImaculated_desc
   itemName: Imaculated Key
-  itemIcon: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
+  itemIcon: {fileID: 21300000, guid: cfa443cb765bd174480ded3b67b4ff79, type: 3}
   itemDescription: This key is really strange, i feel something wrong with her. Maybe
     i can use to open the door next to this machine.
   healingAmount: 34

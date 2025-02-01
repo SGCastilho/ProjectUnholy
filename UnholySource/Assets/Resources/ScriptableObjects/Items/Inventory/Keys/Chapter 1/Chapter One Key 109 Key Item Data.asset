@@ -16,7 +16,7 @@ MonoBehaviour:
   itemKey: item_chapterOne_key109_name
   itemKeyDescription: item_chapterOne_key109_desc
   itemName: Class 109 Key
-  itemIcon: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
+  itemIcon: {fileID: 21300000, guid: 216fcac4334390549893d03f3ca3dae3, type: 3}
   itemDescription: I can unlock the Class 109 in East Side.
   healingAmount: 34
   devNotes: Put your dev notes here.

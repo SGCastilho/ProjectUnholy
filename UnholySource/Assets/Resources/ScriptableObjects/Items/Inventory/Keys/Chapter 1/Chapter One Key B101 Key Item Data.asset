@@ -16,7 +16,7 @@ MonoBehaviour:
   itemKey: item_chapterOne_keyB101_name
   itemKeyDescription: item_chapterOne_keyB101_desc
   itemName: Class B101 Key
-  itemIcon: {fileID: 21300000, guid: b30610efacd9a8144a73e957d5fa499b, type: 3}
+  itemIcon: {fileID: 21300000, guid: d23d15393f2a8cd4cbd06440279c7f01, type: 3}
   itemDescription: I can unlock the Class B101 in South Side.
   healingAmount: 34
   devNotes: Put your dev notes here.

@@ -3,27 +3,41 @@
     "currentScene": "Level_Chapter_1",
     "currentLoadedRoom": "LP_School_Room_Interior_North_02_SaveRoom",
     "currentPlayerLocation": {
-        "x": 50.35700225830078,
+        "x": 50.356998443603519,
         "y": 0.0,
-        "z": -20.561214447021486
+        "z": -20.74121856689453
     },
-    "currentPlayerHealth": 100,
-    "currentPlayerHealthBottles": 0,
+    "currentPlayerHealth": 67,
+    "currentPlayerHealthBottles": 2,
     "currentPlayerBullets": 0,
     "currentPlayerMunition": 0,
     "currentWeaponMeleeStatus": true,
     "currentWeaponRangedStatus": false,
     "currentInventoryItems": [
-        "item_chapterOne_key133_name"
+        "item_chapterOne_insaneAmulet_name",
+        "item_chapterOne_key105_name",
+        "item_chapterOne_key109_name"
     ],
-    "currentCharserEnabled": false,
+    "currentCharserEnabled": true,
     "currentTriggeredScenarioEvents": [
         "destructable_barricade",
         "get_melee_weapon",
+        "first_enemy",
+        "appears_chaserPursuer",
+        "healing_bottle_00",
+        "get_key_105",
+        "get_key_109",
         "get_key_133",
+        "unlock_door_133",
+        "get_key_B101",
+        "healing_bottle_03",
+        "unlock_door_B101",
+        "get_amulet_insanity",
         "tutorial_walk",
         "tutorial_interact",
         "tutorial_attack_1",
-        "tutorial_save"
+        "tutorial_save",
+        "tutorial_sprint",
+        "tutorial_inventory"
     ]
 }

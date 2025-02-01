@@ -16,7 +16,7 @@ MonoBehaviour:
   itemKey: item_healing_bottle_name
   itemKeyDescription: item_healing_bottle_desc
   itemName: Healing Bottle
-  itemIcon: {fileID: 21300000, guid: 0d0962da83c782740ad0827c31f4b840, type: 3}
+  itemIcon: {fileID: 21300000, guid: 85d3f537ee6b142409e8ae7ef647f97f, type: 3}
   itemDescription: I can heal my self with this.
   healingAmount: 34
   devNotes: Put your dev notes here.
