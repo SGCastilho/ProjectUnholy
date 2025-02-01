@@ -10,6 +10,11 @@ namespace Core.Translation
         [SerializeField] private ItemData[] puzzleItemsToTranslate;
         [SerializeField] private ItemData[] abstractItemsToTranslate;
 
+        private void Awake() 
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         public void Translate()
         {
             keyItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Inventory/Keys");
@@ -32,6 +37,12 @@ namespace Core.Translation
             {
                 abstractItem.Name = LocalisationSystem.GetLocalisedValue(abstractItem.NameKey);
                 abstractItem.Description = LocalisationSystem.GetLocalisedValue(abstractItem.DescriptionKey);
+            }
+
+            for(int i = 0; i < keyItemsToTranslate.Length; i++)
+            {
+                Debug.Log(keyItemsToTranslate[i].Name);
+                Debug.Log(keyItemsToTranslate[i].Description);
             }
         }
     }
