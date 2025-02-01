@@ -16,6 +16,10 @@ namespace Core.Audio
 
         [Space(10)]
 
+        [SerializeField] private AudioSettings[] musicSettings;
+
+        [Space(10)]
+
         [SerializeField] private AudioClip chasingClip;
         [SerializeField] private float _chasingVolume;
 
@@ -52,6 +56,36 @@ namespace Core.Audio
             inTransition = true;
 
             audioSource.DOFade(_maxVolume, fadeDuration).OnComplete(() => { inTransition = false; });
+        }
+
+        public void PlayAudioFadeIn(AudioClip musicAudio, float musicVolume)
+        {
+            if(blockMusic || inTransition || isChasing || audioSource.clip == musicAudio) return;
+
+            audioSource.clip = musicAudio;
+            audioSource.volume = 0f;
+
+            audioSource.Play();
+
+            audioSource.DOKill();
+
+            inTransition = true;
+
+            audioSource.DOFade(musicVolume, fadeDuration).OnComplete(() => { inTransition = false; });
+        }
+
+        public void PlayAudioFromKey(string audioKey)
+        {
+            if(audioKey == null || audioKey == string.Empty || musicSettings.Length <= 0) return;
+
+            for(int i = 0; i < musicSettings.Length; i++)
+            {
+                if(musicSettings[i].Key == audioKey)
+                {
+                    PlayAudioFadeIn(musicSettings[i].Clip, musicSettings[i].Volume);
+                    break;
+                }
+            }
         }
 
         public void TransitateTo(AudioClip musicAudio)

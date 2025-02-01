@@ -475,7 +475,7 @@ MonoBehaviour:
   loadButton: {fileID: 1264713296}
   fadeDuration: 0.4
   newGameFadeDuration: 1
-  creditsEndPos: 3194
+  creditsEndPos: 3358
   creditsRollSpeed: 60
 --- !u!114 &261707075
 MonoBehaviour:
@@ -1373,7 +1373,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 39da7a587f037c044900935feaf8ddd0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2238,8 +2238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: -3254}
-  m_SizeDelta: {x: 1534.76, y: 5426.69}
+  m_AnchoredPosition: {x: 360, y: -3282.273}
+  m_SizeDelta: {x: 1534.76, y: 5483.236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033639538
 MonoBehaviour:
@@ -2268,7 +2268,8 @@ MonoBehaviour:
     by Google\r\n\t-Servinox GDL\r\n\r\nUser Interface\n\t-Pixel Perfect\r\n\t-Freepik\r\n\t-Those
     Icons\r\n\t-riajulislam\r\n\t-Flaticon\r\n\r\nFonts\n\t-Craft Supply Co\r\n\t-Cat.B\r\n\t-The
     Branded Quotes\r\n\r\nUnity Packages\r\n\t-DOTween\n\t-JMO Assets\r\n\t-Cristian
-    Qiu (URP - Volumetric Lightining)\r\n\r\nSpecial Thanks\n\t-Kobi\n\t-Akuracy\n\t-Spod\r\n\t-Meeme\r\n\t-Konamo\r\n\t-Ayumi\r\n\t-Hiki"
+    Qiu (URP - Volumetric Lightining)\r\n\r\nSpecial Thanks\n\t-Kobi\n\t-Akuracy\n\t-Spod\r\n\t-Meeme\r\n\t-Konamo\n\t-Daji
+    Su\r\n\t-Ayumi\r\n\t-Hiki"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcab024821809b14e998e79d64fdf242, type: 2}
   m_sharedMaterial: {fileID: -4154950040267806487, guid: fcab024821809b14e998e79d64fdf242,

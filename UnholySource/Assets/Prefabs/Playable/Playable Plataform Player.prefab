@@ -475,14 +475,14 @@ MonoBehaviour:
   hurtBoxTransform: {fileID: 3730921711357671728}
   shootingRayTransform: {fileID: 3299881209380579657}
   vfxMuzzleFlash: {fileID: 2172733494762777315}
-  hurtBoxSize: {x: 0, y: 0, z: 0}
+  hurtBoxSize: {x: 2, y: 2, z: 1}
   damagableLayer:
     serializedVersion: 2
     m_Bits: 1032
   raycastLegth: 7.4
   maxFootstepSFX: 2
   maxWoodImpactSFX: 2
-  showGizmos: 0
+  showGizmos: 1
   hurtBoxColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1020023233489483342
 GameObject:
@@ -2410,13 +2410,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSettings:
   - audioKey: audio_footstep_0
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: fc2b75a03ab31ad4fbb6e33f80006af7, type: 3}
   - audioKey: audio_footstep_1
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 6bb745d74a72d294e804f29a6beb7432, type: 3}
   - audioKey: audio_footstep_2
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 96b9de73878d95d4d85931ebd1913c26, type: 3}
   - audioKey: audio_pistol_shoot
     audioVolume: 0.8
@@ -2428,28 +2428,28 @@ MonoBehaviour:
     audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 43973a394bed91548abc7483b736d85d, type: 3}
   - audioKey: audio_wood_hit_0
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 62b847c058bc1a745980918771997ba4, type: 3}
   - audioKey: audio_wood_hit_1
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 2805b88004e8b514bb2ca1cda6bac311, type: 3}
   - audioKey: audio_wood_hit_2
-    audioVolume: 0.2
+    audioVolume: 0.4
     audioClip: {fileID: 8300000, guid: 2500eb1cbefd49146ac2937a74cd89c2, type: 3}
   - audioKey: audio_hitted_0
-    audioVolume: 0.4
+    audioVolume: 0.6
     audioClip: {fileID: 8300000, guid: 15f09df722e6b974088d8cdc60089fcc, type: 3}
   - audioKey: audio_hitted_1
-    audioVolume: 0.4
+    audioVolume: 0.6
     audioClip: {fileID: 8300000, guid: b59611be812a3174282fff8459868894, type: 3}
   - audioKey: audio_healing_0
-    audioVolume: 0.6
+    audioVolume: 0.8
     audioClip: {fileID: 8300000, guid: 9ee877595296ac9458d81bc74250d0e9, type: 3}
   - audioKey: audio_healing_1
-    audioVolume: 0.6
+    audioVolume: 0.8
     audioClip: {fileID: 8300000, guid: eaf4b444e3073524bae4c54e0710b1f7, type: 3}
   - audioKey: audio_healing_2
-    audioVolume: 0.6
+    audioVolume: 0.8
     audioClip: {fileID: 8300000, guid: 7b8646bf34657204ca826b4e618ebcd3, type: 3}
   - audioKey: audio_loop_criticalLife
     audioVolume: 0.6
