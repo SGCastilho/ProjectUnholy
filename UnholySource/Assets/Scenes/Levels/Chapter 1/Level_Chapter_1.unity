@@ -22441,6 +22441,81 @@ Transform:
   - {fileID: 282480333}
   m_Father: {fileID: 2119930820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1096200502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096200503}
+  - component: {fileID: 1096200505}
+  - component: {fileID: 1096200504}
+  m_Layer: 5
+  m_Name: Background AreaName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1096200503
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096200502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274263853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -639.99994, y: -40}
+  m_SizeDelta: {x: 640.9, y: 100}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1096200504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096200502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: af2e18eca052b1d47a463dbc65885f54, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1096200505
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096200502}
+  m_CullTransparentMesh: 1
 --- !u!1 &1096794761
 GameObject:
   m_ObjectHideFlags: 0
@@ -25728,6 +25803,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1096200503}
   - {fileID: 1768867000}
   m_Father: {fileID: 482739473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38206,7 +38282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerImage: {fileID: 532399929}
   triggerCanvas: {fileID: 2049641893}
-  interactionSprite: {fileID: 21300000, guid: 0d0962da83c782740ad0827c31f4b840, type: 3}
+  interactionSprite: {fileID: 21300000, guid: 2fcd0e39a9e7b2d41a6e10f3435a4cf7, type: 3}
   arrowDirection: 0
   fadeTime: 0.2
   canvasUpMovementY: 2.86
@@ -47123,7 +47199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerImage: {fileID: 5301422004862757640}
   triggerCanvas: {fileID: 1740729022206021500}
-  interactionSprite: {fileID: 21300000, guid: 0d0962da83c782740ad0827c31f4b840, type: 3}
+  interactionSprite: {fileID: 21300000, guid: d049bbf8b92b9f643aea2db3b0b8beb0, type: 3}
   arrowDirection: 0
   fadeTime: 0.2
   canvasUpMovementY: 2.86
@@ -51019,7 +51095,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1.6
+          m_FloatArgument: 2.4
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -51031,7 +51107,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 3
+          m_FloatArgument: 4
           m_StringArgument: Press A or D to move
           m_BoolArgument: 0
         m_CallState: 2
