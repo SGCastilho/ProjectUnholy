@@ -23,6 +23,7 @@ namespace Core.Player
 
         private GameplayInput _gameplayInputActions;
 
+        private bool _inViewerMode;
         private float _movementAxis;
 
         private void Awake() 
@@ -229,16 +230,22 @@ namespace Core.Player
 
         public void AllowInputsWhenUnPaused()
         {
-            AllowActions();
-            AllowMovement();
+            if(!_inViewerMode)
+            {
+                AllowActions();
+                AllowMovement();
+            }
 
             behaviour.HideCursor(true);
         }
 
         public void BlockInputsWhenPaused()
         {
-            BlockActions();
-            BlockMovement();
+            if(!_inViewerMode)
+            {
+                BlockActions();
+                BlockMovement();
+            }
 
             behaviour.HideCursor(false);
         }
@@ -281,12 +288,16 @@ namespace Core.Player
 
         public void AllowViewerInputs()
         {
+            _inViewerMode = true;
+
             _gameplayInputActions.Gameplay.Disable();
             _gameplayInputActions.Viewer.Enable();
         }
 
         public void BlockViewerInputs()
         {
+            _inViewerMode = false;
+            
             _gameplayInputActions.Gameplay.Enable();
             _gameplayInputActions.Viewer.Disable();
         }
@@ -311,11 +322,15 @@ namespace Core.Player
 
         public void AllowControls()
         {
+            if(_inViewerMode) return;
+
             _gameplayInputActions.Gameplay.Enable();
         }
 
         public void BlockControls()
         {
+            if(_inViewerMode) return;
+            
             _gameplayInputActions.Gameplay.Disable();
         }
     }

@@ -12,6 +12,25 @@ namespace Core.Triggers
         #endregion
 
         #region Encapsulation
+        public bool Interactable 
+        { 
+            set 
+            { 
+                _interactable = value;
+
+                if(value == false)
+                {
+                    OnTriggerExitUI?.Invoke();
+
+                    if(_playerBehaviour == null) return;
+
+                    _playerBehaviour.Inputs.UnsubscribeInteraction();
+
+                    _playerBehaviour = null;
+                } 
+            } 
+        }
+
         internal PlayerBehaviour Player { get => _playerBehaviour; }
         #endregion
         
@@ -24,11 +43,13 @@ namespace Core.Triggers
         [SerializeField] private UnityEvent OnTriggerExitUI;
 
         private PlayerBehaviour _playerBehaviour;
-
         private Collider _triggerCollider;
+
+        private bool _interactable;
 
         private void Awake() 
         {
+            _interactable = true;
             _triggerCollider = GetComponent<Collider>();
         }
 
@@ -57,13 +78,10 @@ namespace Core.Triggers
             _triggerCollider.enabled = false;
         }
 
-        public void EnableInteraction()
-        {
-            _triggerCollider.enabled = true;
-        }
-
         private void OnTriggerEnter(Collider other) 
         {
+            if(!_interactable) return;
+
             if(other.CompareTag(PLAYER_TAG))
             {
                 OnTriggerEnterUI?.Invoke();
@@ -76,6 +94,8 @@ namespace Core.Triggers
 
         private void OnTriggerExit(Collider other) 
         {
+            if(!_interactable) return;
+
             if(other.CompareTag(PLAYER_TAG))
             {
                 OnTriggerExitUI?.Invoke();

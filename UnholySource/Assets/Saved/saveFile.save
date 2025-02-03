@@ -5,18 +5,18 @@
     "currentPlayerLocation": {
         "x": 50.356998443603519,
         "y": 0.0,
-        "z": -20.74121856689453
+        "z": -20.2894344329834
     },
     "currentPlayerHealth": 67,
-    "currentPlayerHealthBottles": 2,
+    "currentPlayerHealthBottles": 4,
     "currentPlayerBullets": 0,
     "currentPlayerMunition": 0,
     "currentWeaponMeleeStatus": true,
     "currentWeaponRangedStatus": false,
     "currentInventoryItems": [
-        "item_chapterOne_insaneAmulet_name",
-        "item_chapterOne_key105_name",
-        "item_chapterOne_key109_name"
+        "item_chapterOne_chaosAmulet_name",
+        "item_chapterOne_despairAmulet_name",
+        "item_chapterOne_insaneAmulet_name"
     ],
     "currentCharserEnabled": true,
     "currentTriggeredScenarioEvents": [
@@ -26,7 +26,16 @@
         "appears_chaserPursuer",
         "healing_bottle_00",
         "get_key_105",
+        "unlock_door_105",
+        "healing_bottle_01",
+        "get_key_B109",
+        "get_amulet_chaos",
+        "unlock_door_B109",
+        "lights_off_room_B109",
         "get_key_109",
+        "unlock_door_109",
+        "get_amulet_despair",
+        "healing_bottle_02",
         "get_key_133",
         "unlock_door_133",
         "get_key_B101",
