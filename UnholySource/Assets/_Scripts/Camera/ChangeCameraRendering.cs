@@ -14,9 +14,18 @@ namespace Core.GameCamera
 
         [SerializeField] private LayerMask uiRenderingMask;
 
+        [Space(6)]
+
+        [SerializeField] private LayerMask viewerRenderingMask;
+
         public void BackToDefaultRendering()
         {
             gameCamera.cullingMask = defaultRenderingMask;
+        }
+
+        public void OnlyViewerRendering()
+        {
+            gameCamera.cullingMask = viewerRenderingMask;
         }
 
         public void OnlyRenderingUI()

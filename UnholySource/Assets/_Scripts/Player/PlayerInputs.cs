@@ -19,6 +19,8 @@ namespace Core.Player
         private Action _inventoryAction;
         private Action _interactionAction;
 
+        private Action _viewerAction;
+
         private GameplayInput _gameplayInputActions;
 
         private float _movementAxis;
@@ -31,6 +33,10 @@ namespace Core.Player
         private void OnEnable() 
         {
             _gameplayInputActions.Enable();
+
+            _gameplayInputActions.Viewer.ExitViewer.started += ExitViewerInput;
+
+            _gameplayInputActions.Viewer.Disable();
 
             _gameplayInputActions.Gameplay.Sprint.started += StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled += EndSprint;
@@ -55,6 +61,8 @@ namespace Core.Player
         private void OnDisable() 
         {
             _gameplayInputActions.Disable();
+
+            _gameplayInputActions.Viewer.ExitViewer.started -= ExitViewerInput;
 
             _gameplayInputActions.Gameplay.Sprint.started -= StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled -= EndSprint;
@@ -142,6 +150,11 @@ namespace Core.Player
         {
             _pauseAction?.Invoke();
         }
+
+        public void ExitViewerInput(InputAction.CallbackContext context)
+        {
+            _viewerAction?.Invoke();
+        }
         #endregion
 
         #region Input Functions
@@ -179,6 +192,18 @@ namespace Core.Player
         public void UnsubscribePause()
         {
             _pauseAction = null;
+        }
+
+        public void SubscribeViewer(Action action)
+        {
+            if(action == null) return;
+
+            _viewerAction += action;
+        }
+
+        public void UnsubscribeViewer()
+        {
+            _viewerAction = null;
         }
         #endregion
 
@@ -252,6 +277,18 @@ namespace Core.Player
         public void BlockInputsWhenPauseMenu()
         {
             _gameplayInputActions.Gameplay.Inventory.Disable();
+        }
+
+        public void AllowViewerInputs()
+        {
+            _gameplayInputActions.Gameplay.Disable();
+            _gameplayInputActions.Viewer.Enable();
+        }
+
+        public void BlockViewerInputs()
+        {
+            _gameplayInputActions.Gameplay.Enable();
+            _gameplayInputActions.Viewer.Disable();
         }
 
         public void AllowActions()

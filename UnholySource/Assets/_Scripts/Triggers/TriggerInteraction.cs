@@ -10,6 +10,10 @@ namespace Core.Triggers
         #region Constants
         private const string PLAYER_TAG = "Player";
         #endregion
+
+        #region Encapsulation
+        internal PlayerBehaviour Player { get => _playerBehaviour; }
+        #endregion
         
         [Header("Trigger Event")]
 
@@ -51,6 +55,11 @@ namespace Core.Triggers
             _playerBehaviour.Inputs.UnsubscribeInteraction();
 
             _triggerCollider.enabled = false;
+        }
+
+        public void EnableInteraction()
+        {
+            _triggerCollider.enabled = true;
         }
 
         private void OnTriggerEnter(Collider other) 

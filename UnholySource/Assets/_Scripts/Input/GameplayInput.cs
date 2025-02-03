@@ -311,6 +311,34 @@ namespace Core.Inputs
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Viewer"",
+            ""id"": ""55a2a2f4-7849-442a-9348-9ada1260d51e"",
+            ""actions"": [
+                {
+                    ""name"": ""ExitViewer"",
+                    ""type"": ""Button"",
+                    ""id"": ""11482560-bc73-4b46-9a13-2fe5c4802260"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""73827211-422c-46ed-b91f-91ddc82cf150"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitViewer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -326,11 +354,15 @@ namespace Core.Inputs
             m_Gameplay_Heal = m_Gameplay.FindAction("Heal", throwIfNotFound: true);
             m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+            // Viewer
+            m_Viewer = asset.FindActionMap("Viewer", throwIfNotFound: true);
+            m_Viewer_ExitViewer = m_Viewer.FindAction("ExitViewer", throwIfNotFound: true);
         }
 
         ~@GameplayInput()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, GameplayInput.Gameplay.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Viewer.enabled, "This will cause a leak and performance issues, GameplayInput.Viewer.Disable() has not been called.");
         }
 
         public void Dispose()
@@ -498,6 +530,52 @@ namespace Core.Inputs
             }
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
+
+        // Viewer
+        private readonly InputActionMap m_Viewer;
+        private List<IViewerActions> m_ViewerActionsCallbackInterfaces = new List<IViewerActions>();
+        private readonly InputAction m_Viewer_ExitViewer;
+        public struct ViewerActions
+        {
+            private @GameplayInput m_Wrapper;
+            public ViewerActions(@GameplayInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ExitViewer => m_Wrapper.m_Viewer_ExitViewer;
+            public InputActionMap Get() { return m_Wrapper.m_Viewer; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(ViewerActions set) { return set.Get(); }
+            public void AddCallbacks(IViewerActions instance)
+            {
+                if (instance == null || m_Wrapper.m_ViewerActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_ViewerActionsCallbackInterfaces.Add(instance);
+                @ExitViewer.started += instance.OnExitViewer;
+                @ExitViewer.performed += instance.OnExitViewer;
+                @ExitViewer.canceled += instance.OnExitViewer;
+            }
+
+            private void UnregisterCallbacks(IViewerActions instance)
+            {
+                @ExitViewer.started -= instance.OnExitViewer;
+                @ExitViewer.performed -= instance.OnExitViewer;
+                @ExitViewer.canceled -= instance.OnExitViewer;
+            }
+
+            public void RemoveCallbacks(IViewerActions instance)
+            {
+                if (m_Wrapper.m_ViewerActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IViewerActions instance)
+            {
+                foreach (var item in m_Wrapper.m_ViewerActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_ViewerActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public ViewerActions @Viewer => new ViewerActions(this);
         public interface IGameplayActions
         {
             void OnShoot(InputAction.CallbackContext context);
@@ -509,6 +587,10 @@ namespace Core.Inputs
             void OnHeal(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+        }
+        public interface IViewerActions
+        {
+            void OnExitViewer(InputAction.CallbackContext context);
         }
     }
 }
