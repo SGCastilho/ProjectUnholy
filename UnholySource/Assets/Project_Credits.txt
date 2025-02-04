@@ -39,6 +39,8 @@ Models
 	-burunduk
 	-Poly by Google
 	-Servinox GDL
+	-BlahGoh
+	-Pedro Belthori
 
 User Interface
 	-Pixel Perfect
@@ -65,3 +67,4 @@ Special Thanks
 	-Konamo
 	-Ayumi
 	-Hiki
+	-Daji Su
