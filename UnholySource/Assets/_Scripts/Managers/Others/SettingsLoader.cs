@@ -194,8 +194,6 @@ namespace Core.Managers
             {
                 _savedSettings = GetSettingsFile();
 
-                Debug.Log("Loading Settings....");
-
                 Screen.SetResolution(_savedSettings.ClientResolution.width, _savedSettings.ClientResolution.height, 
                     _savedSettings.ClientFullScreenMode);
                 
@@ -233,8 +231,6 @@ namespace Core.Managers
 
                 soundTrackAudioMixer.SetFloat(KEY_SOUND_TRACK, _savedSettings.ClientSoundTrackVolume);
                 soundEffectsAudioMixer.SetFloat(KEY_SOUND_EFFECT, _savedSettings.ClientSoundEffectsVolume);
-
-                Debug.Log("Settings Loaded with sucess");
             }
         }
 
