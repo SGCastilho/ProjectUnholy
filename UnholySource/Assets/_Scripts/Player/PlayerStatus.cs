@@ -84,6 +84,7 @@ namespace Core.Player
         private void DeathSequence()
         {
             behaviour.Inputs.BlockControls();
+            behaviour.Equipment.FlashlightStatus(false);
             behaviour.Animation.CallDeathTrigger();
 
             OnDeath?.Invoke();

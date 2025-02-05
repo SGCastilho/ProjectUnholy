@@ -41,6 +41,8 @@ Models
 	-Servinox GDL
 	-BlahGoh
 	-Pedro Belthori
+	-Quaternius
+	-Kenney
 
 User Interface
 	-Pixel Perfect

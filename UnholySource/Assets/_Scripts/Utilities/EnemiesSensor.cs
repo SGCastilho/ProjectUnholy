@@ -43,8 +43,6 @@ namespace Core.Utilities
         {
             enemyFinded = false;
             _currentSensorTick = 0f;
-
-            Debug.Log("Disable");
         }
 
         private void Update() 
