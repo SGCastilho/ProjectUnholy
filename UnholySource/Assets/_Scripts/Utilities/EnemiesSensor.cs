@@ -42,6 +42,9 @@ namespace Core.Utilities
         private void OnDisable() 
         {
             enemyFinded = false;
+
+            OnEnemyLost?.Invoke();
+
             _currentSensorTick = 0f;
         }
 

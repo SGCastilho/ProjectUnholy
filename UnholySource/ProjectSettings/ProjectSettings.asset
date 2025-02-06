@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: SGC Games
   productName: Unholy Pre-Alpha
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 759d37a2477d94e4a83fa392f57889f4, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1

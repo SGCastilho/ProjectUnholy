@@ -84,8 +84,6 @@ namespace Core.Managers
 
         public void CreateSettingsFile(int selectedLanguage)
         {
-            Debug.Log("Creating JSON");
-
             _savedSettings = new SettingsSaved();
 
             _savedSettings.ClientResolution = Screen.currentResolution;
@@ -136,9 +134,14 @@ namespace Core.Managers
 
         public void CreateSettingsJSON(SettingsSaved settings)
         {
+            //TEMPORARIO, SUBSTIUIR ISSO DE ACORDO COM OQUE O JOGO ESCOLHER NO MENU DE OPÇOES
+            int clientLanguange = 0;
+
             if(File.Exists(Application.persistentDataPath + "/config.txt"))
             {
-                Debug.Log("Arquivo já existente, substuindo por um novo");
+                var getCurrentSettings = GetSettingsFile();
+
+                clientLanguange = getCurrentSettings.ClientLanguage;
 
                 File.Delete(Application.persistentDataPath + "/config.txt");
             }
@@ -177,13 +180,12 @@ namespace Core.Managers
                     break;
             }         
 
+            settings.ClientLanguage = clientLanguange;
             settings.ClientVersion = "Pre-Alpha";
 
             string jsonOutput = JsonUtility.ToJson(settings, true);
 
             File.WriteAllText(Application.persistentDataPath + "/config.txt", jsonOutput);
-
-            Debug.Log("JSON criado com sucesso");
         }
 
         public void LoadSettings()
