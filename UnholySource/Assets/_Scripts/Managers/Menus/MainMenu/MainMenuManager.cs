@@ -33,6 +33,9 @@ namespace Core.Managers
 
         public void LoadNewGame()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             OnStartPlaying?.Invoke(NewGameScene);
         }
 
@@ -43,6 +46,9 @@ namespace Core.Managers
 
         public void LoadSaveFile()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             OnStartPlaying?.Invoke(LoadSaveScene);
         }
 

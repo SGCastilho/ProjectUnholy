@@ -10,6 +10,11 @@ namespace Core.UI
         [Header("Classes")]
         [SerializeField] private CanvasGroup logoCanvasGroup;
         [SerializeField] private CanvasGroup buttonsCanvasGroup;
+        [SerializeField] private CanvasGroup fadeCanvasGroup;
+
+        [Space(10)]
+
+        [SerializeField] private Transform cameraTransform;
 
         [Space(10)]
 
@@ -23,6 +28,7 @@ namespace Core.UI
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float fadeDuration = 0.4f;
         [SerializeField] [Range(0.1f, 1f)] private float newGameFadeDuration = 1.4f;
+        [SerializeField] private Vector3 cameraMovement;
 
         [Space(10)]
 
@@ -60,10 +66,10 @@ namespace Core.UI
         {
             buttonsCanvasGroup.interactable = false; 
             buttonsCanvasGroup.blocksRaycasts = false;
-
+        
             logoCanvasGroup.DOKill();
             buttonsCanvasGroup.DOKill();
-
+            
             logoCanvasGroup.DOFade(0f, fadeDuration);
             buttonsCanvasGroup.DOFade(0f, fadeDuration);
         }
@@ -72,12 +78,18 @@ namespace Core.UI
         {
             buttonsCanvasGroup.interactable = false; 
             buttonsCanvasGroup.blocksRaycasts = false;
-
+            fadeCanvasGroup.gameObject.SetActive(true);
+            
+            fadeCanvasGroup.DOKill();
             logoCanvasGroup.DOKill();
             buttonsCanvasGroup.DOKill();
 
             logoCanvasGroup.DOFade(0f, newGameFadeDuration);
-            buttonsCanvasGroup.DOFade(0f, newGameFadeDuration).OnComplete(() => { ExecuteOnComplete?.Invoke(); });
+            buttonsCanvasGroup.DOFade(0f, newGameFadeDuration).OnComplete(() => 
+            {
+                cameraTransform.DOMove(cameraMovement, fadeDuration).SetEase(Ease.InSine);   
+                fadeCanvasGroup.DOFade(1f, fadeDuration).OnComplete(() => { ExecuteOnComplete?.Invoke(); });  
+            });
         }
 
         public void CreditsFadeIn()

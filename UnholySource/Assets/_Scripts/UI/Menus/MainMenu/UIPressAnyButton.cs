@@ -9,6 +9,7 @@ namespace Core.UI
     {
         [Header("Classes")]
         [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private CanvasGroup backgroundCanvasGroup;
 
         [Space(10)]
 
@@ -73,8 +74,9 @@ namespace Core.UI
                     canvasGroup.interactable = true; 
                     canvasGroup.blocksRaycasts = true;
 
-                    OnFadeOutEnd?.Invoke(); 
-                }); 
+                    backgroundCanvasGroup.DOKill();
+                    backgroundCanvasGroup.DOFade(0f, fadeDuration).OnComplete(() => { OnFadeOutEnd?.Invoke(); });
+                });
             });
         }
     }
