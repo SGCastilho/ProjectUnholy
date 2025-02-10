@@ -1,5 +1,6 @@
 using TMPro;
 using DG.Tweening;
+using Core.ScriptableObjects;
 using UnityEngine;
 
 namespace Core.UI
@@ -32,7 +33,6 @@ namespace Core.UI
             _currenteMessageTimer = messageDuration;
         }
 
-        //TROCAR PARA UM SCRIPTABLE OBJECT
         public void EmitMessage(string message)
         {
             if(message == null || message == string.Empty || _lastMessage == message) return;
@@ -46,6 +46,24 @@ namespace Core.UI
                 _lastMessage = message;
 
                 messageTMP.text = message;
+
+                FadeIn();
+            }
+        }
+
+        public void EmitMessage(TextData message)
+        {
+            if(_lastMessage == message.Value) return;
+
+            if(emitingMessage)
+            {
+                ResetMessage(message.Value);
+            }
+            else
+            {
+                _lastMessage = message.Value;
+
+                messageTMP.text = message.Value;
 
                 FadeIn();
             }

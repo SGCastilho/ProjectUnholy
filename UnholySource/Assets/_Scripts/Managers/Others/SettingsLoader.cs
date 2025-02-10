@@ -134,8 +134,8 @@ namespace Core.Managers
 
         public void CreateSettingsJSON(SettingsSaved settings)
         {
-            //TEMPORARIO, SUBSTIUIR ISSO DE ACORDO COM OQUE O JOGO ESCOLHER NO MENU DE OPÇOES
-            int clientLanguange = 0;
+            //ISSO SO FARA QUE A TRADUÇÃO NÃO SEJA SUBISTITUIDA QUANDO O JOGADOR SALVAR AS CONFIGS NOVAMENTE
+            int clientLanguange = settings.ClientLanguage;
 
             if(File.Exists(Application.persistentDataPath + "/config.txt"))
             {
@@ -143,8 +143,9 @@ namespace Core.Managers
 
                 clientLanguange = getCurrentSettings.ClientLanguage;
 
-                File.Delete(Application.persistentDataPath + "/config.txt");
+                Debug.Log(clientLanguange);
             }
+            //ISSO SO FARA QUE A TRADUÇÃO NÃO SEJA SUBISTITUIDA QUANDO O JOGADOR SALVAR AS CONFIGS NOVAMENTE
 
             settings.clientResolutionHeight = settings.ClientResolution.height;
             settings.clientResolutionWidth = settings.ClientResolution.width;
@@ -181,10 +182,12 @@ namespace Core.Managers
             }         
 
             settings.ClientLanguage = clientLanguange;
+            Debug.Log("Client: " + settings.clientLanguage);
             settings.ClientVersion = "Pre-Alpha";
 
             string jsonOutput = JsonUtility.ToJson(settings, true);
 
+            File.Delete(Application.persistentDataPath + "/config.txt");
             File.WriteAllText(Application.persistentDataPath + "/config.txt", jsonOutput);
         }
 

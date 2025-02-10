@@ -14,7 +14,6 @@ namespace Core.Managers
 
         [Header("Classes")]
         [SerializeField] private UITextLocaliser warningText;
-        [SerializeField] private ScriptableObjectLoader scriptableObjectLoader;
 
         [Header("Settings")]
         [SerializeField] private string mainMenuScene = "scene name here";
@@ -46,8 +45,6 @@ namespace Core.Managers
             }
 
             warningText.ReloadTranslation();
-
-            scriptableObjectLoader.Translate();
 
             OnLanguageChanged?.Invoke();
 

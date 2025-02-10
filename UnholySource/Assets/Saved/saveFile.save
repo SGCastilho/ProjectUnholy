@@ -5,18 +5,18 @@
     "currentPlayerLocation": {
         "x": 50.356998443603519,
         "y": 0.0,
-        "z": -20.2894344329834
+        "z": -19.727094650268556
     },
-    "currentPlayerHealth": 67,
-    "currentPlayerHealthBottles": 4,
+    "currentPlayerHealth": 68,
+    "currentPlayerHealthBottles": 3,
     "currentPlayerBullets": 0,
     "currentPlayerMunition": 0,
     "currentWeaponMeleeStatus": true,
     "currentWeaponRangedStatus": false,
     "currentInventoryItems": [
+        "item_chapterOne_insaneAmulet_name",
         "item_chapterOne_chaosAmulet_name",
-        "item_chapterOne_despairAmulet_name",
-        "item_chapterOne_insaneAmulet_name"
+        "item_chapterOne_despairAmulet_name"
     ],
     "currentCharserEnabled": true,
     "currentTriggeredScenarioEvents": [

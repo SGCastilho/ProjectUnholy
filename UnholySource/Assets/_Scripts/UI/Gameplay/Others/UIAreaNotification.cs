@@ -1,5 +1,6 @@
 using TMPro;
 using DG.Tweening;
+using Core.ScriptableObjects;
 using UnityEngine;
 
 namespace Core.UI
@@ -15,7 +16,7 @@ namespace Core.UI
 
         [Header("Settings")]
         [SerializeField] private bool emitNotificationOnStart;
-        [SerializeField] private string areaToNotify = "Put the area name here.";
+        [SerializeField] private TextData areaToNotify;
 
         [Space(10)]
 
@@ -61,6 +62,19 @@ namespace Core.UI
             FadeIn();
         }
 
+        public void EmitNotification(TextData areaName)
+        {
+            if(areaName == null) return;
+
+            ResetVariables();
+
+            areaNameTMP.text = areaName.Value;
+
+            _showingNotification = true;
+
+            FadeIn();
+        }
+
         public void EmitWithDelayNotification(string areaName, float delay)
         {
             if(areaName == string.Empty) return;
@@ -68,6 +82,19 @@ namespace Core.UI
             ResetVariables();
 
             areaNameTMP.text = areaName;
+
+            _showingNotification = true;
+
+            FadeIn(delay);
+        }
+
+        public void EmitWithDelayNotification(TextData areaName, float delay)
+        {
+            if(areaName == null) return;
+
+            ResetVariables();
+
+            areaNameTMP.text = areaName.Value;
 
             _showingNotification = true;
 

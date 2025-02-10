@@ -2099,7 +2099,7 @@ PrefabInstance:
     - target: {fileID: 6730693624300409682, guid: 98887ebd0b66ab849a69942c479cb94c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00020555167
+      value: -0.00018310547
       objectReference: {fileID: 0}
     - target: {fileID: 7032395290188886879, guid: 98887ebd0b66ab849a69942c479cb94c,
         type: 3}
@@ -4914,10 +4914,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 8c8303e0b06682b4f8cb026841868de6,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: South Side
@@ -12511,10 +12512,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: c4a9a244e31212c4681807d4206bfd4f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: East Side
@@ -13743,10 +13745,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: fd678a3c993447b4ab90b7e9a5714fdb,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Southeast Side
@@ -15444,10 +15447,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -15471,10 +15475,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -19911,10 +19916,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 8087bfa7028c99444863b390ef3b3662,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
           m_StringArgument: I can <color="yellow">break<color="white"> this with
@@ -22454,10 +22460,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 20cf419d3cbad06469af9fffb963c995,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: North Side
@@ -22743,10 +22750,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -22770,10 +22778,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -26296,10 +26305,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -26323,10 +26333,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -27978,10 +27989,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1a3d1afcd9db5544fbaa324ba64dfa7d,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
           m_StringArgument: You can <color="yellow">save<color="white"> your game
@@ -30839,10 +30851,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: e9e7841841889954bb8971afe4f811fe,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
           m_StringArgument: Hold <color="yellow">Shift<color="white"> to run
@@ -31078,10 +31091,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -31105,10 +31119,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -33439,10 +33454,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 9016a9889aac4664581fae002d3cf03e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
           m_StringArgument: Press <color="yellow">F<color="white"> to interact
@@ -37931,10 +37947,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -37958,10 +37975,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -38233,7 +38251,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 1274263854}
   areaNameTMP: {fileID: 1768867001}
   emitNotificationOnStart: 1
-  areaToNotify: East Side
+  areaToNotify: {fileID: 11400000, guid: c4a9a244e31212c4681807d4206bfd4f, type: 2}
   fadeDuration: 0.2
   screenDuration: 8
 --- !u!114 &1639066769
@@ -38927,10 +38945,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 8c8303e0b06682b4f8cb026841868de6,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: South Side
@@ -41031,10 +41050,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: a10f691ec74025143adff369277962f1,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It seems i need <color="yellow">three amulets<color="white">
@@ -42428,10 +42448,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 8a0aa70e8888c7d4cb656d0287fb9b64,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
           m_StringArgument: Press <color="yellow">E<color="white"> or <color="yellow">I<color="white">
@@ -43686,10 +43707,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: f8aa5a521b9ee8743a881f2c8b1942a4,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The door has been unlocked.
@@ -43713,10 +43735,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 5f47c194eff6fd2409478908384b0326,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: It's locked.
@@ -43893,6 +43916,54 @@ Canvas:
   m_SortingLayerID: 151606041
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1919052644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919052646}
+  - component: {fileID: 1919052645}
+  m_Layer: 0
+  m_Name: TranslationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1919052645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919052644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222f250dfb8c1b940aba1c797dc70bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentChapter: 0
+  abstractItemsToTranslate: []
+  keyItemsToTranslate: []
+  puzzleItemsToTranslate: []
+--- !u!4 &1919052646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919052644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920757259
 GameObject:
   m_ObjectHideFlags: 0
@@ -44351,10 +44422,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: c4a9a244e31212c4681807d4206bfd4f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: East Side
@@ -48454,10 +48526,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 84c283ed14fd9124da9e925add1d5a9b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: The game has been saved.
@@ -50361,10 +50434,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: cc9628565abc2d541950d23f44f7251e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 3
           m_StringArgument: Press <color="yellow">LMB<color="white"> or <color="yellow">Enter<color="white">
@@ -50644,10 +50718,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: a7fdaef6f4002e04cb3dda377f1e11aa,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 3
           m_StringArgument: Press V to heal yourself
@@ -54388,14 +54463,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1639066773}
         m_TargetAssemblyTypeName: Core.UI.UIThikingDialogue, Core.UI
         m_MethodName: EmitMessage
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 49d5bec6dc9baaf49aa96fcb532f3b76,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Core.ScriptableObjects.TextData, Core.ScriptableObjects
           m_IntArgument: 0
           m_FloatArgument: 1.6
-          m_StringArgument: Press <color="yellow">A<color="white"> or <color="yellow">D<color="white">
-            to move
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7583396274030226229}
@@ -55888,6 +55963,7 @@ SceneRoots:
   - {fileID: 236200040}
   - {fileID: 1817070905}
   - {fileID: 1197534625}
+  - {fileID: 1919052646}
   - {fileID: 818555506}
   - {fileID: 1416651629}
   - {fileID: 348512112}

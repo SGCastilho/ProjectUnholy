@@ -19,7 +19,7 @@ namespace Core.Managers
         public delegate void LoadPlayerEquipment(bool meleeOn, bool rangedOn);
         public event LoadPlayerEquipment OnLoadPlayerEquipment;
 
-        public delegate void LoadPlayerInventory(string[] loadedInventory);
+        public delegate void LoadPlayerInventory(string currentChapter, string[] loadedInventory);
         public event LoadPlayerInventory OnLoadPlayerInventory;
 
         public delegate void LoadChaserStatus(bool isEnabled);
@@ -110,7 +110,7 @@ namespace Core.Managers
 
                 OnLoadPlayerEquipment?.Invoke(loadedSave.currentWeaponMeleeStatus, loadedSave.currentWeaponRangedStatus);
 
-                OnLoadPlayerInventory?.Invoke(loadedSave.currentInventoryItems);
+                OnLoadPlayerInventory?.Invoke(currentChapter, loadedSave.currentInventoryItems);
 
                 OnLoadChaserStatus?.Invoke(loadedSave.currentCharserEnabled);
 

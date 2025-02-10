@@ -53,12 +53,13 @@ namespace Core.Managers
             return items.ToArray();
         }
 
-        public void LoadPlayerInventory(string[] loadedInventory)
+        public void LoadPlayerInventory(string currentChapter, string[] loadedInventory)
         {
             List<ItemData> existingItems = new List<ItemData>();
 
-            var keyItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Inventory/Keys");
-            var puzzleItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Inventory/Puzzles");
+            var keyItemsToTranslate = Resources.LoadAll<ItemData>($"ScriptableObjects/Items/Inventory/{currentChapter}/Keys");
+            var puzzleItemsToTranslate = Resources.LoadAll<ItemData>($"ScriptableObjects/Items/Inventory/{currentChapter}/Puzzles");
+
             var abstractItemsToTranslate = Resources.LoadAll<ItemData>("ScriptableObjects/Items/Abstract");
 
             existingItems.AddRange(keyItemsToTranslate);
