@@ -39,7 +39,6 @@
 "button_options_soundEffects","Soundeffects","Efeitos Sonoros"
 "button_options_soundTrack","Soundtrack","Trilha Sonora"
 "item_weapon_wood_name","Weapon: Wood","Arma: Madeira"
-"item_weapon_wood_desc","I can attack enemies with this.","Posso atacar essas criaturas usando isso."
 "item_chapterOne_key105_name","Class 105 Key","Chave da Classe 105"
 "item_chapterOne_key105_desc","I can unlock the Class 105 in East Side.","Posso destrancar a Classe 105 na Ala Leste."
 "item_chapterOne_keyB109_name","Class B109 Key","Chave da Classe B109"
@@ -85,3 +84,5 @@
 "area_northSide","North Side","Ala Norte"
 "area_southSide","South Side","Ala Sul"
 "area_southeastSide","Southeast Side","Ala Sudeste"
+"item_inventory_weapon_wood_name","Wood","Madeira"
+"item_inventory_weapon_wood_desc","I can attack enemies with this.","Posso atacar os inimigos com isso."

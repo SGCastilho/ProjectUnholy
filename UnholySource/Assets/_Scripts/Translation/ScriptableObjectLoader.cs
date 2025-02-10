@@ -46,7 +46,11 @@ namespace Core.Translation
             foreach (ItemData keyItem in keyItemsToTranslate)
             {
                 keyItem.Name = LocalisationSystem.GetLocalisedValue(keyItem.NameKey);
-                keyItem.Description = LocalisationSystem.GetLocalisedValue(keyItem.DescriptionKey);
+
+                if(keyItem.DescriptionKey != null && keyItem.DescriptionKey != string.Empty)
+                {
+                    keyItem.Description = LocalisationSystem.GetLocalisedValue(keyItem.DescriptionKey);
+                }
             }
 
             foreach (ItemData puzzleItem in puzzleItemsToTranslate)

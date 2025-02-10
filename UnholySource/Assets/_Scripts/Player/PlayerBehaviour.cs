@@ -63,6 +63,11 @@ namespace Core.Player
             }
         }
 
+        public void FlipPlayer(bool isFlipped)
+        {
+            movement.IsFlipped = isFlipped;
+        }
+
         public bool LookingToRight()
         {
             return !movement.IsFlipped;

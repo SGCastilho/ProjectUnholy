@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 554f588618bfd4f4d8e90fc1fdd5f946, type: 3}
-  m_Name: Weapon Wood Item Data
+  m_Name: Weapon Wood Inventory Item Data
   m_EditorClassIdentifier: 
   itemType: 0
-  itemKey: item_weapon_wood_name
-  itemKeyDescription: 
-  itemName: 'Weapon: Wood'
+  itemKey: item_inventory_weapon_wood_name
+  itemKeyDescription: item_inventory_weapon_wood_desc
+  itemName: Wood
   itemIcon: {fileID: 21300000, guid: 008cd792f772ab944b26c83b48ffc3a3, type: 3}
-  itemDescription: 
+  itemDescription: I can attack enemies with this.
   healingAmount: 0
   devNotes: Put your dev notes here.

@@ -14,4 +14,10 @@ public class DeleteConfigFile
             Debug.Log("Game Config has been deleted");
         }
     }
+
+    [MenuItem("Tools/SGC/Open Config Directory")]
+    public static void OpenGameConfigDirectory()
+    {
+        System.Diagnostics.Process.Start("explorer.exe", Application.persistentDataPath);
+    }
 }

@@ -34,6 +34,9 @@ namespace Core.Managers
         public delegate void StartTravel();
         public event StartTravel OnStartTravel;
 
+        public delegate void FlipPlayer(bool isFlipped);
+        public event FlipPlayer OnFlipPlayer;
+
         public delegate void EndTravel();
         public event EndTravel OnEndTravel;
         #endregion
@@ -63,6 +66,7 @@ namespace Core.Managers
 
         private bool _loadingScene;
         private bool _isTraveling;
+        private bool _isFlipped;
         private string _currentRoomScene;
         private string _currentLevelLoaded;
         private Vector3 _savedPlayerPosistion;
@@ -192,6 +196,11 @@ namespace Core.Managers
             _travelPointTransform = travelPoint;
             _isTraveling = true;
         }
+
+        public void FlipTo(bool lookAtRight)
+        {
+            _isFlipped = !lookAtRight;
+        }
         
         public async void TravelToScene(string sceneName)
         {
@@ -202,6 +211,8 @@ namespace Core.Managers
             await Task.Delay(400);
 
             LoadRoomAddictive(sceneName);
+            
+            OnFlipPlayer?.Invoke(_isFlipped);
 
             await Task.Delay(1000);
 

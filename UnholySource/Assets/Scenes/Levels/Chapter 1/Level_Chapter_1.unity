@@ -4665,6 +4665,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_01
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_01
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
       m_Calls:
@@ -4911,6 +4923,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_00
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_00
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
@@ -4929,7 +4953,8 @@ MonoBehaviour:
         m_MethodName: PlayAudioFromKey
         m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 8c8303e0b06682b4f8cb026841868de6,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5658,6 +5683,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_03
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_03
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -6233,6 +6270,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_Southeast_01
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_01
+          m_BoolArgument: 1
         m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
@@ -8585,6 +8634,7 @@ GameObject:
   - component: {fileID: 357432259}
   - component: {fileID: 357432261}
   - component: {fileID: 357432260}
+  - component: {fileID: 357432262}
   m_Layer: 5
   m_Name: WeaponName TMP
   m_TagString: Untagged
@@ -8709,6 +8759,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357432258}
   m_CullTransparentMesh: 1
+--- !u!114 &357432262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357432258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f150152f6881e43a526e7249152b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localisedString:
+    key: 
+  textData: {fileID: 11400000, guid: 05f06c0bccb18f342b8dc1b193a4fbfa, type: 2}
 --- !u!1 &365151680
 GameObject:
   m_ObjectHideFlags: 0
@@ -9534,6 +9599,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_East_01_OpenDoor
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
@@ -12353,6 +12430,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_North_01
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -12509,6 +12598,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_02
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
@@ -12527,7 +12628,8 @@ MonoBehaviour:
         m_MethodName: StopAudioFadeOut
         m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: c4a9a244e31212c4681807d4206bfd4f,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -12971,7 +13073,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b59940806be181a44b1897657bb9ebda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 963bdac20ea44cf44b43584454823674, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13742,6 +13844,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_00
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
@@ -13760,7 +13874,8 @@ MonoBehaviour:
         m_MethodName: FlashlightStatus
         m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: fd678a3c993447b4ab90b7e9a5714fdb,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -14759,6 +14874,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_North_02_SaveRoom
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
@@ -16612,6 +16739,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -16811,6 +16950,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_North_01
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -17467,6 +17618,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_03
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -17773,6 +17936,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_Southeast_00
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_00
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
@@ -20135,6 +20310,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_04
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1464374883}
         m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
         m_MethodName: StopAudioFadeOut
@@ -21467,6 +21654,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_01
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_01
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -22068,6 +22267,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_03
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1464374883}
         m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
         m_MethodName: PlayAudioFromKey
@@ -22457,6 +22668,19 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_North_00
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 20cf419d3cbad06469af9fffb963c995,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: North Side
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
@@ -22719,6 +22943,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_Door_105
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -23096,6 +23332,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_00
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24534,6 +24782,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Door_BathRoom
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -25196,6 +25456,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_00
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26195,7 +26467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b59940806be181a44b1897657bb9ebda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 008cd792f772ab944b26c83b48ffc3a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26274,6 +26546,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_Door_109
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -26937,6 +27221,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_South_01
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_01
+          m_BoolArgument: 1
         m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
@@ -28442,6 +28738,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -28946,6 +29254,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_02
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -31037,6 +31357,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Door_B109
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1464374883}
         m_TargetAssemblyTypeName: Core.Audio.MusicManager, Core.Audio
         m_MethodName: StopAudioFadeOut
@@ -31548,6 +31880,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_Door_145
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -32998,6 +33342,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_02
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -35099,6 +35455,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_02
+          m_BoolArgument: 1
+        m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
       m_Calls:
@@ -35279,6 +35647,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_South_00
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
@@ -36218,6 +36598,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_03
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -37917,6 +38309,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Door_B101
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -38505,6 +38909,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_00
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_00
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
       m_Calls:
@@ -38942,6 +39358,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_04
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1639066768}
         m_TargetAssemblyTypeName: Core.UI.UIAreaNotification, Core.UI
         m_MethodName: EmitNotification
@@ -38960,7 +39388,8 @@ MonoBehaviour:
         m_MethodName: FlashlightStatus
         m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 8c8303e0b06682b4f8cb026841868de6,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -40097,6 +40526,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_03
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -41788,6 +42229,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_02
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -42026,6 +42479,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
         m_MethodName: TravelToScene
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_Southeast_01
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -42807,6 +43272,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_South_02
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_South_02
+          m_BoolArgument: 1
         m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
@@ -43677,6 +44154,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Door_133
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
         m_MethodName: PlayAudioOneShoot
@@ -44431,6 +44920,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: East Side
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: East Side
+          m_BoolArgument: 1
         m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
@@ -45729,6 +46230,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_East_01
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_01
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:
       m_Calls:
@@ -45872,6 +46385,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_East_00
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -46029,6 +46554,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_South_02
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -46059,7 +46596,8 @@ MonoBehaviour:
         m_MethodName: PlayAudioOneShoot
         m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 8300000, guid: 3955b867c7ff7c4498c18ca907e8f1eb,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -46965,6 +47503,18 @@ MonoBehaviour:
           m_StringArgument: LP_School_Room_Interior_Southeast_00
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 6962906983105983178}
         m_TargetAssemblyTypeName: Core.Player.PlayerEquipment, Core.Player
         m_MethodName: FlashlightStatus
@@ -47238,6 +47788,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_North_00
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_door_open
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1197534624}
         m_TargetAssemblyTypeName: Core.Audio.LocalSoundEffects, Core.Audio
@@ -53307,6 +53869,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LP_School_Room_Interior_East_01
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416651630}
+        m_TargetAssemblyTypeName: Core.Managers.ScenarioLoaderManager, Core.Managers
+        m_MethodName: FlipTo
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LP_School_Room_Interior_East_01
+          m_BoolArgument: 1
         m_CallState: 2
   OnTriggerEnterUI:
     m_PersistentCalls:

@@ -4,21 +4,21 @@ using UnityEngine;
 namespace Core.Translation
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public sealed class UITextLocaliser : MonoBehaviour
+    public class UITextLocaliser : MonoBehaviour
     {
         [Header("Data")]
         public LocalisedString localisedString;
 
-        private TextMeshProUGUI _tmpPro;
+        protected TextMeshProUGUI _tmpPro;
 
-        private void Awake() 
+        protected void Awake() 
         {
             _tmpPro = GetComponent<TextMeshProUGUI>();
 
             ReloadTranslation();
         }
 
-        public void ReloadTranslation()
+        public virtual void ReloadTranslation()
         {
             _tmpPro.text = localisedString.value;
             _tmpPro.text = _tmpPro.text.Replace("\r", "");

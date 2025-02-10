@@ -40,7 +40,6 @@ namespace Core.Enemies
         private float _timeToStartRunning;
         private float _currentTimeToStartRunning;
 
-
         private void OnDisable() => ResetState();
 
         public override void ResetState()

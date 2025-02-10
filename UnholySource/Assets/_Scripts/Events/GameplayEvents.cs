@@ -236,6 +236,8 @@ namespace Core.Events
             scenarioLoaderManager.OnStartTravel += _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel += uIFadeController.FadeIn;
 
+            scenarioLoaderManager.OnFlipPlayer += _playerBehaviour.FlipPlayer;
+
             scenarioLoaderManager.OnEndTravel += pauseManager.UnPause;
             scenarioLoaderManager.OnEndTravel += _playerBehaviour.Inputs.AllowControls;
             scenarioLoaderManager.OnEndTravel += uIFadeController.FadeOut;
@@ -422,6 +424,8 @@ namespace Core.Events
             scenarioLoaderManager.OnStartTravel -= pauseManager.PauseWithoutShowingCursor;
             scenarioLoaderManager.OnStartTravel -= _playerBehaviour.Inputs.BlockControls;
             scenarioLoaderManager.OnStartTravel -= uIFadeController.FadeIn;
+
+            scenarioLoaderManager.OnFlipPlayer -= _playerBehaviour.FlipPlayer;
 
             scenarioLoaderManager.OnEndTravel -= pauseManager.UnPause;
             scenarioLoaderManager.OnEndTravel -= _playerBehaviour.Inputs.AllowControls;
