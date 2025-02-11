@@ -246,6 +246,8 @@ namespace Core.Managers
         {
             OnStartTravel?.Invoke();
 
+            PlaytimeManager.Instance.DestroyInstance();
+
             await Task.Delay(1000);
 
             SceneManager.LoadScene(gameOverScene);
@@ -327,6 +329,8 @@ namespace Core.Managers
 
         public void BackToMainMenu()
         {
+            PlaytimeManager.Instance.DestroyInstance();
+
             LoadScene(mainMenuScene);
         }
     }

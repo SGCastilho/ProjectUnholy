@@ -142,6 +142,8 @@ namespace Core.Managers
 
         public void GameWin()
         {
+            PlaytimeManager.Instance.DestroyInstance();
+
             OnGameWinEnded?.Invoke("GameWin_ThanksForPlaying");
         }
 
