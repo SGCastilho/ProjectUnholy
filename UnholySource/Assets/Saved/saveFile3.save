@@ -1,0 +1,34 @@
+{
+    "currentChapter": "Chapter 1",
+    "currentElapsedTime": 4,
+    "currentDay": 11,
+    "currentMonth": 2,
+    "currentYear": 2025,
+    "screenShootBytes": [],
+    "currentScene": "Level_Chapter_1",
+    "currentLoadedRoom": "LP_School_Room_Interior_North_02_SaveRoom",
+    "currentPlayerLocation": {
+        "x": 50.35700225830078,
+        "y": 0.0,
+        "z": -19.602176666259767
+    },
+    "currentPlayerHealth": 100,
+    "currentPlayerHealthBottles": 0,
+    "currentPlayerBullets": 0,
+    "currentPlayerMunition": 0,
+    "currentWeaponMeleeStatus": true,
+    "currentWeaponRangedStatus": false,
+    "currentInventoryItems": [
+        "item_chapterOne_key133_name"
+    ],
+    "currentCharserEnabled": false,
+    "currentTriggeredScenarioEvents": [
+        "destructable_barricade",
+        "get_melee_weapon",
+        "get_key_133",
+        "tutorial_walk",
+        "tutorial_interact",
+        "tutorial_attack_1",
+        "tutorial_save"
+    ]
+}

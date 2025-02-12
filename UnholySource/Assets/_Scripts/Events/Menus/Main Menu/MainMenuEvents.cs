@@ -13,24 +13,42 @@ namespace Core.Events
 
         [Space(10)]
 
+        [SerializeField] private UISaveAndLoad uISaveAndLoad;
+        [SerializeField] private SaveManager saveManager;
         [SerializeField] private LoaderManager loaderManager;
 
         private void OnEnable() 
         {
-            mainMenuManager.OnCheckIfHasSaveFile += uIMainMenu.EnableLoadButton;
-
             mainMenuManager.OnStartPlaying += uIMainMenu.FadeOut;
 
             loaderManager.OnLoadSaveGame += SceneManager.LoadScene;
+            loaderManager.OnFadeOut += uIMainMenu.LoadFadeOut;
+
+            for(int i = 0; i < uISaveAndLoad.SaveSlots.Length; i++)
+            {
+                uISaveAndLoad.SaveSlots[i].OnLoadFile += loaderManager.LoadWithFade;
+
+                uISaveAndLoad.SaveSlots[i].OnSavingState += saveManager.GetSavingState;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotInfo += saveManager.GetSlotInformation;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotScreenshoot += saveManager.GetSlotScreenshoot;
+            }
         }
 
         private void OnDisable() 
         {
-            mainMenuManager.OnCheckIfHasSaveFile -= uIMainMenu.EnableLoadButton;
-
             mainMenuManager.OnStartPlaying -= uIMainMenu.FadeOut;
 
             loaderManager.OnLoadSaveGame -= SceneManager.LoadScene;
+            loaderManager.OnFadeOut -= uIMainMenu.LoadFadeOut;
+
+            for(int i = 0; i < uISaveAndLoad.SaveSlots.Length; i++)
+            {
+                uISaveAndLoad.SaveSlots[i].OnLoadFile -= loaderManager.LoadWithFade;
+
+                uISaveAndLoad.SaveSlots[i].OnSavingState -= saveManager.GetSavingState;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotInfo -= saveManager.GetSlotInformation;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotScreenshoot -= saveManager.GetSlotScreenshoot;
+            }
         }
     }
 }

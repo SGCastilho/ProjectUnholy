@@ -52,7 +52,7 @@ namespace Core.Managers
 
         private void LoadPreviousSave()
         {
-            loaderManager.Load();
+            Debug.Log("Open save");
         }
 
         private void LoadMainMenu()

@@ -116,6 +116,8 @@ namespace Core.Managers
 
                 OnLoadChapterEndedEvents?.Invoke(loadedSave.currentTriggeredScenarioEvents);
 
+                PlaytimeManager.Instance.ElapsedTime = loadedSave.currentElapsedTime;
+
                 OnGameLoadedEnd?.Invoke();
                 
                 Time.timeScale = 1;

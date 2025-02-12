@@ -7,9 +7,6 @@ namespace Core.Managers
     public sealed class MainMenuManager : MonoBehaviour
     {
         #region Events
-        public delegate void CheckIfHasSaveFile(bool enable);
-        public event CheckIfHasSaveFile OnCheckIfHasSaveFile;
-
         public delegate void StartPlaying(Action ExecuteOnComplete);
         public event StartPlaying OnStartPlaying;
         #endregion
@@ -19,11 +16,6 @@ namespace Core.Managers
 
         [Header("Settings")]
         [SerializeField] private string newGameSceneToLoad = "put your scene name here";
-        
-        private void OnEnable() 
-        {
-            OnCheckIfHasSaveFile?.Invoke(loaderManager.SaveFileExists());
-        }
 
         private void Start() 
         {
@@ -54,7 +46,7 @@ namespace Core.Managers
 
         private void LoadSaveScene()
         {
-            loaderManager.Load();
+            
         }
 
         public void QuitGame()

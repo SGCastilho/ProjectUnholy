@@ -24,6 +24,9 @@ namespace Core.Managers
         [SerializeField] private int minutes;
         [SerializeField] private int hours;
 
+        [Header("Settings")]
+        [SerializeField] private bool startCounterOnAwake = true;
+
         private int elapsedTime;
 
         private void Awake()
@@ -39,7 +42,13 @@ namespace Core.Managers
             DontDestroyOnLoad(gameObject);
         }
 
-        private void Start() => StartCoroutine(Playtimer());
+        private void Start()
+        {
+            if(startCounterOnAwake)
+            {
+                StartCoroutine(Playtimer());
+            }
+        }
 
         IEnumerator Playtimer()
         {
@@ -54,5 +63,16 @@ namespace Core.Managers
         }
 
         internal void DestroyInstance() => Destroy(gameObject);
+
+        internal string ReturnPlayTimeInString(int savedElapsedTime)
+        {
+            int l_hours = savedElapsedTime / 3600;
+            int l_minutes = savedElapsedTime / 60 % 60;
+            int l_seconds = savedElapsedTime % 60;
+
+            string playTime = $"{l_hours}:{l_minutes}:{l_seconds}";
+
+            return playTime;
+        }
     }
 }

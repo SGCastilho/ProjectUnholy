@@ -17,6 +17,7 @@ namespace Core.Events
         [SerializeField] private UIFadeController uIFadeController;
         [SerializeField] private UIGameplayController uIGameplayController;
         [SerializeField] private UIAreaNotification uIAreaNotification;
+        [SerializeField] private UISaveAndLoad uISaveAndLoad;
 
         [Header("Audio Classes")]
         [SerializeField] private MusicManager musicManager;
@@ -228,6 +229,20 @@ namespace Core.Events
 
             uIGameplayController.UI_Inventory.OnShowInventoryEnd += _changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts += _changeCameraRendering.BackToDefaultRendering;
+
+            uISaveAndLoad.OnCallWindow += _playerBehaviour.Inputs.BlockControls;
+            uISaveAndLoad.OnCursorState += _playerBehaviour.HideCursor;
+            uISaveAndLoad.OnUnCallWindow += _playerBehaviour.Inputs.AllowControls;
+
+            for(int i = 0; i < uISaveAndLoad.SaveSlots.Length; i++)
+            {
+                uISaveAndLoad.SaveSlots[i].OnSaveFile += saveManager.SaveGame;
+                uISaveAndLoad.SaveSlots[i].OnLoadFile += loaderManager.Load;
+
+                uISaveAndLoad.SaveSlots[i].OnSavingState += saveManager.GetSavingState;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotInfo += saveManager.GetSlotInformation;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotScreenshoot += saveManager.GetSlotScreenshoot;
+            }
         }
 
         private void ScenarioLoaderEnableEvents()
@@ -417,6 +432,20 @@ namespace Core.Events
 
             uIGameplayController.UI_Inventory.OnShowInventoryEnd -= _changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts -= _changeCameraRendering.BackToDefaultRendering;
+
+            uISaveAndLoad.OnCallWindow -= _playerBehaviour.Inputs.BlockControls;
+            uISaveAndLoad.OnCursorState -= _playerBehaviour.HideCursor;
+            uISaveAndLoad.OnUnCallWindow -= _playerBehaviour.Inputs.AllowControls;
+
+            for(int i = 0; i < uISaveAndLoad.SaveSlots.Length; i++)
+            {
+                uISaveAndLoad.SaveSlots[i].OnSaveFile -= saveManager.SaveGame;
+                uISaveAndLoad.SaveSlots[i].OnLoadFile -= loaderManager.Load;
+
+                uISaveAndLoad.SaveSlots[i].OnSavingState -= saveManager.GetSavingState;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotInfo -= saveManager.GetSlotInformation;
+                uISaveAndLoad.SaveSlots[i].OnGetSlotScreenshoot -= saveManager.GetSlotScreenshoot;
+            }
         }
 
         private void ScenarioLoaderDisableEvents()

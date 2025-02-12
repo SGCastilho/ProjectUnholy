@@ -92,6 +92,24 @@ namespace Core.UI
             });
         }
 
+        public void LoadFadeOut()
+        {
+            buttonsCanvasGroup.interactable = false; 
+            buttonsCanvasGroup.blocksRaycasts = false;
+            fadeCanvasGroup.gameObject.SetActive(true);
+
+            fadeCanvasGroup.DOKill();
+            logoCanvasGroup.DOKill();
+            buttonsCanvasGroup.DOKill();
+            
+            logoCanvasGroup.DOFade(0f, fadeDuration);
+            buttonsCanvasGroup.DOFade(0f, newGameFadeDuration).OnComplete(() => 
+            {
+                cameraTransform.DOMove(cameraMovement, fadeDuration).SetEase(Ease.InSine);   
+                fadeCanvasGroup.DOFade(1f, fadeDuration); 
+            });
+        }
+
         public void CreditsFadeIn()
         {
             creditsCanvasGroup.DOKill();

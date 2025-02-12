@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using UnityEngine;
 
@@ -11,15 +12,18 @@ namespace Core.Managers
 
         public delegate void LoadSaveGame(string sceneToLoad);
         public event LoadSaveGame OnLoadSaveGame;
+
+        public delegate void FadeOut();
+        public event FadeOut OnFadeOut;
         #endregion
 
         [Header("Classes")]
         [SerializeField] private GameObject saveFileLoadedPrefab;
 
-        private string _savePath = Application.dataPath + "/Saved/saveFile.save";
-
-        public void Load()
+        public void Load(int slotIndex)
         {
+            string _savePath = Application.dataPath + $"/Saved/saveFile{slotIndex}.save";
+
             if(File.Exists(_savePath))
             {
                 PlaytimeManager.Instance.DestroyInstance();
@@ -40,9 +44,18 @@ namespace Core.Managers
             }
         }
 
-        public bool SaveFileExists()
+        public void LoadWithFade(int slotIndex)
         {
-            return File.Exists(_savePath);
+            OnFadeOut?.Invoke();
+
+            StartCoroutine(LoadWithFadeCouroutine(slotIndex));
+        }
+
+        private IEnumerator LoadWithFadeCouroutine(int slotIndex)
+        {
+            yield return new WaitForSeconds(1.4f);
+
+            Load(slotIndex);
         }
     }
 }
