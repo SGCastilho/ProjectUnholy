@@ -339,6 +339,45 @@ namespace Core.Inputs
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""c9411bbf-10b4-4562-9efc-13cab4e72286"",
+            ""actions"": [
+                {
+                    ""name"": ""NextDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ebf855b-4f29-4625-b3c9-4dadecc16141"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1669262e-f818-4d86-ae50-d7ca6e735898"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bc73318-ef7b-4e2d-bffc-49861e5f7515"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -357,12 +396,16 @@ namespace Core.Inputs
             // Viewer
             m_Viewer = asset.FindActionMap("Viewer", throwIfNotFound: true);
             m_Viewer_ExitViewer = m_Viewer.FindAction("ExitViewer", throwIfNotFound: true);
+            // Dialogue
+            m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+            m_Dialogue_NextDialogue = m_Dialogue.FindAction("NextDialogue", throwIfNotFound: true);
         }
 
         ~@GameplayInput()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, GameplayInput.Gameplay.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Viewer.enabled, "This will cause a leak and performance issues, GameplayInput.Viewer.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Dialogue.enabled, "This will cause a leak and performance issues, GameplayInput.Dialogue.Disable() has not been called.");
         }
 
         public void Dispose()
@@ -576,6 +619,52 @@ namespace Core.Inputs
             }
         }
         public ViewerActions @Viewer => new ViewerActions(this);
+
+        // Dialogue
+        private readonly InputActionMap m_Dialogue;
+        private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
+        private readonly InputAction m_Dialogue_NextDialogue;
+        public struct DialogueActions
+        {
+            private @GameplayInput m_Wrapper;
+            public DialogueActions(@GameplayInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @NextDialogue => m_Wrapper.m_Dialogue_NextDialogue;
+            public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+            public void AddCallbacks(IDialogueActions instance)
+            {
+                if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
+                @NextDialogue.started += instance.OnNextDialogue;
+                @NextDialogue.performed += instance.OnNextDialogue;
+                @NextDialogue.canceled += instance.OnNextDialogue;
+            }
+
+            private void UnregisterCallbacks(IDialogueActions instance)
+            {
+                @NextDialogue.started -= instance.OnNextDialogue;
+                @NextDialogue.performed -= instance.OnNextDialogue;
+                @NextDialogue.canceled -= instance.OnNextDialogue;
+            }
+
+            public void RemoveCallbacks(IDialogueActions instance)
+            {
+                if (m_Wrapper.m_DialogueActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IDialogueActions instance)
+            {
+                foreach (var item in m_Wrapper.m_DialogueActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_DialogueActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public DialogueActions @Dialogue => new DialogueActions(this);
         public interface IGameplayActions
         {
             void OnShoot(InputAction.CallbackContext context);
@@ -591,6 +680,10 @@ namespace Core.Inputs
         public interface IViewerActions
         {
             void OnExitViewer(InputAction.CallbackContext context);
+        }
+        public interface IDialogueActions
+        {
+            void OnNextDialogue(InputAction.CallbackContext context);
         }
     }
 }

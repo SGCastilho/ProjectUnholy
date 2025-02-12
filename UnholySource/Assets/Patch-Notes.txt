@@ -1,0 +1,5 @@
+ALPHA PATCH NOTES
+-Save System revamp
+-Now when the player teleports, he will be facing the right direction
+-Weapon icons added to inventory
+-All text has been translated to Brazilian Portuguese translation

@@ -230,6 +230,9 @@ namespace Core.Events
             uIGameplayController.UI_Inventory.OnShowInventoryEnd += _changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts += _changeCameraRendering.BackToDefaultRendering;
 
+            uIGameplayController.UI_Dialogue.OnEnterDialogue += _playerBehaviour.Inputs.AllowDialogueInputs;
+            uIGameplayController.UI_Dialogue.OnExitWindow += _playerBehaviour.Inputs.BlockDialogueInputs;
+
             uISaveAndLoad.OnCallWindow += _playerBehaviour.Inputs.BlockControls;
             uISaveAndLoad.OnCursorState += _playerBehaviour.HideCursor;
             uISaveAndLoad.OnUnCallWindow += _playerBehaviour.Inputs.AllowControls;
@@ -274,6 +277,7 @@ namespace Core.Events
         {
             _playerBehaviour.Inputs.SubscribeInventory(uIGameplayController.UI_Inventory.CallInventory);
             _playerBehaviour.Inputs.SubscribePause(uIGameplayController.UI_PauseGame.CallPause);
+            _playerBehaviour.Inputs.SubscribeNextDialogue(uIGameplayController.UI_Dialogue.NextDialogue);
 
             _playerBehaviour.Status.OnModifingHealth += uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             _playerBehaviour.Status.OnTakingDamage += _cameraShake.HittedShake;
@@ -433,6 +437,9 @@ namespace Core.Events
             uIGameplayController.UI_Inventory.OnShowInventoryEnd -= _changeCameraRendering.OnlyRenderingUI;
             uIGameplayController.UI_Inventory.OnHideInventoryStarts -= _changeCameraRendering.BackToDefaultRendering;
 
+            uIGameplayController.UI_Dialogue.OnEnterDialogue -= _playerBehaviour.Inputs.AllowDialogueInputs;
+            uIGameplayController.UI_Dialogue.OnExitWindow -= _playerBehaviour.Inputs.BlockDialogueInputs;
+
             uISaveAndLoad.OnCallWindow -= _playerBehaviour.Inputs.BlockControls;
             uISaveAndLoad.OnCursorState -= _playerBehaviour.HideCursor;
             uISaveAndLoad.OnUnCallWindow -= _playerBehaviour.Inputs.AllowControls;
@@ -477,6 +484,7 @@ namespace Core.Events
         {
             _playerBehaviour.Inputs.UnsubscribeInventory();
             _playerBehaviour.Inputs.UnsubscribePause();
+            _playerBehaviour.Inputs.UnsubscribeNextDialogue();
 
             _playerBehaviour.Status.OnModifingHealth -= uIGameplayController.UI_HurtAlertOverlay.CheckAlertOverlay;
             _playerBehaviour.Status.OnTakingDamage -= _cameraShake.HittedShake;

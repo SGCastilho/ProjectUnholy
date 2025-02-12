@@ -25,6 +25,8 @@ namespace Core.UI
         public UIPauseGame UI_PauseGame { get => uiPauseGame; }
 
         public UIItemNotificantion UI_ItemNotification { get => uIItemNotificantion; }
+
+        public UIDialogue UI_Dialogue { get => uIDialogue; }
         #endregion
 
         [Header("Player UI Classes")]
@@ -44,6 +46,10 @@ namespace Core.UI
         [Space(10)]
 
         [SerializeField] private UIItemNotificantion uIItemNotificantion;
+
+        [Space(10)]
+
+        [SerializeField] private UIDialogue uIDialogue;
 
         [Space(20)]
 

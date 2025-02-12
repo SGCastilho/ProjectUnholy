@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2802d3690718d0d418de3cbf2141d2d6, type: 3}
+  m_Name: Debug Dialogue Data
+  m_EditorClassIdentifier: 
+  dialogueTree:
+  - characterName: Jason
+    dialogueKey: 
+    dialogues:
+    - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - Vivamus feugiat risus vitae.
+    - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  - characterName: Unknown
+    dialogueKey: 
+    dialogues:
+    - Vivamus feugiat risus vitae augue tristique aliquam. Proin at turpis vitae
+      libero elementum mattis sed at lacus. Aenean venenatis quam vel lacus lobortis,
+      id fermentum augue tincidunt.
+    - Mauris vitae tortor et enim congue vehicula. Nulla at condimentum mi. Vestibulum
+      at volutpat eros. Phasellus maximus ante ac tristique congue.
+    - Nullam congue est urna, at malesuada turpis porttitor et. In vel vestibulum
+      urna, et consectetur odio. Nullam sit amet sapien sed odio faucibus maximus.
+      Aliquam tempus velit est, quis auctor leo vulputate in.
+  - characterName: Jason
+    dialogueKey: 
+    dialogues:
+    - Vestibulum at volutpat eros.
+  - characterName: Unknown
+    dialogueKey: 
+    dialogues:
+    - Phasellus maximus ante ac tristique congue. Ut eget placerat mauris, ultricies
+      varius ante. Mauris rutrum non odio vitae pharetra.
+    - Aenean pretium vehicula fringilla.

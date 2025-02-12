@@ -21,6 +21,8 @@ namespace Core.Player
 
         private Action _viewerAction;
 
+        private Action _nextDialogueAction;
+
         private GameplayInput _gameplayInputActions;
 
         private bool _inViewerMode;
@@ -38,6 +40,10 @@ namespace Core.Player
             _gameplayInputActions.Viewer.ExitViewer.started += ExitViewerInput;
 
             _gameplayInputActions.Viewer.Disable();
+
+            _gameplayInputActions.Dialogue.NextDialogue.started += NextDialogueInput;
+
+            _gameplayInputActions.Dialogue.Disable();
 
             _gameplayInputActions.Gameplay.Sprint.started += StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled += EndSprint;
@@ -64,6 +70,8 @@ namespace Core.Player
             _gameplayInputActions.Disable();
 
             _gameplayInputActions.Viewer.ExitViewer.started -= ExitViewerInput;
+
+            _gameplayInputActions.Dialogue.NextDialogue.started -= NextDialogueInput;
 
             _gameplayInputActions.Gameplay.Sprint.started -= StartSprint;
             _gameplayInputActions.Gameplay.Sprint.canceled -= EndSprint;
@@ -156,6 +164,11 @@ namespace Core.Player
         {
             _viewerAction?.Invoke();
         }
+
+        public void NextDialogueInput(InputAction.CallbackContext context)
+        {
+            _nextDialogueAction?.Invoke();
+        }
         #endregion
 
         #region Input Functions
@@ -205,6 +218,18 @@ namespace Core.Player
         public void UnsubscribeViewer()
         {
             _viewerAction = null;
+        }
+
+        public void SubscribeNextDialogue(Action action)
+        {
+            if(action == null) return;
+
+            _nextDialogueAction += action;
+        }
+
+        public void UnsubscribeNextDialogue()
+        {
+            _nextDialogueAction = null;
         }
         #endregion
 
@@ -300,6 +325,18 @@ namespace Core.Player
             
             _gameplayInputActions.Gameplay.Enable();
             _gameplayInputActions.Viewer.Disable();
+        }
+
+        public void AllowDialogueInputs()
+        {
+            _gameplayInputActions.Gameplay.Disable();
+            _gameplayInputActions.Dialogue.Enable();
+        }
+
+        public void BlockDialogueInputs()
+        {            
+            _gameplayInputActions.Gameplay.Enable();
+            _gameplayInputActions.Dialogue.Disable();
         }
 
         public void AllowActions()
