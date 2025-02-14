@@ -53,8 +53,8 @@ namespace Core.Character
         [SerializeField] private bool isGrounded;
 
         [SerializeField] [Tooltip("Only the speed will be modified")] private bool variableSpeed = true;
-        [SerializeField] [Range(0.1F, 12f)] private float walkingSpeed = 2f;
-        [SerializeField] [Range(2f, 12f)] private float defaultSpeed = 5f;
+        [SerializeField] [Range(0.1f, 12f)] private float walkingSpeed = 2f;
+        [SerializeField] [Range(0.1f, 12f)] private float defaultSpeed = 5f;
         [SerializeField] [Range(2f, 15f)] private float runningSpeed = 6f;
 
         [Space(10)]

@@ -15,7 +15,7 @@ namespace Core.Enemies
 
         private Transform _playerPosistion;
 
-        private Transform _transform;
+        protected Transform _transform;
 
         internal virtual void Awake() => CacheVariables();
 
@@ -43,10 +43,14 @@ namespace Core.Enemies
             return Mathf.Abs(_transform.position.z - _playerPosistion.position.z);
         }
 
+        public float GetDistanceFrom(Transform target)
+        {
+            return Mathf.Abs(_transform.position.z - target.position.z);
+        }
+
+        //False significa mover para a direita e true para a esquerda
         public bool GetPlayerSide()
         {
-            //False significa mover para a direita e true para a esquerda
-
             if(_transform.position.z < _playerPosistion.position.z)
             {
                 return true;
@@ -54,5 +58,16 @@ namespace Core.Enemies
 
             return false;
         }
+
+        public bool GetSideFrom(Transform target)
+        {
+            if(_transform.position.z < target.position.z)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        //False significa mover para a direita e true para a esquerda
     }
 }

@@ -1,4 +1,5 @@
 ALPHA PATCH NOTES
+-New Ranged enemy added
 -Dialogue Window implemented
 -Save System revamp
 -Now when the player teleports, he will be facing the right direction

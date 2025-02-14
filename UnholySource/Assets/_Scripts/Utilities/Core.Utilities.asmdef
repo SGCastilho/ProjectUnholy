@@ -2,6 +2,8 @@
     "name": "Core.Utilities",
     "rootNamespace": "Core.Utilities",
     "references": [
+        "GUID:8d88350da9d890c4a8755c382d3998d5",
+        "GUID:c11eed96ae7c4e348ad62cfb1fab3be1",
         "GUID:bef5efa0d540aff469b34981fc7046ee",
         "GUID:df380645f10b7bc4b97d4f5eb6303d95"
     ],
