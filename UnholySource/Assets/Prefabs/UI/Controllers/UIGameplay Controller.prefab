@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1660915624986960779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4878339934566019840}
+  - component: {fileID: 2025102688450942489}
+  - component: {fileID: 3739714862855235413}
+  - component: {fileID: 5840891110673562082}
+  - component: {fileID: 5592663866206270030}
+  - component: {fileID: 2078714992459226645}
+  - component: {fileID: 1037830610874974129}
+  - component: {fileID: 8545013559660964734}
+  - component: {fileID: 1605241438649849051}
+  - component: {fileID: 4061945593402939024}
+  - component: {fileID: 6840235200869069414}
+  - component: {fileID: 4616839946048707516}
+  - component: {fileID: 8999554589040043407}
+  m_Layer: 0
+  m_Name: UIGameplay Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4878339934566019840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025102688450942489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece617f8cc92c054d8cd76d8e61d3d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
+  uIRangedWeapon: {fileID: 5840891110673562082}
+  uIHealingBottles: {fileID: 5592663866206270030}
+  uIHurtAlertOverlay: {fileID: 3739714862855235413}
+  uIInventory: {fileID: 1037830610874974129}
+  uiPauseGame: {fileID: 4061945593402939024}
+  uIItemNotificantion: {fileID: 8545013559660964734}
+  uIDialogue: {fileID: 4616839946048707516}
+  sfxHandler: {fileID: 8999554589040043407}
+--- !u!114 &3739714862855235413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdebea0ea83e2744fa90ca4a67738bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlayImage: {fileID: 0}
+  midHealthOverlaySprite: {fileID: 21300000, guid: cbbacb1138842ca4e8690995b16ac120,
+    type: 3}
+  lowHealthOverlaySprite: {fileID: 21300000, guid: ceeb4f9b64d84324786013a0bc09d0eb,
+    type: 3}
+  midHealthTrigger: 50
+  lowHealthTrigger: 20
+  fadeDuration: 0.4
+--- !u!114 &5840891110673562082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36695b2bbee9e204794dec39daa2054b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  weaponInfoTMP: {fileID: 0}
+  fadeDuration: 0.1
+  horizontalMovement: 44
+  overlayDurationInScreen: 6
+--- !u!114 &5592663866206270030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22e9a65ebb95a141816ef0c944a7ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healingBottleData: {fileID: 11400000, guid: 5a540190badcd294b8fb68fed419220d, type: 2}
+  canvasGroup: {fileID: 0}
+  healingInfoTMP: {fileID: 0}
+  fadeDuration: 0.1
+  horizontalMovement: 44
+  overlayDurationInScreen: 6
+--- !u!114 &2078714992459226645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b0c997b04bb0e41b7d7c9302b5e30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertPrefab: {fileID: 2188945461168096649, guid: 98c3f374c3bccd2428850bd8ac366933,
+    type: 3}
+  alertTransform: {fileID: 0}
+  maxAlertsInScreen: 3
+--- !u!114 &1037830610874974129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9725cca1829141e4b878c6e831633c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryFadeCanvas: {fileID: 0}
+  inventoryGroup: {fileID: 0}
+  noItemsGroup: {fileID: 0}
+  keyInventoryGroup: {fileID: 0}
+  itemNameTMP: {fileID: 0}
+  itemDescriptionTMP: {fileID: 0}
+  itemImage: {fileID: 0}
+  nextItemButton: {fileID: 0}
+  previousItemButton: {fileID: 0}
+  noWeaponsGroup: {fileID: 0}
+  weaponMeleeGroup: {fileID: 0}
+  weaponRangedGroup: {fileID: 0}
+  healingBottlesTMP: {fileID: 0}
+  weaponBulletsTMP: {fileID: 0}
+  keyInventoryList: []
+  fadeDuration: 0.1
+--- !u!114 &8545013559660964734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea29b1d13e36a0a46b1cf4599056fdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundCanvasGroup: {fileID: 0}
+  windowNameCanvasGroup: {fileID: 0}
+  itemNameCanvasGroup: {fileID: 0}
+  itemSpriteCanvasGroup: {fileID: 0}
+  closeButtonCanvasGroup: {fileID: 0}
+  itemNameTMP: {fileID: 0}
+  itemImage: {fileID: 0}
+  fadeDuration: 0.1
+  contentFadeDuration: 0.2
+  windowMovement: 40
+  itemNameMovement: 340
+--- !u!114 &1605241438649849051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22fe3fd12d0c39439563e47e60ef8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  areaNameTMP: {fileID: 0}
+  emitNotificationOnStart: 1
+  areaToNotify: {fileID: 11400000, guid: c4a9a244e31212c4681807d4206bfd4f, type: 2}
+  fadeDuration: 0.2
+  screenDuration: 8
+--- !u!114 &4061945593402939024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc8750181610f944ad70a5c4b472bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundCanvasGroup: {fileID: 0}
+  windowNameCanvasGroup: {fileID: 0}
+  buttonsCanvasGroup: {fileID: 0}
+  isPaused: 0
+  canBeCalled: 1
+  callingCouldown: 0.6
+  fadeDuration: 0.2
+  delayDuration: 0.1
+  buttonsWindowMovementY: 40
+--- !u!114 &6840235200869069414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4585dae131f488b4383c37229f7200c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  messageTMP: {fileID: 0}
+  emitingMessage: 0
+  fadeDuration: 0.1
+  messageDuration: 2
+--- !u!114 &4616839946048707516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d7d1d50e2f7c340a7314771cb1607a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  characterNameTMP: {fileID: 0}
+  dialogueTMP: {fileID: 0}
+  inDialogue: 0
+  fadeDuration: 0.2
+--- !u!114 &8999554589040043407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660915624986960779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6ec1cb57fdcd14985583d7fac51aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxHandler:
+  - audioKey: sfx_confirm
+    audioVolume: 0.8
+    audioClip: {fileID: 8300000, guid: dd49a59fee3a6294ca447fb74c945a7b, type: 3}
+  - audioKey: sfx_cancel
+    audioVolume: 0.8
+    audioClip: {fileID: 8300000, guid: fe070f04a2990634f938332fc5e94bbc, type: 3}

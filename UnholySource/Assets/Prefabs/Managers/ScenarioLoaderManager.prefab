@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1227444051799913879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8393794771734440448}
+  - component: {fileID: 3571918713038116109}
+  m_Layer: 0
+  m_Name: ScenarioLoaderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8393794771734440448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227444051799913879}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3571918713038116109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227444051799913879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c1716774101d04292b0c6284c0b3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaserManager: {fileID: 0}
+  scenes:
+  - sceneName: LP_School_Room_Interior_East_00
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_East_01
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_East_01_OpenDoor
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_East_02
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_North_00
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_North_01
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_North_02_SaveRoom
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_South_00
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_South_01
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_South_02
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_South_03
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_South_04
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Southeast_00
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Southeast_01
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Southeast_02
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Southeast_03
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_145
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_105
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_B109
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_BathRoom
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_109
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_133
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  - sceneName: LP_School_Room_Interior_Door_B101
+    enemiesToEnable: {fileID: 0}
+    interactableToEnable: {fileID: 0}
+    predatorLeftSpawn: {fileID: 0}
+    predatorRightSpawn: {fileID: 0}
+  loadFirstScene: 1
+  loadSaveFileRoom: 0
+  sceneToLoad: Put the scene here
+  travelPosistion: {fileID: 0}
+  mainMenuScene: Menu_Main
+  gameOverScene: GameOver
+  loadDebugScene: 0
